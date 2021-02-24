@@ -1,5 +1,6 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
+import RatingInput from './RatingInput';
 
 class AddMovie extends Component {
   constructor() {
@@ -68,6 +69,7 @@ class AddMovie extends Component {
             onChange={ this.changeState }
           />
         </label>
+        <RatingInput value={this.state.rating} changeState={this.changeState} />
       </form>
     );
   }
