@@ -1,3 +1,4 @@
+/* eslint-disable max-lines-per-function */
 import React from 'react';
 import { string, func, bool } from 'prop-types';
 
@@ -8,6 +9,8 @@ class SearchBar extends React.Component {
       onSearchTextChange,
       bookmarkedOnly,
       onBookmarkedChange,
+      selectedGenre,
+      onSelectedGenreChange,
     } = this.props;
 
     return (
@@ -36,6 +39,22 @@ class SearchBar extends React.Component {
               onChange={ onBookmarkedChange }
             />
           </label>
+
+          <label htmlFor="select-input" data-testid="select-input-label">
+            Filtrar por gênero
+            <select
+              id="select-input"
+              name="select-input"
+              data-testid="select-input"
+              value={ selectedGenre }
+							onChange={ onSelectedGenreChange }
+            >
+              <option value="" data-testid="select-option">Todos</option>
+              <option value="action" data-testid="select-option">Ação</option>
+              <option value="comedy" data-testid="select-option">Comédia</option>
+              <option value="thriller" data-testid="select-option">Suspense</option>
+            </select>
+          </label>
         </form>
       </div>
     );
@@ -47,6 +66,8 @@ SearchBar.propTypes = {
   onSearchTextChange: func.isRequired,
   bookmarkedOnly: bool.isRequired,
   onBookmarkedChange: func.isRequired,
+  selectedGenre: string.isRequired,
+  onSelectedGenreChange: func.isRequired,
 };
 
 export default SearchBar;
