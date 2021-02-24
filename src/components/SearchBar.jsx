@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class SearchBar extends Component {
-
   render() {
-    const { 
+    const {
       searchText,
       onSearchTextChange,
       bookmarkedOnly,
