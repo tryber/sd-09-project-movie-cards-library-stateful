@@ -1,1 +1,1 @@
-// implement AddMovie component here
+// implement SearchBar component here
