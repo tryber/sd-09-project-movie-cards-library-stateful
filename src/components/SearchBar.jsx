@@ -1,5 +1,6 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
+import Select from './Select';
 
 class SearchBar extends Component {
   render() {
@@ -36,6 +37,10 @@ class SearchBar extends Component {
               data-testid="checkbox-input"
             />
           </label>
+          <Select
+            selectedGenre={ selectedGenre }
+            onSelectedGenreChange={ onSelectedGenreChange }
+          />
         </form>
       </section>
     );
