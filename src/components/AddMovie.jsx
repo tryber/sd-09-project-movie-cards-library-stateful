@@ -21,7 +21,9 @@ class AddMovie extends Component {
 
   handleChange(event) {
     const { value, dataset } = event.target;
-    const type = dataset.testid.split("-")[0];
+    let type = dataset.testid.split("-")[0];
+
+    if (type === 'image') type = 'imagePath';
 
     this.setState({
       [type]: value
@@ -50,6 +52,15 @@ class AddMovie extends Component {
               type="text"
               value={subtitle}
               data-testid="subtitle-input"
+              onChange={this.handleChange}
+            />
+          </div>
+          <div>
+            <label data-testid="image-input-label">Imagem</label>
+            <input
+              type="text"
+              value={imagePath}
+              data-testid="image-input"
               onChange={this.handleChange}
             />
           </div>
