@@ -1,4 +1,5 @@
 // implement AddMovie component here
+import PropTypes from 'prop-types';
 import React from 'react';
 
 class AddMovie extends React.Component {
@@ -14,14 +15,31 @@ class AddMovie extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.createInputTextJSX = this.createInputTextJSX.bind(this);
-    this.resetState = this.resetState.bind(this);
+    this.saveAndReset = this.saveAndReset.bind(this);
+    this.getLastState = this.getLastState.bind(this);
   }
 
   handleChange(event) {
     this.setState({ [event.target.name]: event.target.value });
   }
 
-  resetState() {
+  getLastState() {
+    const { subtitle, title, imagePath, storyLine, rating, genre } = this.state;
+    const olderState = {
+      title,
+      subtitle,
+      storyline: storyLine,
+      rating,
+      imagePath,
+      bookmarked: false,
+      genre,
+    };
+    return olderState;
+  }
+
+  saveAndReset() {
+    const { addMovieToList } = this.props;
+    const newMovie = this.getLastState();
     this.setState({
       subtitle: '',
       title: '',
@@ -30,6 +48,7 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     });
+    return addMovieToList(newMovie);
   }
 
   createInputTextJSX(labelText, stateKey, stateValue, nameElement) {
@@ -92,12 +111,23 @@ class AddMovie extends React.Component {
             <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
         </label>
-        <button type="button" data-testid="send-button" onClick={ this.resetState }>
+        <button type="button" data-testid="send-button" onClick={ this.saveAndReset }>
           Adicionar filme
         </button>
       </form>
     );
   }
 }
+
+AddMovie.propTypes = { addMovieToList: PropTypes.func }.isRequired;
+AddMovie.propTypes = {
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
+  storyline: PropTypes.string,
+  rating: PropTypes.number,
+  imagePath: PropTypes.string,
+  bookmarked: PropTypes.bool,
+  genre: PropTypes.string,
+}.isRequired;
 
 export default AddMovie;
