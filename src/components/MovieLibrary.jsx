@@ -3,12 +3,12 @@ import React, { Component } from 'react';
 
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
-import AddMovie from './AddMovie';
+// import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
   render() {
     const { movies } = this.props;
@@ -17,7 +17,7 @@ class MovieLibrary extends Component {
         <h2> My awesome movie library </h2>
         <SearchBar />
         <MovieList movies={ movies } />
-        <AddMovie />
+        {/* <AddMovie /> */}
       </div>
     );
   }
