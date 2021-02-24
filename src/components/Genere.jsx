@@ -8,12 +8,13 @@ class Genere extends Component {
       <label htmlFor="genere" data-testid="genre-input-label">
         Gênero
         <select
+          name="genere"
           itemID="genere"
           data-testid="genre-input"
           value={ value }
           onChange={ handleChange }
         >
-          <option data-testid="genre-option" value="action">Ação</option>
+          <option genere data-testid="genre-option" value="action">Ação</option>
           <option data-testid="genre-option" value="comedy">Comédia</option>
           <option data-testid="genre-option" value="thriller">Suspense</option>
         </select>
