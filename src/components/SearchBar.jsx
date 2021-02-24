@@ -13,8 +13,9 @@ class SearchBar extends React.Component {
     } = this.props;
     return (
       <form data-testid="search-bar-form">
-        <label data-testid="text-input-label">
+        <label htmlFor="text-input-id" data-testid="text-input-label">
           <input
+            id="text-input-id"
             data-testid="text-input"
             type="text"
             value={ searchText }
@@ -22,28 +23,30 @@ class SearchBar extends React.Component {
           />
           Inclui o texto:
         </label>
-        <input
-          data-testid="checkbox-input"
-          type="checkbox"
-          checked={ bookmarkedOnly }
-          onChange={ onBookmarkedChange }
-        />
-        <label data-testid="checkbox-input-label">
+        <label htmlFor="checkbox-id" data-testid="checkbox-input-label">
+          <input
+            id="checkbox-id"
+            data-testid="checkbox-input"
+            type="checkbox"
+            checked={ bookmarkedOnly }
+            onChange={ onBookmarkedChange }
+          />
           Mostrar somente favoritos
         </label>
-        <select
-          data-testid="select-input"
-          value={ selectedGenre }
-          onChange={ onSelectedGenreChange }
-        >
-          <label data-testid="select-input-label">
-            Filtrar por gênero
-          </label>
-          <option data-testid="select-option" value="">Todos</option>
-          <option data-testid="select-option" value="action">Ação</option>
-          <option data-testid="select-option" value="comedy">Comédia</option>
-          <option data-testid="select-option" value="thriller">Suspense</option>
-        </select>
+        <label htmlFor="select-id" data-testid="select-input-label">
+          <select
+            id="select-id"
+            data-testid="select-input"
+            value={ selectedGenre }
+            onChange={ onSelectedGenreChange }
+          >
+            <option data-testid="select-option" value="">Todos</option>
+            <option data-testid="select-option" value="action">Ação</option>
+            <option data-testid="select-option" value="comedy">Comédia</option>
+            <option data-testid="select-option" value="thriller">Suspense</option>
+          </select>
+          Filtrar por gênero
+        </label>
       </form>
     );
   }
