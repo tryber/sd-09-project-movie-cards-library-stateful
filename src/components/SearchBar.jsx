@@ -11,11 +11,10 @@ export default class SearchBar extends React.Component {
 
     return (
       <section>
-        <label>Inclui o texto:</label>
-        <input></input>
         <form data-testid="search-bar-form">
+          <label data-testid="text-input-label">Inclui o texto:</label>
+          <input type="text" name="" value={ searchText } onChange={ onSearchTextChange } data-testid="text-input"></input>
         </form>
-
       </section>
     );
   }
