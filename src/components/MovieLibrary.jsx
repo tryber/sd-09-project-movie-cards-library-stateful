@@ -68,7 +68,7 @@ class MovieLibrary extends Component {
         return textInput;
       }
     
-      filters = () => {
+      filters () {
         const { movies, bookmarkedOnly, selectedGenre } = this.state;
     
         if (bookmarkedOnly && selectedGenre) {
