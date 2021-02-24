@@ -14,7 +14,9 @@ class AddMovie extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
-    this.inputText = this.inputText.bind(this);
+    this.inputTitle = this.inputTitle.bind(this);
+    this.inputSubtitle = this.inputSubtitle.bind(this);
+    this.inputImg = this.inputImg.bind(this);
   }
 
   handleChange(e) {
@@ -23,7 +25,7 @@ class AddMovie extends Component {
     });
   }
 
-  inputText(fnCallBack) {
+  inputTitle(fnCallBack) {
     const { title } = this.state;
     return (
       <label data-testid="title-input-label" htmlFor="inputText">
@@ -39,11 +41,45 @@ class AddMovie extends Component {
     );
   }
 
+  inputSubtitle(fnCallBack) {
+    const { imagePath } = this.state;
+    return (
+      <label data-testid="title-input-label" htmlFor="inputText">
+        Subtítulo
+        <input
+          name="imagePath"
+          data-testid="image-input"
+          type="text"
+          value={ imagePath }
+          onChange={ fnCallBack }
+        />
+      </label>
+    );
+  }
+
+  inputImg(fnCallBack) {
+    const { subtitle } = this.state;
+    return (
+      <label data-testid="title-input-label" htmlFor="inputText">
+        Subtítulo
+        <input
+          name="subtitle"
+          data-testid="subtitle-input"
+          type="text"
+          value={ subtitle }
+          onChange={ fnCallBack }
+        />
+      </label>
+    );
+  }
+
   render() {
     const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
-        { this.inputText(this.handleChange)}
+        { this.inputTitle(this.handleChange) }
+        { this.inputSubtitle(this.handleChange) }
+        { this.inputImg(this.handleChange) }
       </form>
     );
   }
