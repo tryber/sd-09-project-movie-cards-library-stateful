@@ -17,6 +17,9 @@ class AddMovie extends Component {
     this.inputTitle = this.inputTitle.bind(this);
     this.inputSubtitle = this.inputSubtitle.bind(this);
     this.inputImg = this.inputImg.bind(this);
+    this.inputSinopse = this.inputSinopse.bind(this);
+    this.inputAssessment = this.inputAssessment.bind(this);
+    this.inputGenre = this.inputGenre.bind(this);
   }
 
   handleChange(e) {
@@ -28,7 +31,7 @@ class AddMovie extends Component {
   inputTitle(fnCallBack) {
     const { title } = this.state;
     return (
-      <label data-testid="title-input-label" htmlFor="inputText">
+      <label data-testid="title-input-label" htmlFor="inputTitle">
         Título
         <input
           name="title"
@@ -42,25 +45,9 @@ class AddMovie extends Component {
   }
 
   inputSubtitle(fnCallBack) {
-    const { imagePath } = this.state;
-    return (
-      <label data-testid="title-input-label" htmlFor="inputText">
-        Subtítulo
-        <input
-          name="imagePath"
-          data-testid="image-input"
-          type="text"
-          value={ imagePath }
-          onChange={ fnCallBack }
-        />
-      </label>
-    );
-  }
-
-  inputImg(fnCallBack) {
     const { subtitle } = this.state;
     return (
-      <label data-testid="title-input-label" htmlFor="inputText">
+      <label data-testid="title-input-label" htmlFor="inputSubtitle">
         Subtítulo
         <input
           name="subtitle"
@@ -73,6 +60,73 @@ class AddMovie extends Component {
     );
   }
 
+  inputImg(fnCallBack) {
+    const { imagePath } = this.state;
+    return (
+      <label data-testid="title-input-label" htmlFor="inputImg">
+        Imagem
+        <input
+          name="imagePath"
+          data-testid="image-input"
+          type="text"
+          value={ imagePath }
+          onChange={ fnCallBack }
+        />
+      </label>
+    );
+  }
+
+  inputSinopse(fnCallBack) {
+    const { storyline } = this.state;
+    return (
+      <label data-testid="storyline-input-label" htmlFor="inputTextArea">
+        Sinopse
+        <textarea
+          type="text"
+          data-testid="storyline-input"
+          name="storyline"
+          value={ storyline }
+          onChange={ fnCallBack }
+        />
+      </label>
+    );
+  }
+
+  inputAssessment(fnCallBack) {
+    const { rating } = this.state;
+    return (
+      <label data-testid="rating-input-label" htmlFor="inputAssessment">
+        Avaliação
+        <input
+          type="number"
+          data-testid="rating-input"
+          name="rating"
+          value={ rating }
+          onChange={ fnCallBack }
+        />
+      </label>
+    );
+  }
+
+  inputGenre(fnCallBack) {
+    const { genre } = this.state;
+    return (
+      <label htmlFor="inputGenre">
+        Gênero
+        <select
+          name="genre"
+          value={ genre }
+          onChange={ fnCallBack }
+          data-testid="genre-input"
+        >
+          <option data-testid="genre-option" value="action">Ação</option>
+          <option data-testid="genre-option" value="comedy">Comédia</option>
+          <option data-testid="genre-option" value="thriller">Suspense</option>
+        </select>
+      </label>
+    );
+  }
+
   render() {
     const { onClick } = this.props;
     return (
@@ -80,6 +134,9 @@ class AddMovie extends Component {
         { this.inputTitle(this.handleChange) }
         { this.inputSubtitle(this.handleChange) }
         { this.inputImg(this.handleChange) }
+        { this.inputSinopse(this.handleChange) }
+        { this.inputAssessment(this.handleChange) }
+        { this.inputGenre(this.handleChange) }
       </form>
     );
   }
