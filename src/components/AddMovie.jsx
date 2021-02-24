@@ -14,17 +14,41 @@ class AddMovie extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.clickButton = this.clickButton.bind(this);
     this.inputTitle = this.inputTitle.bind(this);
     this.inputSubtitle = this.inputSubtitle.bind(this);
     this.inputImg = this.inputImg.bind(this);
     this.inputSinopse = this.inputSinopse.bind(this);
     this.inputAssessment = this.inputAssessment.bind(this);
     this.inputGenre = this.inputGenre.bind(this);
+    this.buttonMovie = this.buttonMovie.bind(this);
   }
 
   handleChange(e) {
     this.setState({
       [e.target.name]: e.target.value,
+    });
+  }
+
+  clickButton(e) {
+    e.preventDefault();
+    const { genre, imagePath, rating, storyline, subtitle, title } = this.state;
+    const { onClick } = this.props;
+    const movie = { genre,
+      imagePath,
+      rating,
+      storyline,
+      subtitle,
+      title,
+    };
+    onClick(movie);
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
     });
   }
 
@@ -47,7 +71,7 @@ class AddMovie extends Component {
   inputSubtitle(fnCallBack) {
     const { subtitle } = this.state;
     return (
-      <label data-testid="title-input-label" htmlFor="inputSubtitle">
+      <label data-testid="subtitle-input-label" htmlFor="inputSubtitle">
         Subtítulo
         <input
           name="subtitle"
@@ -63,7 +87,7 @@ class AddMovie extends Component {
   inputImg(fnCallBack) {
     const { imagePath } = this.state;
     return (
-      <label data-testid="title-input-label" htmlFor="inputImg">
+      <label data-testid="image-input-label" htmlFor="inputImg">
         Imagem
         <input
           name="imagePath"
@@ -111,7 +135,7 @@ class AddMovie extends Component {
   inputGenre(fnCallBack) {
     const { genre } = this.state;
     return (
-      <label htmlFor="inputGenre">
+      <label data-testid="genre-input-label" htmlFor="inputGenre">
         Gênero
         <select
           name="genre"
@@ -127,8 +151,19 @@ class AddMovie extends Component {
     );
   }
 
+  buttonMovie(fnCallBack) {
+    return (
+      <button
+        type="button"
+        data-testid="send-button"
+        onClick={ fnCallBack }
+      >
+        Adicionar filme
+      </button>
+    );
+  }
+
   render() {
-    const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
         { this.inputTitle(this.handleChange) }
@@ -137,6 +172,7 @@ class AddMovie extends Component {
         { this.inputSinopse(this.handleChange) }
         { this.inputAssessment(this.handleChange) }
         { this.inputGenre(this.handleChange) }
+        { this.buttonMovie(this.clickButton) }
       </form>
     );
   }
