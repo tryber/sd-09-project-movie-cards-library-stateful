@@ -5,6 +5,7 @@ class SearchBar extends Component {
     return (
       <div>
         <p>SearchBar</p>
+        <form data-testid="search-bar-form" />
       </div>
     );
   }
