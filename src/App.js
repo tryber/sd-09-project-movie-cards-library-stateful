@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <SearchBar searchText="" onSearchTextChange="" bookmarkedOnly={ true } onBookmarkedChange='' selectedGenre="" onSelectedGenreChange="" />
+      <SearchBar searchText="" onSearchTextChange="" bookmarkedOnly={ false } onBookmarkedChange='' selectedGenre="" onSelectedGenreChange="" />
       <MovieLibrary />
     </div>
   );
