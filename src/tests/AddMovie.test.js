@@ -153,7 +153,7 @@ describe('12 - Renderize um `input` do tipo `number` dentro do formulário em `<
     expect(ratingInput).toBeInTheDocument();
   });
 
-  it('Renderize a label "Avaliação" para o input de avaliação', () => {
+  iitt('Renderize a label "Avaliação" para o input de avaliação', () => {
     expect(ratingInputLabel).toBeInTheDocument();
     expect(ratingInputLabel).toHaveTextContent('Avaliação');
   });
