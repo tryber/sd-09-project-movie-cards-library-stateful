@@ -55,7 +55,7 @@ class MovieLibrary extends Component {
         }))
     }
 
-    inputTextFilter = (movies) => {
+    inputTextFilter (movies) {
         const { searchText } = this.state;
         const textInput = movies.filter(
           (name) => name.title.toLowerCase().indexOf(searchText.toLowerCase()) >= 0
