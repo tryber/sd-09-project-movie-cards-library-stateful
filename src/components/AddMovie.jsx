@@ -3,7 +3,6 @@ import React from 'react';
 class AddMovie extends React.Component {
     constructor() {
         super()
-
         this.state = {
             subtitle: '',
             title: '',
@@ -33,6 +32,15 @@ class AddMovie extends React.Component {
                         name="title"
                         value={this.state.title} 
                         data-testid="title-input"
+                        onChange={this.changeHandler}
+                        />
+                    </label>
+                    <label data-testid="subtitle-input-label">
+                        Subtítulo
+                        <input type="text"
+                        name="subtitle"
+                        value={this.state.subtitle} 
+                        data-testid="subtitle-input"
                         onChange={this.changeHandler}
                         />
                     </label>
