@@ -5,25 +5,23 @@ import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
-    constructor(props) {
+  constructor(props) {
+    super(props);
 
-        super(props)
-
-
-        this.onSearchTextChange = this.onSearchTextChange.bind(this);
-        this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
-        this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-        this.AddNewMovie = this.AddNewMovie.bind(this);
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.AddNewMovie = this.AddNewMovie.bind(this);
         
-        const { movies } = this.props;
-        this.state = {
-            searchText: '',
-            bookmarkedOnly: false,
-            selectedGenre: '',
-            movies,
+    const { movies } = this.props;
+      this.state = {
+        searchText: '',
+        bookmarkedOnly: false,
+        selectedGenre: '',
+        movies,
             
-        }
-    }
+  };
+}
 
     onSearchTextChange({ target }) {
         const { name, value } = target
