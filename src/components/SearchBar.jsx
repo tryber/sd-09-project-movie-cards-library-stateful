@@ -1,9 +1,9 @@
 // implement AddMovie component here
-import {Component} from 'react';
+import React from 'react';
 
-class SearchBar extends Component {
+class SearchBar extends React.Component {
   render() {
-    return (<h1>Teste</h1>)
+    return (<h1>Teste</h1>);
   }
 }
 
