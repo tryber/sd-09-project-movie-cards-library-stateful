@@ -28,9 +28,10 @@ class AddMovie extends Component {
     const onClick = this.props;
     return (
       <form data-testid="add-movie-form">
-        <label data-testid="title-input-label">
+        <label htmlFor="ti-tle" data-testid="title-input-label">
           Título
           <input
+            id="ti-tle"
             data-testid="title-input"
             name="title"
             type="text"
@@ -38,9 +39,10 @@ class AddMovie extends Component {
             onChange={ this.handleChange }
           />
         </label>
-        <label data-testid="subtitle-input-label">
+        <label htmlFor="sub-input" data-testid="subtitle-input-label">
           Subtítulo
           <input
+            id="sub-input"
             data-testid="subtitle-input"
             name="subtitle"
             type="text"
@@ -48,9 +50,10 @@ class AddMovie extends Component {
             onChange={ this.handleChange }
           />
         </label>
-        <label data-testid="subtitle-input-label">
+        <label htmlFor="image-path" data-testid="subtitle-input-label">
           Imagem
           <input
+            id="image-path"
             data-testid="image-input"
             name="imagePath"
             type="text"
@@ -58,18 +61,20 @@ class AddMovie extends Component {
             onChange={ this.handleChange }
           />
         </label>
-        <label data-testid="storyline-input-label">
+        <label htmlFor="synopsis" data-testid="storyline-input-label">
           Sinopse
           <textarea
+            id="synopsis"
             data-testid="storyline-input"
             name="storyline"
             value={ storyline }
             onChange={ this.handleChange }
           />
         </label>
-        <label data-testid="rating-input-label">
+        <label htmlFor="rating" data-testid="rating-input-label">
           Avaliação
           <input
+            id="rating"
             data-testid="rating-input"
             name="rating"
             type="number"
@@ -77,9 +82,10 @@ class AddMovie extends Component {
             onChange={ this.handleChange }
           />
         </label>
-        <label data-testid="genre-input-label">
+        <label htmlFor="gender" data-testid="genre-input-label">
           Gênero
           <select
+            id="gender"
             data-testid="genre-input"
             value={ genre }
             onChange={ this.handleChange }
@@ -89,8 +95,10 @@ class AddMovie extends Component {
             <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
         </label>
-        <button data-testid="send-button" type="submit"
-          onClick={ this.handleClick }
+        <button
+          data-testid="send-button"
+          type="submit"
+          onClick={ onClick }
         >
           Adicionar Filme
         </button>
