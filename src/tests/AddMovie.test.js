@@ -107,7 +107,7 @@ describe('9 - Renderize um input do tipo texto dentro do formulário em `<AddMov
   });
 });
 
-describe.skip('10 - Renderize um input do tipo texto dentro do formulário em `<AddMovie />` para obter o caminho da imagem do novo filme', () => {
+describe('10 - Renderize um input do tipo texto dentro do formulário em `<AddMovie />` para obter o caminho da imagem do novo filme', () => {
   it('Renderize um input de texto para quem usa inserir a url da imagem do filme', () => {
     expect(imageInput).toBeInTheDocument();
   });
@@ -127,7 +127,7 @@ describe.skip('10 - Renderize um input do tipo texto dentro do formulário em `<
   });
 });
 
-describe.skip('11 - Renderize uma `textarea` dentro do formulário em `<AddMovie />` para obter a sinopse do novo filme', () => {
+describe('11 - Renderize uma `textarea` dentro do formulário em `<AddMovie />` para obter a sinopse do novo filme', () => {
   it('Renderize um input de texto para quem usa escrever a sinopse do filme', () => {
     expect(storylineInput).toBeInTheDocument();
   });
