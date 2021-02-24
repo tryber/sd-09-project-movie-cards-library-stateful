@@ -1,3 +1,4 @@
+/* eslint-disable max-lines-per-function */
 import React from 'react';
 import { func } from 'prop-types';
 
@@ -57,6 +58,19 @@ class AddMovie extends React.Component {
               name="imagePath"
               data-testid="image-input"
               value={ this.state.imagePath }
+              onChange={ this.handleChange }
+            />
+          </label>
+
+          <label htmlFor="storyline" data-testid="storyline-input-label">
+            Sinopse
+            <textarea
+              id="storyline"
+              name="storyline"
+              cols="30"
+              rows="10"
+              data-testid="storyline-input"
+              value={ this.state.storyline }
               onChange={ this.handleChange }
             />
           </label>
