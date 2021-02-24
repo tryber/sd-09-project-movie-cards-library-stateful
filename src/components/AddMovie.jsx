@@ -21,8 +21,8 @@ class AddMovie extends Component {
 
   handleChange(event) {
     const { value, dataset } = event.target;
-    const type = dataset.testid.split('-')[0];
-    
+    const type = dataset.testid.split("-")[0];
+
     this.setState({
       [type]: value
     });
@@ -41,6 +41,15 @@ class AddMovie extends Component {
               type="text"
               value={title}
               data-testid="title-input"
+              onChange={this.handleChange}
+            />
+          </div>
+          <div>
+            <label data-testid="subtitle-input-label">Subtítulo</label>
+            <input
+              type="text"
+              value={subtitle}
+              data-testid="subtitle-input"
               onChange={this.handleChange}
             />
           </div>
