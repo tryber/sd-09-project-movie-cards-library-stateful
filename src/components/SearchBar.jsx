@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
-  // eslint-disable-next-line max-lines-per-function
   render() {
     const {
       searchText,
@@ -15,42 +14,33 @@ class SearchBar extends React.Component {
 
     return (
       <form data-testid="search-bar-form">
-        <label
-          data-testid="text-input-label"
-          htmlFor="text-input"
-        >
+        <label data-testid="text-input-label" htmlFor="text">
           Inclui o texto:
           <input
+            name="text"
             data-testid="text-input"
-            id="text-input"
             type="text"
             value={ searchText }
             onChange={ onSearchTextChange }
           />
         </label>
-        <label
-          data-testid="checkbox-input-label"
-          htmlFor="checkbox-input"
-        >
-          Mostrar somente favoritos:
+        <label data-testid="checkbox-input-label" htmlFor="check">
+          Mostrar somente favoritos
           <input
+            name="check"
             data-testid="checkbox-input"
-            id="checkbox-input"
             type="checkbox"
             checked={ bookmarkedOnly }
             onChange={ onBookmarkedChange }
           />
         </label>
-        <label
-          htmlFor="select-option"
-          data-testid="select-input-label"
-        >
-          Filtrar por gênero:
+        <label data-testid="select-input-label" htmlFor="select">
+          Filtrar por gênero
           <select
-            id="select-option"
-            data-testid="select-input"
+            name="select"
             value={ selectedGenre }
             onChange={ onSelectedGenreChange }
+            data-testid="select-input"
           >
             <option data-testid="select-option" value="">Todos</option>
             <option data-testid="select-option" value="action">Ação</option>
