@@ -4,19 +4,37 @@ import PropTypes, { func } from "prop-types";
 
 class SearchBar extends Component {
   render() {
-    const { searchText, onSearchTextChange } = this.props;
+    const {
+      searchText,
+      onSearchTextChange,
+      bookmarkedOnly,
+      onBookmarkedChange
+    } = this.props;
 
     return (
       <fieldset>
         <caption>Pesquise</caption>
         <form data-testid="search-bar-form">
-          <label data-testid="text-input-label">Inclui o texto:</label>
-          <input
-            type="text"
-            value={searchText}
-            onChange={onSearchTextChange}
-            data-testid="text-input"
-          />
+          <div>
+            <label data-testid="text-input-label">Inclui o texto:</label>
+            <input
+              type="text"
+              value={searchText}
+              onChange={onSearchTextChange}
+              data-testid="text-input"
+            />
+          </div>
+          <div>
+            <label data-testid="checkbox-input-label">
+              Mostrar somente favoritos
+            </label>
+            <input
+              type="checkbox"
+              checked={bookmarkedOnly}
+              onChange={onBookmarkedChange}
+              data-testid="checkbox-input"
+            />
+          </div>
         </form>
       </fieldset>
     );
