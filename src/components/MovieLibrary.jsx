@@ -21,7 +21,7 @@ class MovieLibrary extends Component {
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
   }
 
-  //creditos da onsearchtextchange e onselectedgenrechange do Wagner, turma 8
+  // creditos da onsearchtextchange e onselectedgenrechange do Wagner, turma 8
 
   onSearchTextChange({ target }) {
     const { value } = target;
