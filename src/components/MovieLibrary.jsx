@@ -9,9 +9,9 @@ class MovieLibrary extends Component {
       searchText: '',
       /* onSearchTextChange: '', */
       bookmarkedOnly: false,
-      /* onBookmarkedChange: '',*/
+      /* onBookmarkedChange: '', */
       selectedGenre: '',
-      /*onSelectedGenreChange: '' */
+      /* onSelectedGenreChange: '' */
     };
   }
 
@@ -26,7 +26,7 @@ class MovieLibrary extends Component {
     const {
       searchText,
       bookmarkedOnly,
-      selectedGenre
+      selectedGenre,
     } = this.state;
     return (
       <div>
