@@ -182,3 +182,7 @@ export default class AddMovie extends Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
