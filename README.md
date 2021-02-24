@@ -1,4 +1,4 @@
-### Termos e acordos
+### Termos e acordos OK beleza
 
 Ao iniciar este projeto, você concorda com as diretrizes do Código de Ética e Conduta e
 do Manual da Pessoa Estudante da Trybe.
