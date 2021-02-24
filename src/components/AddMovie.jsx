@@ -2,7 +2,7 @@ import React from 'react';
 
 class AddMovie extends React.Component {
     constructor() {
-        super()
+        super();
         this.state = {
             subtitle: '',
             title: '',
