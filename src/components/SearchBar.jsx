@@ -35,6 +35,21 @@ export default class SearchBar extends React.Component {
               checked={ bookmarkedOnly }
               onChange={ onBookmarkedChange } />
           </div>
+
+          <div>
+            <label
+              data-testid="select-input-label"
+            >Filtrar por gênero</label>
+            <select
+              data-testid="select-input"
+              value={ selectedGenre }
+              onChange={ onSelectedGenreChange }>
+              <option title="" value="" data-testid="select-option">Todos</option>
+              <option title="action" value="action" data-testid="select-option">Ação</option>
+              <option title="comedy" value="comedy" data-testid="select-option">Comédia</option>
+              <option title="thriller" value="thriller" data-testid="select-option">Suspense</option>
+            </select>
+          </div>
         </form>
       </section>
     );
