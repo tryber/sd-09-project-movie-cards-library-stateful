@@ -4,14 +4,14 @@ class MovieTitle extends React.Component {
   render() {
     const { value, changeHandler } = this.props;
     return (
-      <label data-testid="title-input-label">
+      <label htmlFor="MovieTitle" data-testid="title-input-label">
         Título
-        <input 
+        <input
           type="text"
           name="title"
-          value={value} 
+          value={ value }
           data-testid="title-input"
-          onChange={changeHandler}
+          onChange={ changeHandler }
         />
       </label>
     );

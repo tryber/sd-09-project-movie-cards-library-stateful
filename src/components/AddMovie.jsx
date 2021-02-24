@@ -22,22 +22,22 @@ class AddMovie extends React.Component {
   }
 
   changeHandler({ target }) {
-    const { name, value } = target
+    const { name, value } = target;
     this.setState({
-      [name]: value
+      [name]: value,
     });
   }
 
   buttonHandler(onClick) {
     onClick(this.state);
-    // this.setState({
-    //     subtitle: '',
-    //     title: '',
-    //     imagePath: '',
-    //     storyLine: '',
-    //     rating: 0,
-    //     genre: 'action',
-    // })
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyLine: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   render() {
@@ -52,10 +52,10 @@ class AddMovie extends React.Component {
           <MovieStoryline value={ storyLine } changeHandler={ this.changeHandler } />
           <MovieRating value={ rating } changeHandler={ this.changeHandler } />
           <MovieGenre value={ genre } changeHandler={ this.changeHandler } />
-          <button 
+          <button
             type="submit"
             data-testid="send-button"
-            onClick={ this.buttonHandler(onClick) }
+            onClick={ () => this.buttonHandler(onClick) }
           >
             Adicionar filme
           </button>

@@ -4,13 +4,13 @@ class MovieStoryline extends React.Component {
   render() {
     const { value, changeHandler } = this.props;
     return (
-      <label data-testid="storyline-input-label">
+      <label htmlFor="MovieStoryline" data-testid="storyline-input-label">
         Sinopse
-        <textarea 
+        <textarea
           name="storyLine"
-          value={value} 
+          value={ value }
           data-testid="storyline-input"
-          onChange={changeHandler}
+          onChange={ changeHandler }
         />
       </label>
     );

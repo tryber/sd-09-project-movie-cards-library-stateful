@@ -4,14 +4,14 @@ class MovieImagePath extends React.Component {
   render() {
     const { value, changeHandler } = this.props;
     return (
-      <label data-testid="image-input-label">
+      <label htmlFor="MovieImagePath" data-testid="image-input-label">
         Imagem
-        <input 
+        <input
           type="text"
           name="imagePath"
-          value={value} 
+          value={ value }
           data-testid="image-input"
-          onChange={changeHandler}
+          onChange={ changeHandler }
         />
       </label>
     );

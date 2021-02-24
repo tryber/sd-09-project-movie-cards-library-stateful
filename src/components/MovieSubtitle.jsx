@@ -4,14 +4,14 @@ class MovieSubtitle extends React.Component {
   render() {
     const { value, changeHandler } = this.props;
     return (
-      <label data-testid="subtitle-input-label">
+      <label htmlFor="MovieSubtitle" data-testid="subtitle-input-label">
         Subtítulo
-        <input 
+        <input
           type="text"
           name="subtitle"
-          value={value} 
+          value={ value }
           data-testid="subtitle-input"
-          onChange={changeHandler}
+          onChange={ changeHandler }
         />
       </label>
     );
