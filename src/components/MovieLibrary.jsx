@@ -20,10 +20,9 @@ class MovieLibrary extends Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies,
-      
     };
   }
-  
+
   handleMovies(movies) {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     let filterMovie = movies
@@ -107,7 +106,7 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
         />
         <MovieList movies={ moviesFilter } />
-        <AddMovie onClick={ this.AddNewMovie }/>
+        <AddMovie onClick={ this.AddNewMovie } />
       </div>
     );
   }
