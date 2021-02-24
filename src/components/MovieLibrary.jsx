@@ -11,8 +11,17 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: this.props.movies,
+      movies: '',
   }
+    this.changeHandler = this.changeHandler.bind(this);
+  }
+
+  changeHandler({ target }){
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    this.setState({
+        [name]: value
+    })
   }
 
   render() {
@@ -20,8 +29,14 @@ class MovieLibrary extends Component {
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar />
-        <MovieList movies={this.props.movies} />
+        <SearchBar searchText={this.state.searchText}
+        onSearchTextChange={this.changeHandler}
+        bookmarkedOnly={this.state.bookmarkedOnly}
+        onBookmarkedChange={this.changeHandler}
+        selectedGenre={this.state.selectedGenre}
+        onSelectedGenreChange={this.changeHandler}
+        />
+        <MovieList movies={movies} />
         <AddMovie />
       </div>
     );
