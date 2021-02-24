@@ -1,5 +1,6 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
+import { genres } from '../extraData';
 
 class SearchBar extends Component {
   render() {
@@ -10,12 +11,7 @@ class SearchBar extends Component {
       selectedGenre,
       onSelectedGenreChange,
     } = this.props;
-    const genres = [
-      { name: 'Todos', value: '' },
-      { name: 'Ação', value: 'action' },
-      { name: 'Comédia', value: 'comedy' },
-      { name: 'Suspense', value: 'thriller' },
-    ];
+
     return (
       <form data-testid="search-bar-form">
         <label data-testid="text-input-label" htmlFor="movieSearch">
@@ -46,7 +42,7 @@ class SearchBar extends Component {
             { genres.map(({ name, value }) => (
               <option data-testid="select-option" value={ value } key={ name }>
                 { name }
-              </option>))}
+              </option>)) }
           </select>
         </label>
       </form>
