@@ -35,7 +35,7 @@ class AddMovie extends Component {
         <Subtitle
           value={ subtitle }
           handleChange={ this.handleChange }
-          onClick={ onClick } 
+          onClick={ onClick }
         />
         <Image
           value={ imagePath }
