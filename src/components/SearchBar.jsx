@@ -10,14 +10,28 @@ class SearchBar extends Component {
     const selectedGenre = this.props;
     const onSelectedGenreChange = this.props;
     return (
-      <nav>
-        {/* <textarea value={this.state.value} onChange={this.handleChange} />
-        <select value={this.state.value} onChange={this.handleChange}>
-          <option value="action">Action</option>
-          <option value="fantasy">Fantasy</option>
-          <option value="comedy">Comedy</option>
-        </select> */}
-      </nav>
+      <form data-testid="search-bar-form">
+        <label data-testid="text-input-label">
+          Inclui o texto:
+          <input type="text" data-testid="text-input"
+            value={searchText} onChange={onSearchTextChange} />
+        </label>
+        <label data-testid="checkbox-input-label">
+          Mostrar somente favoritos
+          <input data-testid="checkbox-input" type="checkbox" name="bookmarks"
+            checked={bookmarkedOnly} onChange={onBookmarkedChange} />
+        </label>
+        <label data-testid="select-input-label">
+          Filtrar por gênero
+          <select data-testid="select-input" value={selectedGenre}
+            onChange={onSelectedGenreChange}>
+            <option data-testid="select-option" value="">Todos</option>
+            <option data-testid="select-option" value="action">Ação</option>
+            <option data-testid="select-option" value="comedy">Comédia</option>
+            <option data-testid="select-option" value="thriller">Suspense</option>
+          </select>
+        </label>
+      </form>
     );
   }
 }
