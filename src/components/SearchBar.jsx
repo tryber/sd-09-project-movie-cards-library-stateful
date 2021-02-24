@@ -15,7 +15,7 @@ class SearchBar extends Component {
 
     return (
       <fieldset>
-        <caption>Pesquise</caption>
+        <legend>Pesquise</legend>
         <form data-testid="search-bar-form">
           <div>
             <label data-testid="text-input-label">Inclui o texto:</label>
@@ -65,12 +65,12 @@ class SearchBar extends Component {
 }
 
 SearchBar.propTypes = {
-  searchText: PropTypes.string.isRequired,
-  onSearchTextChange: PropTypes.func.isRequired,
-  bookmarkedOnly: PropTypes.bool.isRequired,
-  onBookmarkedChange: PropTypes.func.isRequired,
-  selectedGenre: PropTypes.string.isRequired,
-  onSelectedGenreChange: func.isRequired
+  searchText: PropTypes.string,
+  onSearchTextChange: PropTypes.func,
+  bookmarkedOnly: PropTypes.bool,
+  onBookmarkedChange: PropTypes.func,
+  selectedGenre: PropTypes.string,
+  onSelectedGenreChange: func
 };
 
 export default SearchBar;
