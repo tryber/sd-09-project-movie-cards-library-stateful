@@ -6,19 +6,14 @@ import Image from './Image';
 import StoryLine from './StoryLine';
 import Stars from './Stars';
 import Genere from './Genere';
+import AddMovieButton from './AddMovieButton';
 
 class AddMovie extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genere: 'action',
-    };
+    this.state = this.initialState;
     this.handleChange = this.handleChange.bind(this);
+    this.resetBuilder = this.resetBuilder.bind(this);
   }
 
   handleChange({ target }) {
@@ -28,30 +23,47 @@ class AddMovie extends Component {
     });
   }
 
-  render() {
+  get initialState() {
+    return {
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genere: 'action',
+    };
+  }
+
+  resetBuilder() {
+    const movie = this.state;
     const { onClick } = this.props;
+    this.setState(this.initialState);
+    onClick(movie);
+  }
+
+  render() {
     const { title, subtitle, imagePath, storyline, rating, genere } = this.state;
     return (
-      <form data-testid="add-movie-form">
-        <Title value={ title } handleChange={ this.handleChange } onClick={ onClick } />
-        <Subtitle
-          value={ subtitle }
-          handleChange={ this.handleChange }
-          onClick={ onClick }
-        />
-        <Image
-          value={ imagePath }
-          handleChange={ this.handleChange }
-          onClick={ onClick }
-        />
-        <StoryLine
-          value={ storyline }
-          handleChange={ this.handleChange }
-          onClick={ onClick }
-        />
-        <Stars value={ rating } handleChange={ this.handleChange } onClick={ onClick } />
-        <Genere value={ genere } handleChange={ this.handleChange } onClick={ onClick } />
-      </form>
+      <div>
+        <form data-testid="add-movie-form">
+          <Title value={ title } handleChange={ this.handleChange } />
+          <Subtitle
+            value={ subtitle }
+            handleChange={ this.handleChange }
+          />
+          <Image
+            value={ imagePath }
+            handleChange={ this.handleChange }
+          />
+          <StoryLine
+            value={ storyline }
+            handleChange={ this.handleChange }
+          />
+          <Stars value={ rating } handleChange={ this.handleChange } />
+          <Genere value={ genere } handleChange={ this.handleChange } />
+        </form>
+        <AddMovieButton onClick={ this.resetBuilder } />
+      </div>
     );
   }
 }
