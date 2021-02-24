@@ -5,7 +5,10 @@ import PropTypes, { func } from 'prop-types';
 class SearchBar extends Component {
   render() {
     return(
-      <p>SearchBar</p>
+      <fieldset>
+        <caption>Pesquise</caption>
+        <form data-testid="search-bar-form"></form>
+      </fieldset>
     )
   }
 }
