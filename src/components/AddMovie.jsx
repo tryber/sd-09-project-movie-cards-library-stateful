@@ -41,7 +41,7 @@ class AddMovie extends React.Component {
   titleInput() {
     const { title } = this.state;
     return (
-      <label data-testid="title-input-label" htmlFor="titleInput">
+    <label data-testid="title-input-label" htmlFor="titleInput">
           Título
         <input
           data-testid="title-input"
@@ -51,14 +51,14 @@ class AddMovie extends React.Component {
           onChange={ this.handleChange }
           id="titleInput"
         />
-      </label>
+    </label>
     );
   }
 
   subtitleInput() {
     const { subtitle } = this.state;
     return (
-      <label data-testid="subtitle-input-label" htmlFor="subtitleInput">
+    <label data-testid="subtitle-input-label" htmlFor="subtitleInput">
           Subtítulo
         <input
           data-testid="subtitle-input"
@@ -68,14 +68,14 @@ class AddMovie extends React.Component {
           onChange={ this.handleChange }
           id="subtitleInput"
         />
-      </label>
+    </label>
     );
   }
 
   imageInput() {
     const { imagePath } = this.state;
     return (
-      <label data-testid="image-input-label" htmlFor="imageInput">
+    <label data-testid="image-input-label" htmlFor="imageInput">
           Imagem
         <input
           data-testid="image-input"
@@ -85,14 +85,14 @@ class AddMovie extends React.Component {
           onChange={ this.handleChange }
           id="imageInput"
         />
-      </label>
+    </label>
     );
   }
 
   storylineInput() {
     const { storyline } = this.state;
     return (
-      <label data-testid="storyline-input-label" htmlFor="storyline">
+    <label data-testid="storyline-input-label" htmlFor="storyline">
           Sinopse
         <textarea
           data-testid="storyline-input"
@@ -101,7 +101,7 @@ class AddMovie extends React.Component {
           onChange={ this.handleChange }
           id="storylineInput"
         />
-      </label>
+    </label>
     );
   }
 
@@ -125,7 +125,7 @@ class AddMovie extends React.Component {
   genreInput() {
     const { genre } = this.state;
     return (
-      <label data-testid="genre-input-label" htmlFor="genreInput">
+    <label data-testid="genre-input-label" htmlFor="genreInput">
           Gênero
         <select
           data-testid="genre-input"
@@ -138,7 +138,7 @@ class AddMovie extends React.Component {
           <option data-testid="genre-option" value="comedy">Comédia</option>
           <option data-testid="genre-option" value="thriller">Suspense</option>
         </select>
-      </label>
+    </label>
     );
   }
 
