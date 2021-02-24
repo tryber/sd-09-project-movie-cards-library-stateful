@@ -11,7 +11,6 @@ class MovieLibrary extends Component {
 
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
-    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.AddNewMovie = this.AddNewMovie.bind(this);
 
     const { movies } = this.props;
