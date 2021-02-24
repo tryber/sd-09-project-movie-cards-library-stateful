@@ -23,6 +23,12 @@ class MovieLibrary extends Component {
     });
   }
 
+  onClick(newMovie) {
+    this.setState(({ movies }) => ({
+      movies: [...movies, newMovie],
+    }));
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
