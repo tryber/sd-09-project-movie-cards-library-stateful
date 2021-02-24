@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-class Header extends React.Component {
+import MovieList from './MovieList';
+import SearchBar from './SearchBar';
+import AddMovie from './AddMovie';
+
+class MovieLibrary extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
-      <header className="movie-card-header">
-        <h1 className="page-title">Movie Cards Library</h1>
-      </header>
+      <div>
+        <h2> My awesome movie library </h2>
+        <SearchBar />
+        <MovieList movies={this.props.movies} />
+        <AddMovie />
+      </div>
     );
   }
 }
-
-export default Header;
