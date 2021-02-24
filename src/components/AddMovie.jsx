@@ -17,7 +17,12 @@ class AddMovie extends Component {
   }
 
   render() {
-    return <p>AddMovie</p>;
+    return (
+      <fieldset>
+        <legend>Adicionar Filme</legend>
+        <form data-testid="add-movie-form"></form>
+      </fieldset>
+    );
   }
 }
 
