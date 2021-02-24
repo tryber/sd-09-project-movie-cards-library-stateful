@@ -34,6 +34,23 @@ class SearchBar extends Component {
             data-testid="checkbox-input"
           />
         </label>
+        <div>
+          <label htmlFor="genre" data-testid="select-input-label">
+            Filtrar por gênero
+          </label>
+          <select
+            name="genre"
+            id="genre"
+            value={selectedGenre}
+            onChange={onSelectedGenreChange}
+            data-testid="select-input"
+          >
+            <option data-testid="select-option" value="">Todos</option>
+            <option data-testid="select-option" value="action">Ação</option>
+            <option data-testid="select-option" value="comedy">Comédia</option>
+            <option data-testid="select-option" value="thiller">Suspense</option>
+          </select>
+        </div>
       </form>
     );
   }
