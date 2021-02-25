@@ -205,11 +205,11 @@ describe('13 - Renderize um `select` do formulário em `<AddMovie />` para selec
 });
 
 describe('14 - Renderize um botão do formulário em `<AddMovie />` para fazer uso dos dados do novo filme, contidos no estado de `<AddMovie />`', () => {
-  it.skip('Será validado se o texto do botão é "Adicionar filme"', () => {
+  it('Será validado se o texto do botão é "Adicionar filme"', () => {
     expect(sendButton).toHaveTextContent('Adicionar filme');
   });
 
-  it.skip('Será validado se o evento onClick é chamado ao se clicar no botão.', () => {
+  it('Será validado se o evento onClick é chamado ao se clicar no botão.', () => {
     event.type(titleInput, movieHarryPotter);
     event.type(subtitleInput, subtitleMagical);
     fireEvent.change(storylineInput, { target: { value: `${inputStoryline}` } });
@@ -221,7 +221,7 @@ describe('14 - Renderize um botão do formulário em `<AddMovie />` para fazer u
     expect(onClick).toHaveBeenCalled();
   });
 
-  it.skip('Será validado se o estado dos inputs volta ao inicial depois que o botão de adicionar é clicado.', () => {
+  it('Será validado se o estado dos inputs volta ao inicial depois que o botão de adicionar é clicado.', () => {
     const expectedRating = 3.5;
     event.type(titleInput, movieHarryPotter);
     event.type(subtitleInput, subtitleMagical);
