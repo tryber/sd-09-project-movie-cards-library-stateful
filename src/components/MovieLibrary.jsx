@@ -27,19 +27,18 @@ class MovieLibrary extends Component {
       selectedGenre,
       movies,
     } = this.state;
-    let filteredMovies = movies;
-    if (bookmarkedOnly) {
-      filteredMovies = movies.filter(({ bookmarked }) => bookmarked === true);
+    const genreFilter = (array) => array.filter(({ genre }) => genre === selectedGenre);
+    const textFilter = (array) => array
+      .filter(({ title, subtitle, storyline }) => title.includes(searchText)
+    || subtitle.includes(searchText)
+    || storyline.includes(searchText));
+    const bookmarkedFilter = (array) => array
+      .filter(({ bookmarked }) => bookmarked === true);
+    if (!bookmarkedOnly) {
+      return selectedGenre !== '' ? genreFilter(textFilter(movies)) : textFilter(movies);
     }
-    if (selectedGenre !== '') {
-      filteredMovies = movies.filter(({ genre }) => genre === selectedGenre);
-    }
-    if (searchText !== '') {
-      return movies.filter(({ title, subtitle, storyline }) => title.includes(searchText)
-      || subtitle.includes(searchText)
-      || storyline.includes(searchText));
-    }
-    return filteredMovies;
+    return selectedGenre !== '' ? bookmarkedFilter(genreFilter(textFilter(movies)))
+      : bookmarkedFilter(textFilter(movies));
   }
 
   addMovie(movieObject) {
