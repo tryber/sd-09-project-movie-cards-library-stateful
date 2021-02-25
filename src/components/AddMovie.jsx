@@ -117,4 +117,8 @@ AddMovie.propTypes = {
   onClick: func,
 };
 
+AddMovie.defaultProps = {
+  onClick: 'undefined',
+};
+
 export default AddMovie;
