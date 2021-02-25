@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import New from './New';
+import Title from './Title';
+import Subtitle from './Subtitle';
+import RatingInput from './RatingInput';
 
 class AddMovie extends Component {
   constructor() {
@@ -47,8 +50,8 @@ class AddMovie extends Component {
         data-testid="add-movie-form"
         onChange={ this.handleChange }
       >
-        <New name="title" type="text" t="Título" val={ title } test="title" />
-        <New name="subtitle" type="text" t="Subtítulo" val={ subtitle } test="subtitle" />
+        <Title value={ title } />
+        <Subtitle value={ subtitle } />
         <New name="imagePath" type="text" t="Imagem" val={ imagePath } test="image" />
         <label htmlFor="storyLine" data-testid="storyline-input-label">
           Sinopse
@@ -59,7 +62,7 @@ class AddMovie extends Component {
             data-testid="storyline-input"
           />
         </label>
-        <New name="rating" type="number" t="Avaliação" val={ rating } test="rating" />
+        <RatingInput value={ rating } />
         <label htmlFor="genre" data-testid="genre-input-label">
           Gênero
           <select name="genre" id="genre" value={ genre } data-testid="genre-input">
@@ -69,7 +72,7 @@ class AddMovie extends Component {
           </select>
         </label>
         <button
-          type="button"
+          type="reset"
           data-testid="send-button"
           onClick={ this.addFilm }
         >
