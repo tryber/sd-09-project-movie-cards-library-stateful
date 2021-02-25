@@ -81,3 +81,17 @@ body {
   justify-content: flex-end;
   padding: 12px 20px;
 }
+
+.add-movie {
+  margin: 1rem;
+  margin-bottom: 100px;
+  padding: 10px;
+}
+
+.add-movie label {
+  width: 100%;
+}
+
+.add-movie input, textarea {
+  width: 100%;
+}
