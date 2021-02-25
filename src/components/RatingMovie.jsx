@@ -1,5 +1,5 @@
 import React from 'react';
-import { string, func } from 'prop-types';
+import { number, func } from 'prop-types';
 
 class RatingMovie extends React.Component {
   render() {
@@ -24,12 +24,12 @@ class RatingMovie extends React.Component {
 }
 
 RatingMovie.propTypes = {
-  value: string,
+  value: number,
   handleChange: func,
 };
 
 RatingMovie.defaultProps = {
-  value: '',
+  value: 0,
   handleChange: () => {},
 };
 
