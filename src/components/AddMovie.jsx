@@ -53,7 +53,7 @@ class AddMovie extends Component {
   }
 
   render() {
-    // const { onClick } = this.props;
+    const { onClick } = this.props;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
@@ -91,6 +91,9 @@ class AddMovie extends Component {
           Gênero
           { this.handleSelectInput(genre) }
         </label>
+        <button data-testid="send-button" type="reset" onClick={ onClick(this.state) }>
+          Adicionar filme
+        </button>
       </form>
     );
   }
