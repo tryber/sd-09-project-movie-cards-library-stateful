@@ -14,6 +14,7 @@ class MovieLibrary extends Component {
       title: '',
       subtitle: '',
       imagePath: '',
+      storyline: '',
     };
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
   }
@@ -24,7 +25,7 @@ class MovieLibrary extends Component {
 
   render() {
     const { movies, bookmarkedOnly, selectedGenre, } = this.props;
-    const { searchText, title, subtitle, imagePath } = this.state;
+    const { searchText, title, subtitle, imagePath, storyline } = this.state;
 
     return (
       <div>
@@ -41,6 +42,7 @@ class MovieLibrary extends Component {
           title={ title }
           subtitle={ subtitle }
           imagePath={ imagePath }
+          storyline={ storyline }
         />
         {/* <MovieList movies={ movies } />
         <AddMovie /> */}
