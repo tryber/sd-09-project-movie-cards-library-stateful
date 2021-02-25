@@ -18,7 +18,7 @@ class MovieLibrary extends Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies,
-    }
+    };
   }
 
   onClick(newMovie) {

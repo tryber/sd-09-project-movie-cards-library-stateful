@@ -24,8 +24,7 @@ class AddMovie extends Component {
   }
 
   handleChange({ target }) {
-    const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const { name, value } = target;
     this.setState({
       [name]: value,
     });
@@ -35,14 +34,17 @@ class AddMovie extends Component {
     event.preventDefault();
     const { genre, imagePath, rating, storyline, subtitle, title } = this.state;
     const { onClick } = this.props;
-    const newMovie = { genre,
+    const newMovie = {
+      genre,
       imagePath,
       rating,
       storyline,
       subtitle,
       title,
     };
-    this.setState({ subtitle: '',
+    onClick(newMovie);
+    this.setState({
+      subtitle: '',
       title: '',
       imagePath: '',
       storyline: '',
@@ -158,7 +160,7 @@ class AddMovie extends Component {
 
   render() {
     return (
-      <form data-testid="add-movie-form" onSubmit={ this.onClickBtn }>
+      <form data-testid="add-movie-form" onSubmit={ this.onClick }>
         { this.inputText(this.handleChange) }
         { this.inputSubtitle(this.handleChange) }
         { this.inputImage(this.handleChange) }
