@@ -39,6 +39,10 @@ class MovieLibrary extends React.Component {
       selectedGenre: value,
     });
   }
+  /**
+   * Consultei o repositório do Tiago Yoneda para resolver essa parte
+   * Link: https://github.com/tryber/sd-09-project-movie-cards-library-stateful/tree/tiago-yoneda-project-movie-cards-library-stateful
+   */
 
   filterMovieList() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
