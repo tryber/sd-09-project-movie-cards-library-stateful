@@ -28,8 +28,8 @@ class MovieLibrary extends Component {
   }
 
   onBookmarkedChange({ target }) {
-    (target.checked) ? this.setState({ bookmarkedOnly: true })
-    : this.setState({ bookmarkedOnly: false });
+    target.checked ? this.setState({ bookmarkedOnly: true })
+      : this.setState({ bookmarkedOnly: false });
   }
 
   onSelectedGenreChange({ target }) {
