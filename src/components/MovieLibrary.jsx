@@ -23,49 +23,41 @@ class MovieLibrary extends Component {
 
   onSearchTextChange(e) {
     const { value } = e.target;
-    const { movies } = this.props;
-    const { searchText } = this.state;
+    const { searchText, movies } = this.state;
 
     this.setState({
       searchText: value,
-      movies: movies.filter((movie) => Object.values(movie).includes(searchText)),
+      movies: movies
+        .filter((movie) => JSON.stringify(movie).toUpperCase()
+          .includes(searchText.toUpperCase())),
+    });
+  }
+
+  onBookmarkedChange(e) {
+    const { type, checked } = e.target;
+    const { movies } = this.props;
+
+    const value = type === 'checkbox' ? checked : e.target.value;
+
+    this.setState({
+      bookmarkedOnly: value,
+      movies: ((checked) ? movies
+        .filter((movie) => movie.bookmarked === value) : movies),
     });
   }
 
   onSelectedGenreChange(e) {
-    const { value } = e.target;
-    const { selectedGenre } = this.state;
     const { movies } = this.props;
+    const { value } = e.target;
     this.setState({
       selectedGenre: value,
-      movies: movies.filter((movie) => movie.genre.includes(selectedGenre)),
+      movies: ((value) ? movies
+        .filter((movie) => movie.genre === value) : movies),
     });
-    if (selectedGenre.length === 0) {
-      this.setState({
-        movies,
-      });
-    }
-  }
-
-  onBookmarkedChange() {
-    const { bookmarkedOnly } = this.state;
-    const { movies } = this.props;
-    this.setState((state) => ({
-      bookmarkedOnly: !state.bookmarkedOnly,
-    }));
-    if (!bookmarkedOnly) {
-      this.setState({
-        movies: movies.filter((movie) => movie.bookmarked),
-      });
-    } else {
-      this.setState({
-        movies,
-      });
-    }
   }
 
   onClick(movie) {
-    const { movies } = this.props;
+    const { movies } = this.state;
     this.setState({
       movies: [...movies, movie],
     });
@@ -77,11 +69,13 @@ class MovieLibrary extends Component {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <section>
+        <h2> My awesome movie library </h2>
         <SearchBar
           searchText={ searchText }
-          bookmarkedOnly={ bookmarkedOnly }
-          selectedGenre={ selectedGenre }
           onSearchTextChange={ this.onSearchTextChange }
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ this.onBookmarkedChange }
+          selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList movies={ movies } />

@@ -30,11 +30,11 @@ class AddMovie extends Component {
     });
   }
 
-  clickButton(e) {
-    e.preventDefault();
+  clickButton() {
     const { genre, imagePath, rating, storyline, subtitle, title } = this.state;
     const { onClick } = this.props;
-    const movie = { genre,
+    const movie = {
+      genre,
       imagePath,
       rating,
       storyline,
