@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
+import movies from '../data';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -17,6 +18,8 @@ class MovieLibrary extends Component {
     };
 
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
   }
 
   onSearchTextChange({ target }) {
@@ -27,12 +30,22 @@ class MovieLibrary extends Component {
   }
 
   onBookmarkedChange({ target }) {
-    const { name, value } = target;
-    console.log(name, value);
+    const { name, type, checked } = target;
+    const value = type === 'checkbox' ? checked : target.value;
+    this.setState({
+      [name]: value,
+    });
+  }
+
+  onSelectedGenreChange({ target }) {
+    const { value } = target;
+    this.setState({
+      selectedGenre: value,
+    });
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     const moviesList = movies
       .filter((movie) => JSON.stringify(movie).toUpperCase()
         .includes(searchText.toUpperCase()));
