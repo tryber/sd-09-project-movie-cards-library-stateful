@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import InputText from './InputText';
+
 class AddMovie extends Component {
   constructor(props) {
     super(props);
@@ -13,32 +15,46 @@ class AddMovie extends Component {
       genre: 'action',
     };
 
-    this.handleTitleChange = this.handleTitleChange.bind(this);
+    this.handleInputTextChange = this.handleInputTextChange.bind(this);
   }
 
-  handleTitleChange(event) {
-    const { value } = event.target;
+  handleInputTextChange(event) {
+    const { name, value } = event.target;
     this.setState({
-      title: value,
+      [name]: value,
     });
   }
 
   render() {
     const { onClick } = this.props;
-    const { title } = this.state;
+    const { title, subtitle } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <div>
-          <label htmlFor="" data-testid="title-input-label">
-            Título
-            <input
-              type="text"
-              value={ title }
-              data-testid="title-input"
-              onChange={ this.handleTitleChange }
-            />
-          </label>
-        </div>
+        <InputText
+          label={ 'Título' }
+          name={ 'title' }
+          value={ title }
+          onChange={ this.handleInputTextChange }
+          testLabel={ 'title-input-label' }
+          test={ 'title-input' }
+        />
+        <InputText
+          label={ 'Subtítulo' }
+          name={ 'subtitle' }
+          value={ subtitle }
+          onChange={ this.handleInputTextChange }
+          testLabel={ 'subtitle-input-label' }
+          test={ 'subtitle-input' }
+        />
+        <InputText
+          label={ 'Imagem' }
+          name={ 'subtitle' }
+          value={ subtitle }
+          onChange={ this.handleInputTextChange }
+          testLabel={ 'image-input-label' }
+          test={ 'subtitle-input' }
+        />
+
       </form>
     );
   }

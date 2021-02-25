@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+import InputType from './InputText';
+import GenreType from './GenreType';
+
 class SearchBar extends Component {
   render() {
     const {
@@ -12,29 +15,38 @@ class SearchBar extends Component {
     } = this.props;
     return (
       <form data-testid="search-bar-form">
-        <label htmlFor="search-text" data-testid="text-input-label">
-          Inclui o texto:
-          <input
-            type="text"
-            name="search-text"
-            id="search-text"
-            value={ searchText }
-            onChange={ onSearchTextChange }
-            data-testid="text-input"
-          />
-        </label>
-        <label htmlFor="bookmark" data-testid="text-input-label">
+        <InputType
+          label={ 'Inclui o texto:' }
+          name={ 'search-text' }
+          value= { searchText }
+          onChange={ onSearchTextChange }
+          testLabel={ 'text-input-label' }
+          test={ 'text-input' }
+        />
+        <label htmlFor="bookmark" data-testid="checkbox-input-label">
           Mostrar somente favoritos
           <input
             type="checkbox"
-            checked={bookmarkedOnly}
+            checked={ bookmarkedOnly }
             id="bookmark"
-            value={searchText}
-            onChange={onBookmarkedChange}
+            name="bookmark"
+            value={ searchText }
+            onChange={ onBookmarkedChange }
             data-testid="checkbox-input"
           />
         </label>
-        <div>
+        <GenreType
+          name={ 'genre' }
+          value={ selectedGenre }
+          onChange={ onSelectedGenreChange }
+        />
+        
+      </form>
+    );
+  }
+}
+
+{/* <div>
           <label htmlFor="genre" data-testid="select-input-label">
             Filtrar por gênero
           </label>
@@ -50,10 +62,17 @@ class SearchBar extends Component {
             <option data-testid="select-option" value="comedy">Comédia</option>
             <option data-testid="select-option" value="thiller">Suspense</option>
           </select>
-        </div>
-      </form>
-    );
-  }
-}
+        </div> */}
+{/* <label htmlFor="search-text" data-testid="text-input-label">
+          Inclui o texto:
+          <input
+            type="text"
+            name="search-text"
+            id="search-text"
+            value={ searchText }
+            onChange={ onSearchTextChange }
+            data-testid="text-input"
+          />
+        </label> */}
 
 export default SearchBar;
