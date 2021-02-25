@@ -23,13 +23,13 @@ class MovieLibrary extends React.Component {
 
   searchTextChange(event) {
     this.setState({
-        searchText: event.target.value,
+      searchText: event.target.value,
     });
   }
 
   bookmarkedChange(event) {
     this.setState({
-        bookmarkedOnly: event.target.checked,
+      bookmarkedOnly: event.target.checked,
     });
   }
 
@@ -40,7 +40,7 @@ class MovieLibrary extends React.Component {
   }
 
   newMovie(data) {
-     this.setState((estado) => ({ movies: [...estado.movies, data], }));
+    this.setState((estado) => ({ movies: [...estado.movies, data] }));
   }
 
   render() {
@@ -53,16 +53,16 @@ class MovieLibrary extends React.Component {
       ));
     const bookmarkedFilter = filterMovies
       .filter((movie) => ((bookmarkedOnly === false) ? true : movie.bookmarked));
-      const filterGenre = bookmarkedFilter
-        .filter((movie) => movie.genre.includes(selectGenre));
+    const filterGenre = bookmarkedFilter
+      .filter((movie) => movie.genre.includes(selectGenre));
 
     return (
       <div>
         <SearchBar
-          searchText= { searchText }
-          searchTextChange= {this.searchTextChange }
+          searchText={ searchText }
+          searchTextChange={ this.searchTextChange }
           bookmarkedOnly={ bookmarkedOnly }
-          bookmarkedChange={ this.bookmarkedChange}
+          bookmarkedChange={ this.bookmarkedChange }
           selectGenre={ selectGenre }
           genreChange={ this.genreChange }
         />
@@ -74,7 +74,7 @@ class MovieLibrary extends React.Component {
 }
 
 MovieLibrary.propTypes = ({
-    movies: PropTypes.arrayOf(PropTypes.object),
+  movies: PropTypes.arrayOf(PropTypes.object),
 }).isRequired;
 
 export default MovieLibrary;
