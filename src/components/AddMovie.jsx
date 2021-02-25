@@ -14,7 +14,7 @@ class AddMovie extends React.Component {
     };
     this.handlerChange = this.handlerChange.bind(this);
     this.InputTitle = this.InputTitle.bind(this);
-    this.onClick = this.onClick.bind(this);
+    this.onClickHere = this.onClickHere.bind(this);
   }
 
   handlerChange(event) {
@@ -30,7 +30,7 @@ class AddMovie extends React.Component {
     }
   }
 
-  onClick() {
+  onClickHere() {
     this.setState({
       subtitle: '',
       title: '',
@@ -120,6 +120,7 @@ class AddMovie extends React.Component {
   Genre(genre, handlerChange) {
     return (
       <label htmlFor="genre" data-testid="genre-input-label">
+        Gênero
         <select
           name="genre"
           value={ genre }
@@ -135,6 +136,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
+    const { onClick } = this.props
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <div>
@@ -149,7 +151,7 @@ class AddMovie extends React.Component {
         <button
           type="button"
           data-testid="send-button"
-          onClick={ this.onClick }
+          onClick={ onClick }
         >
           Adicionar filme
         </button>

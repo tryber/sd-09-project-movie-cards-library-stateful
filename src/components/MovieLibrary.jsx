@@ -15,11 +15,10 @@ class MovieLibrary extends Component {
       selectedGenre: '',
       movies: props.movies,
     };
-    this.onClick = this.onClick.bind(this);
   }
 
   onClick() {
-    console.log(this.state);
+    console.log(AddMovie);
   }
 
   render() {
@@ -33,7 +32,7 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
         />
         <MovieList movies={ movies } />
-        <AddMovie onclick={ this.onClick } />
+        <AddMovie onClick={ this.onClick }/>
       </div>
     );
   }
