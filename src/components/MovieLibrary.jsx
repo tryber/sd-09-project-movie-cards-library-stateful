@@ -20,10 +20,11 @@ class MovieLibrary extends Component {
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
   }
 
-  onClick(movieObject) {
+  onClick(state) {
     const { movies } = this.state;
-    movies.push(movieObject);
-    this.setState({ movies });
+    this.setState({
+      movies: [...movies, state],
+    });
   }
 
   onSearchTextChange(event) {
