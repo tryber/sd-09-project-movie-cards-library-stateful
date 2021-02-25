@@ -1,7 +1,6 @@
 import React from 'react';
 
 class AddMovie extends React.Component {
-
   constructor() {
     super();
     this.state = {
@@ -9,8 +8,8 @@ class AddMovie extends React.Component {
       title: '',
       imagePath: '',
       storyline: '',
-      rating: 0,
-      genre: 'action',
+      // rating: 0,
+      // genre: 'action',
     };
     this.reloadState = this.reloadState.bind(this);
   }
