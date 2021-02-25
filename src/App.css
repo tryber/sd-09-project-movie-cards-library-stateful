@@ -81,3 +81,11 @@ body {
   justify-content: flex-end;
   padding: 12px 20px;
 }
+
+.add-movie {
+  margin-bottom: 100px;
+}
+
+.add-movie label{
+  width: 100%;
+}
