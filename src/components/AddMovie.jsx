@@ -13,11 +13,26 @@ class AddMovie extends Component {
       genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange(event) {
     const { value, name } = event.target;
     this.setState({ [name]: value });
+  }
+
+  handleClick() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState(
+      { subtitle: '',
+        title: '',
+        imagePath: '',
+        storyLine: '',
+        rating: 0,
+        genre: 'action',
+      },
+    );
   }
 
   title(titulo, change) {
@@ -70,16 +85,17 @@ class AddMovie extends Component {
 
   storyline(storyline, handlechange) {
     return (
-      <label htmlFor="storyLine" data-testid="storyLine-input-label">
+      <label htmlFor="storyLine" data-testid="storyline-input-label">
         Sinopse
-        <input
-          type="textarea"
+        <textarea
+          type="text"
           name="storyLine"
           id="storyLine"
           value={ storyline }
-          data-testid="storyLine-input"
+          data-testid="storyline-input"
           onChange={ handlechange }
         />
+
       </label>
     );
   }
@@ -100,8 +116,26 @@ class AddMovie extends Component {
     );
   }
 
+  genre(genre, handlechange) {
+    return (
+      <label htmlFor="genre" data-testid="genre-input-label">
+        Gênero
+        <select
+          name="genre"
+          id="genre"
+          value={ genre }
+          data-testid="genre-input"
+          onChange={ handlechange }
+        >
+          <option value="action" data-testid="genre-option">Ação</option>
+          <option value="comedy" data-testid="genre-option">Comédia</option>
+          <option value="thriller" data-testid="genre-option">Suspense</option>
+        </select>
+      </label>
+    );
+  }
+
   render() {
-    const { onClick } = this.props;
     const { title, subtitle, imagePath, storyLine, rating, genre } = this.state;
     return (
       <div>
@@ -113,6 +147,9 @@ class AddMovie extends Component {
           {this.rating(rating, this.handleChange)}
           {this.genre(genre, this.handleChange)}
         </form>
+        <button type="button" data-testid="send-button" onClick={ this.handleClick }>
+          Adicionar filme
+        </button>
 
       </div>
     );
