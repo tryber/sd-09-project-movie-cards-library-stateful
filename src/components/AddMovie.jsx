@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Input from './Input';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -51,38 +52,11 @@ class AddMovie extends React.Component {
     return (
       <div className="add-movie">
         <form data-testid="add-movie-form">
-          <label htmlFor="title-input" data-testid="title-input-label">
-            Título
-            <input
-              type="text"
-              id="title-input"
-              name="title"
-              value={title}
-              onChange={this.changeHandler}
-            />
-          </label>
-
-          <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
-            Subtítulo
-            <input
-              type="text"
-              id="subtitle-input"
-              name="subtitle"
-              value={subtitle}
-              onChange={this.changeHandler}
-            />
-          </label>
-
-          <label htmlFor="imagePath" testid="image-input-label">
-            Imagem
-            <input
-              type="text"
-              id="imagePath"
-              name="imagePath"
-              value={imagePath}
-              onChange={this.changeHandler}
-            />
-          </label>
+          <Input title={title}
+            changeHandler={this.changeHandler}
+            subtitle={subtitle}
+            imagePath={imagePath}
+          />
 
           <label htmlFor="storyline" data-testid="storyline-input-label">
             Sinopse
