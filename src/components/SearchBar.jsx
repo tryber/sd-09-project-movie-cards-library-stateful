@@ -18,7 +18,7 @@ class SearchBar extends Component {
       <section>
         <form data-testid="search-bar-form">
           <label htmlFor="firstInput" data-testid="text-input-label">
-            <h4>Inclui o texto:</h4>
+            Inclui o texto:
             <input
               id="firstInput"
               type="text"
@@ -28,7 +28,7 @@ class SearchBar extends Component {
             />
           </label>
           <label htmlFor="secoundInput" data-testid="checkbox-input-label">
-            <h4>Mostrar somente favoritos</h4>
+            Mostrar somente favoritos
             <input
               id="secoundInput"
               type="checkBox"

@@ -5,7 +5,7 @@ class Select extends Component {
     const { selectedGenre, onSelectedGenreChange } = this.props;
     return (
       <label htmlFor="select" data-testid="select-input-label">
-        <h4>Filtrar por gênero</h4>
+        Filtrar por gênero
         <select
           value={ selectedGenre }
           onChange={ onSelectedGenreChange }

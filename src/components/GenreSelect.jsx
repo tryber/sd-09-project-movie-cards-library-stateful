@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class SelectGender extends Component {
+class SelectGenre extends Component {
   render() {
 
     const { genre, changeState } = this.props;
@@ -23,4 +23,4 @@ class SelectGender extends Component {
   }
 }
 
-export default SelectGender;
+export default SelectGenre;
