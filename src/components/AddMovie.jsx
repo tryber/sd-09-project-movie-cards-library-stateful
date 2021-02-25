@@ -54,75 +54,75 @@ class AddMovie extends React.Component {
           <label htmlFor="title-input" data-testid="title-input-label">
             Título
             <input
-            type="text"
-            id="title-input"
-            name="title"
-            value={ title }
-            onChange={ this.changeHandler }
-          />
+              type="text"
+              id="title-input"
+              name="title"
+              value={title}
+              onChange={this.changeHandler}
+            />
           </label>
 
           <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
             Subtítulo
             <input
-            type="text"
-            id="subtitle-input"
-            name="subtitle"
-            value={ subtitle }
-            onChange={ this.changeHandler }
-          />
+              type="text"
+              id="subtitle-input"
+              name="subtitle"
+              value={subtitle}
+              onChange={this.changeHandler}
+            />
           </label>
 
           <label htmlFor="imagePath" testid="image-input-label">
             Imagem
             <input
-            type="text"
-            id="imagePath"
-            name="imagePath"
-            value={ imagePath }
-            onChange={ this.changeHandler }
-          />
+              type="text"
+              id="imagePath"
+              name="imagePath"
+              value={imagePath}
+              onChange={this.changeHandler}
+            />
           </label>
 
           <label htmlFor="storyline" data-testid="storyline-input-label">
             Sinopse
             <textarea
-            id="storyline"
-            name="storyline"
-            value={ storyline }
-            onChange={ this.changeHandler }
-          />
+              id="storyline"
+              name="storyline"
+              value={storyline}
+              onChange={this.changeHandler}
+            />
           </label>
 
           <label htmlFor="rating" data-testid="rating-input-label">
             Avaliação
             <input
-            type="number"
-            id="rating"
-            name="rating"
-            value={ rating }
-            onChange={ this.changeHandler }
-          />
+              type="number"
+              id="rating"
+              name="rating"
+              value={rating}
+              onChange={this.changeHandler}
+            />
           </label>
 
           <label htmlFor="genre" data-testid="genre-input-label">
             Gênero
             <select
-            value={ genre }
-            data-testid="genre-input"
-            id="genre"
-            onChange={ this.handlerSelectChange }
-          >
-            <option data-testid="genre-option" value="action">Ação</option>
-            <option data-testid="genre-option" value="comedy">Comédia</option>
-            <option data-testid="genre-option" value="thriller">Suspense</option>
-          </select>
+              value={genre}
+              data-testid="genre-input"
+              id="genre"
+              onChange={this.handlerSelectChange}
+            >
+              <option data-testid="genre-option" value="action">Ação</option>
+              <option data-testid="genre-option" value="comedy">Comédia</option>
+              <option data-testid="genre-option" value="thriller">Suspense</option>
+            </select>
           </label>
 
           <button
             type="submit"
             data-testid="send-button"
-            onClick={ this.handlerSubmitClick }
+            onClick={this.handlerSubmitClick}
           >
             Adicionar filme
           </button>
