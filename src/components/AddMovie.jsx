@@ -23,7 +23,7 @@ class AddMovie extends Component {
     const { value, dataset } = event.target;
     let type = dataset.testid.split("-")[0];
 
-    if (type === 'image') type = 'imagePath';
+    if (type === "image") type = "imagePath";
 
     this.setState({
       [type]: value
@@ -63,6 +63,10 @@ class AddMovie extends Component {
               data-testid="image-input"
               onChange={this.handleChange}
             />
+          </div>
+          <div>
+            <label data-testid="storyline-input-label">Sinopse</label>
+            <textarea name="" value={storyline} data-testid="storyline-input" onChange={this.handleChange}></textarea>
           </div>
         </form>
       </fieldset>
