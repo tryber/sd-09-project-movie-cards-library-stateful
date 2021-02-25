@@ -88,7 +88,7 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
           onSearchTextChange={ this.onSearchTextChange }
           onBookmarkedChange={ this.onBookmarkedChange }
-          onSelectedGenreChange={ this.onSearchTextChange }
+          onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList
           movies={ movies }
@@ -98,7 +98,7 @@ class MovieLibrary extends Component {
         />
       </div>
 
-    )
+    );
   }
 }
 
