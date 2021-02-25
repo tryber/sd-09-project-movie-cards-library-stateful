@@ -10,10 +10,11 @@ class AddMovie extends React.Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      gender: 'action',
+      genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
-    this.selectGender = this.selectGender.bind(this);
+    this.renderGenreSelect = this.renderGenreSelect.bind(this);
+    // this.selectGenre = this.selectGenre.bind(this);
     this.renderStoryline = this.renderStoryline.bind(this);
   }
 
@@ -38,15 +39,15 @@ class AddMovie extends React.Component {
     );
   }
 
-  renderGenderSelect() {
-    const { gender } = this.state;
+  renderGenreSelect() {
+    const { genre } = this.state;
     return (
-      <label htmlFor="gender-id" data-testid="genre-input-label">
+      <label htmlFor="genre-id" data-testid="genre-input-label">
         <select
-          name="gender"
-          id="gender-id"
+          name="genre"
+          id="genre-id"
           data-testid="genre-input"
-          value={ gender }
+          value={ genre }
           onChange={ this.handleChange }
         >
           Gênero
@@ -104,7 +105,7 @@ class AddMovie extends React.Component {
           labelId="rating-input-label"
           labelName="Avaliação"
         />
-        {this.renderGenderSelect()}
+        {this.renderGenreSelect()}
       </form>
     );
   }
