@@ -20,7 +20,7 @@ class Rating extends Component {
 }
 
 Rating.propTypes = {
-  rating: PropTypes.string.isRequired,
+  rating: PropTypes.number.isRequired,
   handleChange: PropTypes.func.isRequired,
 };
 

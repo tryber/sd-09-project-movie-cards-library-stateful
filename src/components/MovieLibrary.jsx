@@ -5,6 +5,10 @@ import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
+  // constructor() {
+  //   super();
+  // }
+
   render() {
     const { movies } = this.props;
     return (
@@ -12,7 +16,7 @@ class MovieLibrary extends Component {
         <h2> My awesome movie library </h2>
         <SearchBar />
         <MovieList movies={ movies } />
-        <AddMovie handleChange={ this.handleChange } />
+        <AddMovie />
       </div>
     );
   }
