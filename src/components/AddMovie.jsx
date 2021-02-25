@@ -13,7 +13,7 @@ class AddMovie extends Component {
     super(props);
     this.state = this.initialState;
     this.handleChange = this.handleChange.bind(this);
-    this.resetBuilder = this.resetBuilder.bind(this);
+    this.addMovieButton = this.addMovieButton.bind(this);
   }
 
   handleChange({ target }) {
@@ -34,11 +34,10 @@ class AddMovie extends Component {
     };
   }
 
-  resetBuilder() {
-    const movie = this.state;
+  addMovieButton() {
     const { onClick } = this.props;
+    onClick(this.state);
     this.setState(this.initialState);
-    onClick(movie);
   }
 
   render() {
@@ -62,7 +61,7 @@ class AddMovie extends Component {
           <Stars value={ rating } handleChange={ this.handleChange } />
           <Genere value={ genere } handleChange={ this.handleChange } />
         </form>
-        <AddMovieButton onClick={ this.resetBuilder } />
+        <AddMovieButton onClick={ this.addMovieButton } />
       </div>
     );
   }
