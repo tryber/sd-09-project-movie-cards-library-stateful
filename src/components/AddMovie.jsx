@@ -35,46 +35,56 @@ class AddMovie extends React.Component {
     });
   }
 
-  createInput(type, stateKey, dataTestId, value) {
+  createInput(stateKey, labelText, type, value) {
+    const inputName = stateKey === 'image' ? 'imagePath' : stateKey;
     return (
-      <input
-        type={ type }
-        id={ stateKey }
-        name={ stateKey }
-        data-testid={ dataTestId }
-        value={ value }
-        onChange={ this.handleChange }
-      />
+      <label htmlFor={ stateKey } data-testid={ `${stateKey}-input-label` }>
+        { labelText }
+        <input
+          type={ type }
+          id={ stateKey }
+          name={ inputName }
+          data-testid={ `${stateKey}-input` }
+          value={ value }
+          onChange={ this.handleChange }
+        />
+      </label>
     );
   }
 
-  createTextArea(value) {
+  createTextArea(storyline) {
     return (
-      <textarea
-        id="storyline"
-        name="storyline"
-        cols="30"
-        rows="10"
-        data-testid="storyline-input"
-        value={ value }
-        onChange={ this.handleChange }
-      />
+      <label htmlFor="storyline" data-testid="storyline-input-label">
+        Sinopse
+        <textarea
+          id="storyline"
+          name="storyline"
+          cols="30"
+          rows="10"
+          data-testid="storyline-input"
+          value={ storyline }
+          onChange={ this.handleChange }
+        />
+      </label>
     );
   }
 
-  createSelect(value) {
+  createSelect(genre) {
     return (
-      <select
-        id="genre"
-        name="genre"
-        data-testid="genre-input"
-        value={ value }
-        onChange={ this.handleChange }
-      >
-        <option value="action" data-testid="genre-option">Ação</option>
-        <option value="comedy" data-testid="genre-option">Comédia</option>
-        <option value="thriller" data-testid="genre-option">Suspense</option>
-      </select>
+      <label htmlFor="genre" data-testid="genre-input-label">
+        Gênero
+        <select
+          id="genre"
+          name="genre"
+          data-testid="genre-input"
+          value={ genre }
+          onChange={ this.handleChange }
+        >
+          <option value="action" data-testid="genre-option">Ação</option>
+          <option value="comedy" data-testid="genre-option">Comédia</option>
+          <option value="thriller" data-testid="genre-option">Suspense</option>
+        </select>
+      </label>
     );
   }
 
@@ -84,37 +94,14 @@ class AddMovie extends React.Component {
     return (
       <div>
         <form data-testid="add-movie-form">
-          <label htmlFor="title" data-testid="title-input-label">
-            Título
-            { this.createInput('text', 'title', 'title-input', title) }
-          </label>
-
-          <label htmlFor="subtitle" data-testid="subtitle-input-label">
-            Subtítulo
-            { this.createInput('text', 'subtitle', 'subtitle-input', subtitle) }
-          </label>
-
-          <label htmlFor="imagePath" data-testid="image-input-label">
-            Imagem
-            { this.createInput('text', 'imagePath', 'image-input', imagePath) }
-          </label>
-
-          <label htmlFor="storyline" data-testid="storyline-input-label">
-            Sinopse
-            { this.createTextArea(storyline) }
-          </label>
-
-          <label htmlFor="rating" data-testid="rating-input-label">
-            Avaliação
-            { this.createInput('number', 'rating', 'rating-input', rating) }
-          </label>
-
-          <label htmlFor="genre" data-testid="genre-input-label">
-            Gênero
-            { this.createSelect(genre) }
-          </label>
-
+          { this.createInput('title', 'Título', 'text', title) }
+          { this.createInput('subtitle', 'Subtítulo', 'text', subtitle) }
+          { this.createInput('image', 'Imagem', 'text', imagePath) }
+          { this.createTextArea(storyline) }
+          { this.createInput('rating', 'Avaliação', 'number', rating) }
+          { this.createSelect(genre) }
           <button
+            type="submit"
             data-testid="send-button"
             onClick={ this.setStateInitialValue }
           >
