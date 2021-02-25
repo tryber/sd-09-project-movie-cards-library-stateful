@@ -27,9 +27,10 @@ class MovieLibrary extends Component {
     });
   }
 
-  onBookmarkedChange({ target }) {
-    target.checked ? this.setState({ bookmarkedOnly: true })
-      : this.setState({ bookmarkedOnly: false });
+  onBookmarkedChange() {
+    this.setState((oldState) => (
+      { bookmarkedOnly: !oldState.bookmarkedOnly }
+    ));
   }
 
   onSelectedGenreChange({ target }) {
