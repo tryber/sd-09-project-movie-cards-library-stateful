@@ -3,7 +3,7 @@ import React from 'react';
 
 class AddMovie extends React.Component {
   render() {
-    const { title, subtitle, imagePath, storyline } = this.props;
+    const { title, subtitle, imagePath, storyline, rating } = this.props;
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="title-input" data-testid="title-input-label">
@@ -35,6 +35,14 @@ class AddMovie extends React.Component {
           <textarea
             value={ storyline }
             data-testid="storyline-input"
+          />
+        </label>
+        <label htmlFor="rating-input" data-testid="rating-input-label">
+          Avaliação
+          <input
+            type="number"
+            value={ rating }
+            data-testid="rating-input"
           />
         </label>
       </form>
