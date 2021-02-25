@@ -1,4 +1,5 @@
 import React from 'react';
+import InputGeneric from './InputGeneric';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -23,28 +24,18 @@ class AddMovie extends React.Component {
     const { title, subtitle, imagePath, storyline } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="label-title" data-testid="title-input-label">
-          Título
-          <input
-            name="title"
-            id="label-title"
-            type="text"
-            value={ title }
-            data-testid="title-input"
-            onChange={ this.reloadState }
-          />
-        </label>
-        <label htmlFor="label-subtitle" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            name="subtitle"
-            id="label-subtitle"
-            type="text"
-            value={ subtitle }
-            data-testid="subtitle-input"
-            onChange={ this.reloadState }
-          />
-        </label>
+        <InputGeneric
+          value={ title }
+          name="title"
+          reload={ this.reloadState }
+          labelName="Título"
+        />
+        <InputGeneric
+          value={ subtitle }
+          name="subtitle"
+          reload={ this.reloadState }
+          labelName="Subtítulo"
+        />
         <label htmlFor="label-imagepath" data-testid="image-input-label">
           Imagem
           <input
