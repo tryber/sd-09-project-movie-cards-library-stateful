@@ -10,7 +10,7 @@ class AddMovie extends Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: 'action'
+      genre: 'action',
     };
     this.setTitleValue = this.setTitleValue.bind(this);
   }
@@ -21,7 +21,7 @@ class AddMovie extends Component {
 
   render() {
     const { onClick } = this.props;
-
+    const { title } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label data-testid="title-input-label" htmlFor="title-input">
@@ -29,7 +29,7 @@ class AddMovie extends Component {
           <input
             id="title-input"
             type="text"
-            value={ this.state.title }
+            value={ title }
             data-testid="title-input"
             onChange={ this.setTitleValue }
           />
