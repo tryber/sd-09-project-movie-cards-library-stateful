@@ -25,11 +25,14 @@ class MovieLibrary extends React.Component {
     });
   }
 
-  handleFilter({ title, subtitle }) {
-    const { searchText } = this.state;
-    if (title.includes(searchText) || subtitle.includes(searchText)) {
-      return true;
-    }
+  handleFilter({ title, subtitle, genre, bookmarked, storyline }) {
+    const { searchText, selectedGenre, bookmarkedOnly } = this.state;
+    const searchInputTrue = title.includes(searchText)
+      || subtitle.includes(searchText)
+      || storyline.includes(searchText);
+    if (searchText !== '' && searchInputTrue) return true;
+    if (bookmarkedOnly && bookmarked) return true;
+    if (genre === selectedGenre) return true;
   }
 
   onBookmarkedChange({ target }) {
@@ -41,7 +44,8 @@ class MovieLibrary extends React.Component {
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
-    const moviesFiltred = movies.filter(this.handleFilter);
+    let moviesFiltred = movies.filter(this.handleFilter);
+    if (moviesFiltred.length === 0) moviesFiltred = movies;
 
     return (
       <div>
