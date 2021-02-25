@@ -18,14 +18,6 @@ class AddMovie extends React.Component {
     this.handlerSubmitClick = this.handlerSubmitClick.bind(this);
   }
 
-  changeHandler({ target }) {
-    const { name, value } = target;
-    this.setState({
-      [name]: value,
-
-    });
-  }
-
   handlerSelectChange({ target }) {
     const { value } = target;
     this.setState({ genre: value });
@@ -45,6 +37,14 @@ class AddMovie extends React.Component {
     });
   }
 
+  changeHandler({ target }) {
+    const { name, value } = target;
+    this.setState({
+      [name]: value,
+
+    });
+  }
+
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
 
@@ -54,7 +54,8 @@ class AddMovie extends React.Component {
           <label htmlFor="title-input" data-testid="title-input-label">
             Título
           </label>
-          <input type="text"
+          <input
+            type="text"
             id="title-input"
             name="title"
             value={ title }
@@ -64,7 +65,7 @@ class AddMovie extends React.Component {
           <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
             Subtítulo
           </label>
-          <input 
+          <input
             type="text"
             id="subtitle-input"
             name="subtitle"
@@ -75,7 +76,7 @@ class AddMovie extends React.Component {
           <label htmlFor="imagePath" testid="image-input-label">
             Imagem
           </label>
-          <input 
+          <input
             type="text"
             id="imagePath"
             name="imagePath"
@@ -96,28 +97,30 @@ class AddMovie extends React.Component {
           <label htmlFor="imagePath" data-testid="rating-input-label">
             Avaliação
           </label>
-          <input type="number"
+          <input
+            type="number"
             id="rating"
             name="rating"
             value={ rating }
             onChange={ this.changeHandler }
           />
 
-          <label data-testid="genre-input-label" htmlFor="genre">
+          <label htmlFor="genre" data-testid="genre-input-label">
             Gênero
           </label>
           <select value={ genre } data-testid="genre-input" id="genre"
             onChange={ this.handlerSelectChange }
-            id="select">
+          >
             <option data-testid="genre-option" value="action">Ação</option>
             <option data-testid="genre-option" value="comedy">Comédia</option>
             <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
 
-          <button 
+          <button
             type="submit"
             data-testid="send-button"
-            onClick={ this.handlerSubmitClick }>
+            onClick={ this.handlerSubmitClick }
+          >
             Adicionar filme
           </button>
         </form>

@@ -26,10 +26,7 @@ class MovieLibrary extends Component {
 
   onSelectedGenreChange() { }
 
-  onClick(event) {
-
-
-  }
+  onClick() { }
 
   render() {
     const { movies } = this.props;
@@ -37,7 +34,8 @@ class MovieLibrary extends Component {
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar searchText={ searchText }
+        <SearchBar
+          searchText={ searchText }
           onSearchTextChange={ this.onSearchTextChange }
           onBookmarkedChange={ this.onBookmarkedChange }
           onSelectedGenreChange={ this.onSelectedGenreChange }
@@ -46,7 +44,7 @@ class MovieLibrary extends Component {
         />
         
         <MovieList movies={ movies } />
-        <AddMovie onClick={this.onClick} />
+        <AddMovie onClick={ this.onClick } />
       </div>
     );
   }
