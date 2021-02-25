@@ -6,7 +6,6 @@ class Input extends React.Component {
     const {
       name,
       text,
-      id,
       type,
       value,
       onChange,
@@ -15,13 +14,12 @@ class Input extends React.Component {
     return (
       <label
         data-testid={ `${name}-input-label` }
-        htmlFor={ id }
+        htmlFor={ name }
       >
         { text }
         <input
           data-testid={ `${name}-input` }
           name={ name }
-          id={ id }
           type={ type }
           value={ value }
           onChange={ onChange }
@@ -32,9 +30,8 @@ class Input extends React.Component {
 }
 
 Input.propTypes = {
-  text: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,

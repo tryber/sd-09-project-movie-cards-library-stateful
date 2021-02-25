@@ -7,13 +7,12 @@ class ImagePath extends React.Component {
     return (
       <label
         data-testid="image-input-label"
-        htmlFor="image"
+        htmlFor="image-input"
       >
         Image
         <input
           data-testid="image-input"
           name="imagePath"
-          id="image"
           type="text"
           value={ value }
           onChange={ onChange }
