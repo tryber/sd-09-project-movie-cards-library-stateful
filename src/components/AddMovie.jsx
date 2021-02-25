@@ -56,10 +56,10 @@ class AddMovie extends React.Component {
             onChange={ this.reloadState }
           />
         </label>
-        <label htmlFor="textarea-label" data-testid="storyline-input-label">
+        <label htmlFor="label-textarea" data-testid="storyline-input-label">
           Sinopse
           <textarea
-            id="textarea-label"
+            id="label-textarea"
             name="storyline"
             value={ storyline }
             data-testid="storyline-input"
