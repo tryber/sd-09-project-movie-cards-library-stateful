@@ -22,7 +22,6 @@ class GenInput extends React.Component {
 
 GenInput.propTypes = ({
   name: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   dtId: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
