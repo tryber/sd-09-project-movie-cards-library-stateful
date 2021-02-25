@@ -66,7 +66,7 @@ class MovieLibrary extends Component {
           searchText={ this.searchText }
         />
         <MovieList movies={ movies } />
-        <AddMovie addMovieToList={ this.addMovieToList } onClick={ this.onClick } />
+        <AddMovie onClick={ this.onClick } />
       </div>
     );
   }
