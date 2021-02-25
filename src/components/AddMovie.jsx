@@ -20,6 +20,9 @@ class AddMovie extends Component {
     } = this.props;
 
     return (
+      <form data-testid="add-movie-form">
+
+      </form>
     );
   }
 }
