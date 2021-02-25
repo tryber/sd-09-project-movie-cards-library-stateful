@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import movies from '../data';
+import moviesList from '../data';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
@@ -12,7 +12,7 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies,
+      movies: moviesList,
     };
     this.handleChange = this.handleChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
@@ -43,12 +43,12 @@ class MovieLibrary extends Component {
 
   onClick(movie) {
     this.setState = {
-      movies: movies.push(movie),
+      movies: moviesList.push(movie),
     };
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
