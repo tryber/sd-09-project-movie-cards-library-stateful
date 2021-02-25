@@ -9,13 +9,41 @@ class MovieLibrary extends Component {
     super(props);
     const { movies } = this.props;
     this.state = {
-      // searchText: '',
+      searchText: '',
       // bookmarkedOnly: false,
       // selectedGenre: '',
       movies,
     };
     this.addMovieToList = this.addMovieToList.bind(this);
-    this.filterData = this.filterData.bind(this);
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.searchText = this.searchText.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+  }
+
+  onSearchTextChange(event) {
+    const search = event.target.value;
+    this.setState((lastState) => ({ searchText: `${lastState.searchText}${search}` }));
+    this.searchText();
+  }
+
+  onBookmarkedChange() {
+    // const { checked } = event.target;
+    // this.setState({ bookmarkedOnly: checked });
+  }
+
+  onSelectedGenreChange() {
+
+  }
+
+  selectedGenre() {
+
+  }
+
+  bookmarkedOnly() {
+
+  }
+
+  searchText() {
   }
 
   addMovieToList(movieObject) {
@@ -24,16 +52,19 @@ class MovieLibrary extends Component {
     this.setState({ movies });
   }
 
-  filterData(event) {
-    console.log(event);
-  }
-
   render() {
     const { movies } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar filterData={ this.filterData } />
+        <SearchBar
+          onSearchTextChange={ this.onSearchTextChange }
+          onBookmarkedChange={ this.onBookmarkedChange }
+          onSelectedGenreChange={ this.onSelectedGenreChange }
+          selectedGenre={ this.selectedGenre }
+          bookmarkedOnly={ this.bookmarkedOnly }
+          searchText={ this.searchText }
+        />
         <MovieList movies={ movies } />
         <AddMovie addMovieToList={ this.addMovieToList } />
       </div>
@@ -41,6 +72,6 @@ class MovieLibrary extends Component {
   }
 }
 
-MovieLibrary.propTypes = { movies: PropTypes.array }.isRequired;
+MovieLibrary.propTypes = { movies: PropTypes.arrayOf(PropTypes.object) }.isRequired;
 
 export default MovieLibrary;

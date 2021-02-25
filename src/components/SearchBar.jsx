@@ -17,6 +17,7 @@ class SearchBar extends React.Component {
           Inclui o texto:
           <input
             id="text-input"
+            name="searchText"
             data-testid="text-input"
             type="text"
             value={ searchText }
