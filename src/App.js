@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <Header />
       <SearchBar
-        searchText="Texto mui legal!"
+        searchText=""
         onSearchTextChange={ () => useCallback }
         bookmarkedOnly
         onBookmarkedChange={ useCallback }
