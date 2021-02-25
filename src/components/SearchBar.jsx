@@ -13,7 +13,18 @@ class SearchBar extends Component {
     } = this.props;
 
     return (
-      <form data-testid="search-bar-form">Form</form>
+      <form data-testid="search-bar-form">
+        <label data-testid="text-input-label" htmlFor="text-input">
+          Inclui o texto:
+          <input
+            id="text-input"
+            type="text"
+            value={ searchText }
+            onChange={ onSearchTextChange }
+            data-testid="text-input"
+          />
+        </label>
+      </form>
     );
   }
 }
