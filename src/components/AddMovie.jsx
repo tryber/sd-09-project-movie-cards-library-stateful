@@ -120,8 +120,13 @@ class AddMovie extends Component {
     );
   }
 
+  resetState() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({ initialState });
+  }
+
   render() {
-    // const { onclick } = this.props;
     return (
       <form data-testid="add-movie-form">
         { this.createTitleInput() }
@@ -130,10 +135,20 @@ class AddMovie extends Component {
         { this.createStorylineInput() }
         { this.createRatingInput() }
         { this.createGenreInput() }
+        <button
+          type="button"
+          data-testid="send-button"
+          onClick={ this.resetState }
+        >
+          Adicionar filme
+        </button>
       </form>
-
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.callback.isRequired,
+};
 
 export default AddMovie;
