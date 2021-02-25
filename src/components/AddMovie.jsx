@@ -48,7 +48,7 @@ const AddMovie = () => {
         </select>
       </label>
     </form>
-    <button data-testid="send-button" onClick={ console.log('teste') } >
+    <button data-testid="send-button" onClick={ console.log('teste') }>
       Adicionar filme
     </button>
   </div>);
