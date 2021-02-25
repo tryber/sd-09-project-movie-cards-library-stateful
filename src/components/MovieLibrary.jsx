@@ -47,7 +47,7 @@ class MovieLibrary extends Component {
   filteredMovies(movies) {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
 
-    let newArray =  movies.filter(movie => movie.title.toLowerCase().includes(searchText));
+    let newArray =  movies.filter(movie => movie.title.toLowerCase().includes(searchText) || movie.subtitle.toLowerCase().includes(searchText) || movie.storyline.toLowerCase().includes(searchText));
 
     if (bookmarkedOnly) {
       newArray = newArray.filter(movie => movie.bookmarked === bookmarkedOnly);
