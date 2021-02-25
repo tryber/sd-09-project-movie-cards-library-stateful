@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import MovieImagePath from './MovieImagePath';
-import MovieRating from './MovieRating';
-import MovieStoryline from './MovieStoryline';
-import MovieSubtitle from './MovieSubtitle';
 import MovieTitle from './MovieTitle';
+import MovieSubtitle from './MovieSubtitle';
+import MovieImagePath from './MovieImagePath';
+import MovieStoryline from './MovieStoryline';
+import MovieRating from './MovieRating';
 import MovieGenre from './MovieGenre';
 
 class AddMovie extends React.Component {
