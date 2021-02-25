@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -11,14 +11,14 @@ class SearchBar extends React.Component {
   }
 
   inputText() {
-    const { searchText, onSearchTextChange} = this.props;
+    const { searchText, onSearchTextChange } = this.props;
     return (
       <label data-testid="text-input-label" for="text-input">
         Inclui o texto:
         <input
           type="text"
-          value={ searchText }
-          onChange={ onSearchTextChange }
+          value={searchText}
+          onChange={onSearchTextChange}
           data-testid="text-input"
           id="text-input"
         />
@@ -29,49 +29,57 @@ class SearchBar extends React.Component {
   selectFavorite() {
     const { bookmarkedOnly, onBookmarkedChange } = this.props;
     return (
-        <label data-testid="checkbox-input-label" for="favorite-input">
-            Mostrar somente favoritos
-            <input
-              type="checkbox"
-              checked={ bookmarkedOnly }
-              onChange={ onBookmarkedChange }
-              data-testid="checkbox-input"
-              id="favorite-input"
-            />
-        </label>
+      <label data-testid="checkbox-input-label" for="favorite-input">
+        Mostrar somente favoritos
+        <input
+          type="checkbox"
+          checked={bookmarkedOnly}
+          onChange={onBookmarkedChange}
+          data-testid="checkbox-input"
+          id="favorite-input"
+        />
+      </label>
     );
   }
 
   filterGender() {
-    const { selectedGenre, onSelectedGenreChange} = this.props
-    return(
+    const { selectedGenre, onSelectedGenreChange } = this.props;
+    return (
       <label data-testid="select-input-label" for="gender-option">
-          Filtrar por gênero
-          <select
-            value={ selectedGenre }
-            onChange={ onSelectedGenreChange }
-            id="gender-option"
-            data-testid="select-input"
-          >
-            <option data-testid="select-option" value="">Todos</option>
-            <option data-testid="select-option" value="action">Ação</option>
-            <option data-testid="select-option" value="comedy">Comédia</option>
-            <option data-testid="select-option" value="thriller">Suspense</option>
-          </select>
+        Filtrar por gênero
+        <select
+          value={selectedGenre}
+          onChange={onSelectedGenreChange}
+          id="gender-option"
+          data-testid="select-input"
+        >
+          <option data-testid="select-option" value="">
+            Todos
+          </option>
+          <option data-testid="select-option" value="action">
+            Ação
+          </option>
+          <option data-testid="select-option" value="comedy">
+            Comédia
+          </option>
+          <option data-testid="select-option" value="thriller">
+            Suspense
+          </option>
+        </select>
       </label>
-    )
+    );
   }
 
   render() {
-    return(
+    return (
       <form data-testid="search-bar-form">
-        { this.inputText() }
-        { this.selectFavorite() }
-        { this.filterGender() }
+        {this.inputText()}
+        {this.selectFavorite()}
+        {this.filterGender()}
       </form>
     );
   }
-};
+}
 
 SearchBar.propTypes = {
   inputText: PropTypes.string.isRequired,
