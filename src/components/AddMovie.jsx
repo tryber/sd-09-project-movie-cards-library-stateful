@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Title from './Title';
 import Subtitle from './Subtitle';
 import Image from './Image';
+import Sinopse from './Sinopse';
+import Rating from './Rating';
 
 const initialState = {
   subtitle: '',
@@ -33,26 +35,8 @@ class AddMovie extends Component {
         <Title title={ title } handleChange={ this.handleChange } />
         <Subtitle subtitle={ subtitle } handleChange={ this.handleChange } />
         <Image imagePath={ imagePath } handleChange={ this.handleChange } />
-        <label data-testid="storyline-input-label" htmlFor="storyline-input">
-          Sinopse
-          <textarea
-            name="storyline"
-            value={ storyline }
-            data-testid="storyline-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label data-testid="rating-input-label" htmlFor="rating-input">
-          Avaliação
-          <input
-            type="number"
-            name="rating"
-            value={ rating }
-            data-testid="rating-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-
+        <Sinopse storyline={ storyline } handleChange={ this.handleChange } />
+        <Rating rating={ rating } handleChange={ this.handleChange } />
         <label data-testid="genre-input-label" htmlFor="genre-input">
           Gênero
           <select
