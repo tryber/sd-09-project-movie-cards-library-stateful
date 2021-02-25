@@ -1,35 +1,37 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
-
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
-import AddMovie from './AddMovie';
+// import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        searchText: '',
-        bookmarkedOnly: false,
-        selectedGenre: ''
-    }
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: ''
+    };
+
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-
   }
 
-  onSearchTextChange() {};
-  onBookmarkedChange() {};
-  onSelectedGenreChange() {};
+  onSearchTextChange() { }
 
+  onBookmarkedChange() { }
+
+  onSelectedGenreChange() { }
 
   render() {
+    const { movies } = this.props;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar searchText={ this.state.searchText } bookmarkedOnly={ this.state.bookmarkedOnly } selectedGenre={ this.state.selectedGenre } />
-        <MovieList movies={this.props.movies} />
+        <SearchBar searchText={ searchText } onSearchTextChange={ this.onSearchTextChange } onBookmarkedChange={ this.onBookmarkedChange } onSelectedGenreChange={ this.onSelectedGenreChange } bookmarkedOnly={ bookmarkedOnly } selectedGenre={ selectedGenre } />
+        <MovieList movies={ movies } />
         {/* <AddMovie /> */}
       </div>
     );
