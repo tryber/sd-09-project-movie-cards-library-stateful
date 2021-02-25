@@ -16,12 +16,14 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
   }
+
   handleClick(event) {
     const { name, value } = event.target;
     this.setState({
       [name]: value,
     });
   }
+
   title(title, handleClick) {
     return (
       <label data-testid="title-input-label" htmlFor="title-input">
@@ -35,6 +37,7 @@ class AddMovie extends React.Component {
       </label>
     );
   }
+
   subtitle(subtitle, handleClick) {
     return (
       <label data-testid="subtitle-input-label" htmlFor="subtitle-input">
@@ -48,6 +51,7 @@ class AddMovie extends React.Component {
       </label>
     );
   }
+
   image(imagePath, handleClick) {
     return (
       <label data-testid="image-input-label" htmlFor="image-input">
@@ -61,6 +65,7 @@ class AddMovie extends React.Component {
       </label>
     );
   }
+
   sinopse(storyLine, handleClick) {
     return (
       <label data-testid="storyline-input-label" htmlFor="storyline-input">
@@ -74,6 +79,7 @@ class AddMovie extends React.Component {
       </label>
     );
   }
+
   number(rating, handleClick) {
     return (
       <label data-testid="rating-input-label" htmlFor="rating-input">
@@ -88,6 +94,7 @@ class AddMovie extends React.Component {
       </label>
     );
   }
+
   genre(genre, handleClick) {
     return (
       <label data-testid="genre-input-label" htmlFor="genre-input">
@@ -105,6 +112,7 @@ class AddMovie extends React.Component {
       </label>
     );
   }
+
   buttonHandler(event) {
     event.preventDefault();
     const { onClick } = this.props;
@@ -118,6 +126,7 @@ class AddMovie extends React.Component {
       genre: 'action',
     });
   }
+
   render() {
     const {
       title,
@@ -144,6 +153,7 @@ class AddMovie extends React.Component {
     );
   }
 }
+
 AddMovie.propTypes = {
   onClick: PropTypes.func.isRequired,
 };
