@@ -30,6 +30,19 @@ class AddMovie extends Component {
     });
   }
 
+  saveMovie = (() => {
+    this.props.onClick(this.state);
+    
+    this.setState({
+      subtitle: "",
+      title: "",
+      imagePath: "",
+      storyline: "",
+      rating: 0,
+      genre: "action"
+    });
+  });
+
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
 
@@ -85,12 +98,26 @@ class AddMovie extends Component {
               max="5"
             />
           </div>
-          <div><label data-testid="genre-input-label">Gênero</label>
-            <select value={genre} data-testid="genre-input" onChange={this.handleChange}>
-              <option data-testid="genre-option" value="action">Ação</option>
-              <option data-testid="genre-option" value="comedy">Comédia</option>
-              <option data-testid="genre-option" value="thriller">Suspense</option>
+          <div>
+            <label data-testid="genre-input-label">Gênero</label>
+            <select
+              value={genre}
+              data-testid="genre-input"
+              onChange={this.handleChange}
+            >
+              <option data-testid="genre-option" value="action">
+                Ação
+              </option>
+              <option data-testid="genre-option" value="comedy">
+                Comédia
+              </option>
+              <option data-testid="genre-option" value="thriller">
+                Suspense
+              </option>
             </select>
+          </div>
+          <div>
+            <button data-testid="send-button" onClick={this.saveMovie}>Adicionar filme</button>
           </div>
         </form>
       </fieldset>
@@ -99,7 +126,7 @@ class AddMovie extends Component {
 }
 
 AddMovie.propTypes = {
-  onClick: PropTypes.func
+  onClick: func
 };
 
 export default AddMovie;
