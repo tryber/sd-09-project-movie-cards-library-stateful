@@ -7,6 +7,7 @@ class AddMovie extends React.Component {
     this.handleTitleInput = this.handleTitleInput.bind(this);
     this.handleSubtitleInput = this.handleSubtitleInput.bind(this);
     this.handleImagePathInput = this.handleImagePathInput.bind(this);
+    this.handleStorylineInput = this.handleStorylineInput.bind(this);
 
     this.state = {
       subtitle: '',
@@ -28,6 +29,10 @@ class AddMovie extends React.Component {
 
   handleImagePathInput(event) {
     this.setState({ imagePath: event.target.value });
+  }
+
+  handleStorylineInput(event) {
+    this.setState({ storyline: event.target.value });
   }
 
   render() {
@@ -64,6 +69,15 @@ class AddMovie extends React.Component {
             value={ imagePath }
             onChange={ this.handleImagePathInput }
             data-testid="image-input"
+          />
+        </label>
+        <label htmlFor="storyline-input" data-testid="storyline-input-label">
+          Sinopse
+          <textarea
+            id="storyline-input"
+            value={ storyline }
+            onChange={ this.handleStorylineInput }
+            data-testid="storyline-input"
           />
         </label>
       </form>
