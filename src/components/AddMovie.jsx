@@ -64,13 +64,13 @@ class AddMovie extends Component {
         <label data-testid="subtitle-input-label" htmlFor="inputSubTitle">
           Subtítulo
           { this.handleInputs(
-            'text', 'subtitle-input', 'subtitle', 'inputSubTitle', subtitle
+            'text', 'subtitle-input', 'subtitle', 'inputSubTitle', subtitle,
           ) }
         </label>
         <label data-testid="image-input-label" htmlFor="imageInput">
           Imagem
           { this.handleInputs(
-            'text', 'image-input', 'imagePath', 'imageInput', imagePath
+            'text', 'image-input', 'imagePath', 'imageInput', imagePath,
           ) }
         </label>
         <label data-testid="storyline-input-label" htmlFor="storyLineInput">
