@@ -52,6 +52,16 @@ class AddMovie extends React.Component {
             data-testid="image-input"
           />
         </label>
+        <label htmlFor="storyline-input" data-testid="storyline-input-label">
+          Sinopse
+          <textarea
+            type="text"
+            name="storyline"
+            value={ this.state.storyline }
+            onChange={ this.onClick }
+            data-testid="storyline-input"
+          />
+        </label>
       </form>
     );
   }
