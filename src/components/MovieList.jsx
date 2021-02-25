@@ -9,16 +9,16 @@ class MovieList extends React.Component {
 
     return (
       <div data-testid="movie-list" className="movie-list">
-        { (movies.length > 0) ? movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />) : 'Não achamos nenhum filme!' }
+        { movies.length > 0
+          ? movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)
+          : 'Não achamos nenhum filme!' }
       </div>
     );
   }
 }
 
 MovieList.propTypes = {
-  movies: PropTypes.arrayOf(
-    PropTypes.object,
-  ).isRequired,
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default MovieList;

@@ -1,6 +1,6 @@
 // implement AddMovie component here
-import React, { Component } from "react";
-import PropTypes, { func } from "prop-types";
+import React, { Component } from 'react';
+import PropTypes, { func } from 'prop-types';
 
 class SearchBar extends Component {
   render() {
@@ -10,38 +10,39 @@ class SearchBar extends Component {
       bookmarkedOnly,
       onBookmarkedChange,
       selectedGenre,
-      onSelectedGenreChange
+      onSelectedGenreChange,
     } = this.props;
 
     return (
       <fieldset>
         <legend>Pesquise</legend>
         <form data-testid="search-bar-form">
-          <div>
-            <label data-testid="text-input-label">Inclui o texto:</label>
+          <label htmlFor="searchText" data-testid="text-input-label">
+            <span>Inclui o texto:</span>
             <input
               type="text"
-              value={searchText}
-              onChange={onSearchTextChange}
+              id="searchText"
+              value={ searchText }
+              onChange={ onSearchTextChange }
               data-testid="text-input"
             />
-          </div>
-          <div>
-            <label data-testid="checkbox-input-label">
-              Mostrar somente favoritos
-            </label>
+          </label>
+          <label htmlFor="bookmarkedOnly" data-testid="checkbox-input-label">
+            <span>Mostrar somente favoritos</span>
             <input
               type="checkbox"
-              checked={bookmarkedOnly}
-              onChange={onBookmarkedChange}
+              id="bookmarkedOnly"
+              checked={ bookmarkedOnly }
+              onChange={ onBookmarkedChange }
               data-testid="checkbox-input"
             />
-          </div>
-          <div>
-            <label data-testid="select-input-label">Filtrar por gênero</label>
+          </label>
+          <label htmlFor="selectedGenre" data-testid="select-input-label">
+            <span>Filtrar por gênero</span>
             <select
-              value={selectedGenre}
-              onChange={onSelectedGenreChange}
+              value={ selectedGenre }
+              id="selectedGenre"
+              onChange={ onSelectedGenreChange }
               data-testid="select-input"
             >
               <option data-testid="select-option" value="">
@@ -57,7 +58,7 @@ class SearchBar extends Component {
                 Suspense
               </option>
             </select>
-          </div>
+          </label>
         </form>
       </fieldset>
     );
@@ -65,12 +66,12 @@ class SearchBar extends Component {
 }
 
 SearchBar.propTypes = {
-  searchText: PropTypes.string,
-  onSearchTextChange: PropTypes.func,
-  bookmarkedOnly: PropTypes.bool,
-  onBookmarkedChange: PropTypes.func,
-  selectedGenre: PropTypes.string,
-  onSelectedGenreChange: func
+  searchText: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
+  onSelectedGenreChange: func.isRequired,
 };
 
 export default SearchBar;
