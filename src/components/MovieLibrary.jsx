@@ -15,6 +15,15 @@ class MovieLibrary extends Component {
       selectedGenre: '',
       movies,
     };
+
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+  }
+
+  onSearchTextChange({ target }) {
+    const { name, value } = target;
+    this.setState({
+      [name]: value,
+    });
   }
 
   render() {
@@ -22,8 +31,13 @@ class MovieLibrary extends Component {
     return (
       <>
         <h2> My awesome movie library </h2>
-        <SearchBar searchText={ searchText } />
-        <MovieList movies={ movies } />
+        <SearchBar
+          searchText={ searchText }
+          onSearchTextChange={ this.onSearchTextChange }
+        />
+        <MovieList
+          movies={ movies }
+        />
         <AddMovie />
       </>
     );

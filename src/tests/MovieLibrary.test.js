@@ -73,7 +73,7 @@ describe('16 - Configure o estado inicial do componente `<MovieLibrary />`', () 
   });
 });
 
-describe.skip('17 - Renderize `<SearchBar />` dentro de `<MovieLibrary />`', () => {
+describe('17 - Renderize `<SearchBar />` dentro de `<MovieLibrary />`', () => {
   it('Renderize o componente `<SearchBar />`', () => {
     const { getAllByTestId } = render(<MovieLibrary movies={ movies } />);
     const searchBar = getAllByTestId('search-bar-form');
