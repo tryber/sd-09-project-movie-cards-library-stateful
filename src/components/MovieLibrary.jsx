@@ -10,7 +10,7 @@ class MovieLibrary extends Component {
     super(props);
 
     this.state = {
-      
+      searchText:'',
     }
   }
 
@@ -20,7 +20,14 @@ class MovieLibrary extends Component {
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar searchText={ searchText } onSearchTextChange={ this.onSearchTextChange } bookmarkedOnly={ bookmarkedOnly } onBookmarkedChange={ this.onBookmarkedChange } selectedGenre={ selectedGenre } onSelectedGenreChange={ this.onSelectedGenreChange } />
+        <SearchBar
+          searchText={ searchText } 
+          onSearchTextChange={ this.onSearchTextChange }
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ this.onBookmarkedChange }
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ this.onSelectedGenreChange }
+        />
         {/* <MovieList movies={ movies } />
         <AddMovie /> */}
       </div>
