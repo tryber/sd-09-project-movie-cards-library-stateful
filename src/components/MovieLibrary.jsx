@@ -11,6 +11,6 @@ const MovieLibrary = () => (
     <AddMovie />
     <MovieList movies={ movies } />
   </div>
-)
+);
 
 export default MovieLibrary;
