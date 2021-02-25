@@ -12,16 +12,16 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
-    this.retryStateTitle = this.retryStateTitle.bind(this);
+    this.reloadState = this.reloadState.bind(this);
   }
 
-  retryStateTitle(event) {
+  reloadState(event) {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   }
 
   render() {
-    const { title, subtitle } = this.state;
+    const { title, subtitle, imagePath, storyline } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="label-title" data-testid="title-input-label">
@@ -32,7 +32,7 @@ class AddMovie extends React.Component {
             type="text"
             value={ title }
             data-testid="title-input"
-            onChange={ this.retryStateTitle }
+            onChange={ this.reloadState }
           />
         </label>
         <label htmlFor="label-subtitle" data-testid="subtitle-input-label">
@@ -43,7 +43,28 @@ class AddMovie extends React.Component {
             type="text"
             value={ subtitle }
             data-testid="subtitle-input"
-            onChange={ this.retryStateTitle }
+            onChange={ this.reloadState }
+          />
+        </label>
+        <label htmlFor="label-imagepath" data-testid="image-input-label">
+          Imagem
+          <input
+            name="imagePath"
+            id="label-imagepath"
+            type="text"
+            value={ imagePath }
+            data-testid="image-input"
+            onChange={ this.reloadState }
+          />
+        </label>
+        <label htmlFor="textarea-label" data-testid="storyline-input-label">
+          Sinopse
+          <textarea
+            id="textarea-label"
+            name="storyline"
+            value={ storyline }
+            data-testid="storyline-input"
+            onChange={ this.reloadState }
           />
         </label>
       </form>
