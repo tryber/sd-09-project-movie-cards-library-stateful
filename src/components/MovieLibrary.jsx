@@ -14,39 +14,23 @@ class MovieLibrary extends Component {
       selectedGenre: '',
       movies,
     };
-    this.searchTextEvent = this.searchTextEvent.bind(this);
-    this.bookmarkedOnlyEvent = this.bookmarkedOnlyEvent.bind(this);
-    this.selectedGenreEvent = this.selectedGenreEvent.bind(this);
+    this.handlerEvent = this.handlerEvent.bind(this);
     this.filterTextEvent = this.filterTextEvent.bind(this);
     this.onClick = this.onClick.bind(this);
+  }
+
+  handlerEvent({ target }) {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    this.setState({
+      [name]: value,
+    });
   }
 
   onClick(newMovie) {
     this.setState(({ movies }) => ({
       movies: [...movies, newMovie],
     }));
-  }
-
-  searchTextEvent({ target }) {
-    const { value } = target;
-    this.setState({
-      searchText: value,
-    });
-  }
-
-  bookmarkedOnlyEvent({ target }) {
-    const { name } = target;
-    const value = target.checked;
-    this.setState({
-      [name]: value,
-    });
-  }
-
-  selectedGenreEvent({ target }) {
-    const { value } = target;
-    this.setState({
-      selectedGenre: value,
-    });
   }
 
   filterTextEvent() {
@@ -74,11 +58,11 @@ class MovieLibrary extends Component {
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ this.searchTextEvent }
+          onSearchTextChange={ this.handlerEvent }
           bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ this.bookmarkedOnlyEvent }
+          onBookmarkedChange={ this.handlerEvent }
           selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ this.selectedGenreEvent }
+          onSelectedGenreChange={ this.handlerEvent }
         />
         <MovieList movies={ movies } />
         <AddMovie onClick={ this.onClick } />
