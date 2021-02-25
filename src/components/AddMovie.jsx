@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import ParentInput from './ParentInput';
 
 class AddMovie extends Component {
   constructor(props) {
@@ -13,7 +14,6 @@ class AddMovie extends Component {
       genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
-    this.handleInputs = this.handleInputs.bind(this);
   }
 
   handleChange({ target }) {
@@ -22,19 +22,6 @@ class AddMovie extends Component {
     this.setState = {
       [name]: value,
     };
-  }
-
-  handleInputs({ type, dataTestId, name, id, value }) {
-    return (
-      <input
-        type={ type }
-        data-testid={ dataTestId }
-        name={ name }
-        id={ id }
-        value={ value }
-        onChange={ this.handleChange }
-      />
-    );
   }
 
   handleSelectInput(genre) {
@@ -58,22 +45,24 @@ class AddMovie extends Component {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label data-testid="title-input-label" htmlFor="inputTitle">
-          Título
-          { this.handleInputs('text', 'title-input', 'title', 'inputTitle', title) }
-        </label>
-        <label data-testid="subtitle-input-label" htmlFor="inputSubTitle">
-          Subtítulo
-          { this.handleInputs(
-            'text', 'subtitle-input', 'subtitle', 'inputSubTitle', subtitle,
-          ) }
-        </label>
-        <label data-testid="image-input-label" htmlFor="imageInput">
-          Imagem
-          { this.handleInputs(
-            'text', 'image-input', 'imagePath', 'imageInput', imagePath,
-          ) }
-        </label>
+        <ParentInput
+          type="text"
+          name="title"
+          value={ title }
+          lblTitle="Título"
+        />
+        <ParentInput
+          type="text"
+          name="subtitle"
+          value={ subtitle }
+          lblTitle="Subtítulo"
+        />
+        <ParentInput
+          type="text"
+          name="imagePath"
+          value={ imagePath }
+          lblTitle="Imagem"
+        />
         <label data-testid="storyline-input-label" htmlFor="storyLineInput">
           Sinopse
           <textarea
@@ -84,10 +73,7 @@ class AddMovie extends Component {
             onChange={ this.handleChange }
           />
         </label>
-        <label data-testid="rating-input-label" htmlFor="ratingInput">
-          Avaliação
-          { this.handleInputs('number', 'rating-input', 'rating', 'ratingInput', rating) }
-        </label>
+        <ParentInput type="number" name="rating" value={ rating } lblTitle="Avaliação" />
         <label data-testid="genre-input-label" htmlFor="genreSelect">
           Gênero
           { this.handleSelectInput(genre) }
