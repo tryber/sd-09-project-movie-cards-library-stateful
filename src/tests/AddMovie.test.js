@@ -128,20 +128,20 @@ describe('10 - Renderize um input do tipo texto dentro do formulário em `<AddMo
 });
 
 describe('11 - Renderize uma `textarea` dentro do formulário em `<AddMovie />` para obter a sinopse do novo filme', () => {
-  it.skip('Renderize um input de texto para quem usa escrever a sinopse do filme', () => {
+  it('Renderize um input de texto para quem usa escrever a sinopse do filme', () => {
     expect(storylineInput).toBeInTheDocument();
   });
 
-  it.skip('Renderize a label "Sinopse" para o input de sinopse', () => {
+  it('Renderize a label "Sinopse" para o input de sinopse', () => {
     expect(storylineInputLabel).toBeInTheDocument();
     expect(storylineInputLabel).toHaveTextContent('Sinopse');
   });
 
-  it.skip('Defina o estado inicial do input de sinopse como "", ou seja, uma string vazia', () => {
+  it('Defina o estado inicial do input de sinopse como "", ou seja, uma string vazia', () => {
     expect(storylineInput).toHaveValue(initialState.storyline);
   });
 
-  it.skip('Altere o valor do input de sinopse quando algo é digitado nele', () => {
+  it('Altere o valor do input de sinopse quando algo é digitado nele', () => {
     const message = 'In the following movie, everyone dies.';
     fireEvent.change(storylineInput, { target: { value: message } });
     expect(storylineInput).toHaveValue(message);
