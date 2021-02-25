@@ -40,9 +40,9 @@ class MovieLibrary extends Component {
           onBookmarkedChange={ this.onBookmarkedChange }
           onSelectedGenreChange={ this.onSelectedGenreChange }
           bookmarkedOnly={ bookmarkedOnly }
-          selectedGenre={ selectedGenre } 
+          selectedGenre={ selectedGenre }
         />
-        
+
         <MovieList movies={ movies } />
         <AddMovie onClick={ this.onClick } />
       </div>
