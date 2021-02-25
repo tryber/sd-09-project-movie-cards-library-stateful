@@ -14,4 +14,10 @@ const addMovieFirstState = {
   genre: 'action',
 };
 
-export { genres, addMovieFirstState };
+const movieLibraryFirstState = {
+  searchText: '',
+  bookmarkedOnly: false,
+  genre: '',
+};
+
+export { genres, addMovieFirstState, movieLibraryFirstState };
