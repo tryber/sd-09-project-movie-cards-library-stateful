@@ -1,7 +1,7 @@
 // implement AddMovie component here
 import React from 'react';
 import './Styles/SearchBar.css';
-import InputText from './InputTextSearchBar';
+import InputText from './Inputs/InputTextSearchBar';
 
 class SearchBar extends React.Component {
   render() {
