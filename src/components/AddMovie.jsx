@@ -15,11 +15,24 @@ class AddMovie extends Component {
   constructor(props) {
     super(props);
     this.state = initialStateMovie;
+    this.createTitleInput = this.createTitleInput.bind(this);
+    this.createSubtitleInput = this.createSubtitleInput.bind(this);
+    this.createImageInput = this.createImageInput.bind(this);
+    this.createStorylineInput = this.createStorylineInput.bind(this);
+    this.createRatingInput = this.createRatingInput.bind(this);
+    this.createGenreInput = this.createGenreInput.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.resetState = this.resetState.bind(this);
   }
 
-  createTitleInput() {
-    const { handleChange } = this.props;
-    const { title } = this.state;
+  handleChange({ target }) {
+    const { name, value } = target;
+    this.setState({
+      [name]: value,
+    });
+  }
+
+  createTitleInput(title) {
     return (
       <label htmlFor="title-input" data-testid="title-input-label">
         Título
@@ -28,15 +41,13 @@ class AddMovie extends Component {
           name="title"
           data-testid="title-input"
           value={ title }
-          onChange={ handleChange }
+          onChange={ this.handleChange }
         />
       </label>
     );
   }
 
-  createSubtitleInput() {
-    const { handleChange } = this.props;
-    const { subtitle } = this.state;
+  createSubtitleInput(subtitle) {
     return (
       <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
         Subtítulo
@@ -45,32 +56,28 @@ class AddMovie extends Component {
           name="subtitle"
           data-testid="subtitle-input"
           value={ subtitle }
-          onChange={ handleChange }
+          onChange={ this.handleChange }
         />
       </label>
     );
   }
 
-  createImageInput() {
-    const { handleChange } = this.props;
-    const { imagePath } = this.state;
+  createImageInput(imagePath) {
     return (
       <label htmlFor="image-input" data-testid="image-input-label">
         Imagem
         <input
           type="text"
           name="imagePath"
-          data-testid="subtitle-input"
+          data-testid="image-input"
           value={ imagePath }
-          onChange={ handleChange }
+          onChange={ this.handleChange }
         />
       </label>
     );
   }
 
-  createStorylineInput() {
-    const { handleChange } = this.props;
-    const { storyline } = this.state;
+  createStorylineInput(storyline) {
     return (
       <label htmlFor="storyline-input" data-testid="storyline-input-label">
         Sinopse
@@ -78,15 +85,13 @@ class AddMovie extends Component {
           name="storyline"
           data-testid="storyline-input"
           value={ storyline }
-          onChange={ handleChange }
+          onChange={ this.handleChange }
         />
       </label>
     );
   }
 
-  createRatingInput() {
-    const { handleChange } = this.props;
-    const { rating } = this.state;
+  createRatingInput(rating) {
     return (
       <label htmlFor="rating-input" data-testid="rating-input-label">
         Avaliação
@@ -95,22 +100,21 @@ class AddMovie extends Component {
           name="rating"
           data-testid="rating-input"
           value={ rating }
-          onChange={ handleChange }
+          onChange={ this.handleChange }
         />
       </label>
     );
   }
 
-  createGenreInput() {
-    const { handleChange } = this.props;
-    const { genre } = this.state;
+  createGenreInput(genre) {
     return (
       <label htmlFor="genre-input" data-testid="genre-input-label">
         Gênero
         <select
+          name="genre"
           data-testid="genre-input"
           value={ genre }
-          onChange={ handleChange }
+          onChange={ this.handleChange }
         >
           <option data-testid="genre-option" value="action">Ação</option>
           <option data-testid="genre-option" value="comedy">Comédia</option>
@@ -123,18 +127,19 @@ class AddMovie extends Component {
   resetState() {
     const { onClick } = this.props;
     onClick(this.state);
-    this.setState({ initialStateMovie });
+    this.setState(initialStateMovie);
   }
 
   render() {
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        { this.createTitleInput() }
-        { this.createSubtitleInput() }
-        { this.createImageInput() }
-        { this.createStorylineInput() }
-        { this.createRatingInput() }
-        { this.createGenreInput() }
+        { this.createTitleInput(title) }
+        { this.createSubtitleInput(subtitle) }
+        { this.createImageInput(imagePath) }
+        { this.createStorylineInput(storyline) }
+        { this.createRatingInput(rating) }
+        { this.createGenreInput(genre) }
         <button
           type="button"
           data-testid="send-button"
@@ -148,7 +153,6 @@ class AddMovie extends Component {
 }
 
 AddMovie.propTypes = {
-  handleChange: PropTypes.func.isRequired,
   onClick: PropTypes.func.isRequired,
 };
 
