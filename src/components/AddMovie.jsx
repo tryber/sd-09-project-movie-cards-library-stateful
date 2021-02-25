@@ -23,19 +23,113 @@ class AddMovie extends Component {
     });
   }
 
+  createTitleInput() {
+    const { title } = this.state;
+    return (
+      <label htmlFor="title-input" data-testid="title-input-label">
+        Título
+        <input
+          type="text"
+          name="title"
+          data-testid="title-input"
+          value={ title }
+          onChange={ this.handleChange }
+        />
+      </label>
+    );
+  }
+
+  createSubtitleInput() {
+    const { subtitle } = this.state;
+    return (
+      <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
+        Subtítulo
+        <input
+          type="text"
+          name="subtitle"
+          data-testid="subtitle-input"
+          value={ subtitle }
+          onChange={ this.handleChange }
+        />
+      </label>
+    );
+  }
+
+  createImageInput() {
+    const { imagePath } = this.state;
+    return (
+      <label htmlFor="image-input" data-testid="image-input-label">
+        Imagem
+        <input
+          type="text"
+          name="imagePath"
+          data-testid="subtitle-input"
+          value={ imagePath }
+          onChange={ this.handleChange }
+        />
+      </label>
+    );
+  }
+
+  createStorylineInput() {
+    const { storyline } = this.state;
+    return (
+      <label htmlFor="storyline-input" data-testid="storyline-input-label">
+        Sinopse
+        <textarea
+          name="storyline"
+          data-testid="storyline-input"
+          value={ storyline }
+          onChange={ this.handleChange }
+        />
+      </label>
+    );
+  }
+
+  createRatingInput() {
+    const { rating } = this.state;
+    return (
+      <label htmlFor="rating-input" data-testid="rating-input-label">
+        Avaliação
+        <input
+          type="number"
+          name="rating"
+          data-testid="rating-input"
+          value={ rating }
+          onChange={ this.handleChange }
+        />
+      </label>
+    );
+  }
+
+  createGenreInput() {
+    const { genre } = this.state;
+    return (
+      <label htmlFor="genre-input" data-testid="genre-input-label">
+        Gênero
+        <select
+          data-testid="genre-input"
+          value={ genre }
+          onChange={ this.handleChange }
+        >
+          <option data-testid="genre-option" value="action">Ação</option>
+          <option data-testid="genre-option" value="comedy">Comédia</option>
+          <option data-testid="genre-option" value="thriller">Suspense</option>
+        </select>
+      </label>
+    );
+  }
+
   render() {
     // const { onclick } = this.props;
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="title-input" data-testid="title-input-label">
-          Título
-          <input
-            type="text"
-            data-testid="title-input"
-            value={ title }
-            onChange={ this.handleChange }
-          />
-        </label>
+        { this.createTitleInput() }
+        { this.createSubtitleInput() }
+        { this.createImageInput() }
+        { this.createStorylineInput() }
+        { this.createRatingInput() }
+        { this.createGenreInput() }
       </form>
 
     );
