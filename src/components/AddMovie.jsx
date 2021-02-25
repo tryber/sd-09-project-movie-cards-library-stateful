@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Input from './Input';
 import TextArea from './TextArea';
 import SelectGenre from './SelectGenre';
+import ImagePath from './ImagePath';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -43,15 +44,7 @@ class AddMovie extends React.Component {
           value={ subtitle }
           onChange={ this.handleChange }
         />
-        <Input
-          testId="image-input"
-          name="imagePath"
-          type="text"
-          value={ imagePath }
-          onChange={ this.handleChange }
-        >
-          Imagem
-        </Input>
+        <ImagePath value={ imagePath } onChange={ this.handleChange } />
         <TextArea
           name="storyline"
           title="Sinopse"

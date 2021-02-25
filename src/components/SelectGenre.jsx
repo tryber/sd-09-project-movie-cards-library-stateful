@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 
 class SelectGenre extends React.Component {
   rende() {
-    const { genre, onChange } = this.props;
+    const { value, onChange } = this.props;
     return (
       <label data-testid="genre-input-label" htmlFor="genre-input">
         Gênero
         <select
           data-testid="genre-input"
           name="genre"
-          value={ genre }
+          value={ value }
           onChange={ onChange }
         >
           <option data-testid="genre-option" value="action">Ação</option>
@@ -23,7 +23,7 @@ class SelectGenre extends React.Component {
 }
 
 SelectGenre.propTypes = {
-  genre: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 
