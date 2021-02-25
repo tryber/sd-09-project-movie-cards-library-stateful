@@ -16,8 +16,19 @@ class AddMovie extends React.Component {
     };
   }
 
+  // handleChange({ target }) {
+  //   const { name } = target;
+  //   this.setState({ [name]: target.value });
+  // }
+
   handleChange(event) {
-    this.setState({ title: event.target.value });
+    const { target } = event;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const { name } = target;
+
+    this.setState({
+      [name]: value,
+    });
   }
 
   render() {
@@ -31,6 +42,17 @@ class AddMovie extends React.Component {
             value={ title }
             data-testid="title-input"
             onChange={ this.handleChange }
+            name="title"
+          />
+        </label>
+        <label htmlFor="Subtítulo" data-testid="subtitle-input-label">
+          Subtítulo
+          <input
+            type="text"
+            value={ subtitle }
+            data-testid="subtitle-input"
+            onChange={ this.handleChange }
+            name="subtitle"
           />
         </label>
       </form>
