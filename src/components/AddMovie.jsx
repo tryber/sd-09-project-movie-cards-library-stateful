@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import MovieImagePath from './MovieImagePath';
 import MovieRating from './MovieRating';
 import MovieStoryline from './MovieStoryline';
@@ -64,5 +65,9 @@ class AddMovie extends React.Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;

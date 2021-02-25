@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class MovieImagePath extends React.Component {
   render() {
@@ -17,5 +18,15 @@ class MovieImagePath extends React.Component {
     );
   }
 }
+
+MovieImagePath.propTypes = {
+  value: PropTypes.string,
+  changeHandler: PropTypes.func,
+};
+
+MovieImagePath.defaultProps = {
+  value: '',
+  changeHandler: () => {},
+};
 
 export default MovieImagePath;

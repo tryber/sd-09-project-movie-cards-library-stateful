@@ -1,5 +1,7 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
+
 class MovieSubtitle extends React.Component {
   render() {
     const { value, changeHandler } = this.props;
@@ -17,5 +19,15 @@ class MovieSubtitle extends React.Component {
     );
   }
 }
+
+MovieSubtitle.propTypes = {
+  value: PropTypes.string,
+  changeHandler: PropTypes.func,
+};
+
+MovieSubtitle.defaultProps = {
+  value: '',
+  changeHandler: () => {},
+};
 
 export default MovieSubtitle;
