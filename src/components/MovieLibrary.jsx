@@ -6,20 +6,25 @@ import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
-const { movies } = this.props;
 // const { title, subtitle, storyline, rating, imagePath } = movies;
-
-const initialStateMovie = {
-  searchText: '',
-  bookmarkedOnly: false,
-  selectedGenre: '',
-  movies: { movies },
-};
 
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
-    this.state = initialStateMovie;
+    const { movies } = this.props;
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      movies: { movies },
+    };
+  }
+
+  handleChange({ target }) {
+    const { name2, value2 } = target;
+    this.setState({
+      [name2]: value2,
+    });
   }
 
   onSearchTextChange({ target }) {
@@ -44,24 +49,28 @@ class MovieLibrary extends Component {
   }
 
   render() {
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar
-          onSearchTextChange={ this.onSearchTextChange }
-          searchText={ this.searchText }
-          bookmarkedOnly={ this.bookmarkedOnly }
-          onBookmarkedOnly={ this.onBookmarkedOnly }
-          selectedGenre={ this.selectedGenre }
-          onSelectedGenreChange={ this.onSelectedGenreChange }
+          onSearchTextChange={ this.onSearchTextChange() }
+          searchText={ searchText }
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedOnly={ this.onBookmarkedOnly() }
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ this.onSelectedGenreChange() }
         />
         <MovieList
-          movies={ this.movies }
+          movies={ movies }
           searchText={ this.searchText }
           bookmarkedOnly={ this.bookmarkedOnly }
           selectedGenre={ this.selectedGenre }
         />
-        <AddMovie />
+        <AddMovie
+          handleChange={ this.handleChange }
+          onClick={ this.onClick() }
+        />
       </div>
     );
   }

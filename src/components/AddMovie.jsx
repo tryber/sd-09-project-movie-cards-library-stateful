@@ -17,14 +17,8 @@ class AddMovie extends Component {
     this.state = initialStateMovie;
   }
 
-  handleChange({ target }) {
-    const { name, value } = target;
-    this.setState({
-      [name]: value,
-    });
-  }
-
   createTitleInput() {
+    const { handleChange } = this.props;
     const { title } = this.state;
     return (
       <label htmlFor="title-input" data-testid="title-input-label">
@@ -34,13 +28,14 @@ class AddMovie extends Component {
           name="title"
           data-testid="title-input"
           value={ title }
-          onChange={ this.handleChange }
+          onChange={ handleChange }
         />
       </label>
     );
   }
 
   createSubtitleInput() {
+    const { handleChange } = this.props;
     const { subtitle } = this.state;
     return (
       <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
@@ -50,13 +45,14 @@ class AddMovie extends Component {
           name="subtitle"
           data-testid="subtitle-input"
           value={ subtitle }
-          onChange={ this.handleChange }
+          onChange={ handleChange }
         />
       </label>
     );
   }
 
   createImageInput() {
+    const { handleChange } = this.props;
     const { imagePath } = this.state;
     return (
       <label htmlFor="image-input" data-testid="image-input-label">
@@ -66,13 +62,14 @@ class AddMovie extends Component {
           name="imagePath"
           data-testid="subtitle-input"
           value={ imagePath }
-          onChange={ this.handleChange }
+          onChange={ handleChange }
         />
       </label>
     );
   }
 
   createStorylineInput() {
+    const { handleChange } = this.props;
     const { storyline } = this.state;
     return (
       <label htmlFor="storyline-input" data-testid="storyline-input-label">
@@ -81,13 +78,14 @@ class AddMovie extends Component {
           name="storyline"
           data-testid="storyline-input"
           value={ storyline }
-          onChange={ this.handleChange }
+          onChange={ handleChange }
         />
       </label>
     );
   }
 
   createRatingInput() {
+    const { handleChange } = this.props;
     const { rating } = this.state;
     return (
       <label htmlFor="rating-input" data-testid="rating-input-label">
@@ -97,13 +95,14 @@ class AddMovie extends Component {
           name="rating"
           data-testid="rating-input"
           value={ rating }
-          onChange={ this.handleChange }
+          onChange={ handleChange }
         />
       </label>
     );
   }
 
   createGenreInput() {
+    const { handleChange } = this.props;
     const { genre } = this.state;
     return (
       <label htmlFor="genre-input" data-testid="genre-input-label">
@@ -111,7 +110,7 @@ class AddMovie extends Component {
         <select
           data-testid="genre-input"
           value={ genre }
-          onChange={ this.handleChange }
+          onChange={ handleChange }
         >
           <option data-testid="genre-option" value="action">Ação</option>
           <option data-testid="genre-option" value="comedy">Comédia</option>
@@ -149,6 +148,7 @@ class AddMovie extends Component {
 }
 
 AddMovie.propTypes = {
+  handleChange: PropTypes.func.isRequired,
   onClick: PropTypes.func.isRequired,
 };
 
