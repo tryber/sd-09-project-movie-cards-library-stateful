@@ -12,9 +12,11 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: "action"
     };
+
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
 
-  handleInputChange = (event) => {
+  handleInputChange(event) {
     const target = event.target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     const name = target.name;
@@ -25,7 +27,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { title, subtitle, imagePath } = this.props;
+    const { title, subtitle, imagePath, storyline } = this.props;
     return (
       <form data-testid="add-movie-form">
         <label data-testid="title-input-label" htmlFor="title">
@@ -57,6 +59,16 @@ class AddMovie extends React.Component {
             type="text"
             value={ imagePath }
             data-testid="image-input"
+            onChange={ this.handleInputChange }
+          />
+        </label>
+
+        <label data-testid="storyline-input-label" htmlFor="textarea">
+          Sinopse
+          <textarea
+            id="textarea"
+            value={ storyline }
+            data-testid="storyline-input"
             onChange={ this.handleInputChange }
           />
         </label>
