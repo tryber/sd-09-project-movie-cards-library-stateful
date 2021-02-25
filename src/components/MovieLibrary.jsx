@@ -2,18 +2,16 @@ import React, { Component } from 'react';
 import PropTypes, { arrayOf } from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
-import AddMovie from './AddMovie';
-
+// import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   // eslint-disable-next-line no-useless-constructor
-  constructor(props) {
-    super(props);
-    this.state = {
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
 
-    };
-  }
-
+  //   };
+  // }
   render() {
     const { movies } = this.props;
     return (

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { string, bool, func } from 'prop-types';
+
 class SearchBar extends Component {
   render() {
     const {
