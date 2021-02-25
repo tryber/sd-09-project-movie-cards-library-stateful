@@ -5,6 +5,9 @@ class AddMovie extends Component {
     return (
       <div>
         <p>AddMovie</p>
+        <form
+          data-testid="add-movie-form"
+        />
       </div>
     );
   }
