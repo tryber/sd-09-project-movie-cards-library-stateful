@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 import TitleInput from './TitleInput';
 import SubtitleInput from './SubtitleInput';
 import ImagePath from './ImagePath';
+import Storyline from './Storyline';
+import NewRating from './NewRating';
+import Genre from './Genre';
 
 class AddMovie extends Component {
   constructor(props) {
@@ -11,9 +14,9 @@ class AddMovie extends Component {
       subtitle: '',
       title: '',
       imagePath: '',
-      // storyline: '',
-      // rating: 0,
-      // genre: 'action',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
     };
     this.onChange = this.onChange.bind(this);
   }
@@ -27,12 +30,15 @@ class AddMovie extends Component {
 
   render() {
     // const { onClick } = this.props;
-    const { title, subtitle, imagePath } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form id="add-movie-form" data-testid="add-movie-form">
         <TitleInput title={ title } onChange={ this.onChange } />
         <SubtitleInput subtitle={ subtitle } onChange={ this.onChange } />
         <ImagePath imagePath={ imagePath } onChange={ this.onChange } />
+        <Storyline storyline={ storyline } onChange={ this.onChange } />
+        <NewRating rating={ rating } onChange={ this.onChange } />
+        <Genre genre={ genre } onChange={ this.onChange } />
       </form>
     );
   }
