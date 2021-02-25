@@ -106,7 +106,7 @@ describe('17 - Renderize `<SearchBar />` dentro de `<MovieLibrary />`', () => {
   });
 });
 
-describe.skip('18 - Renderize `<MovieList />` dentro de `<MovieLibrary />`', () => {
+describe('18 - Renderize `<MovieList />` dentro de `<MovieLibrary />`', () => {
   it('Renderize o componente `<MovieList />`', () => {
     const { getAllByTestId } = render(<MovieLibrary movies={ movies } />);
     const movieList = getAllByTestId('movie-list');
