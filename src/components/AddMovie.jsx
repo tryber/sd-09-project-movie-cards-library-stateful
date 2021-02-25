@@ -4,7 +4,7 @@ import Title from './Title';
 import Subtitle from './Subtitle';
 import Image from './Image';
 import Sinopse from './Sinopse';
-import Rating from './Rating';
+import Ratings from './Ratings';
 
 const initialState = {
   subtitle: '',
@@ -44,7 +44,7 @@ class AddMovie extends Component {
         <Subtitle subtitle={ subtitle } handleChange={ this.handleChange } />
         <Image imagePath={ imagePath } handleChange={ this.handleChange } />
         <Sinopse storyline={ storyline } handleChange={ this.handleChange } />
-        <Rating rating={ rating } handleChange={ this.handleChange } />
+        <Ratings rating={ rating } handleChange={ this.handleChange } />
 
         <label data-testid="genre-input-label" htmlFor="genre-input">
           Gênero
