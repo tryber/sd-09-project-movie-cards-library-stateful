@@ -9,18 +9,19 @@ class SearchBar extends React.Component {
     this.selectFavorite = this.selectFavorite.bind(this);
     this.filterGender = this.filterGender.bind(this);
   }
+
   inputText() {
     const { searchText, onSearchTextChange} = this.props;
     return (
       <label data-testid="text-input-label" for="text-input">
-          Inclui o texto:
-          <input
-            type="text"
-            value={ searchText }
-            onChange={ onSearchTextChange }
-            data-testid="text-input"
-            id="text-input"
-          />
+        Inclui o texto:
+        <input
+          type="text"
+          value={ searchText }
+          onChange={ onSearchTextChange }
+          data-testid="text-input"
+          id="text-input"
+        />
       </label>
     );
   }
@@ -73,10 +74,11 @@ class SearchBar extends React.Component {
 };
 
 SearchBar.propTypes = {
-  searchText: PropTypes.string.isRequired,
-  onSerchTextChange: PropTypes.func.isRequired,
+  inputText: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
   bookmarkedOnly: PropTypes.bool.isRequired,
-  selectedGenre: PropTypes.number.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
+  filterGender: PropTypes.number.isRequired,
   onSelectedGenreChange: PropTypes.func.isRequired,
 };
 
