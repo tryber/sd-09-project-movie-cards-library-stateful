@@ -42,7 +42,6 @@ export default class SearchBar extends Component {
         <label htmlFor="genre-filter" data-testid="select-input-label">
           Filtrar por gênero
           <select
-            name="genre-filter"
             id="genre-filter"
             data-testid="select-input"
             value={ selectedGenre }
