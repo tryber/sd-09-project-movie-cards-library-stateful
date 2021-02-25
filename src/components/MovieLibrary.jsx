@@ -18,7 +18,6 @@ class MovieLibrary extends Component {
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.onClick = this.onClick.bind(this);
-
   }
 
   onSearchTextChange() { }
@@ -27,7 +26,10 @@ class MovieLibrary extends Component {
 
   onSelectedGenreChange() { }
 
-  onClick() { }
+  onClick(event) {
+
+
+  }
 
   render() {
     const { movies } = this.props;
@@ -35,9 +37,16 @@ class MovieLibrary extends Component {
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar searchText={ searchText } onSearchTextChange={ this.onSearchTextChange } onBookmarkedChange={ this.onBookmarkedChange } onSelectedGenreChange={ this.onSelectedGenreChange } bookmarkedOnly={ bookmarkedOnly } selectedGenre={ selectedGenre } />
+        <SearchBar searchText={ searchText }
+          onSearchTextChange={ this.onSearchTextChange }
+          onBookmarkedChange={ this.onBookmarkedChange }
+          onSelectedGenreChange={ this.onSelectedGenreChange }
+          bookmarkedOnly={ bookmarkedOnly }
+          selectedGenre={ selectedGenre } 
+        />
+        
         <MovieList movies={ movies } />
-        <AddMovie onClick={this.onClick}/>
+        <AddMovie onClick={this.onClick} />
       </div>
     );
   }
