@@ -2,9 +2,9 @@ import React from 'react';
 import Title from './Title';
 import Subtitle from './Subtitle';
 import TextArea from './TextArea';
-import Select from './Select';
 import ImagePath from './ImagePath';
 import InputRating from './InputRating';
+import SelectItem from './SelectItem';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -36,6 +36,7 @@ class AddMovie extends React.Component {
         <ImagePath value={ imagePath } onChange={ this.handleChange } />
         <TextArea value={ storyline } onChange={ this.handleChange } />
         <InputRating value={ rating } onChange={ this.handleChange } />
+        <SelectItem value={ genre } onChange={ this.handleChange } />
       </form>
     );
   }

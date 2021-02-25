@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class Select extends React.Component {
-  rende() {
+class SelectItem extends React.Component {
+  render() {
     const { value, onChange } = this.props;
     return (
       <label data-testid="genre-input-label" htmlFor="genre-input">
         Gênero
         <select
+          id="genre-input"
           data-testid="genre-input"
           name="genre"
           value={ value }
@@ -22,9 +23,9 @@ class Select extends React.Component {
   }
 }
 
-Select.propTypes = {
+SelectItem.propTypes = {
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 
-export default Select;
+export default SelectItem;
