@@ -41,12 +41,14 @@ class MovieLibrary extends Component {
     this.handleChange(evt);
   }
 
-  onClick(evt) {
-    console.log(evt.target);
+  onClick(movie) {
+    this.setState = {
+      movies: movies.push(movie),
+    };
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
