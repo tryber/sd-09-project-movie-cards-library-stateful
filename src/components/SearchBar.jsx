@@ -15,23 +15,18 @@ const SearchBar = () => (
       Inclui o texto:
       <input
         id="addText" type="text" value={ searchText } onChange={ onSearchTextChange }
-        data-testid="text-input"
-      />
+        data-testid="text-input"/>
     </label>
     <label htmlFor="Fav" data-testid="checkbox-input-label">
       Mostrar somente favoritos
       <input
         id="Fav" type="checkbox" checked={ bookmarkedOnly } onChange={ onBookmarkedChange }
-        data-testid="checkbox-input"
-      />
+        data-testid="checkbox-input"/>
     </label>
     <label htmlFor="filterGenre"  data-testid="select-input-label">
       Filtrar por gênero
-      <select
-          id="filterGenre"
-          data-testid="select-input" value={ selectedGenre }
-          onChange={ onSelectedGenreChange }
-      >
+      <select data-testid="select-input"
+          id="filterGenre" value={ selectedGenre } onChange={ onSelectedGenreChange }>
         <option value="" data-testid="select-option">Todos</option>
         <option value="action" data-testid="select-option">Ação</option>
         <option value="comedy" data-testid="select-option">Comédia</option>
