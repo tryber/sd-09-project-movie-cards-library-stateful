@@ -149,13 +149,13 @@ class AddMovie extends React.Component {
 
   renderButton() {
     return (
-      <input
+      <button
         data-testid="send-button"
         type="button"
         onClick={ this.handleSubmit }
-        value="Adicionar filme"
-        text="Adicionar filme"
-      />
+      >
+        Adicionar filme
+      </button>
     );
   }
 
