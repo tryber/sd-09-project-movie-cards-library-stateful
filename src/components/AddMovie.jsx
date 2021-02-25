@@ -21,7 +21,8 @@ class AddMovie extends React.Component {
   changeHandler({ target }) {
     const { name, value } = target;
     this.setState({
-      [name]: value
+      [name]: value,
+
     });
   }
 
@@ -57,28 +58,30 @@ class AddMovie extends React.Component {
           <input type="text"
             id="title-input"
             name="title"
-            value={title}
-            onChange={this.changeHandler}
+            value={ title }
+            onChange={ this.changeHandler }
           />
 
           <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
             Subtítulo
           </label>
-          <input type="text"
+          <input 
+            type="text"
             id="subtitle-input"
             name="subtitle"
-            value={subtitle}
-            onChange={this.changeHandler}
+            value={ subtitle }
+            onChange={ this.changeHandler }
           />
 
           <label htmlFor="imagePath" testid="image-input-label">
             Imagem
           </label>
-          <input type="text"
+          <input 
+            type="text"
             id="imagePath"
             name="imagePath"
-            value={imagePath}
-            onChange={this.changeHandler}
+            value={ imagePath }
+            onChange={ this.changeHandler }
           />
 
           <label htmlFor="storyline" data-testid="storyline-input-label">
@@ -87,8 +90,8 @@ class AddMovie extends React.Component {
           <textarea
             id="storyline"
             name="storyline"
-            value={storyline}
-            onChange={this.changeHandler}
+            value={ storyline }
+            onChange={ this.changeHandler }
           />
 
           <label htmlFor="imagePath" data-testid="rating-input-label">
@@ -97,24 +100,25 @@ class AddMovie extends React.Component {
           <input type="number"
             id="rating"
             name="rating"
-            value={rating}
-            onChange={this.changeHandler}
+            value={ rating }
+            onChange={ this.changeHandler }
           />
 
           <label data-testid="genre-input-label" htmlFor="genre">
             Gênero
           </label>
-          <select value={genre} data-testid="genre-input" id="genre"
-            onChange={this.handlerSelectChange}
+          <select value={ genre } data-testid="genre-input" id="genre"
+            onChange={ this.handlerSelectChange }
             id="select">
             <option data-testid="genre-option" value="action">Ação</option>
             <option data-testid="genre-option" value="comedy">Comédia</option>
             <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
 
-          <button type="submit"
+          <button 
+            type="submit"
             data-testid="send-button"
-            onClick={this.handlerSubmitClick}>
+            onClick={ this.handlerSubmitClick }>
             Adicionar filme
           </button>
         </form>
