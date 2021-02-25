@@ -20,7 +20,8 @@ class AddMovie extends React.Component {
     this.storylineInput = this.storylineInput.bind(this);
     this.ratingInput = this.ratingInput.bind(this);
     this.genreSelec = this.genreSelec.bind(this);
-    this.createButton = this.createButton.bind(this); 
+    this.createButton = this.createButton.bind(this);
+    this.returnState = this.returnState.bind(this);
   }
 
   handleChange(event) {
@@ -79,9 +80,9 @@ class AddMovie extends React.Component {
     return (
       <label data-testid="storyline-input-label" htmlFor="storyline-input">
         Sinopse
-        <input
+        <textarea
           name="storyline"
-          type="textarea"
+          type="text"
           data-testid="storyline-input"
           value={ storyline }
           onChange={ this.handleChange }
@@ -123,12 +124,25 @@ class AddMovie extends React.Component {
     );
   }
 
-  createButton(onClick) {
+  returnState() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
+  createButton() {
     return (
       <button
         data-testid="send-button"
         type="button"
-        onClick={ onClick }
+        onClick={ this.returnState }
       >
         Adicionar filme
       </button>
@@ -136,7 +150,6 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
@@ -146,7 +159,7 @@ class AddMovie extends React.Component {
         {this.storylineInput(storyline)}
         {this.ratingInput(rating)}
         {this.genreSelec(genre)}
-        {this.createButton(onClick)}
+        {this.createButton()}
       </form>
     );
   }

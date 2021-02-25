@@ -19,12 +19,11 @@ class MovieLibrary extends Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-    // this.searchMovies = this.searchMovies.bind(this);
+    this.addMovie = this.addMovie.bind(this);
   }
 
   onSearchTextChange({ target }) {
     const { searchText, movies } = this.state;
-    // const { movies } = this.props;
     const { name, value } = target;
     this.setState({
       [name]: value,
@@ -48,7 +47,6 @@ class MovieLibrary extends Component {
 
   onSelectedGenreChange({ target }) {
     const { movies } = this.props;
-    // const { selectedGenre } = this.state;
     const { value } = target;
     this.setState({
       selectedGenre: value,
@@ -57,18 +55,25 @@ class MovieLibrary extends Component {
     });
   }
 
-  searchMovies() {
-    const { searchText, bookmarkedOnly, movies, selectedGenre } = this.state;
-    let moviesFiltered = movies
-      .filter((movie) => JSON.stringify(movie).toUpperCase()
-        .includes(searchText.toUpperCase()));
-    if (bookmarkedOnly) {
-      return movies.filter((movie) => movie.bookmarked === true);
-    }
-    const movieList = ((!selectedGenre) ? movies : movies
-      .filter((movie) => movie.genre === selectedGenre));
-    return movieList;
+  addMovie(addState) {
+    const { movies } = this.state;
+    this.setState({
+      movies: [...movies, addState],
+    });
   }
+
+  // searchMovies() {
+  //   const { searchText, bookmarkedOnly, movies, selectedGenre } = this.state;
+  //   let moviesFiltered = movies
+  //     .filter((movie) => JSON.stringify(movie).toUpperCase()
+  //       .includes(searchText.toUpperCase()));
+  //   if (bookmarkedOnly) {
+  //     return movies.filter((movie) => movie.bookmarked === true);
+  //   }
+  //   const movieList = ((!selectedGenre) ? movies : movies
+  //     .filter((movie) => movie.genre === selectedGenre));
+  //   return movieList;
+  // }
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
@@ -87,7 +92,7 @@ class MovieLibrary extends Component {
         <MovieList
           movies={ movies }
         />
-        <AddMovie />
+        <AddMovie onClick={ this.addMovie } />
       </>
     );
   }
