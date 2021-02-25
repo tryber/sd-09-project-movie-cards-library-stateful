@@ -4,9 +4,8 @@ import PropTypes from 'prop-types';
 class Input extends React.Component {
   render() {
     const {
-      testId,
       name,
-      children,
+      text,
       id,
       type,
       value,
@@ -15,12 +14,12 @@ class Input extends React.Component {
 
     return (
       <label
-        data-testid={ `${testId}-label` }
+        data-testid={ `${name}-input-label` }
         htmlFor={ id }
       >
-        { children }
+        { text }
         <input
-          data-testid={ testId }
+          data-testid={ `${name}-input` }
           name={ name }
           id={ id }
           type={ type }
@@ -33,8 +32,7 @@ class Input extends React.Component {
 }
 
 Input.propTypes = {
-  testId: PropTypes.string.isRequired,
-  children: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
