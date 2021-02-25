@@ -1,9 +1,9 @@
 // implement AddMovie component here
-import React from 'react'
-import SearchBar from './SearchBar'
-import AddMovie from './AddMovie'
+import React from 'react';
+import SearchBar from './SearchBar';
+import AddMovie from './AddMovie';
 import movies from '../data';
-import MovieList from './MovieList'
+import MovieList from './MovieList';
 
 
 
