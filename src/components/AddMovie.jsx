@@ -30,6 +30,13 @@ class AddMovie extends Component {
               type="text"
             />
           </label>
+          <label htmlFor="storyline-input" data-testid="storyline-input-label">
+            Sinopse
+            <textarea
+              id="storyline-input"
+              data-testid="storyline-input"
+            />
+          </label>
         </form>
       </div>
     );
