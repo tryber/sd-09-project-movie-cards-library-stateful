@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+/* import PropTypes from 'prop-types'; */
 
-class AddMovie extends Component {  
-  constructor(props){
+class AddMovie extends Component {
+  constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.state = {
@@ -46,18 +46,28 @@ class AddMovie extends Component {
             onChange={ this.handleChange }
           />
         </label>
+        <label htmlFor="image-input" data-testid="image-input-label">
+          Imagem
+          <input
+            type="text"
+            name="imagePath"
+            data-testid="image-input"
+            value={ imagePath }
+            onChange={ this.handleChange }
+          />
+        </label>
       </form>
     );
   }
 }
 
-AddMovie.propTypes = {
+/* AddMovie.propTypes = {
   subtitle: PropTypes.string,
   title: PropTypes.string,
   imagePath: PropTypes.string,
   storyline: PropTypes.string,
   rating: PropTypes.number,
   genre: PropTypes.string,
-};
+}; */
 
 export default AddMovie;
