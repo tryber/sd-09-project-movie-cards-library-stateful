@@ -14,7 +14,7 @@ class AddMovie extends Component {
               type="text"
             />
           </label>
-          <label htmlFor="subtitle-input" data-tesid="subtitle-input-label">
+          <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
             Subtítulo
             <input
               id="subtitle-input"
