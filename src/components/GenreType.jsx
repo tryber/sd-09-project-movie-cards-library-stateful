@@ -2,23 +2,31 @@ import React, { Component } from 'react';
 
 class GenreType extends Component {
   render() {
-    const { label, name, value, onChange } = this.props
+    const { label, name, value, onChange, test, testLabel, testOption } = this.props
     return (
       <div>
-          <label htmlFor={name} data-testid="select-input-label">
-            Filtrar por gênero
+          <label htmlFor={ name } data-testid={ testLabel }>
+            { label }
           </label>
           <select
-            name={name}
-            id={name}
+            name={ name }
+            id={ name }
             value={ value }
             onChange={ onChange }
-            data-testid="select-input"
+            data-testid={ test }
           >
-            <option data-testid="select-option" value="">Todos</option>
-            <option data-testid="select-option" value="action">Ação</option>
-            <option data-testid="select-option" value="comedy">Comédia</option>
-            <option data-testid="select-option" value="thriller">Suspense</option>
+            <option data-testid={testOption} value="">
+              Todos
+            </option>
+            <option data-testid={testOption} value="action">
+              Ação
+            </option>
+            <option data-testid={testOption} value="comedy">
+              Comédia
+            </option>
+            <option data-testid={testOption} value="thriller">
+              Suspense
+            </option>
           </select>
         </div>
     );

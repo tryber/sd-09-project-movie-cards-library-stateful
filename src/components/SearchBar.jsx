@@ -37,9 +37,13 @@ class SearchBar extends Component {
           />
         </label>
         <GenreType
+          label={ 'Filtrar por gênero' }
           name={ 'genre' }
           value={ selectedGenre }
           onChange={ onSelectedGenreChange }
+          testLabel={ 'select-input-label' }
+          test={ 'select-input' }
+          testOption={ 'select-option' }
         />
         
       </form>
