@@ -1,7 +1,8 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-const initialState = {
+const initialStateMovie = {
   subtitle: '',
   title: '',
   imagePath: '',
@@ -13,7 +14,7 @@ const initialState = {
 class AddMovie extends Component {
   constructor(props) {
     super(props);
-    this.state = initialState;
+    this.state = initialStateMovie;
   }
 
   handleChange({ target }) {
@@ -123,7 +124,7 @@ class AddMovie extends Component {
   resetState() {
     const { onClick } = this.props;
     onClick(this.state);
-    this.setState({ initialState });
+    this.setState({ initialStateMovie });
   }
 
   render() {
@@ -148,7 +149,7 @@ class AddMovie extends Component {
 }
 
 AddMovie.propTypes = {
-  onClick: PropTypes.callback.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default AddMovie;
