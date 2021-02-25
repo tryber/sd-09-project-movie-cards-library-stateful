@@ -36,17 +36,65 @@ class AddMovie extends Component {
     );
   }
 
-  subtitle(subtitle, change) {
+  subtitle(subtitle, handlechange) {
     return (
       <label htmlFor="subtitle" data-testid="subtitle-input-label">
-        Subtitulo
+        Subtítulo
         <input
           type="text"
           name="subtitle"
           id="subtitle"
           value={ subtitle }
           data-testid="subtitle-input"
-          onChange={ change }
+          onChange={ handlechange }
+        />
+      </label>
+    );
+  }
+
+  imagepath(imagePath, handlechange) {
+    return (
+      <label htmlFor="imagePath" data-testid="image-input-label">
+        Imagem
+        <input
+          type="text"
+          name="imagePath"
+          id="imagePath"
+          value={ imagePath }
+          data-testid="image-input"
+          onChange={ handlechange }
+        />
+      </label>
+    );
+  }
+
+  storyline(storyline, handlechange) {
+    return (
+      <label htmlFor="storyLine" data-testid="storyLine-input-label">
+        Sinopse
+        <input
+          type="textarea"
+          name="storyLine"
+          id="storyLine"
+          value={ storyline }
+          data-testid="storyLine-input"
+          onChange={ handlechange }
+        />
+      </label>
+    );
+  }
+
+  rating(rate, handlechange) {
+    return (
+      <label htmlFor="rating" data-testid="rating-input-label">
+        Avaliação
+        <input
+          type="number"
+          name="rating"
+          id="rating"
+          value={ rate }
+          data-testid="rating-input"
+          onChange={ handlechange }
         />
       </label>
     );
@@ -60,6 +108,10 @@ class AddMovie extends Component {
         <form action="" data-testid="add-movie-form">
           {this.title(title, this.handleChange)}
           {this.subtitle(subtitle, this.handleChange)}
+          {this.imagepath(imagePath, this.handleChange)}
+          {this.storyline(storyLine, this.handleChange)}
+          {this.rating(rating, this.handleChange)}
+          {this.genre(genre, this.handleChange)}
         </form>
 
       </div>
