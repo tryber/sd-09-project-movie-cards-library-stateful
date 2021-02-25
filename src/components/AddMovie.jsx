@@ -11,7 +11,9 @@ class AddMovie extends Component {
       genre,
     } = this.props;
     return(
-      <div></div>
+      <form data-testid="add-movie-form">
+
+      </form>
     );
   }
 }

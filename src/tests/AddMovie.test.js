@@ -60,7 +60,7 @@ describe('6 - Crie um componente chamado `<AddMovie />`', () => {
 });
 
 describe('7 - Renderize um formulário dentro de `<AddMovie />`', () => {
-  it.skip('Renderize 1, e apenas 1, form', () => {
+  it('Renderize 1, e apenas 1, form', () => {
     expect(form).toHaveLength(1);
   });
 });
