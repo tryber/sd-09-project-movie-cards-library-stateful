@@ -10,40 +10,40 @@ class SearchBar extends React.Component {
         <form data-testid="search-bar-form">
           <label data-testid="text-input-label" htmlFor="text-input">
             Inclui o texto:
+            <input
+              id="text-input"
+              data-testid="text-input"
+              type="text"
+              value={searchText}
+              onChange={onSearchTextChange}
+            />
           </label>
-          <input
-            id="text-input"
-            data-testid="text-input"
-            type="text"
-            value={ searchText }
-            onChange={ onSearchTextChange }
-          />
 
           <label data-testid="checkbox-input-label" htmlFor="checkbox-input">
             Mostrar somente favoritos
+            <input
+              type="checkbox"
+              data-testid="checkbox-input"
+              id="checkbox-input"
+              checked={bookmarkedOnly}
+              onChange={onBookmarkedChange}
+            />
           </label>
-          <input
-            type="checkbox"
-            data-testid="checkbox-input"
-            id="checkbox-input"
-            checked={ bookmarkedOnly }
-            onChange={ onBookmarkedChange }
-          />
 
           <label data-testid="select-input-label" htmlFor="select">
             Filtrar por gênero
+            <select
+              value={selectedGenre}
+              data-testid="select-input"
+              onChange={onSelectedGenreChange}
+              id="select"
+            >
+              <option data-testid="select-option" value="">Todos</option>
+              <option data-testid="select-option" value="action">Ação</option>
+              <option data-testid="select-option" value="comedy">Comédia</option>
+              <option data-testid="select-option" value="thriller">Suspense</option>
+            </select>
           </label>
-          <select
-            value={ selectedGenre }
-            data-testid="select-input"
-            onChange={ onSelectedGenreChange }
-            id="select"
-          >
-            <option data-testid="select-option" value="">Todos</option>
-            <option data-testid="select-option" value="action">Ação</option>
-            <option data-testid="select-option" value="comedy">Comédia</option>
-            <option data-testid="select-option" value="thriller">Suspense</option>
-          </select>
 
         </form>
 
