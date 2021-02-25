@@ -9,7 +9,10 @@ class SearchBar extends Component {
     const { searchText } = this.props;
     return (
     // <div>Make it so</div>
-      <div>{ searchText }</div>
+      <div>
+        { searchText }
+        <form data-testid="search-bar-form" />
+      </div>
     );
   }
 }
