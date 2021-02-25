@@ -36,7 +36,6 @@ export default class SearchBar extends Component {
         <label htmlFor="selectedGenre" data-testid="select-input-label">
           Filtrar por gênero
           <select
-            type="select"
             name="selectedGenre"
             value={ selectedGenre }
             onChange={ onSelectedGenreChange }
