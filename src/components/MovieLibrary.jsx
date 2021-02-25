@@ -8,7 +8,7 @@ import movies from '../data';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
-    const { movies } = this.props
+    const { movies } = this.props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -23,29 +23,29 @@ class MovieLibrary extends Component {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
-      [name]: value
+      [name]: value,
     });
   }
 
   AddMovie(movieObject) {
-    console.log(movieObject)
+    console.log(movieObject);
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar 
-          searchText={searchText}
-          onSearchTextChange={this.changeHandler}
-          bookmarkedOnly={bookmarkedOnly}
-          onBookmarkedChange={this.changeHandler}
-          selectedGenre={selectedGenre}
-          onSelectedGenreChange={this.changeHandler}
+        <SearchBar
+          searchText={ searchText }
+          onSearchTextChange={ this.changeHandler }
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ this.changeHandler }
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ this.changeHandler }
         />
-        <MovieList movies={movies}/>
-        <AddMovie onClick={this.AddMovie}/>
+        <MovieList movies={ movies } />
+        <AddMovie onClick={ this.AddMovie } />
       </div>
     );
   }

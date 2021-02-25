@@ -3,7 +3,7 @@ import React from 'react';
 class SearchBar extends React.Component {
   render() {
     const {
-      searchText, 
+      searchText,
       onSearchTextChange,
       bookmarkedOnly,
       onBookmarkedChange,
@@ -13,29 +13,32 @@ class SearchBar extends React.Component {
     return (
       <div>
         <form data-testid="search-bar-form">
-          <label data-testid="text-input-label">
+          <label htmlFor="searchText" data-testid="text-input-label">
             Inclui o texto:
-            <input 
+            <input
+              name="searchText"
               type="text"
               value={ searchText }
               onChange={ onSearchTextChange }
               data-testid="text-input"
             />
           </label>
-          <label data-testid="checkbox-input-label">
+          <label htmlFor="bookmarked" data-testid="checkbox-input-label">
             Mostrar somente favoritos
-            <input 
+            <input
+              name="bookmarkedOnly"
               type="checkbox"
-              checked={bookmarkedOnly}
-              onChange={onBookmarkedChange}
+              checked={ bookmarkedOnly }
+              onChange={ onBookmarkedChange }
               data-testid="checkbox-input"
             />
           </label>
-          <label data-testid="select-input-label">
+          <label htmlFor="genreFilter" data-testid="select-input-label">
             Filtrar por gênero
-            <select 
-              value={selectedGenre} 
-              onChange={onSelectedGenreChange} 
+            <select
+              name="selectedGenre"
+              value={ selectedGenre }
+              onChange={ onSelectedGenreChange }
               data-testid="select-input"
             >
               <option value="" data-testid="select-option">Todos</option>
