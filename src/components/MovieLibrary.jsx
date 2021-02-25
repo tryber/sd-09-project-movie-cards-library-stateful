@@ -1,7 +1,6 @@
 import React from 'react';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
-import movies from '../data'
 
 class MovieLibrary extends React.Component {
   constructor(props) {
@@ -9,11 +8,9 @@ class MovieLibrary extends React.Component {
 
     this.state = {
       searchText: '',
-      bookmarkedOnly: 'true',
+      bookmarkedOnly: true,
       selectedGenre: '',
     };
-
-    const { movies } = this.state;
 
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
