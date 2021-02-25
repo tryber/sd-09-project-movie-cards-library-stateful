@@ -43,17 +43,6 @@ class AddMovie extends React.Component {
     );
   }
 
-  //   <label htmlFor="Título" data-testid="title-input-label">
-  //   Título
-  //   <input
-  //     type="text"
-  //     value={ title }
-  //     data-testid="title-input"
-  //     onChange={ this.handleChange }
-  //     name="title"
-  //   />
-  // </label>
-
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     console.log(this.inputGenerator('imagePath', 'Imagem', 'text', imagePath));
@@ -61,7 +50,6 @@ class AddMovie extends React.Component {
       <form data-testid="add-movie-form">
         {this.inputGenerator('title', 'Título', 'text', title)}
         {this.inputGenerator('subtitle', 'Subtítulo', 'text', subtitle)}
-        {/* {this.inputGenerator('imagePath', 'Imagem', 'text', imagePath)} */}
         <label htmlFor="imagem" data-testid="image-input-label">
           Imagem
           <input
@@ -81,6 +69,14 @@ class AddMovie extends React.Component {
           />
         </label>
         {this.inputGenerator('rating', 'Avaliação', 'number', rating)}
+        <label htmlFor="Gênero" data-testid="genre-input-label">
+          Gênero
+          <select value={ genre } data-testid="genre-input" onChange={ this.handleChange }>
+            <option value="action" data-testid="genre-option">Ação</option>
+            <option value="comedy" data-testid="genre-option">Comédia</option>
+            <option value="thriller" data-testid="genre-option">Suspense</option>
+          </select>
+        </label>
       </form>
     );
   }
