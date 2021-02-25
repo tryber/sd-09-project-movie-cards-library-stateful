@@ -40,23 +40,25 @@ class MovieLibrary extends React.Component {
 
   changeMovies() {
     const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
-
-    if (bookmarkedOnly) {
-      return movies.filter((movie) => movie.bookmarked === true);
-    }
-
-    if (selectedGenre !== '') {
-      return movies.filter((movie) => movie.genre === selectedGenre);
-    }
+    let movieFilter = movies;
 
     if (searchText !== '') {
-      return movies.filter((movie) => (movie.title.includes(searchText)
-      || movie.subtitle.includes(searchText)
-      || movie.storyline.includes(searchText)
+      movieFilter = movies.filter((movie) => (
+        movie.title.toUpperCase().includes(searchText.toUpperCase())
+      || movie.subtitle.toUpperCase().includes(searchText.toUpperCase())
+      || movie.storyline.toUpperCase().includes(searchText.toUpperCase())
       ));
     }
 
-    return movies;
+    if (bookmarkedOnly) {
+      movieFilter = movieFilter.filter((movie) => movie.bookmarked === true);
+    }
+
+    if (selectedGenre !== '') {
+      movieFilter = movieFilter.filter((movie) => movie.genre === selectedGenre);
+    }
+
+    return movieFilter;
   }
 
   addNewMovie(newMovie) {
@@ -88,7 +90,9 @@ class MovieLibrary extends React.Component {
 }
 
 MovieLibrary.propTypes = {
-  movies: PropTypes.arrayOf({}).isRequired,
+  movies: PropTypes.arrayOf(
+    PropTypes.object,
+  ).isRequired,
 };
 
 export default MovieLibrary;
