@@ -1,10 +1,10 @@
 import React from 'react';
-import Input from './Input';
+import Title from './Title';
+import Subtitle from './Subtitle';
 import TextArea from './TextArea';
 import Select from './Select';
 import ImagePath from './ImagePath';
 import InputRating from './InputRating';
-import Title from './Title';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -32,6 +32,7 @@ class AddMovie extends React.Component {
     return (
       <form data-testid="add-movie-form">
         <Title value={ title } onChange={ this.handleChange } />
+        <Subtitle value={ subtitle } onChange={ this.handleChange } />
       </form>
     );
   }
