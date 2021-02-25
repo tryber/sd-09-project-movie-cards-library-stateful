@@ -1,35 +1,34 @@
 // implement AddMovie component here
 import React from 'react';
+import Input from './Input';
+import Select from './Select';
 
 class AddMovie extends React.Component {
   render() {
-    const { title, subtitle, imagePath, storyline, rating } = this.props;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.props;
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="title-input" data-testid="title-input-label">
-          Título
-          <input
-            type="text"
-            value={ title }
-            data-testid="title-input"
-          />
-        </label>
-        <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            type="text"
-            value={ subtitle }
-            data-testid="subtitle-input"
-          />
-        </label>
-        <label htmlFor="image-input" data-testid="image-input-label">
-          Imagem
-          <input
-            type="text"
-            value={ imagePath }
-            data-testid="image-input"
-          />
-        </label>
+        <Input
+          description="Título"
+          type="text"
+          value={ title }
+          datatestid="title-input"
+          datatestidLab="title-input-label"
+        />
+        <Input
+          description="Subtítulo"
+          type="text"
+          value={ subtitle }
+          datatestid="subtitle-input"
+          datatestidLab="subtitle-input-label"
+        />
+        <Input
+          description="Imagem"
+          type="text"
+          value={ imagePath }
+          datatestid="image-input"
+          datatestidLab="image-input-label"
+        />
         <label htmlFor="storyline-input" data-testid="storyline-input-label">
           Sinopse
           <textarea
@@ -37,14 +36,14 @@ class AddMovie extends React.Component {
             data-testid="storyline-input"
           />
         </label>
-        <label htmlFor="rating-input" data-testid="rating-input-label">
-          Avaliação
-          <input
-            type="number"
-            value={ rating }
-            data-testid="rating-input"
-          />
-        </label>
+        <Input
+          description="Avaliação"
+          type="number"
+          value={ rating }
+          datatestid="rating-input"
+          datatestidLab="rating-input-label"
+        />
+        <Select />
       </form>
     );
   }
