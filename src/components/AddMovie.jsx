@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Input from './Input';
+import TextArea from './TextArea';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -10,6 +11,8 @@ class AddMovie extends React.Component {
       subtitle: '',
       title: '',
       imagePath: '',
+      storyline: '',
+      rating: 0,
     };
   }
 
@@ -21,13 +24,12 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { title, subtitle, imagePath } = this.state;
+    const { title, subtitle, imagePath, storyline, rating } = this.state;
     return (
       <form data-testid="add-movie-form">
         <Input
+          testId="title-input"
           name="title"
-          testLabel="title-input-label"
-          testInput="title-input"
           type="text"
           value={ title }
           onChange={ this.handleChange }
@@ -35,9 +37,8 @@ class AddMovie extends React.Component {
           Título
         </Input>
         <Input
-          testLabel="subtitle-input-label"
+          testId="subtitle-input"
           name="subtitle"
-          testInput="subtitle-input"
           type="text"
           value={ subtitle }
           onChange={ this.handleChange }
@@ -45,14 +46,28 @@ class AddMovie extends React.Component {
           Subtítulo
         </Input>
         <Input
-          testLabel="image-input-label"
+          testId="image-input"
           name="imagePath"
-          testInput="image-input"
           type="text"
           value={ imagePath }
           onChange={ this.handleChange }
         >
           Imagem
+        </Input>
+        <TextArea
+          name="storyline"
+          title="Sinopse"
+          value={ storyline }
+          onChange={ this.handleChange }
+        />
+        <Input
+          name="rating"
+          testId="rating-input"
+          type="number"
+          value={ rating }
+          onChange={ this.handleChange }
+        >
+          Avaliação
         </Input>
       </form>
     );
