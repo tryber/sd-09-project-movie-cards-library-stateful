@@ -136,7 +136,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { onClick } = this.props
+    const { onClick } = this.props;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <div>
