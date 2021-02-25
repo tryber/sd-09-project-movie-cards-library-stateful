@@ -73,4 +73,8 @@ class MovieLibrary extends React.Component {
   }
 }
 
+MovieLibrary.propTypes = ({
+    movies: PropTypes.arrayOf(PropTypes.object),
+}).isRequired;
+
 export default MovieLibrary;
