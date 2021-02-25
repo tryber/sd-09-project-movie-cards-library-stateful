@@ -14,6 +14,7 @@ class AddMovie extends React.Component {
     };
     this.handlerChange = this.handlerChange.bind(this);
     this.InputTitle = this.InputTitle.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
 
   handlerChange(event) {
@@ -27,6 +28,17 @@ class AddMovie extends React.Component {
         genre: value,
       });
     }
+  }
+
+  onClick() {
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   InputTitle(title, handlerChange) {
@@ -123,7 +135,6 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { onclick } = this.props;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <div>
@@ -138,7 +149,7 @@ class AddMovie extends React.Component {
         <button
           type="button"
           data-testid="send-button"
-          onClick={ onclick }
+          onClick={ this.onClick }
         >
           Adicionar filme
         </button>
