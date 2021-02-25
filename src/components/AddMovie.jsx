@@ -8,6 +8,8 @@ class AddMovie extends React.Component {
     this.handleSubtitleInput = this.handleSubtitleInput.bind(this);
     this.handleImagePathInput = this.handleImagePathInput.bind(this);
     this.handleStorylineInput = this.handleStorylineInput.bind(this);
+    this.handleRatingInput = this.handleRatingInput.bind(this);
+    this.handleGenreInput = this.handleGenreInput.bind(this);
 
     this.state = {
       subtitle: '',
@@ -33,6 +35,14 @@ class AddMovie extends React.Component {
 
   handleStorylineInput(event) {
     this.setState({ storyline: event.target.value });
+  }
+
+  handleRatingInput(event) {
+    this.setState({ rating: event.target.value });
+  }
+
+  handleGenreInput(event) {
+    this.setState({ genre: event.target.value });
   }
 
   render() {
@@ -78,6 +88,16 @@ class AddMovie extends React.Component {
             value={ storyline }
             onChange={ this.handleStorylineInput }
             data-testid="storyline-input"
+          />
+        </label>
+        <label htmlFor="rating-input" data-testid="rating-input-label">
+          Avaliação
+          <input
+            type="number"
+            id="rating-input"
+            value={ rating }
+            onChange={ this.handleRatingInput }
+            data-testid="rating-input"
           />
         </label>
       </form>
