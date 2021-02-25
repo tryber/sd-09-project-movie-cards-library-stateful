@@ -2,9 +2,7 @@
 import React from 'react';
 
 class SearchBar extends React.Component {
-
   render() {
-
     const{
       searchText,
       onSearchTextChange,
@@ -17,17 +15,30 @@ class SearchBar extends React.Component {
 
       <form data-testid="search-bar-form">
         <div>
-          <label data-testid="text-input-label" htmlFor="inputSearch">Inclui o texto:</label>
-          <input id="inputSearch" type="text" onChange={onSearchTextChange} value={searchText} data-testid="text-input"></input>
+          <label
+            data-testid="text-input-label"
+            htmlFor="inputSearch">Inclui o texto:
+          </label>
+          <input
+            id="inputSearch" type="text" onChange={onSearchTextChange}
+            value={searchText} data-testid="text-input"></input>
         </div>
         <div>
-          <label data-testid="checkbox-input-label" htmlFor="inputCheckbox">Mostrar somente favoritos</label>
-          <input data-testid="checkbox-input" onChange={onBookmarkedChange} checked={bookmarkedOnly} id="inputCheckbox" type="checkbox" ></input>
+          <label data-testid="checkbox-input-label" htmlFor="inputCheckbox">
+            Mostrar somente favoritos
+            <input data-testid="checkbox-input" onChange={ onBookmarkedChange } checked={ bookmarkedOnly }
+            id="inputCheckbox" type="checkbox"
+            />
+          </label>
         </div>
-        <label>Filtrar por gênero</label>
-        <select>
-
-        </select>
+        <label data-testid="select-input-label" htmlFor="inputSelect">Filtrar por gênero
+          <select data-testid="select-input" onChange={onSelectedGenreChange} value={selectedGenre} id="inputSelect">
+            <option data-testid="select-option" value="">Todos</option>
+            <option data-testid="select-option" value="action">Ação</option>
+            <option data-testid="select-option" value="comedy">Comédia</option>
+            <option data-testid="select-option" value="thriller">Suspense</option>
+          </select>
+        </label>
       </form>
 
     );
@@ -35,22 +46,3 @@ class SearchBar extends React.Component {
 }
 
 export default SearchBar;
-
-5 - Renderize um select dentro do formulário em <SearchBar />
-O select deve ter uma label associada com o texto: "Filtrar por gênero";
-
-Essa label deve apresentar o atributo data-testid="select-input-label"
-
-A propriedade value do select deve receber o valor da prop selectedGenre;
-
-A propriedade onChange do select deve receber o valor da prop onSelectedGenreChange;
-
-O select deve renderizar quatro tags option, com as opções de filtragem por gênero, na seguinte ordem:
-
-Todos, com o valor "";
-Ação, com o valor action;
-Comédia, com o valor comedy;
-Suspense, com o valor thriller.
-O select deve apresentar o atributo data-testid="select-input"
-
-Cada option deve apresentar o atributo data-testid="select-option"
