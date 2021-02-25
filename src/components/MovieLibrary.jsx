@@ -10,12 +10,18 @@ class MovieLibrary extends Component {
     super(props);
 
     this.state = {
-      searchText:'',
-    }
+      searchText: '',
+    };
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+  }
+
+  onSelectedGenreChange() {
+
   }
 
   render() {
-    const { movies, searchText, bookmarkedOnly, selectedGenre, } = this.props;
+    const { movies, bookmarkedOnly, selectedGenre, } = this.props;
+    const { searchText } = this.state;
 
     return (
       <div>
