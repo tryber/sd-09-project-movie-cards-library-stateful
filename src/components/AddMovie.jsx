@@ -54,7 +54,7 @@ class AddMovie extends React.Component {
           <MovieRating value={ rating } changeHandler={ this.changeHandler } />
           <MovieGenre value={ genre } changeHandler={ this.changeHandler } />
           <button
-            type="submit"
+            type="button"
             data-testid="send-button"
             onClick={ () => this.buttonHandler(onClick) }
           >

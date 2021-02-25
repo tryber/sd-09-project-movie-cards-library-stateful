@@ -44,7 +44,7 @@ class MovieLibrary extends Component {
   addMovie(movieObject) {
     const { movies } = this.state;
     this.setState({
-      movies: [...movies, movieObject],
+      movies: movies.concat(movieObject),
     });
   }
 
