@@ -5,9 +5,6 @@ import AddMovie from './AddMovie';
 import movies from '../data';
 import MovieList from './MovieList';
 
-
-
-
 const MovieLibrary = () => (
   <div>
     <SearchBar />

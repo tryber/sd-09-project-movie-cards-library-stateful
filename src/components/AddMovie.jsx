@@ -1,19 +1,20 @@
 // implement AddMovie component here
-import React from 'react'
+import React from 'react';
+
 const AddMovie = () => {
- let obj = { subtitle: '',
-  title: '',
-  imagePath: '',
-  storyLine: '',
-  rating: 0,
-  genre: 'action',
-}
-let title
-let subtitle
-let imagePath
-let storyline
-let rating
-let genre
+  let obj = { subtitle: '',
+    title: '',
+    imagePath: '',
+    storyLine: '',
+    rating: 0,
+    genre: 'action',
+  }
+  let title;
+  let subtitle;
+  let imagePath;
+  let storyline;
+  let rating;
+  let genre;
 
   return (
   <div>
