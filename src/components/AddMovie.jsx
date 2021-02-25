@@ -23,6 +23,17 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
+  createNewCard() {
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   renderStoryline() {
     const { storyline } = this.state;
     return (
@@ -36,6 +47,18 @@ class AddMovie extends React.Component {
           value={ storyline }
         />
       </label>
+    );
+  }
+
+  renderButton() {
+    return (
+      <button
+        type="button"
+        data-testid="send-button"
+        onClick={ this.createNewCard }
+      >
+        Adicionar filme
+      </button>
     );
   }
 
@@ -66,7 +89,6 @@ class AddMovie extends React.Component {
       <form data-testid="add-movie-form">
         <GenInput
           name="title"
-          id="title-id"
           type="text"
           dtId="title-input"
           value={ title }
@@ -76,7 +98,6 @@ class AddMovie extends React.Component {
         />
         <GenInput
           name="subtitle"
-          id="subtitle-id"
           type="text"
           dtId="subtitle-input"
           value={ subtitle }
@@ -86,7 +107,6 @@ class AddMovie extends React.Component {
         />
         <GenInput
           name="imagePath"
-          id="image-id"
           type="text"
           dtId="image-input"
           value={ imagePath }
@@ -97,7 +117,6 @@ class AddMovie extends React.Component {
         {this.renderStoryline()}
         <GenInput
           name="rating"
-          id="rating-id"
           type="number"
           dtId="rating-input"
           value={ rating }
@@ -106,6 +125,7 @@ class AddMovie extends React.Component {
           labelName="Avaliação"
         />
         {this.renderGenreSelect()}
+        {this.renderButton()}
       </form>
     );
   }

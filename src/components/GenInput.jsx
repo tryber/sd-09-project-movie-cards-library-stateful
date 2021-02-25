@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 
 class GenInput extends React.Component {
   render() {
-    const { name, id, type, dtId, value, onChange, labelId, labelName } = this.props;
+    const { name, type, dtId, value, onChange, labelId, labelName } = this.props;
     return (
       <label htmlFor={ labelId } data-testid={ labelId }>
         { labelName }
         <input
           name={ name }
-          id={ id }
+          id={ dtId }
           type={ type }
           data-testid={ dtId }
           value={ value }
@@ -25,7 +25,7 @@ GenInput.propTypes = ({
   id: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   dtId: PropTypes.string.isRequired,
-  value: PropTypes.number.isRequired,
+  value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   labelId: PropTypes.string.isRequired,
   labelName: PropTypes.string.isRequired,
