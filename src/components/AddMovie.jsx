@@ -14,6 +14,13 @@ class AddMovie extends React.Component {
             data-testid="title-input"
           />
         </label>
+        <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
+          Subtítulo
+          <input
+            type="text"
+            data-testid="subtitle-input"
+          />
+        </label>
       </form>
     );
   }
