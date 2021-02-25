@@ -29,11 +29,12 @@ class AddMovie extends React.Component {
     const { value } = target;
     this.setState({ genre: value });
   }
+
   handlerSubmitClick(event) {
-    event.preventDefault(); 
+    event.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
-    this.setState( {
+    this.setState({
       subtitle: '',
       title: '',
       imagePath: '',
@@ -41,81 +42,80 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     });
-
   }
 
   render() {
     const { onClick } = this.props;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
 
-    return(
+    return (
       <div className="add-movie">
         <form data-testid="add-movie-form">
           <label htmlFor="title-input" data-testid="title-input-label">
-          Título
+            Título
           </label>
           <input type="text"
-          id="title-input"
-          name="title"
-          value={ title }
-          onChange={ this.changeHandler }
+            id="title-input"
+            name="title"
+            value={title}
+            onChange={this.changeHandler}
           />
-          
+
           <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
-          Subtítulo
+            Subtítulo
           </label>
           <input type="text"
-          id="subtitle-input"
-          name="subtitle"
-          value={ subtitle }
-          onChange={ this.changeHandler }
+            id="subtitle-input"
+            name="subtitle"
+            value={subtitle}
+            onChange={this.changeHandler}
           />
 
           <label htmlFor="imagePath" testid="image-input-label">
-          Imagem
+            Imagem
           </label>
           <input type="text"
-          id="imagePath"
-          name="imagePath"
-          value={ imagePath }
-          onChange={ this.changeHandler }
+            id="imagePath"
+            name="imagePath"
+            value={imagePath}
+            onChange={this.changeHandler}
           />
 
           <label htmlFor="storyline" data-testid="storyline-input-label">
-          Sinopse
+            Sinopse
           </label>
           <textarea
-          id="storyline"
-          name="storyline"
-          value={ storyline }
-          onChange={ this.changeHandler }
+            id="storyline"
+            name="storyline"
+            value={storyline}
+            onChange={this.changeHandler}
           />
 
           <label htmlFor="imagePath" data-testid="rating-input-label">
-          Avaliação
+            Avaliação
           </label>
           <input type="number"
-          id="rating"
-          name="rating"
-          value={ rating }
-          onChange={ this.changeHandler }
+            id="rating"
+            name="rating"
+            value={rating}
+            onChange={this.changeHandler}
           />
 
           <label data-testid="genre-input-label" htmlFor="genre">
-          Gênero
+            Gênero
           </label>
-          <select value={ genre } data-testid="genre-input" id="genre"
-          onChange={ this.handlerSelectChange }
-          id="select">
+          <select value={genre} data-testid="genre-input" id="genre"
+            onChange={this.handlerSelectChange}
+            id="select">
             <option data-testid="genre-option" value="action">Ação</option>
             <option data-testid="genre-option" value="comedy">Comédia</option>
             <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
 
-          <button type="submit" 
-          data-testid="send-button" 
-          onClick={this.handlerSubmitClick}>
-          Adicionar filme
+          <button type="submit"
+            data-testid="send-button"
+            onClick={this.handlerSubmitClick}>
+            Adicionar filme
           </button>
         </form>
       </div>
