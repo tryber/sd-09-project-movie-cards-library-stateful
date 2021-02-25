@@ -3,7 +3,9 @@ import React from 'react';
 class SearchBar extends React.Component {
   render() {
     const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkChange, selectedGenre, onSelectedGenreChange } = this.props;
-    return 0;
+    return (
+      <form data-testid="search-bar-form" />
+    );
   }
 }
 
