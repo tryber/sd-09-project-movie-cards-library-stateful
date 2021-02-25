@@ -1,8 +1,29 @@
-/* eslint-disable max-lines-per-function */
 import React from 'react';
 import { string, func, bool } from 'prop-types';
 
 class SearchBar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.createSelect = this.createSelect.bind(this);
+  }
+
+  createSelect(selectedGenre, onSelectedGenreChange) {
+    return (
+      <select
+        id="select-input"
+        name="select-input"
+        data-testid="select-input"
+        value={ selectedGenre }
+        onChange={ onSelectedGenreChange }
+      >
+        <option value="" data-testid="select-option">Todos</option>
+        <option value="action" data-testid="select-option">Ação</option>
+        <option value="comedy" data-testid="select-option">Comédia</option>
+        <option value="thriller" data-testid="select-option">Suspense</option>
+      </select>
+    );
+  }
+
   render() {
     const {
       searchText,
@@ -42,18 +63,7 @@ class SearchBar extends React.Component {
 
           <label htmlFor="select-input" data-testid="select-input-label">
             Filtrar por gênero
-            <select
-              id="select-input"
-              name="select-input"
-              data-testid="select-input"
-              value={ selectedGenre }
-              onChange={ onSelectedGenreChange }
-            >
-              <option value="" data-testid="select-option">Todos</option>
-              <option value="action" data-testid="select-option">Ação</option>
-              <option value="comedy" data-testid="select-option">Comédia</option>
-              <option value="thriller" data-testid="select-option">Suspense</option>
-            </select>
+            { this.createSelect(selectedGenre, onSelectedGenreChange) }
           </label>
         </form>
       </div>
