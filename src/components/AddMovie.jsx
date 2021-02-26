@@ -21,6 +21,17 @@ class AddMovie extends React.Component {
     });
   }
 
+  resetInputState() {
+    this.state = {
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    };
+  }
+
   createTitleInput(title) {
     return (
       <label htmlFor="title-input" data-testid="title-input-label">
@@ -112,6 +123,18 @@ class AddMovie extends React.Component {
     );
   }
 
+  createAddMovieButton() {
+    return (
+      <button
+        type="button"
+        onClick={ this.resetInputState }
+        data-testid="send-button"
+      >
+        Adicionar filme
+      </button>
+    );
+  }
+
   render() {
     const {
       title,
@@ -130,8 +153,7 @@ class AddMovie extends React.Component {
         { this.createStorylineInput(storyline) }
         { this.createRatingInput(rating) }
         { this.createGenreInput(genre) }
-        <button data-testid="send-button">Adicionar filme</button>
-
+        { this.createAddMovieButton() }
       </form>
     );
   }

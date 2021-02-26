@@ -33,9 +33,8 @@ class MovieLibrary extends React.Component {
   }
 
   onSelectedGenreChange({ target }) {
-    const { name, value } = target;
     this.setState({
-      [name]: value,
+      [target.name]: target.value,
     });
   }
 
