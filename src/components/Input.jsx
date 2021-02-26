@@ -40,14 +40,14 @@ class Input extends React.Component {
         </label>
 
         <label htmlFor="storyline" data-testid="storyline-input-label">
-            Sinopse
+          Sinopse
           <textarea
             id="storyline"
             name="storyline"
             value={ storyline }
             onChange={ changeHandler }
           />
-          </label>
+        </label>
 
       </div>
     );
