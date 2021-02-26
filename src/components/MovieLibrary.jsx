@@ -47,9 +47,9 @@ class MovieLibrary extends Component {
     if (searchText) {
       filteredMovies = filteredMovies.filter(
         (movie) =>
-          movie.storyline.toUpperCase().includes(searchText.toUpperCase()) ||
-          movie.title.toUpperCase().includes(searchText.toUpperCase()) ||
-          movie.subtitle.toUpperCase().includes(searchText.toUpperCase())
+          movie.storyline.toUpperCase().includes(searchText.toUpperCase())
+          || movie.title.toUpperCase().includes(searchText.toUpperCase())
+          || movie.subtitle.toUpperCase().includes(searchText.toUpperCase()),
       );
     }
 
@@ -59,8 +59,8 @@ class MovieLibrary extends Component {
   addMovieCard(state) {
     this.setState((previousState) => {
       if (
-        state.title !==
-        previousState.movies[previousState.movies.length - 1].title
+        state.title
+        !== previousState.movies[previousState.movies.length - 1].title
       ) {
         return { movies: [...previousState.movies, state] };
       }
@@ -72,18 +72,18 @@ class MovieLibrary extends Component {
     const { searchText, selectedGenre, bookmarkedOnly } = this.state;
 
     return (
-      <div onChange={this.filterMovies}>
+      <div onChange={ this.filterMovies }>
         <h2> My awesome movie library </h2>
         <SearchBar
-          searchText={searchText}
-          selectedGenre={selectedGenre}
-          bookmarkedOnly={bookmarkedOnly}
-          onSearchTextChange={this.updateState}
-          onBookmarkedChange={this.updateState}
-          onSelectedGenreChange={this.updateState}
+          searchText={ searchText }
+          selectedGenre={ selectedGenre }
+          bookmarkedOnly={ bookmarkedOnly }
+          onSearchTextChange={ this.updateState }
+          onBookmarkedChange={ this.updateState }
+          onSelectedGenreChange={ this.updateState }
         />
-        <MovieList movies={movies} />
-        <AddMovie onClick={this.addMovieCard} />
+        <MovieList movies={ movies } />
+        <AddMovie onClick={ this.addMovieCard } />
       </div>
     );
   }
