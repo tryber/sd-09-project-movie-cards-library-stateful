@@ -27,13 +27,8 @@ class NewRating extends Component {
 }
 
 NewRating.propTypes = {
-  rating: PropTypes.number,
-  onChange: PropTypes.func,
-};
-
-NewRating.defaultProps = {
-  rating: 0,
-  onChange: undefined,
+  rating: PropTypes.number.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 export default NewRating;

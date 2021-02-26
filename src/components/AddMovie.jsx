@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import TitleInput from './TitleInput';
 import SubtitleInput from './SubtitleInput';
 import ImagePath from './ImagePath';
 import Storyline from './Storyline';
 import NewRating from './NewRating';
 import Genre from './Genre';
+import Button from './Button';
 
 class AddMovie extends Component {
   constructor(props) {
@@ -18,7 +19,9 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     };
+    this.baseState = this.state;
     this.onChange = this.onChange.bind(this);
+    this.onSend = this.onSend.bind(this);
   }
 
   onChange({ target }) {
@@ -28,8 +31,20 @@ class AddMovie extends Component {
     });
   }
 
+  onSend() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   render() {
-    // const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form id="add-movie-form" data-testid="add-movie-form">
@@ -39,13 +54,14 @@ class AddMovie extends Component {
         <Storyline storyline={ storyline } onChange={ this.onChange } />
         <NewRating rating={ rating } onChange={ this.onChange } />
         <Genre genre={ genre } onChange={ this.onChange } />
+        <Button onClick={ this.onSend } />
       </form>
     );
   }
 }
 
-// AddMovie.propTypes = {
-//   onClick: PropTypes.func.isRequired,
-// };
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
