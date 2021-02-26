@@ -11,13 +11,18 @@ class MovieLibrary extends Component {
     super(props);
   }
 
+  onClick() {
+    return console.log('oi');
+  }
+
   render() {
+    const { movies } = this.props;
     return (
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar />
-        <MovieList movies={ this.props.movies } />
-        <AddMovie />
+        <MovieList movies={ movies } />
+        <AddMovie onClick={ () => this.onClick() } />
       </div>
     );
   }
