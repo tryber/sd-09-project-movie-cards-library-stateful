@@ -5,33 +5,33 @@ import AddMovie from './components/AddMovie';
 import './App.css';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
-  handleSearchTextChange() {}
+  // handleSearchTextChange() {}
 
-  handleBookmarkedChange() {}
+  // handleBookmarkedChange() {}
 
-  handleSelectedGenreChange() {}
+  // handleSelectedGenreChange() {}
 
-  handleAddMovieClick() {
-    
-  }
+  // handleAddMovieClick() {
+
+  // }
 
   render() {
     return (
-      <div className='App'>
+      <div className="App">
         <Header />
         <SearchBar
-          searchText=''
-          selectedGenre=''
-          bookmarkedOnly={false}
-          onSearchTextChange={this.handleSearchTextChange}
-          onBookmarkedChange={this.handleBookmarkedChange}
-          onSelectedGenreChange={this.handleSelectedGenreChange}
+          searchText=""
+          selectedGenre=""
+          bookmarkedOnly={ false }
+          onSearchTextChange={ this.handleSearchTextChange }
+          onBookmarkedChange={ this.handleBookmarkedChange }
+          onSelectedGenreChange={ this.handleSelectedGenreChange }
         />
-        <AddMovie onClick={this.handleAddMovieClick} />
+        <AddMovie onClick={ this.handleAddMovieClick } />
       </div>
     );
   }
