@@ -48,14 +48,13 @@ class AddMovie extends React.Component {
 
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
-
     return (
       <div className="add-movie">
         <form data-testid="add-movie-form">
-          <Input title={title}
-            changeHandler={this.changeHandler}
-            subtitle={subtitle}
-            imagePath={imagePath}
+          <Input title={ title }
+            changeHandler={ this.changeHandler }
+            subtitle={ subtitle }
+            imagePath={ imagePath }
           />
 
           <label htmlFor="storyline" data-testid="storyline-input-label">
@@ -63,8 +62,8 @@ class AddMovie extends React.Component {
             <textarea
               id="storyline"
               name="storyline"
-              value={storyline}
-              onChange={this.changeHandler}
+              value={ storyline }
+              onChange={ this.changeHandler }
             />
           </label>
 
@@ -74,18 +73,18 @@ class AddMovie extends React.Component {
               type="number"
               id="rating"
               name="rating"
-              value={rating}
-              onChange={this.changeHandler}
+              value={ rating }
+              onChange={ this.changeHandler }
             />
           </label>
 
           <label htmlFor="genre" data-testid="genre-input-label">
             Gênero
             <select
-              value={genre}
+              value={ genre }
               data-testid="genre-input"
               id="genre"
-              onChange={this.handlerSelectChange}
+              onChange={ this.handlerSelectChange }
             >
               <option data-testid="genre-option" value="action">Ação</option>
               <option data-testid="genre-option" value="comedy">Comédia</option>
@@ -96,7 +95,7 @@ class AddMovie extends React.Component {
           <button
             type="submit"
             data-testid="send-button"
-            onClick={this.handlerSubmitClick}
+            onClick={ this.handlerSubmitClick }
           >
             Adicionar filme
           </button>
