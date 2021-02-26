@@ -8,7 +8,7 @@ export default class AddMovie extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      form: this.initialState().form,
+      form: this.initialForm(),
       subtitle: '',
       title: '',
       imagePath: '',
@@ -26,7 +26,6 @@ export default class AddMovie extends Component {
     let info = {};
     info = Object.assign(info, this.state);
     delete info.form;
-    console.log(this.state);
 
     onClick(info);
 
@@ -40,50 +39,42 @@ export default class AddMovie extends Component {
     });
   }
 
-  initialState() {
-    return {
-      form: [
-        { label: 'Título: ',
-          name: 'title',
-          id: 'title-input',
-          tag: 'input',
-          type: 'text' },
-        { label: 'Subtítulo: ',
-          name: 'subtitle',
-          id: 'subtitle-input',
-          tag: 'input',
-          type: 'text' },
-        { label: 'Imagem: ',
-          name: 'imagePath',
-          id: 'image-input',
-          tag: 'input',
-          type: 'text' },
-        { label: 'Sinopse: ',
-          name: 'storyline',
-          id: 'storyline-input',
-          tag: 'textarea' },
-        { label: 'Avaliação: ',
-          name: 'rating',
-          id: 'rating-input',
-          tag: 'input',
-          type: 'number' },
-        { label: 'Gênero: ',
-          name: 'genre',
-          id: 'genre-input',
-          tag: 'select',
-          options: {
-            action: 'Ação',
-            comedy: 'Comédia',
-            thriller: 'Suspense',
-          } },
-      ],
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    };
+  initialForm() {
+    return [
+      { label: 'Título: ',
+        name: 'title',
+        id: 'title-input',
+        tag: 'input',
+        type: 'text' },
+      { label: 'Subtítulo: ',
+        name: 'subtitle',
+        id: 'subtitle-input',
+        tag: 'input',
+        type: 'text' },
+      { label: 'Imagem: ',
+        name: 'imagePath',
+        id: 'image-input',
+        tag: 'input',
+        type: 'text' },
+      { label: 'Sinopse: ',
+        name: 'storyline',
+        id: 'storyline-input',
+        tag: 'textarea' },
+      { label: 'Avaliação: ',
+        name: 'rating',
+        id: 'rating-input',
+        tag: 'input',
+        type: 'number' },
+      { label: 'Gênero: ',
+        name: 'genre',
+        id: 'genre-input',
+        tag: 'select',
+        options: {
+          action: 'Ação',
+          comedy: 'Comédia',
+          thriller: 'Suspense',
+        } },
+    ];
   }
 
   switchHandler(e) {

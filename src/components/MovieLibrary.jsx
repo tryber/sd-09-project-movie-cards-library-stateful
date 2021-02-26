@@ -7,15 +7,18 @@ import AddMovie from './AddMovie';
 export default class MovieLibrary extends Component {
   constructor(props) {
     super(props);
+    const { movies } = this.props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
+      movies,
     };
     this.handleSearchInput = this.handleSearchInput.bind(this);
     this.handleGenreSelection = this.handleGenreSelection.bind(this);
     this.handleBookmarkChange = this.handleBookmarkChange.bind(this);
     this.filteredMovieList = this.filteredMovieList.bind(this);
+    this.createMovieCard = this.createMovieCard.bind(this);
   }
 
   handleSearchInput(e) {
@@ -31,8 +34,7 @@ export default class MovieLibrary extends Component {
   }
 
   filterListBySearchInput() {
-    const { movies } = this.props;
-    const { searchText } = this.state;
+    const { searchText, movies } = this.state;
     const re = new RegExp(searchText, 'i');
     return !searchText ? movies
       : movies.filter(({ title, subtitle, storyline }) => (
@@ -41,15 +43,13 @@ export default class MovieLibrary extends Component {
   }
 
   filterListByBookmarkedOnly() {
-    const { movies } = this.props;
-    const { bookmarkedOnly } = this.state;
+    const { bookmarkedOnly, movies } = this.state;
     return !bookmarkedOnly ? movies
       : movies.filter(({ bookmarked }) => bookmarked);
   }
 
   filterListByGenre() {
-    const { movies } = this.props;
-    const { selectedGenre } = this.state;
+    const { selectedGenre, movies } = this.state;
     return !selectedGenre ? movies
       : movies.filter(({ genre }) => genre === selectedGenre);
   }
@@ -65,8 +65,12 @@ export default class MovieLibrary extends Component {
     ));
   }
 
+  createMovieCard(movieInfo) {
+    const { movies: prevMovies } = this.state;
+    this.setState({ movies: [...prevMovies, movieInfo] });
+  }
+
   render() {
-    const { movies } = this.props;
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
 
     return (
@@ -80,13 +84,9 @@ export default class MovieLibrary extends Component {
           onSelectedGenreChange={ this.handleGenreSelection }
         />
         <MovieList
-          movies={
-            this.filteredMovieList()
-              ? this.filteredMovieList()
-              : movies
-          }
+          movies={ this.filteredMovieList() }
         />
-        <AddMovie />
+        <AddMovie onClick={ this.createMovieCard } />
       </section>
     );
   }
