@@ -10,7 +10,6 @@ const initialState = {
   genre: 'action',
 };
 
-const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
 class AddMovie extends React.Component {
   constructor() {
     super();
@@ -31,6 +30,7 @@ class AddMovie extends React.Component {
   }
 
   titleInput() {
+    const { title } = this.state;
     return (
       <label data-testid="title-input-label" htmlFor="title">
         Título
@@ -46,6 +46,7 @@ class AddMovie extends React.Component {
   }
 
   subtitleInput() {
+    const { subtitle } = this.state;
     return (
       <label data-testid="subtitle-input-label" htmlFor="subtitle">
         Subtítulo
@@ -61,6 +62,7 @@ class AddMovie extends React.Component {
   }
 
   imageFunction() {
+    const { imagePath } = this.state;
     return (
       <label data-testid="image-input-label" htmlFor="imagePath">
         Imagem
@@ -76,6 +78,7 @@ class AddMovie extends React.Component {
   }
 
   storyLineFunction() {
+    const { storyline } = this.state;
     return (
       <label data-testid="storyline-input-label" htmlFor="storyline">
         Sinopse
@@ -90,6 +93,7 @@ class AddMovie extends React.Component {
   }
 
   avaliacaoFunction() {
+    const { rating } = this.state;
     return (
       <label data-testid="rating-input-label" htmlFor="rating">
         Avaliação
@@ -105,6 +109,7 @@ class AddMovie extends React.Component {
   }
 
   genreFunction() {
+    const { genre } = this.state;
     return (
       <label data-testid="genre-input-label" htmlFor="genre">
         Gênero
@@ -126,6 +131,7 @@ class AddMovie extends React.Component {
   render() {
     return (
       <section>
+
         <form data-testid="add-movie-form">
           { this.titleInput() }
           { this.subtitleInput() }
