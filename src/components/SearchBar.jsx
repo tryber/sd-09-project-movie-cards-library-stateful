@@ -9,6 +9,7 @@ class SearchBar extends Component {
     this.bookmarkedOnlyElement = this.bookmarkedOnlyElement.bind(this);
     this.selectedGenreElement = this.selectedGenreElement.bind(this);
   }
+
   searchTextElement() {
     const { searchText, onSearchTextChange } = this.props;
 
@@ -71,6 +72,7 @@ class SearchBar extends Component {
       </label>
     );
   }
+  
   render() {
     return (
       <form action="" data-testid="search-bar-form">
