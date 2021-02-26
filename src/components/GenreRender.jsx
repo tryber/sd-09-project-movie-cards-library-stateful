@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default class genreRender extends React.Component {
+export default class GenreRender extends React.Component {
   render() {
     const { value, onChange } = this.props;
     return (
@@ -51,3 +52,8 @@ export default class genreRender extends React.Component {
     );
   }
 }
+
+GenreRender.propTypes = {
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+}.isRequired;
