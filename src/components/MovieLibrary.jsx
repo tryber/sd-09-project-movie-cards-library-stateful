@@ -75,9 +75,10 @@ class MovieLibrary extends Component {
         { searchText !== '' && <MovieList movies={ searchBarMovies } /> }
         { bookmarkedOnly !== false && <MovieList movies={ favoritedsMovies } /> }
         { selectedGenre !== '' && <MovieList movies={ genreMovies } /> }
-        { searchText === '' && bookmarkedOnly === false &&
-          selectedGenre === '' &&
-          <MovieList movies={ movies } />}
+        { searchText === '' 
+          && bookmarkedOnly === false 
+          && selectedGenre === '' 
+          && <MovieList movies={ movies } />}
         <AddMovie onClick={ this.onClick } />
       </div>
     );
