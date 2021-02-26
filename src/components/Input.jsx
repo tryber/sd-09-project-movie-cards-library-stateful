@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class Input extends React.Component {
   render() {
-    const { title, changeHandler, subtitle, imagePath } = this.props;
+    const { title, changeHandler, subtitle, imagePath, storyline } = this.props;
     return (
       <div className="inputs">
         <label htmlFor="title-input" data-testid="title-input-label">
@@ -38,6 +38,16 @@ class Input extends React.Component {
             onChange={ changeHandler }
           />
         </label>
+
+        <label htmlFor="storyline" data-testid="storyline-input-label">
+            Sinopse
+            <textarea
+              id="storyline"
+              name="storyline"
+              value={ storyline }
+              onChange={ changeHandler }
+            />
+          </label>
 
       </div>
     );

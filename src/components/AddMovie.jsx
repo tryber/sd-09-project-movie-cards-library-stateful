@@ -56,17 +56,8 @@ class AddMovie extends React.Component {
             changeHandler={ this.changeHandler }
             subtitle={ subtitle }
             imagePath={ imagePath }
+            storyline = { storyline }
           />
-
-          <label htmlFor="storyline" data-testid="storyline-input-label">
-            Sinopse
-            <textarea
-              id="storyline"
-              name="storyline"
-              value={ storyline }
-              onChange={ this.changeHandler }
-            />
-          </label>
 
           <label htmlFor="rating" data-testid="rating-input-label">
             Avaliação
