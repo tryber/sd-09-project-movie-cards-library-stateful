@@ -124,6 +124,9 @@ class AddMovie extends React.Component {
   }
 
   resetState() {
+    const { onClick } = this.props;
+    onClick(this.state);
+
     this.setState({
       subtitle: '',
       title: '',
