@@ -8,42 +8,53 @@ class MovieLibrary extends Component {
   constructor(props) {
     super(props);
     const { movies } = this.props;
-    this.state= {
+    this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
       movies,
-    }
-  this.onSearchTextChange = this.onSearchTextChange.bind(this);
-  this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
-  this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-  this.filterByMovies = this.filterByMovies.bind(this);
-  this.onClick = this.onClick.bind(this);
+    };
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.filterByMovies = this.filterByMovies.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
+
   onSearchTextChange({ target }) {
     const { value } = target;
     this.setState({
       searchText: value,
-    })
+    });
   }
+
   onBookmarkedChange({ target }) {
     const { checked } = target;
     if (checked) {
     this.setState({
       bookmarkedOnly: true,
-    })
+    });
   } else {
     this.setState({
       bookmarkedOnly: false,
-    })
+    });
   }
   }
+
   onSelectedGenreChange({ target }) {
     const { value } = target;
     this.setState({
       selectedGenre: value,
-    })
+    });
   }
+
+  onClick(state) {
+    const { movies } = this.state;
+    this.setState({
+      movies: [...movies, state],
+    });
+  }
+
   filterByMovies() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state
     let filterMovies = movies;
@@ -62,12 +73,6 @@ class MovieLibrary extends Component {
       .filter((movie => movie.genre === selectedGenre))
     }
       return filterMovies;
-  }
-  onClick(state) {
-    const { movies } = this.state;
-    this.setState({
-      movies: [...movies, state],
-    });
   }
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
