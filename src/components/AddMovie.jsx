@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Input from './Input';
 import TextArea from './TextArea';
 import GenreType from './GenreType';
+import Button from './Button';
 
 class AddMovie extends Component {
   constructor(props) {
@@ -18,6 +19,7 @@ class AddMovie extends Component {
     };
 
     this.handleInputTextChange = this.handleInputTextChange.bind(this);
+    this.handleClickSendButton = this.handleClickSendButton.bind(this);
   }
 
   handleInputTextChange(event) {
@@ -26,6 +28,8 @@ class AddMovie extends Component {
       [name]: value,
     });
   }
+
+  handleClickSendButton() {}
 
   render() {
     // const { onClick } = this.props;
@@ -53,7 +57,7 @@ class AddMovie extends Component {
         <Input
           type={ 'text' }
           label={ 'Imagem' }
-          name={ 'subtitle' }
+          name={ 'img' }
           value={ imagePath }
           onChange={ this.handleInputTextChange }
           testLabel={ 'image-input-label' }
@@ -82,6 +86,11 @@ class AddMovie extends Component {
           testLabel={ 'genre-input-label' }
           test={ 'genre-input' }
           testOption={ 'genre-option' }
+        />
+        <Button
+          value={ 'Adicionar filme' }
+          test={ 'send-button' }
+          onClick={this.handleClickSendButton}
         />
       </form>
     );
