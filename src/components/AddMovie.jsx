@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import ParentInput from './ParentInput.jsx';
-import ParentSelect from './ParentSelect.jsx';
+import ParentInput from './ParentInput';
+import ParentSelect from './ParentSelect';
 
 class AddMovie extends Component {
   constructor(props) {
