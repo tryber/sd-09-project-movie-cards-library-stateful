@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
   constructor(props) {
     super(props);
 
     this.updateState = this.updateState.bind(this);
-    this.resetState = this.resetState.bind(this)
+    this.resetState = this.resetState.bind(this);
 
     this.state = {
       subtitle: '',
@@ -24,8 +25,9 @@ class AddMovie extends Component {
   }
 
   resetState() {
-    this.props.onClick(this.state)
-  
+    const { onClick } = this.props
+    onClick(this.state);
+
     this.setState({
       subtitle: '',
       title: '',
@@ -33,7 +35,7 @@ class AddMovie extends Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-    })
+    });
   }
 
   render() {
@@ -120,5 +122,9 @@ class AddMovie extends Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
