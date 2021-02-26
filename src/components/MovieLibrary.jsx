@@ -44,14 +44,13 @@ class MovieLibrary extends Component {
   }
 
   changeGenre({ target }) {
-    const { name, value } = target;
+    const { value } = target;
     this.setState({
-      [name]: value,
+      selectedGenre: value,
     });
   }
 
   render() {
-
     const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
 
     const searchList = movies.filter(({ title, subtitle, storyline }) => {
@@ -60,16 +59,14 @@ class MovieLibrary extends Component {
       || storyline.toUpperCase().includes(searchText.toUpperCase());
     });
 
+    // Recuperar os filmes com bookmarked = true
+    // Filter tem que retornar o card com o bookmarked = true
     const searchBookmarked = searchList.filter(({ bookmarked }) => {
-      // Recuperar os filmes com bookmarked = true
-      // Filter tem que retornar o card com o bookmarked = true
-
       return bookmarkedOnly ? bookmarked === true : true;
+    });
 
-      // if (this.state.bookmarkedOnly) {
-      //   return movie.bookmarked === true;
-      // }
-      // return true;
+    const searchGenre = searchBookmarked.filter(({ genre }) => {
+      return genre.includes(selectedGenre);
     });
 
     return (
@@ -82,7 +79,7 @@ class MovieLibrary extends Component {
           onBookmarkedChange={ this.changeBookmark }
           onSelectedGenreChange={ this.changeGenre }
         />
-        <MovieList movies={ searchBookmarked } />
+        <MovieList movies={ searchGenre } />
       </section>
     );
   }
