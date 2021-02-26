@@ -40,15 +40,15 @@ class AddMovie extends Component {
 
   titleElement() {
     return (
-      <label htmlFor='title-input' data-testid='title-input-label'>
+      <label htmlFor="title-input" data-testid="title-input-label">
         Título
         <input
-          name='title'
-          type='text'
-          id='title-input'
-          data-testid='title-input'
-          value={this.state.title}
-          onChange={this.updateState}
+          name="title"
+          type="text"
+          id="title-input"
+          data-testid="title-input"
+          value={ this.state.title }
+          onChange={ this.updateState }
         />
       </label>
     );
@@ -56,15 +56,15 @@ class AddMovie extends Component {
 
   subtitleElement() {
     return (
-      <label htmlFor='' data-testid='subtitle-input-label'>
+      <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
         Subtítulo
         <input
-          name='subtitle'
-          value={this.state.subtitle}
-          type='text'
-          id='subtitle-input'
-          data-testid='subtitle-input'
-          onChange={this.updateState}
+          name="subtitle"
+          value={ this.state.subtitle }
+          type="text"
+          id="subtitle-input"
+          data-testid="subtitle-input"
+          onChange={ this.updateState }
         />
       </label>
     );
@@ -72,13 +72,13 @@ class AddMovie extends Component {
 
   imageElement() {
     return (
-      <label htmlFor='image-input' data-testid='image-input-label'>
+      <label htmlFor="image-input" data-testid="image-input-label">
         Imagem
         <input
-          name='imagePath'
-          type='text'
-          data-testid='image-input'
-          onChange={this.updateState}
+          name="imagePath"
+          type="text"
+          data-testid="image-input"
+          onChange={ this.updateState }
         />
       </label>
     );
@@ -86,16 +86,16 @@ class AddMovie extends Component {
 
   storylineElement() {
     return (
-      <label htmlFor='storyline-input' data-testid='storyline-input-label'>
+      <label htmlFor="storyline-input" data-testid="storyline-input-label">
         Sinopse
         <textarea
-          name='storyline'
-          id='storyline-input'
-          data-testid='storyline-input'
-          cols='30'
-          rows='10'
-          onChange={this.updateState}
-          value={this.state.storyline}
+          name="storyline"
+          id="storyline-input"
+          data-testid="storyline-input"
+          cols="30"
+          rows="10"
+          onChange={ this.updateState }
+          value={ this.state.storyline }
         ></textarea>
       </label>
     );
@@ -103,15 +103,15 @@ class AddMovie extends Component {
 
   ratingElement() {
     return (
-      <label htmlFor='rating-input' data-testid='rating-input-label'>
+      <label htmlFor="rating-input" data-testid="rating-input-label">
         Avaliação
         <input
-          type='number'
-          name='rating'
-          id='rating-input'
-          data-testid='rating-input'
-          onChange={this.updateState}
-          value={this.state.rating}
+          type="number"
+          name="rating"
+          id="rating-input"
+          data-testid="rating-input"
+          onChange={ this.updateState }
+          value={ this.state.rating }
         />
       </label>
     );
@@ -119,22 +119,22 @@ class AddMovie extends Component {
 
   genreElement() {
     return (
-      <label htmlFor='genre-input' data-testid='genre-input-label'>
+      <label htmlFor="genre-input" data-testid="genre-input-label">
         Gênero
         <select
-          name='genre'
-          id='genre-input'
-          data-testid='genre-input'
-          value={this.state.genre}
-          onChange={this.updateState}
+          name="genre"
+          id="genre-input"
+          data-testid="genre-input"
+          value={ this.state.genre }
+          onChange={ this.updateState }
         >
-          <option data-testid='genre-option' value='action'>
+          <option data-testid="genre-option" value="action">
             Ação
           </option>
-          <option data-testid='genre-option' value='comedy'>
+          <option data-testid="genre-option" value="comedy">
             Comédia
           </option>
-          <option data-testid='genre-option' value='thriller'>
+          <option data-testid="genre-option" value="thriller">
             Suspense
           </option>
         </select>
@@ -144,14 +144,14 @@ class AddMovie extends Component {
 
   render() {
     return (
-      <form action='' data-testid='add-movie-form'>
-        {this.titleElement()}
-        {this.subtitleElement()}
-        {this.imageElement()}
-        {this.storylineElement()}
-        {this.ratingElement()}
-        {this.genreElement()}
-        <button data-testid='send-button' onClick={this.resetState}>
+      <form action="" data-testid="add-movie-form">
+        { this.titleElement() }
+        { this.subtitleElement() }
+        { this.imageElement()}
+        { this.storylineElement() }
+        { this.ratingElement() }
+        { this.genreElement() }
+        <button data-testid="send-button" onClick={ this.resetState }>
           Adicionar filme
         </button>
       </form>
