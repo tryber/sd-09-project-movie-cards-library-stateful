@@ -30,7 +30,7 @@ export default class MovieLibrary extends Component {
     this.setState({ selectedGenre: e.target.value });
   }
 
-  filteredMovieList() {
+  filterListBySearchInput() {
     const { movies } = this.props;
     const { searchText } = this.state;
     const re = new RegExp(searchText, 'i');
@@ -38,6 +38,31 @@ export default class MovieLibrary extends Component {
       : movies.filter(({ title, subtitle, storyline }) => (
         [re.test(title), re.test(subtitle), re.test(storyline)].some((value) => value)
       ));
+  }
+
+  filterListByBookmarkedOnly() {
+    const { movies } = this.props;
+    const { bookmarkedOnly } = this.state;
+    return !bookmarkedOnly ? movies
+      : movies.filter(({ bookmarked }) => bookmarked);
+  }
+
+  filterListByGenre() {
+    const { movies } = this.props;
+    const { selectedGenre } = this.state;
+    return !selectedGenre ? movies
+      : movies.filter(({ genre }) => genre === selectedGenre);
+  }
+
+  filteredMovieList() {
+    const filteredItems = [
+      this.filterListBySearchInput(),
+      this.filterListByBookmarkedOnly(),
+      this.filterListByGenre(),
+    ];
+    return filteredItems.shift().filter((movie) => (
+      filteredItems.every((movieArr) => movieArr.includes(movie))
+    ));
   }
 
   render() {
