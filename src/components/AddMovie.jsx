@@ -51,7 +51,8 @@ class AddMovie extends React.Component {
     return (
       <div className="add-movie">
         <form data-testid="add-movie-form">
-          <Input title={ title }
+          <Input
+            title={ title }
             changeHandler={ this.changeHandler }
             subtitle={ subtitle }
             imagePath={ imagePath }
