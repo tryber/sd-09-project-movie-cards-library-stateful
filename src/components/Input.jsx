@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Input extends React.Component {
   render() {
@@ -25,5 +26,15 @@ class Input extends React.Component {
     );
   }
 }
+
+Input.propTypes = {
+  type: PropTypes.string,
+  value: PropTypes.string,
+  datatestid: PropTypes.string,
+  datatestidLab: PropTypes.string,
+  description: PropTypes.string,
+  name: PropTypes.string,
+  onChange: PropTypes.func,
+}.isRequired;
 
 export default Input;
