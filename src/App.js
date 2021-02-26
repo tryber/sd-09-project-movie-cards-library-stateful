@@ -1,13 +1,34 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Header from './components/Header';
+import SearchBar from './components/SearchBar';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <Header />
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  handleSearchTextChange() {}
+
+  handleBookmarkedChange() {}
+
+  onSelectedGenreChange() {}
+
+  render() {
+    return (
+      <div className='App'>
+        <Header />
+        <SearchBar
+          searchText=''
+          selectedGenre=''
+          bookmarkedOnly={false}
+          onSearchTextChange={this.handleSearchTextChange}
+          onBookmarkedChange={this.handleBookmarkedChange}
+          onSelectedGenreChange={this.handleSelectedGenreChange}
+        />
+      </div>
+    );
+  }
 }
 
 export default App;
