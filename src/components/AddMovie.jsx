@@ -7,7 +7,7 @@ class AddMovie extends Component {
     this.buttonCLick = this.buttonCLick.bind(this);
     this.state = {
       title: '',
-      // subtitle: '',
+      subtitle: '',
       // imagePath: '',
       // storyline: '',
       // rating: 0,
@@ -23,7 +23,7 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { title } = this.state;
+    const { title, subtitle } = this.state;
     const { onSearchTextChange } = this.props;
     // console.log(this.state);
     return (
@@ -31,8 +31,18 @@ class AddMovie extends Component {
         <label data-testid="title-input-label" htmlFor="text-input">
           Título
           <input
+            type="text"
             defaultValue={ title }
             data-testid="title-input"
+            onChange={ onSearchTextChange }
+          />
+        </label>
+        <label data-testid="subtitle-input-label" htmlFor="subtitle-input">
+          Subtítulo
+          <input
+            type="text" 
+            defaultValue={ subtitle } 
+            data-testid="subtitle-input" 
             onChange={ onSearchTextChange }
           />
         </label>
