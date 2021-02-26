@@ -1,6 +1,6 @@
 import React from 'react';
-import GenInput from './GenInput';
 import PropTypes from 'prop-types';
+import GenInput from './GenInput';
 
 class AddMovie extends React.Component {
   constructor(props) {
