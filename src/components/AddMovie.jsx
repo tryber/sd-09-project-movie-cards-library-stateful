@@ -1,5 +1,6 @@
 import React from 'react';
 import InputGeneric from './InputGeneric';
+// import SelectGenre from './SelectGenre';
 
 class AddMovie extends React.Component {
   constructor() {
