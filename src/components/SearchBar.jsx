@@ -1,4 +1,5 @@
 import React from 'react';
+import Input from './inputComponent';
 import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
@@ -13,21 +14,15 @@ class SearchBar extends React.Component {
     } = this.props;
     return (
       <form data-testid="search-bar-form">
-        <label data-testid="text-input-label" htmlFor="search">
-          Inclui o texto:
-          <input
-            id="search"
-            value={ searchText }
-            type="text"
-            onChange={ onSearchTextChange }
-            data-testid="text-input"
-          />
-        </label>
+        <Input nameId="search" labelName="Inclui o texto:"
+               type="text" value={ searchText } nameTest="text-input"
+               func={ onSearchTextChange } />
 
         <label data-testid="checkbox-input-label" htmlFor="checkBox">
           Mostrar somente favoritos
           <input
             id="checkBox"
+            name="checkbox"
             type="checkbox"
             checked={ bookmarkedOnly }
             onChange={ onBookmarkedChange }
