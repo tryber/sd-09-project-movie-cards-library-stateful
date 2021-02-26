@@ -35,19 +35,22 @@ class MovieLibrary extends Component {
     let filteredMovies = movies;
 
     if (bookmarkedOnly) {
-      filteredMovies = movies.filter(movie => movie.bookmarked === true);
+      filteredMovies = movies.filter((movie) => movie.bookmarked === true);
     }
 
     if (selectedGenre) {
-      filteredMovies = filteredMovies.filter(movie => movie.genre === selectedGenre);
+      filteredMovies = filteredMovies.filter(
+        (movie) => movie.genre === selectedGenre
+      );
     }
 
     if (searchText) {
-      filteredMovies = filteredMovies.filter(movie => (
-          movie.storyline.toUpperCase().includes(searchText.toUpperCase())
-          || movie.title.toUpperCase().includes(searchText.toUpperCase())
-          || movie.subtitle.toUpperCase().includes(searchText.toUpperCase())
-        ));
+      filteredMovies = filteredMovies.filter(
+        (movie) =>
+          movie.storyline.toUpperCase().includes(searchText.toUpperCase()) ||
+          movie.title.toUpperCase().includes(searchText.toUpperCase()) ||
+          movie.subtitle.toUpperCase().includes(searchText.toUpperCase())
+      );
     }
 
     return filteredMovies;
@@ -69,18 +72,18 @@ class MovieLibrary extends Component {
     const { searchText, selectedGenre, bookmarkedOnly } = this.state;
 
     return (
-      <div onChange={ this.filterMovies }>
+      <div onChange={this.filterMovies}>
         <h2> My awesome movie library </h2>
         <SearchBar
-          searchText={ searchText }
-          selectedGenre={ selectedGenre }
-          bookmarkedOnly={ bookmarkedOnly }
-          onSearchTextChange={ this.updateState }
-          onBookmarkedChange={ this.updateState }
-          onSelectedGenreChange={ this.updateState }
+          searchText={searchText}
+          selectedGenre={selectedGenre}
+          bookmarkedOnly={bookmarkedOnly}
+          onSearchTextChange={this.updateState}
+          onBookmarkedChange={this.updateState}
+          onSelectedGenreChange={this.updateState}
         />
-        <MovieList movies={ movies } />
-        <AddMovie onClick={ this.addMovieCard } />
+        <MovieList movies={movies} />
+        <AddMovie onClick={this.addMovieCard} />
       </div>
     );
   }
