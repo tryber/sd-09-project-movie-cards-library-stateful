@@ -6,6 +6,7 @@ import ImageMovie from './ImageMovie';
 import StorylineMovie from './StorylineMovie';
 import GenreSelect from './GenreSelect';
 import RatingMovie from './RatingMovie';
+import '../css/AddMovie.css';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -45,21 +46,30 @@ class AddMovie extends React.Component {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     const { onClick } = this.props;
     return (
-      <form data-testid="add-movie-form">
-        <TitleMovie value={ title } handleChange={ this.handleChange } />
-        <SubtileMovie value={ subtitle } handleChange={ this.handleChange } />
-        <ImageMovie value={ imagePath } handleChange={ this.handleChange } />
-        <StorylineMovie value={ storyline } handleChange={ this.handleChange } />
-        <RatingMovie value={ Number(rating) } handleChange={ this.handleChange } />
-        <GenreSelect value={ genre } handleChange={ this.handleChange } />
-        <button
-          type="button"
-          data-testid="send-button"
-          onClick={ () => this.handleClick(onClick) }
-        >
-          Adicionar filme
-        </button>
-      </form>
+      <section className="container-add-movie">
+        <div className="add-movie">
+          <h3> Adicionar novo Filme</h3>
+          <form data-testid="add-movie-form">
+            <TitleMovie value={ title } handleChange={ this.handleChange } />
+            <SubtileMovie value={ subtitle } handleChange={ this.handleChange } />
+            <ImageMovie value={ imagePath } handleChange={ this.handleChange } />
+            <StorylineMovie value={ storyline } handleChange={ this.handleChange } />
+            <RatingMovie
+              value={ Number(rating) }
+              handleChange={ this.handleChange }
+            />
+            <GenreSelect value={ genre } handleChange={ this.handleChange } />
+            <button
+              type="button"
+              className="button-add-movie"
+              data-testid="send-button"
+              onClick={ () => this.handleClick(onClick) }
+            >
+              Adicionar filme
+            </button>
+          </form>
+        </div>
+      </section>
     );
   }
 }

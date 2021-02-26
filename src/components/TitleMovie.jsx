@@ -10,10 +10,10 @@ class TitleMovie extends React.Component {
 
     return (
       <label htmlFor="titleMovie" data-testid="title-input-label">
-        Título
         <input
           type="text"
           data-testid="title-input"
+          placeholder="Título"
           name="title"
           value={ value }
           onChange={ handleChange }

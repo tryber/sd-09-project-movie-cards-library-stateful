@@ -13,6 +13,7 @@ class RatingMovie extends React.Component {
         Avaliação
         <input
           type="number"
+          className="rating-movie"
           data-testid="rating-input"
           name="rating"
           value={ value }

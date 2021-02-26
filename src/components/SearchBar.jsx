@@ -1,55 +1,38 @@
 // implement AddMovie component here
 import React from 'react';
 import { string, func, bool } from 'prop-types';
+import InputSearchText from './InputSearchText';
+import InputSearchGenre from './InputSearchGenre';
+import InputSearchBookMarked from './InputSearchBookMarked';
+import '../css/SearchBar.css';
 
 class SearchBar extends React.Component {
   render() {
-    const { searchText,
-      onSearchTextChange,
+    const { searchText, onSearchTextChange,
       bookmarkedOnly,
       onBookmarkedChange,
       selectedGenre,
       onSelectedGenreChange } = this.props;
 
     return (
-      <form data-testid="search-bar-form">
-        <label data-testid="text-input-label" htmlFor="search">
-          Inclui o texto:
-          <input
-            type="text"
-            id="searchInput"
-            name="searchText"
-            value={ searchText }
-            onChange={ onSearchTextChange }
-            data-testid="text-input"
+      <section className="search-bar">
+        <form data-testid="search-bar-form" className="search-bar-form">
+          <div className="box-text-genre">
+            <InputSearchText
+              searchText={ searchText }
+              onSearchTextChange={ onSearchTextChange }
+            />
+            <InputSearchGenre
+              selectedGenre={ selectedGenre }
+              onSelectedGenreChange={ onSelectedGenreChange }
+            />
+          </div>
+          <InputSearchBookMarked
+            bookmarkedOnly={ bookmarkedOnly }
+            onBookmarkedChange={ onBookmarkedChange }
           />
-        </label>
-        <label data-testid="checkbox-input-label" htmlFor="searchCheckBox">
-          Mostrar somente favoritos
-          <input
-            type="checkbox"
-            id="searchCheckBox"
-            checked={ bookmarkedOnly }
-            onChange={ onBookmarkedChange }
-            data-testid="checkbox-input"
-          />
-        </label>
-        <label data-testid="select-input-label" htmlFor="searchSelect">
-          Filtrar por gênero
-          <select
-            id="searchSelect"
-            data-testid="select-input"
-            name="selectedGenre"
-            value={ selectedGenre }
-            onChange={ onSelectedGenreChange }
-          >
-            <option value="" data-testid="select-option">Todos</option>
-            <option value="action" data-testid="select-option">Ação</option>
-            <option value="comedy" data-testid="select-option">Comédia</option>
-            <option value="thriller" data-testid="select-option">Suspense</option>
-          </select>
-        </label>
-      </form>
+        </form>
+      </section>
     );
   }
 }

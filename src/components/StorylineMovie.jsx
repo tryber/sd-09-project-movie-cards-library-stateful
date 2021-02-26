@@ -10,10 +10,10 @@ class StorylineMovie extends React.Component {
 
     return (
       <label htmlFor="storylineMovie" data-testid="storyline-input-label">
-        Sinopse
         <textarea
           type="text"
           id="storylineMovie"
+          placeholder="Sinopse"
           data-testid="storyline-input"
           name="storyline"
           value={ value }

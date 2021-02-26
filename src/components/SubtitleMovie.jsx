@@ -10,10 +10,10 @@ class SubtilteMovie extends React.Component {
 
     return (
       <label htmlFor="subtibleMovie" data-testid="subtitle-input-label">
-        Subtítulo
         <input
           type="text"
           data-testid="subtitle-input"
+          placeholder="Subtítulo"
           name="subtitle"
           value={ value }
           onChange={ handleChange }

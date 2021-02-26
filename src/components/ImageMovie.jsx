@@ -10,10 +10,10 @@ class ImageMovie extends React.Component {
 
     return (
       <label htmlFor="imageMovie" data-testid="image-input-label">
-        Imagem
         <input
           type="text"
           data-testid="image-input"
+          placeholder="Imagem"
           name="imagePath"
           value={ value }
           onChange={ handleChange }

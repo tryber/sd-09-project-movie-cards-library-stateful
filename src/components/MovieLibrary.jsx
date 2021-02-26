@@ -9,13 +9,16 @@ class MovieLibrary extends React.Component {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.handleFilter = this.handleFilter.bind(this);
+    this.handleShowAddMovieForm = this.handleShowAddMovieForm.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.handleAddMovieFavorite = this.handleAddMovieFavorite.bind(this);
     this.onClick = this.onClick.bind(this);
     const { movies } = this.props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
+      showBoxAddMovie: false,
       movies,
     };
   }
@@ -37,6 +40,28 @@ class MovieLibrary extends React.Component {
     if (genre === selectedGenre) return true;
   }
 
+  handleShowAddMovieForm() {
+    const { showBoxAddMovie } = this.state;
+    this.setState({
+      showBoxAddMovie: !showBoxAddMovie,
+    });
+  }
+
+  handleAddMovieFavorite(titleFavorite) {
+    this.setState((oldState) => {
+      const favorite = oldState.movies.find((movie) => movie.title === titleFavorite);
+      const valueBookmarked = favorite.bookmarked;
+      favorite.bookmarked = !valueBookmarked;
+      return ({
+        movies: oldState.movies.map((movie) => {
+          if (movie.title === titleFavorite) {
+            return favorite;
+          } return movie;
+        }),
+      });
+    });
+  }
+
   onBookmarkedChange({ target }) {
     const { checked } = target;
     this.setState({
@@ -45,19 +70,21 @@ class MovieLibrary extends React.Component {
   }
 
   onClick(state) {
-    const { movies } = this.state;
+    const { movies, showBoxAddMovie } = this.state;
     this.setState({
       movies: [...movies, state],
+      showBoxAddMovie: !showBoxAddMovie,
     });
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, movies,
+      showBoxAddMovie } = this.state;
     let moviesFiltred = movies.filter(this.handleFilter);
     if (moviesFiltred.length === 0) moviesFiltred = movies;
 
     return (
-      <div>
+      <main>
         <SearchBar
           searchText={ searchText }
           bookmarkedOnly={ bookmarkedOnly }
@@ -66,9 +93,13 @@ class MovieLibrary extends React.Component {
           onBookmarkedChange={ this.onBookmarkedChange }
           onSelectedGenreChange={ this.handleChange }
         />
-        <MovieList movies={ moviesFiltred } />
-        <AddMovie onClick={ this.onClick } />
-      </div>
+        <MovieList
+          movies={ moviesFiltred }
+          handleShowAddMovieForm={ this.handleShowAddMovieForm }
+          handleAddMovieFavorite={ this.handleAddMovieFavorite }
+        />
+        { showBoxAddMovie ? <AddMovie onClick={ this.onClick } /> : null }
+      </main>
     );
   }
 }
