@@ -18,9 +18,9 @@ class AddMovie extends Component {
   }
 
   handleChange({ target }) {
-    const { name } = target;
-    let value = target.type === 'checkbox' ? target.checked : target.value;
-    value = name === 'image' ? 'imagePath' : name;
+    let { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    name = name === 'image' ? 'imagePath' : name;
     this.setState({
       [name]: value,
     });
