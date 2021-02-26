@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 import MovieCard from '../components/MovieCard';
 import '@testing-library/jest-dom';
 
-describe.skip('Verifica o componente <MovieCard />', () => {
+describe('Verifica o componente <MovieCard />', () => {
   const movie = {
     title: 'Movie Title 1',
     subtitle: 'Movie Subtitle 1',

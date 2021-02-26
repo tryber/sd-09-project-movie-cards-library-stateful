@@ -4,7 +4,7 @@ import '@testing-library/jest-dom';
 
 import Header from '../components/Header';
 
-describe.skip('Verifica o componente <Header />', () => {
+describe('Verifica o componente <Header />', () => {
   it('Renderize o componente', () => {
     render(<Header />);
   });
