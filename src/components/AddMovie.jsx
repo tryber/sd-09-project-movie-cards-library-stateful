@@ -14,7 +14,7 @@ class AddMovie extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.renderGenreSelect = this.renderGenreSelect.bind(this);
-    // this.selectGenre = this.selectGenre.bind(this);
+    this.createNewCard = this.createNewCard.bind(this);
     this.renderStoryline = this.renderStoryline.bind(this);
   }
 
@@ -51,6 +51,8 @@ class AddMovie extends React.Component {
   }
 
   renderButton() {
+    const { onClick } = this.props;
+    onClick();
     return (
       <button
         type="button"
@@ -83,7 +85,6 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    // const { onClick } = this.props;
     const { subtitle, title, imagePath, rating } = this.state;
     return (
       <form data-testid="add-movie-form">
@@ -131,8 +132,8 @@ class AddMovie extends React.Component {
   }
 }
 
-// AddMovie.propTypes = ({
-//   onClick: PropTypes.func.isRequired,
-// });
+AddMovie.propTypes = ({
+  onClick: PropTypes.func.isRequired,
+});
 
 export default AddMovie;
