@@ -8,8 +8,12 @@ import MovieList from './MovieList';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
+    const { movies } = this.props;
+    firstState.movies = movies;
     this.state = firstState;
+
     this.changeValues = this.changeValues.bind(this);
+    this.filterMovies = this.filterMovies.bind(this);
   }
 
   changeValues(event) {
@@ -18,8 +22,38 @@ class MovieLibrary extends Component {
       ? this.setState({ [name]: checked }) : this.setState({ [name]: value });
   }
 
+  filterMovies(search = false, favorites = false, setGenre = false) {
+    // Todas as const sao Arrays
+    const { movies } = this.state;
+    const filterText = movies.filter(({ title, subtitle, storyline }) => (
+      title.toLowerCase().includes(search.toLowerCase())
+    || subtitle.toLowerCase().includes(search.toLowerCase())
+    || storyline.toLowerCase().includes(search.toLowerCase())
+    ));
+
+    if (search && favorites && setGenre) {
+      return filterText
+        .filter(({ bookmarked }) => bookmarked)
+        .filter(({ genre }) => genre === setGenre);
+    }
+    if (search) {
+      return filterText;
+    }
+    if (search && favorites) return filterText.filter(({ bookmarked }) => bookmarked);
+    if (search && setGenre) {
+      return filterText.filter(({ genre }) => genre === setGenre);
+    }
+    if (favorites && setGenre) {
+      return movies
+        .filter(({ bookmarked }) => bookmarked)
+        .filter(({ genre }) => genre === setGenre);
+    }
+    if (favorites) return movies.filter(({ bookmarked }) => bookmarked);
+    if (setGenre) return movies.filter(({ genre }) => genre === setGenre);
+    return movies;
+  }
+
   render() {
-    const { movies } = this.props;
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <>
@@ -29,9 +63,11 @@ class MovieLibrary extends Component {
           bookmarkedOnly={ bookmarkedOnly }
           onBookmarkedChange={ this.changeValues }
           selectedGenre={ selectedGenre }
-          onSelectedGenre={ this.changeValues }
+          onSelectedGenreChange={ this.changeValues }
         />
-        <MovieList movies={ movies } />
+        <MovieList
+          movies={ this.filterMovies(searchText, bookmarkedOnly, selectedGenre) }
+        />
       </>
     );
   }

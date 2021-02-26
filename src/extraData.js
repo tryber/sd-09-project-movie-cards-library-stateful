@@ -17,7 +17,8 @@ const addMovieFirstState = {
 const movieLibraryFirstState = {
   searchText: '',
   bookmarkedOnly: false,
-  genre: '',
+  selectedGenre: '',
+  movies: [],
 };
 
 export { genres, addMovieFirstState, movieLibraryFirstState };
