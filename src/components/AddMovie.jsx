@@ -9,7 +9,7 @@ class AddMovie extends React.Component {
       title: '',
       imagePath: '',
       storyline: '',
-      // rating: 0,
+      rating: 0,
       // genre: 'action',
     };
     this.reloadState = this.reloadState.bind(this);
@@ -21,42 +21,51 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline } = this.state;
+    const { title, subtitle, imagePath, storyline, rating } = this.state;
     return (
       <form data-testid="add-movie-form">
         <InputGeneric
-          value={ title }
+          labelName="Título"
           name="title"
           reload={ this.reloadState }
-          labelName="Título"
+          type="text"
+          value={ title }
         />
         <InputGeneric
-          value={ subtitle }
+          labelName="Subtítulo"
           name="subtitle"
           reload={ this.reloadState }
-          labelName="Subtítulo"
+          type="text"
+          value={ subtitle }
         />
         <label htmlFor="label-imagepath" data-testid="image-input-label">
           Imagem
           <input
-            name="imagePath"
+            data-testid="image-input"
             id="label-imagepath"
+            name="imagePath"
+            onChange={ this.reloadState }
             type="text"
             value={ imagePath }
-            data-testid="image-input"
-            onChange={ this.reloadState }
           />
         </label>
         <label htmlFor="label-textarea" data-testid="storyline-input-label">
           Sinopse
           <textarea
+            data-testid="storyline-input"
             id="label-textarea"
             name="storyline"
-            value={ storyline }
-            data-testid="storyline-input"
             onChange={ this.reloadState }
+            value={ storyline }
           />
         </label>
+        <InputGeneric
+          labelName="Avaliação"
+          name="rating"
+          reload={ this.reloadState }
+          type="number"
+          value={ rating }
+        />
       </form>
     );
   }
