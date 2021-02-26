@@ -1,11 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
-import PropTypes from 'prop-types';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
     super();
+    this.handleChange = this.handleChange.bind(this);
 
     this.state = {
       searchText: '',
@@ -13,6 +15,14 @@ class MovieLibrary extends React.Component {
       selectedGenre: '',
       movies: props.movies,
     };
+  }
+
+  handleChange({ target }) {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+
+    if (!value) this.setState({ [name]: false });
+    this.setState({ [name]: value });
   }
 
   render() {
@@ -23,20 +33,21 @@ class MovieLibrary extends React.Component {
       <main>
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ 0 }
+          onSearchTextChange={ this.handleChange }
           bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ 0 }
+          onBookmarkedChange={ this.handleChange }
           selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ 0 }
+          onSelectedGenreChange={ this.handleChange }
         />
         <MovieList movies={ movies } />
+        <AddMovie />
       </main>
     );
   }
 }
 
 MovieLibrary.propTypes = {
-  movies: PropTypes.string.isRequired,
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default MovieLibrary;
