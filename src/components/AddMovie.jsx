@@ -10,9 +10,24 @@ class AddMovie extends Component {
       subtitle: '',
       imagePath: '',
       storyline: '',
-      // rating: 0,
+      rating: 0,
       // genre: 'action',
     };
+  }
+
+  getNewMovieRating(onSearchTextChange) {
+    const { rating } = this.state;
+    return (
+      <label data-testid="rating-input-label" htmlFor="text-input">
+        Avaliação
+        <input
+          type="number"
+          onChange={ onSearchTextChange }
+          data-testid="rating-input"
+          defaultValue={ rating }
+        />
+      </label>
+    );
   }
 
   buttonCLick() {
@@ -27,7 +42,7 @@ class AddMovie extends Component {
     const { onSearchTextChange } = this.props;
     // console.log(this.state);
     return (
-      <form data-testid="add-movie-form">
+      <form data-testid="add-movie-form" method="get">
         <label data-testid="title-input-label" htmlFor="text-input">
           Título
           <input
@@ -64,6 +79,7 @@ class AddMovie extends Component {
           />
         </label>
         <button type="button" onClick={ this.buttonCLick }>Add Movie</button>
+        { this.getNewMovieRating(onSearchTextChange) }
       </form>
     );
   }
