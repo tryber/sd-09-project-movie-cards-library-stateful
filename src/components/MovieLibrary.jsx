@@ -7,53 +7,60 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
+    const { movies } = this.props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
+      movies,
     };
 
-    this.handleSearchBar = this.handleSearchBar.bind(this);
-    this.handleBookMarked = this.handleBookMarked.bind(this);
-    this.handleonSelectedGenre = this.handleonSelectedGenre.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.filterFilms = this.filterFilms.bind(this);
   }
 
-  handleSearchBar({ target }) {
+  /* função está no gabarito de ex da trybe */
+  handleChange({ target }) {
+    const { name } = target;
+    const value = (target.type === 'checkbox') ? target.checked : target.value;
     this.setState({
-      searchText: target.value,
+      [name]: value,
     });
   }
 
-  handleBookMarked({ target }) {
-    const { id } = target;
-    const value = target.checked;
-    this.setState({
-      [id]: value,
-    });
-  }
-
-  handleonSelectedGenre({ target }) {
-    const { value } = target;
-    this.setState({
-      selectedGenre: value,
-    });
+  // baseado no code review do marcelocampos66
+  filterFilms() {
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    let newArrFilterFilms = movies;
+    if (bookmarkedOnly) {
+      newArrFilterFilms = movies.filter((movie) => movie.bookmarked === true);
+    }
+    if (selectedGenre) {
+      newArrFilterFilms = movies.filter((movie) => movie.genre === selectedGenre);
+    }
+    if (searchText) {
+      newArrFilterFilms = movies.filter((movie) => movie.title.includes(searchText)
+      || movie.subtitle.includes(searchText) || movie.storyline.includes(searchText));
+    }
+    return newArrFilterFilms;
   }
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-    const { movies } = this.props;
     return (
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ this.handleSearchBar }
+          onSearchTextChange={ this.handleChange }
           bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ this.handleBookMarked }
+          onBookmarkedChange={ this.handleChange }
           selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ this.handleonSelectedGenre }
+          onSelectedGenreChange={ this.handleChange }
         />
-        <MovieList movies={ movies } />
+        <MovieList
+          movies={ this.filterFilms() }
+        />
         <AddMovie />
       </div>
     );
