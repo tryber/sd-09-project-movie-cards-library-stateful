@@ -1,6 +1,7 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
 
+import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 import { movieLibraryFirstState as firstState } from '../extraData';
@@ -80,5 +81,11 @@ class MovieLibrary extends Component {
     );
   }
 }
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.object,
+  ).isRequired,
+};
 
 export default MovieLibrary;
