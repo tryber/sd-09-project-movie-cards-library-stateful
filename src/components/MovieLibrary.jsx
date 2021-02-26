@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 
 import SearchBar from './SearchBar';
+import AddMovie from './AddMovie';
 import { movieLibraryFirstState as firstState } from '../extraData';
 import MovieList from './MovieList';
 
@@ -14,6 +15,7 @@ class MovieLibrary extends Component {
 
     this.changeValues = this.changeValues.bind(this);
     this.filterMovies = this.filterMovies.bind(this);
+    this.newMovie = this.newMovie.bind(this);
   }
 
   changeValues(event) {
@@ -53,6 +55,11 @@ class MovieLibrary extends Component {
     return movies;
   }
 
+  newMovie(addedMovie) {
+    const { movies } = this.state;
+    this.setState({ movies: [...movies, addedMovie] });
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
@@ -68,6 +75,7 @@ class MovieLibrary extends Component {
         <MovieList
           movies={ this.filterMovies(searchText, bookmarkedOnly, selectedGenre) }
         />
+        <AddMovie onClick={ this.newMovie } />
       </>
     );
   }

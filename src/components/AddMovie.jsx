@@ -22,9 +22,11 @@ class AddMovie extends Component {
     return this.setState({ [name]: value });
   }
 
-  resetValues() {
+  resetValues(event) {
+    event.preventDefault();
     const { onClick } = this.props;
-    onClick(this.setState(firstState));
+    onClick(this.state);
+    this.setState(firstState);
   }
 
   title(title) {
@@ -80,7 +82,7 @@ class AddMovie extends Component {
           data-testid="storyline-input"
           name="storyline"
           cols="30"
-          rows="10"
+          rows="1"
           value={ storyline }
           onChange={ this.changeValues }
         />
