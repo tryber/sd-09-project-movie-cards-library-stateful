@@ -17,7 +17,6 @@ class Input extends React.Component {
             onChange={ changeHandler }
           />
         </label>
-
         <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
           Subtítulo
           <input
@@ -29,7 +28,6 @@ class Input extends React.Component {
             onChange={ changeHandler }
           />
         </label>
-
         <label htmlFor="imagePath" testid="image-input-label">
           Imagem
           <input
@@ -41,7 +39,6 @@ class Input extends React.Component {
             onChange={ changeHandler }
           />
         </label>
-
         <label htmlFor="storyline" data-testid="storyline-input-label">
           Sinopse
           <textarea
@@ -52,7 +49,6 @@ class Input extends React.Component {
             onChange={ changeHandler }
           />
         </label>
-
       </div>
     );
   }
