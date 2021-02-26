@@ -21,7 +21,7 @@ class AddMovie extends React.Component {
     this.inputStoryline = this.inputStoryline.bind(this);
     this.inputRating = this.inputRating.bind(this);
     this.inputGenre = this.inputGenre.bind(this);
-    this.buttonMovie = this.buttonMovie.bind(this);
+    this.buttonAddMovie = this.buttonAddMovie.bind(this);
   }
 
   handleChange(event) {
