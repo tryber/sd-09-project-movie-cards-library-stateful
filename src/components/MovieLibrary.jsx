@@ -5,20 +5,53 @@ import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
-  // eslint-disable-next-line no-useless-constructor
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-
-  //   };
-  // }
-  render() {
+  constructor(props) {
+    super(props);
     const { movies } = this.props;
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: 'action',
+      movies,
+    };
+  }
+
+  onSearchTextChange({ target }) {
+    this.setState({
+      searchText: target.value,
+    });
+  }
+
+  onBookmarkedChange({ target }) {
+    this.setState(({
+      bookmarkedOnly: target.checked,
+    }));
+  }
+
+  onSelectedGenreChange() {
+  }
+
+  render() {
+    const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const { onSearchTextChange, onBookmarkedChange, onSelectedGenreChange } = this;
+    const checkFilter = movies.filter(({ bookmarked }) => bookmarked === true);
+    const moviesFiltred = movies.filter(({ title }) => title.includes(searchText));
+
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar />
-        <MovieList movies={ movies } />
+        <SearchBar
+          searchText={ searchText }
+          onSearchTextChange={ onSearchTextChange }
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ onBookmarkedChange }
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ onSelectedGenreChange }
+        />
+        <MovieList movies={ moviesFiltred } />
         <AddMovie />
       </div>
     );
