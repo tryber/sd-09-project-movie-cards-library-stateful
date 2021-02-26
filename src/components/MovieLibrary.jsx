@@ -34,7 +34,10 @@ export default class MovieLibrary extends Component {
     const { movies } = this.props;
     const { searchText } = this.state;
     const re = new RegExp(searchText, 'i');
-    return searchText ? movies.filter(({ title }) => re.test(title)) : movies;
+    return !searchText ? movies
+      : movies.filter(({ title, subtitle, storyline }) => (
+        [re.test(title), re.test(subtitle), re.test(storyline)].some((value) => value)
+      ));
   }
 
   render() {
@@ -86,6 +89,6 @@ MovieLibrary.defaultProps = {
       imagePath: 'Image path to movie banner',
       bookmarked: false,
       genre: 'Movie genre',
-    }
+    },
   ],
 };
