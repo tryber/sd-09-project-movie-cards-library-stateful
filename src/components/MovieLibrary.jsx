@@ -1,5 +1,5 @@
 import React from 'react';
-// import SearchBar from './SearchBar';
+import SearchBar from './SearchBar';
 // import AddMovie from './AddMovie';
 // import MovieList from './MovieList';
 // import data from '../data';
@@ -18,11 +18,7 @@ class MovieLibrary extends React.Component {
 
   render() {
     return (
-//       <main>
-//         <SearchBar searchText={ searchText } />
-//         <AddMovie />
-//         <MovieList movies={ data } />
-//       </main>
+      <SearchBar />
     );
   }
 }
