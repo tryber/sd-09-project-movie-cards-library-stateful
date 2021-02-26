@@ -62,6 +62,7 @@ class AddMovie extends React.Component {
           <label htmlFor="rating" data-testid="rating-input-label">
             Avaliação
             <input
+              data-testid="rating-input"
               type="number"
               id="rating"
               name="rating"

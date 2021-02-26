@@ -28,7 +28,7 @@ class Input extends React.Component {
             onChange={ changeHandler }
           />
         </label>
-        <label htmlFor="imagePath" testid="image-input-label">
+        <label htmlFor="imagePath" data-testid="image-input-label">
           Imagem
           <input
             data-testid="image-input"
