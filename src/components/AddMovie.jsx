@@ -1,25 +1,25 @@
-import React from 'react'
-
+import React from 'react';
 
 const initialState = {
-  subtitle:'',
+  subtitle: '',
   title: '',
   imagePath: '',
-  storyline:'',
+  storyline: '',
   rating: 0,
-  genre:'action',
-
+  genre: 'action',
 }
+
 class AddMovie extends React.Component {
   constructor() {
-    super()
+    super();
     this.state = initialState;
     this.handleChange = this.handleChange.bind(this);
     this.handleReset = this.handleReset.bind(this);
   }
-handleChange(event) {
-  const { name, value } = event.target;
-  this.setState({[name]: value});
+
+  handleChange(event) {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
 }
 handleReset() {
   const { onClick } = this.props;
