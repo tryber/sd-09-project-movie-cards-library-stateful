@@ -6,20 +6,6 @@ import movies from './data';
 import './App.css';
 
 class App extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
-
-  // handleSearchTextChange() {}
-
-  // handleBookmarkedChange() {}
-
-  // handleSelectedGenreChange() {}
-
-  // handleAddMovieClick() {
-
-  // }
-
   render() {
     return (
       <div className="App">
