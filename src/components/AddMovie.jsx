@@ -11,7 +11,7 @@ class AddMovie extends Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      // genre: 'action',
+      genre: 'action',
     };
   }
 
@@ -26,6 +26,25 @@ class AddMovie extends Component {
           data-testid="rating-input"
           defaultValue={ rating }
         />
+      </label>
+    );
+  }
+
+  getNewMovieGenre(onSearchTextChange) {
+    const { genre } = this.state;
+    return (
+      <label data-testid="genre-input-label" htmlFor="genre-input">
+        Gênero
+        <select
+          onChange={ onSearchTextChange }
+          data-testid="genre-input"
+          defaultValue={ genre }
+        >
+          <option value="action" data-testid="select-option">Ação</option>
+          <option value="comedy" data-testid="select-option">Comédia</option>
+          <option value="thriller" data-testid="select-option">Suspense</option>
+
+        </select>
       </label>
     );
   }
@@ -80,6 +99,7 @@ class AddMovie extends Component {
         </label>
         <button type="button" onClick={ this.buttonCLick }>Add Movie</button>
         { this.getNewMovieRating(onSearchTextChange) }
+        { this.getNewMovieGenre(onSearchTextChange) }
       </form>
     );
   }
