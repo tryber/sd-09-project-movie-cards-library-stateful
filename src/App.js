@@ -4,7 +4,6 @@ import './App.css';
 import movies from './data';
 import MovieLibrary from './components/MovieLibrary';
 
-
 class App extends Component {
   render() {
     return (
