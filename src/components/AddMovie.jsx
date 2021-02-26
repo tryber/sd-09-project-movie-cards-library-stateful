@@ -8,8 +8,8 @@ class AddMovie extends Component {
     this.state = {
       title: '',
       subtitle: '',
-      // imagePath: '',
-      // storyline: '',
+      imagePath: '',
+      storyline: '',
       // rating: 0,
       // genre: 'action',
     };
@@ -23,7 +23,7 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { title, subtitle } = this.state;
+    const { title, subtitle, imagePath, storyline } = this.state;
     const { onSearchTextChange } = this.props;
     // console.log(this.state);
     return (
@@ -43,6 +43,23 @@ class AddMovie extends Component {
             type="text"
             defaultValue={ subtitle }
             data-testid="subtitle-input"
+            onChange={ onSearchTextChange }
+          />
+        </label>
+        <label data-testid="image-input-label" htmlFor="image-input">
+          Imagem
+          <input
+            type="text"
+            defaultValue={ imagePath }
+            data-testid="image-input"
+            onChange={ onSearchTextChange }
+          />
+        </label>
+        <label data-testid="storyline-input-label" htmlFor="text-input">
+          Sinopse
+          <textarea
+            defaultValue={ storyline }
+            data-testid="storyline-input"
             onChange={ onSearchTextChange }
           />
         </label>
