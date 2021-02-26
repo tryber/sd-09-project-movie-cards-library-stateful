@@ -32,6 +32,19 @@ class AddMovie extends React.Component {
     });
   }
 
+  onClickFunc() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   titleInput(title) {
     return (
       <label htmlFor="title-input" data-testid="title-input-label">
@@ -124,19 +137,6 @@ class AddMovie extends React.Component {
         </select>
       </label>
     );
-  }
-
-  onClickFunc() {
-    const { onClick } = this.props;
-    onClick(this.state);
-    this.setState({
-      title: '',
-      subtitle: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    });
   }
 
   sendButton() {
