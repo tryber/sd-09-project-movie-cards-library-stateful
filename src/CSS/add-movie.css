@@ -5,9 +5,9 @@
 }
 
 .forms {
+  align-items: flex-end;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
 }
 
 .forms input {
@@ -15,7 +15,7 @@
 }
 
 .forms textarea {
-  margin-left: 10px; 
+  margin-left: 10px;
 }
 
 .forms button {
