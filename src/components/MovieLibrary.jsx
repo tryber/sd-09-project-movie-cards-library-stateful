@@ -1,8 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 import MovieList from './MovieList';
-// // import PropTypes from 'prop-types';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
@@ -34,7 +34,8 @@ class MovieLibrary extends React.Component {
   }
 
   addMovieButton() {
-    console.log('xablau');
+    // const { title, subtitle, storyline, rating, imagePath } = movie;
+    // < MovieCard/>
   }
 
   render() {
@@ -56,5 +57,7 @@ class MovieLibrary extends React.Component {
     );
   }
 }
+
+MovieLibrary.propTypes = { movies: PropTypes.arrayOf(PropTypes.object).isRequired };
 
 export default MovieLibrary;
