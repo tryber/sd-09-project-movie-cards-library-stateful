@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
   constructor() {
@@ -22,14 +23,14 @@ class AddMovie extends Component {
   }
 
   render() {
-    const onSearchTextChange = this.props;
+    const { onClick } = this.props;
     console.log(this.state);
     return (
       <form data-testid="add-movie-form">
         <label data-testid="title-input-label" htmlFor="text-input">
           Título
           <input
-            onChange={ onSearchTextChange }
+            onChange={ onClick }
             data-testid="title-input"
             title=""
           />
@@ -39,5 +40,9 @@ class AddMovie extends Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
