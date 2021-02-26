@@ -10,11 +10,11 @@ function App() {
       <Header />
       <SearchBar
         searchText=""
-        onSearchTextChange={ useCallback }
+        onSearchTextChange={ () => useCallback }
         bookmarkedOnly
         onBookmarkedChange={ useCallback }
         selectedGenre=""
-        onSelectedGenreChange={ useCallback }
+        onSelectedGenreChange={ () => 'useCallback' }
       />
       <AddMovie
         onClick={ useCallback }
