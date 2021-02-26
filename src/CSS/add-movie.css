@@ -1,24 +1,24 @@
-.form-container {
+.forms-container {
   display: flex;
   padding: 10px;
   width: 355px;
 }
 
-.form {
+.forms {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 }
 
-.form input {
+.forms input {
   margin-left: 10px;
 }
 
-.form textarea {
+.forms textarea {
   margin-left: 10px; 
 }
 
-.form button {
+.forms button {
   align-self: center;
 }
 

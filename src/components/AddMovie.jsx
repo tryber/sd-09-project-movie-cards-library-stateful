@@ -47,7 +47,7 @@ class AddMovie extends Component {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <div className="form-container">
-        <form data-testid="add-movie-form" className="form">
+        <form data-testid="add-movie-form" className="forms">
           { this.inputCreate('text', 'title', title, 'Título') }
           { this.inputCreate('text', 'subtitle', subtitle, 'Subtítulo') }
           { this.inputCreate('text', 'imagePath', imagePath, 'Imagem') }
