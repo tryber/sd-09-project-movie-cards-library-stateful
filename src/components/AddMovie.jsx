@@ -7,14 +7,16 @@ class AddMovie extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      subtitle: '',
       title: '',
-      imagePath: '',
+      subtitle: '',
       storyline: '',
       rating: 0,
+      imagePath: '',
       genre: 'action',
     };
+    this.baseState = this.state;
     this.handleChange = this.handleChange.bind(this);
+    this.resetState = this.resetState.bind(this);
   }
 
   handleChange({ target }) {
@@ -24,6 +26,11 @@ class AddMovie extends Component {
     this.setState({
       [name]: value,
     });
+  }
+
+  resetState(evt) {
+    evt.preventDefault();
+    this.setState(this.baseState);
   }
 
   render() {
@@ -70,7 +77,7 @@ class AddMovie extends Component {
           handleChange={ this.handleChange }
         />
         <ParentSelect value={ genre } handleChange={ this.handleChange } />
-        <button data-testid="send-button" type="reset" onClick={ onClick(this.state) }>
+        <button data-testid="send-button" type="submit" onClick={ onClick(this.state) } onMouseDown={ this.resetState }>
           Adicionar filme
         </button>
       </form>
