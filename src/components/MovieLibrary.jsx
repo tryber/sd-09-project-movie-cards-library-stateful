@@ -18,7 +18,7 @@ class MovieLibrary extends Component {
     this.state = {
       searchText: '',
       selectedGenre: '',
-      bookmarked: false,
+      // bookmarked: false,
       movies,
     };
   }
@@ -35,32 +35,26 @@ class MovieLibrary extends Component {
     let filteredMovies = movies;
 
     if (bookmarkedOnly) {
-      filteredMovies = movies.filter((movie) => {
-        return movie.bookmarked === true;
-      });
+      filteredMovies = movies.filter(movie => movie.bookmarked === true);
     }
 
     if (selectedGenre) {
-      filteredMovies = filteredMovies.filter((movie) => {
-        return movie.genre === selectedGenre;
-      });
+      filteredMovies = filteredMovies.filter(movie => movie.genre === selectedGenre);
     }
 
     if (searchText) {
-      filteredMovies = filteredMovies.filter((movie) => {
-        return (
-          movie.storyline.toUpperCase().includes(searchText.toUpperCase()) ||
-          movie.title.toUpperCase().includes(searchText.toUpperCase()) ||
-          movie.subtitle.toUpperCase().includes(searchText.toUpperCase())
-        );
-      });
+      filteredMovies = filteredMovies.filter(movie => (
+          movie.storyline.toUpperCase().includes(searchText.toUpperCase())
+          || movie.title.toUpperCase().includes(searchText.toUpperCase())
+          || movie.subtitle.toUpperCase().includes(searchText.toUpperCase())
+        ));
     }
 
     return filteredMovies;
   }
 
   addMovieCard(state) {
-    this.setState((previousState, _props) => {
+    this.setState((previousState) => {
       if (
         state.title !==
         previousState.movies[previousState.movies.length - 1].title
