@@ -28,7 +28,7 @@ class SearchBar extends React.Component {
             id="checkbox-id"
             data-testid="checkbox-input"
             type="checkbox"
-            checked={ bookmarkedOnly }
+            defaultChecked={ bookmarkedOnly }
             onChange={ onBookmarkedChange }
           />
           Mostrar somente favoritos

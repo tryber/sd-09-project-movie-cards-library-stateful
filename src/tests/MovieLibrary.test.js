@@ -66,7 +66,7 @@ describe('16 - Configure o estado inicial do componente `<MovieLibrary />`', () 
     expect(selectInput).toHaveValue('');
   });
 
-  it.skip('Renderize todos os filmes passados pela prop `movies`', () => {
+  it('Renderize todos os filmes passados pela prop `movies`', () => {
     const { getAllByTestId } = render(<MovieLibrary movies={ movies } />);
     const movieCards = getAllByTestId(movieCardTestId);
     expect(movieCards).toHaveLength(movies.length);
