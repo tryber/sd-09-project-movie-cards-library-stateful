@@ -1,5 +1,6 @@
 import React from 'react';
 import { arrayOf, objectOf } from 'prop-types';
+import AddMovie from './AddMovie';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 
@@ -11,6 +12,7 @@ class MovieLibrary extends React.Component {
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.moviesFiltered = this.moviesFiltered.bind(this);
+    this.addMovie = this.addMovie.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -57,6 +59,12 @@ class MovieLibrary extends React.Component {
     });
   }
 
+  addMovie(newMovie) {
+    const { movies } = this.props;
+    this.setState({ movies: movies.concat(newMovie) });
+    // this.setState({ movies: [...movies, newMovie] });
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
@@ -70,6 +78,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList movies={ movies } />
+        <AddMovie onClick={ this.addMovie } />
       </div>
     );
   }

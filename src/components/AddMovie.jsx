@@ -5,10 +5,11 @@ class AddMovie extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
-    this.setStateInitialValue = this.setStateInitialValue.bind(this);
     this.createInput = this.createInput.bind(this);
     this.createTextArea = this.createTextArea.bind(this);
     this.createSelect = this.createSelect.bind(this);
+    this.setStateInitialValue = this.setStateInitialValue.bind(this);
+
     this.state = {
       title: '',
       subtitle: '',
@@ -25,6 +26,8 @@ class AddMovie extends React.Component {
   }
 
   setStateInitialValue() {
+    const { onClick } = this.props;
+    onClick(this.state);
     this.setState({
       title: '',
       subtitle: '',
@@ -33,40 +36,6 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     });
-  }
-
-  createInput(stateKey, labelText, type, value) {
-    const inputName = stateKey === 'image' ? 'imagePath' : stateKey;
-    return (
-      <label htmlFor={ stateKey } data-testid={ `${stateKey}-input-label` }>
-        { labelText }
-        <input
-          type={ type }
-          id={ stateKey }
-          name={ inputName }
-          data-testid={ `${stateKey}-input` }
-          value={ value }
-          onChange={ this.handleChange }
-        />
-      </label>
-    );
-  }
-
-  createTextArea(storyline) {
-    return (
-      <label htmlFor="storyline" data-testid="storyline-input-label">
-        Sinopse
-        <textarea
-          id="storyline"
-          name="storyline"
-          cols="30"
-          rows="10"
-          data-testid="storyline-input"
-          value={ storyline }
-          onChange={ this.handleChange }
-        />
-      </label>
-    );
   }
 
   createSelect(genre) {
@@ -88,8 +57,41 @@ class AddMovie extends React.Component {
     );
   }
 
+  createTextArea(storyline) {
+    return (
+      <label htmlFor="storyline" data-testid="storyline-input-label">
+        Sinopse
+        <textarea
+          id="storyline"
+          name="storyline"
+          cols="30"
+          rows="10"
+          data-testid="storyline-input"
+          value={ storyline }
+          onChange={ this.handleChange }
+        />
+      </label>
+    );
+  }
+
+  createInput(stateKey, labelText, type, value) {
+    const inputName = stateKey === 'image' ? 'imagePath' : stateKey;
+    return (
+      <label htmlFor={ stateKey } data-testid={ `${stateKey}-input-label` }>
+        { labelText }
+        <input
+          type={ type }
+          id={ stateKey }
+          name={ inputName }
+          data-testid={ `${stateKey}-input` }
+          value={ value }
+          onChange={ this.handleChange }
+        />
+      </label>
+    );
+  }
+
   render() {
-    const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <div>
@@ -101,7 +103,7 @@ class AddMovie extends React.Component {
           { this.createInput('rating', 'Avaliação', 'number', rating) }
           { this.createSelect(genre) }
           <button
-            type="submit"
+            type="button"
             data-testid="send-button"
             onClick={ this.setStateInitialValue }
           >
@@ -114,11 +116,7 @@ class AddMovie extends React.Component {
 }
 
 AddMovie.propTypes = {
-  onClick: func,
-};
-
-AddMovie.defaultProps = {
-  onClick: 'undefined',
+  onClick: func.isRequired,
 };
 
 export default AddMovie;
