@@ -106,13 +106,13 @@ class AddMovie extends Component {
           rows="10"
           onChange={ this.updateState }
           value={ storyline }
-        ></textarea>
+        />
       </label>
     );
   }
 
   ratingElement() {
-    const { rating } = this.state
+    const { rating } = this.state;
     return (
       <label htmlFor="rating-input" data-testid="rating-input-label">
         Avaliação
@@ -164,7 +164,7 @@ class AddMovie extends Component {
         { this.storylineElement() }
         { this.ratingElement() }
         { this.genreElement() }
-        <button data-testid="send-button" type='submit' onClick={ this.resetState }>
+        <button data-testid="send-button" type="submit" onClick={ this.resetState }>
           Adicionar filme
         </button>
       </form>
