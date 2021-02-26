@@ -7,7 +7,14 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <SearchBar searchText={String} onSearchTextChange={useCallback} bookmarkedOnly={Boolean} onBookmarkedChange={useCallback} selectedGenre={String} onSelectedGenreChange={useCallback}/>
+      <SearchBar 
+        searchText={ String } 
+        onSearchTextChange={ useCallback } 
+        bookmarkedOnly={ Boolean } 
+        onBookmarkedChange={ useCallback } 
+        selectedGenre={ String } 
+        onSelectedGenreChange={ useCallback }
+      />
     </div>
   );
 }
