@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
@@ -12,13 +13,14 @@ class MovieLibrary extends React.Component {
       selectedGenre: '',
       movies: props.movies,
     };
-    this.onSearchTextChange = this.onSeachTextChange.bind(this);
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.onClick = this.onClick.bind(this);
     this.filterMovieList = this.filterMovieList.bind(this);
   }
 
-  onSeachTextChange({ target }) {
+  onSearchTextChange({ target }) {
     const { value } = target;
     this.setState({
       searchText: value,
@@ -39,6 +41,14 @@ class MovieLibrary extends React.Component {
       selectedGenre: value,
     });
   }
+
+  onClick(state) {
+    const { movies } = this.state;
+    this.setState({
+      movies: [...movies, state],
+    });
+  }
+
   /**
    * Consultei o repositório do Tiago Yoneda para resolver essa parte
    * Link: https://github.com/tryber/sd-09-project-movie-cards-library-stateful/tree/tiago-yoneda-project-movie-cards-library-stateful
@@ -67,18 +77,25 @@ class MovieLibrary extends React.Component {
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     const movies = this.filterMovieList();
+    const {
+      onSearchTextChange,
+      onBookmarkedChange,
+      onSelectedGenreChange,
+      onClick,
+    } = this;
 
     return (
       <div>
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ this.onSearchTextChange }
+          onSearchTextChange={ onSearchTextChange }
           bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ this.onBookmarkedChange }
+          onBookmarkedChange={ onBookmarkedChange }
           selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ this.onSelectedGenreChange }
+          onSelectedGenreChange={ onSelectedGenreChange }
         />
         <MovieList movies={ movies } />
+        <AddMovie onClick={ onClick } />
       </div>
     );
   }
