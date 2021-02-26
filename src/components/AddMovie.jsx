@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import RatingInput from './RatingInput';
 import GenreSelect from './GenreSelect';
+import Button from './Button';
 
 class AddMovie extends Component {
   constructor() {
@@ -72,6 +73,7 @@ class AddMovie extends Component {
         </label>
         <RatingInput value={ this.state.rating } changeState={ this.changeState } />
         <GenreSelect value={ this.state.genre } changeState={ this.changeState } />
+        <Button />
       </form>
     );
   }
