@@ -1,6 +1,12 @@
 // implement AddMovie component here
 import React from 'react';
 import PropTypes from 'prop-types';
+import Genre from './structure/Genre';
+import ImagePath from './structure/ImagePath';
+import Rating from './structure/Rating';
+import StoryLine from './structure/StoryLine';
+import Subtitle from './structure/Subtitle';
+import Title from './structure/Title';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -25,97 +31,9 @@ class AddMovie extends React.Component {
     });
   }
 
-  title(title, handleClick) {
-    return (
-      <label data-testid="title-input-label" htmlFor="title-input">
-        Título
-        <input
-          name="title"
-          data-testid="title-input"
-          value={ title }
-          onChange={ handleClick }
-        />
-      </label>
-    );
-  }
-
-  subtitle(subtitle, handleClick) {
-    return (
-      <label data-testid="subtitle-input-label" htmlFor="subtitle-input">
-        Subtítulo
-        <input
-          name="subtitle"
-          value={ subtitle }
-          data-testid="subtitle-input"
-          onChange={ handleClick }
-        />
-      </label>
-    );
-  }
-
-  imagePath(imagePath, handleClick) {
-    return (
-      <label data-testid="image-input-label" htmlFor="image-input">
-        Imagem
-        <input
-          name="imagePath"
-          value={ imagePath }
-          data-testid="image-input"
-          onChange={ handleClick }
-        />
-      </label>
-    );
-  }
-
-  storyLine(storyLine, handleClick) {
-    return (
-      <label data-testid="storyline-input-label" htmlFor="storyline-input">
-        Sinopse
-        <input
-          name="storyLine"
-          value={ storyLine }
-          data-testid="storyline-input"
-          onChange={ handleClick }
-        />
-      </label>
-    );
-  }
-
-  rating(rating, handleClick) {
-    return (
-      <label data-testid="rating-input-label" htmlFor="rating-input">
-        Avaliação
-        <input
-          type="number"
-          name="rating"
-          value={ rating }
-          data-testid="rating-input"
-          onChange={ handleClick }
-        />
-      </label>
-    );
-  }
-
-  genre(genre, handleClick) {
-    return (
-      <label data-testid="genre-input-label" htmlFor="genre-input">
-        Gênero
-        <select
-          name="genre"
-          value={ genre }
-          data-testid="genre-input"
-          onChange={ handleClick }
-        >
-          <option value="action" data-testid="genre-option">Ação</option>
-          <option value="comedy" data-testid="genre-option">Comédia</option>
-          <option value="thriller" data-testid="genre-option">Suspense</option>
-        </select>
-      </label>
-    );
-  }
-
-  buttonHandler(event) {
-    event.preventDefault();
+  // href: https://pt-br.reactjs.org/docs/handling-events.html
+  buttonHandler(e) {
+    e.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
     this.setState({
@@ -140,12 +58,12 @@ class AddMovie extends React.Component {
     return (
       <div>
         <form data-testid="add-movie-form">
-          {this.title(title, this.handleClick)}
-          {this.subtitle(subtitle, this.handleClick)}
-          {this.imagePath(imagePath, this.handleClick)}
-          {this.storyLine(storyLine, this.handleClick)}
-          {this.rating(rating, this.handleClick)}
-          {this.genre(genre, this.handleClick)}
+          <Title title={ title } handleClick={ this.handleClick } />
+          <Subtitle subtitle={ subtitle } handleClick={ this.handleClick } />
+          <ImagePath imagePath={ imagePath } handleClick={ this.handleClick } />
+          <StoryLine storyLine={ storyLine } handleClick={ this.handleClick } />
+          <Rating rating={ rating } handleClick={ this.handleClick } />
+          <Genre genre={ genre } handleClick={ this.handleClick } />
           <button data-testid="send-button" type="button" onClick={ this.buttonHandler }>
             Adicionar filme
           </button>
