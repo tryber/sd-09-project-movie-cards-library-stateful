@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class SearchBar extends Component {
-  // constructor(props) {
-  //     super(props);
-  //   }
   render() {
     const { searchText, onSearchTextChange } = this.props;
     const { bookmarkedOnly, onBookmarkedChange } = this.props;
@@ -17,7 +14,7 @@ class SearchBar extends Component {
             Inclui o texto:
             <input
               type="text"
-              // value={ searchText }
+              value={ searchText }
               onChange={ onSearchTextChange }
               data-testid="text-input"
             />
@@ -56,7 +53,7 @@ SearchBar.propTypes = {
   bookmarkedOnly: PropTypes.bool.isRequired,
   onBookmarkedChange: PropTypes.func.isRequired,
   selectedGenre: PropTypes.string.isRequired,
-  onSelectedGenreChange: PropTypes.string.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
 };
 
 export default SearchBar;
