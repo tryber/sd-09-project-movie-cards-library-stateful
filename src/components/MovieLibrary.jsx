@@ -34,26 +34,14 @@ class MovieLibrary extends Component {
     || storyline.toLowerCase().includes(search.toLowerCase())
     ));
 
-    if (search && favorites && setGenre) {
+    if (favorites && setGenre) {
       return filterText
         .filter(({ bookmarked }) => bookmarked)
         .filter(({ genre }) => genre === setGenre);
     }
-    if (search) {
-      return filterText;
-    }
-    if (search && favorites) return filterText.filter(({ bookmarked }) => bookmarked);
-    if (search && setGenre) {
-      return filterText.filter(({ genre }) => genre === setGenre);
-    }
-    if (favorites && setGenre) {
-      return movies
-        .filter(({ bookmarked }) => bookmarked)
-        .filter(({ genre }) => genre === setGenre);
-    }
-    if (favorites) return movies.filter(({ bookmarked }) => bookmarked);
-    if (setGenre) return movies.filter(({ genre }) => genre === setGenre);
-    return movies;
+    if (favorites) return filterText.filter(({ bookmarked }) => bookmarked);
+    if (setGenre) return filterText.filter(({ genre }) => genre === setGenre);
+    return filterText;
   }
 
   newMovie(addedMovie) {
