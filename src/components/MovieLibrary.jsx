@@ -55,7 +55,15 @@ class MovieLibrary extends Component {
     });
   }
 
-  onClick() { }
+  onClick(movie) {
+    const { movies } = this.state;
+    let arrayMovies = movies;
+    arrayMovies.push(movie);
+    this.setState({
+      movies: arrayMovies,
+      
+    });
+  }
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
