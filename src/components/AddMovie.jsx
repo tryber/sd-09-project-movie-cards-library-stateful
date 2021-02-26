@@ -16,6 +16,7 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
   }
+  // href https://stackoverflow.com/questions/55188257/const-name-value-event-target-what-does-this-mean/55188322
 
   handleClick(event) {
     const { name, value } = event.target;
@@ -52,7 +53,7 @@ class AddMovie extends React.Component {
     );
   }
 
-  image(imagePath, handleClick) {
+  imagePath(imagePath, handleClick) {
     return (
       <label data-testid="image-input-label" htmlFor="image-input">
         Imagem
@@ -66,7 +67,7 @@ class AddMovie extends React.Component {
     );
   }
 
-  sinopse(storyLine, handleClick) {
+  storyLine(storyLine, handleClick) {
     return (
       <label data-testid="storyline-input-label" htmlFor="storyline-input">
         Sinopse
@@ -80,7 +81,7 @@ class AddMovie extends React.Component {
     );
   }
 
-  number(rating, handleClick) {
+  rating(rating, handleClick) {
     return (
       <label data-testid="rating-input-label" htmlFor="rating-input">
         Avaliação
@@ -141,9 +142,9 @@ class AddMovie extends React.Component {
         <form data-testid="add-movie-form">
           {this.title(title, this.handleClick)}
           {this.subtitle(subtitle, this.handleClick)}
-          {this.image(imagePath, this.handleClick)}
-          {this.sinopse(storyLine, this.handleClick)}
-          {this.number(rating, this.handleClick)}
+          {this.imagePath(imagePath, this.handleClick)}
+          {this.storyLine(storyLine, this.handleClick)}
+          {this.rating(rating, this.handleClick)}
           {this.genre(genre, this.handleClick)}
           <button data-testid="send-button" type="button" onClick={ this.buttonHandler }>
             Adicionar filme
