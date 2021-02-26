@@ -107,7 +107,7 @@ describe('17 - Renderize `<SearchBar />` dentro de `<MovieLibrary />`', () => {
 });
 
 describe('18 - Renderize `<MovieList />` dentro de `<MovieLibrary />`', () => {
-  it.skip('Renderize o componente `<MovieList />`', () => {
+  it('Renderize o componente `<MovieList />`', () => {
     const { getAllByTestId } = render(<MovieLibrary movies={ movies } />);
     const movieList = getAllByTestId('movie-list');
     expect(movieList).toHaveLength(1);
@@ -163,7 +163,7 @@ describe('18 - Renderize `<MovieList />` dentro de `<MovieLibrary />`', () => {
     expect(movieCard).toHaveLength(expectedLength);
   });
 
-  it.skip('Filtre os filmes por favoritos quando a `checkbox` relacionada for selecionada', () => {
+  it('Filtre os filmes por favoritos quando a `checkbox` relacionada for selecionada', () => {
     const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={ movies } />);
     const bookmarkedOnly = getByTestId(checkboxTestId);
 
@@ -189,7 +189,7 @@ describe('18 - Renderize `<MovieList />` dentro de `<MovieLibrary />`', () => {
 });
 
 describe('19 - Renderize `<AddMovie />` dentro de `<MovieLibrary />`', () => {
-  it.skip('Renderize o componente `<AddMovie />`', () => {
+  it('Renderize o componente `<AddMovie />`', () => {
     const { getAllByTestId } = render(<MovieLibrary movies={ movies } />);
     const addMovieForm = getAllByTestId('add-movie-form');
     expect(addMovieForm).toHaveLength(1);
