@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 import MovieList from './MovieList';
+// import MovieCard from './MovieCard';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
@@ -11,11 +12,12 @@ class MovieLibrary extends React.Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: this.props,
+      // movies: this.props,
     };
     this.handleTextChange = this.handleTextChange.bind(this);
     this.handleSelectChange = this.handleSelectChange.bind(this);
     this.handleBookmarkChange = this.handleBookmarkChange.bind(this);
+    // this.addMovieButton = this.addMovieButton.bind(this);
   }
 
   handleTextChange({ target }) {
@@ -34,13 +36,12 @@ class MovieLibrary extends React.Component {
   }
 
   addMovieButton() {
-    // const { title, subtitle, storyline, rating, imagePath } = movie;
-    // < MovieCard/>
+    console.log('clicou');
   }
 
   render() {
-    const { movies } = this.props;
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const { movies } = this.props;
     return (
       <section>
         <SearchBar

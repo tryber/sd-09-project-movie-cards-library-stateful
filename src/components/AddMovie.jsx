@@ -17,6 +17,7 @@ class AddMovie extends React.Component {
     this.renderGenreSelect = this.renderGenreSelect.bind(this);
     this.createNewCard = this.createNewCard.bind(this);
     this.renderStoryline = this.renderStoryline.bind(this);
+    this.renderButton = this.renderButton.bind(this);
   }
 
   handleChange({ target }) {
