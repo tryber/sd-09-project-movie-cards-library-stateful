@@ -1,0 +1,29 @@
+.add-movie-card {
+  align-items: center;
+  background-color: rgba(187, 185, 185, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 3px;
+  display: flex;
+  height: 450px;
+  justify-content: center;
+  margin: 5px;
+  position: relative;
+  transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  overflow: hidden;
+  width: 300px;
+}
+
+.symbol-more {
+  background-color: none;
+  border: none;
+  color: rgba(187, 185, 185, 0.8);
+  font-size: 100px;
+}
+
+.symbol-more:hover {
+  color: rgba(187, 185, 185, 1);
+}
+
+.symbol-more:focus {
+  outline: none;
+}

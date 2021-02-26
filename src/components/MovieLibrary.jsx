@@ -98,7 +98,10 @@ class MovieLibrary extends React.Component {
           handleShowAddMovieForm={ this.handleShowAddMovieForm }
           handleAddMovieFavorite={ this.handleAddMovieFavorite }
         />
-        { showBoxAddMovie ? <AddMovie onClick={ this.onClick } /> : null }
+        { showBoxAddMovie ? <AddMovie
+          onClick={ this.onClick }
+          handleShowAddMovieForm={ this.handleShowAddMovieForm }
+        /> : null }
       </main>
     );
   }

@@ -44,7 +44,7 @@ class AddMovie extends React.Component {
 
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
-    const { onClick } = this.props;
+    const { onClick, handleShowAddMovieForm } = this.props;
     return (
       <section className="container-add-movie">
         <div className="add-movie">
@@ -59,14 +59,24 @@ class AddMovie extends React.Component {
               handleChange={ this.handleChange }
             />
             <GenreSelect value={ genre } handleChange={ this.handleChange } />
-            <button
-              type="button"
-              className="button-add-movie"
-              data-testid="send-button"
-              onClick={ () => this.handleClick(onClick) }
-            >
-              Adicionar filme
-            </button>
+            <div className="container-buttons-form">
+              <button
+                type="button"
+                className="button-style add-style"
+                data-testid="send-button"
+                onClick={ () => this.handleClick(onClick) }
+              >
+                Adicionar filme
+              </button>
+              <button
+                type="button"
+                className="button-style cancel-style"
+                data-testid="send-button"
+                onClick={ handleShowAddMovieForm }
+              >
+                Cancelar
+              </button>
+            </div>
           </form>
         </div>
       </section>
@@ -76,10 +86,12 @@ class AddMovie extends React.Component {
 
 AddMovie.propTypes = {
   onClick: func,
+  handleShowAddMovieForm: func,
 };
 
 AddMovie.defaultProps = {
   onClick: () => {},
+  handleShowAddMovieForm: () => {},
 };
 
 export default AddMovie;
