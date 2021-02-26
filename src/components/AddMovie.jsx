@@ -20,7 +20,7 @@ class AddMovie extends Component {
   handleChange({ target }) {
     let { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    name = name === 'image' ? 'imagePath' : name;
+    if (name === 'image') name = 'imagePath';
     this.setState({
       [name]: value,
     });
@@ -55,7 +55,7 @@ class AddMovie extends Component {
         <label data-testid="storyline-input-label" htmlFor="storyLineInput">
           Sinopse
           <textarea
-            data-testid="image-input"
+            data-testid="storyline-input"
             id="storyLineInput"
             name="storyline"
             value={ storyline }
