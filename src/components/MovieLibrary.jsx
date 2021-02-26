@@ -17,6 +17,7 @@ class MovieLibrary extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.filterFilms = this.filterFilms.bind(this);
+    this.addMovieOnClick = this.addMovieOnClick.bind(this);
   }
 
   /* função está no gabarito de ex da trybe */
@@ -45,6 +46,13 @@ class MovieLibrary extends Component {
     return newArrFilterFilms;
   }
 
+  addMovieOnClick(newMovie) {
+    const { movies } = this.state;
+    this.setState({
+      movies: [...movies, newMovie],
+    });
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
@@ -61,7 +69,9 @@ class MovieLibrary extends Component {
         <MovieList
           movies={ this.filterFilms() }
         />
-        <AddMovie />
+        <AddMovie
+          onClick={ this.addMovieOnClick }
+        />
       </div>
     );
   }
