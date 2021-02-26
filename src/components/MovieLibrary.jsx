@@ -40,14 +40,13 @@ class MovieLibrary extends Component {
 
     if (selectedGenre) {
       filteredMovies = filteredMovies.filter(
-        (movie) => movie.genre === selectedGenre
+        (movie) => movie.genre === selectedGenre,
       );
     }
 
     if (searchText) {
       filteredMovies = filteredMovies.filter(
-        (movie) =>
-          movie.storyline.toUpperCase().includes(searchText.toUpperCase())
+        (movie) => movie.storyline.toUpperCase().includes(searchText.toUpperCase())
           || movie.title.toUpperCase().includes(searchText.toUpperCase())
           || movie.subtitle.toUpperCase().includes(searchText.toUpperCase()),
       );
