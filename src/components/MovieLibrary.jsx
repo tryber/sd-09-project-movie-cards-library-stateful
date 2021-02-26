@@ -30,8 +30,9 @@ class MovieLibrary extends Component {
     const { value } = target;
     this.setState({
       searchText: value,
-      searchBarMovies: movies.filter((movie) => movie.title.includes(value) ||
-      movie.subtitle.includes(value)|| movie.storyline.includes(value)),
+      searchBarMovies: movies.filter((movie) => movie.title.includes(value)
+        || movie.subtitle.includes(value)
+        || movie.storyline.includes(value)),
 
     });
   }
@@ -71,10 +72,11 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
         />
 
-        { searchText != '' && <MovieList movies={ searchBarMovies } /> }
+        { searchText !== '' && <MovieList movies={ searchBarMovies } /> }
         { bookmarkedOnly !== false && <MovieList movies={ favoritedsMovies } /> }
         { selectedGenre !== '' && <MovieList movies={ genreMovies } /> }
-        {  searchText === '' && bookmarkedOnly === false && selectedGenre === '' &&
+        { searchText === '' && bookmarkedOnly === false &&
+          selectedGenre === '' &&
           <MovieList movies={ movies } />}
         <AddMovie onClick={ this.onClick } />
       </div>
