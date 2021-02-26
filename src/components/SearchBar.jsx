@@ -1,7 +1,8 @@
 // implement AddMovie component here
 import React from 'react';
-import './Styles/SearchBar.css';
+import PropTypes from 'prop-types';
 import InputText from './Inputs/InputTextSearchBar';
+import './Styles/SearchBar.css';
 
 class SearchBar extends React.Component {
   render() {
@@ -11,7 +12,8 @@ class SearchBar extends React.Component {
       bookmarkedOnly,
       onBookmarkedChange,
       selectedGenre,
-      onSelectedGenreChange } = this.props;
+      onSelectedGenreChange,
+    } = this.props;
 
     return (
       <form data-testid="search-bar-form" className="form-SearchBar">
@@ -50,5 +52,23 @@ class SearchBar extends React.Component {
     );
   }
 }
+
+SearchBar.propTypes = {
+  searchText: PropTypes.string,
+  onSearchTextChange: PropTypes.func,
+  bookmarkedOnly: PropTypes.bool,
+  onBookmarkedChange: PropTypes.func,
+  selectedGenre: PropTypes.string,
+  onSelectedGenreChange: PropTypes.func,
+};
+
+SearchBar.defaultProps = {
+  searchText: '',
+  onSearchTextChange: 'undefined',
+  bookmarkedOnly: false,
+  onBookmarkedChange: 'undefined',
+  selectedGenre: '',
+  onSelectedGenreChange: 'undefined',
+};
 
 export default SearchBar;
