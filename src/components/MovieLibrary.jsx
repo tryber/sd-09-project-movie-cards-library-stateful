@@ -16,7 +16,7 @@ class MovieLibrary extends Component {
         <h2> My awesome movie library </h2>
         <SearchBar />
         <MovieList />
-        <AddMovie />
+        <AddMovie onClick={ this.onClickFunction } />
       </div>
     );
   }
