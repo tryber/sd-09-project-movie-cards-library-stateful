@@ -15,10 +15,12 @@ class MovieLibrary extends Component {
       selectedGenre: '',
       movies: props.movies,
     };
+
+    this.onClick = this.onClick.bind(this);
   }
 
   onClick() {
-    console.log(AddMovie);
+    console.log('Hello World');
   }
 
   render() {

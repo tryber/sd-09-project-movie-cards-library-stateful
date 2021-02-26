@@ -31,6 +31,8 @@ class AddMovie extends React.Component {
   }
 
   onClickHere() {
+    const { onClick } = this.props;
+    onClick();
     this.setState({
       subtitle: '',
       title: '',
@@ -46,6 +48,7 @@ class AddMovie extends React.Component {
       <label htmlFor="title" data-testid="title-input-label">
         Título
         <input
+          className="title"
           name="title"
           type="text"
           value={ title }
@@ -61,6 +64,7 @@ class AddMovie extends React.Component {
       <label htmlFor="subtitle" data-testid="subtitle-input-label">
         Subtítulo
         <input
+          className="text"
           name="subtitle"
           type="text"
           value={ subtitle }
@@ -76,6 +80,7 @@ class AddMovie extends React.Component {
       <label htmlFor="imagePath" data-testid="image-input-label">
         Imagem
         <input
+          className="text"
           name="imagePath"
           type="text"
           value={ imagePath }
@@ -91,6 +96,7 @@ class AddMovie extends React.Component {
       <label htmlFor="storyline" data-testid="storyline-input-label">
         Sinopse
         <textarea
+          className="text"
           name="storyline"
           cols="30"
           rows="10"
@@ -107,6 +113,7 @@ class AddMovie extends React.Component {
       <label htmlFor="rating" data-testid="rating-input-label">
         Avaliação
         <input
+          className="number"
           name="rating"
           type="number"
           value={ rating }
@@ -122,6 +129,7 @@ class AddMovie extends React.Component {
       <label htmlFor="genre" data-testid="genre-input-label">
         Gênero
         <select
+          className="option"
           name="genre"
           value={ genre }
           data-testid="genre-input"
@@ -136,7 +144,6 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { onClick } = this.props;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <div>
@@ -151,7 +158,7 @@ class AddMovie extends React.Component {
         <button
           type="button"
           data-testid="send-button"
-          onClick={ onClick }
+          onClick={ this.onClickHere }
         >
           Adicionar filme
         </button>
