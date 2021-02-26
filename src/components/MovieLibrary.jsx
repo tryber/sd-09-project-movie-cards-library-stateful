@@ -13,8 +13,9 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: [],
+    //   movies: [],
     };
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
   }
 
   onChangeFunction({ target }) {
@@ -41,7 +42,14 @@ class MovieLibrary extends Component {
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar searchText={ searchText } onSearchTextChange={ this.onSearchTextChange } bookmarkedOnly={ bookmarkedOnly } onBookmarkedOnly={ this.onChangeFunction } selectedGenre={ selectedGenre } onSelectedGenreChange={ this.onChangeFunction } />
+        <SearchBar
+          searchText={ searchText }
+          onSearchTextChange={ this.onSearchTextChange }
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedOnly={ this.onChangeFunction }
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ this.onChangeFunction }
+        />
         <MovieList movies={ movies } />
         <AddMovie />
       </div>
