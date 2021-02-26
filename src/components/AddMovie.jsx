@@ -10,7 +10,7 @@ class AddMovie extends React.Component {
       title: '',
       imagePath: '',
       storyline: '',
-      rating: 0,
+      // rating: 0,
       // genre: 'action',
     };
     this.reloadState = this.reloadState.bind(this);
@@ -22,7 +22,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline, rating } = this.state;
+    const { title, subtitle, imagePath, storyline } = this.state;
     return (
       <form data-testid="add-movie-form">
         <InputGeneric
@@ -60,13 +60,13 @@ class AddMovie extends React.Component {
             value={ storyline }
           />
         </label>
-        <InputGeneric
+        {/* <InputGeneric
           labelName="Avaliação"
           name="rating"
           reload={ this.reloadState }
           type="number"
           value={ rating }
-        />
+        /> */}
       </form>
     );
   }
