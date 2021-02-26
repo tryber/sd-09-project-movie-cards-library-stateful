@@ -19,7 +19,8 @@ class AddMovie extends Component {
 
   handleChange({ target }) {
     const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    let value = target.type === 'checkbox' ? target.checked : target.value;
+    value = name === 'image' ? 'imagePath' : name;
     this.setState({
       [name]: value,
     });
@@ -46,7 +47,7 @@ class AddMovie extends Component {
         />
         <ParentInput
           type="text"
-          name="imagePath"
+          name="image"
           value={ imagePath }
           lblTitle="Imagem"
           handleChange={ this.handleChange }
