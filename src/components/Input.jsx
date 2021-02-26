@@ -9,6 +9,7 @@ class Input extends React.Component {
         <label htmlFor="title-input" data-testid="title-input-label">
           Título
           <input
+            data-testid="title-input"
             type="text"
             id="title-input"
             name="title"
@@ -20,6 +21,7 @@ class Input extends React.Component {
         <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
           Subtítulo
           <input
+            data-testid="subtitle-input"
             type="text"
             id="subtitle-input"
             name="subtitle"
@@ -31,6 +33,7 @@ class Input extends React.Component {
         <label htmlFor="imagePath" testid="image-input-label">
           Imagem
           <input
+            data-testid="image-input"
             type="text"
             id="imagePath"
             name="imagePath"
@@ -42,6 +45,7 @@ class Input extends React.Component {
         <label htmlFor="storyline" data-testid="storyline-input-label">
           Sinopse
           <textarea
+            data-testid="storyline-input"
             id="storyline"
             name="storyline"
             value={ storyline }
