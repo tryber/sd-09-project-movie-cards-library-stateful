@@ -13,10 +13,11 @@ class MovieLibrary extends Component {
       selectedGenre: '',
       movies: moviesList,
     };
+
     this.handleChange = this.handleChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
-    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onClick = this.onClick.bind(this);
   }
 
@@ -29,15 +30,21 @@ class MovieLibrary extends Component {
   }
 
   onSelectedGenreChange(evt) {
-    this.handleChange(evt);
+    this.setState({
+      selectedGenre: evt.target.value,
+    });
   }
 
   onBookmarkedChange(evt) {
-    this.handleChange(evt);
+    this.setState({
+      bookmarkedOnly: evt.target.checked,
+    });
   }
 
   onSearchTextChange(evt) {
-    this.handleChange(evt);
+    this.setState({
+      searchText: evt.target.value,
+    });
   }
 
   onClick(movie) {
