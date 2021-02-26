@@ -57,11 +57,11 @@ class MovieLibrary extends Component {
 
   onClick(movie) {
     const { movies } = this.state;
-    let arrayMovies = movies;
+    const arrayMovies = movies;
     arrayMovies.push(movie);
     this.setState({
       movies: arrayMovies,
-      
+
     });
   }
 
