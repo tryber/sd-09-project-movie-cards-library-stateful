@@ -81,3 +81,12 @@ body {
   justify-content: flex-end;
   padding: 12px 20px;
 }
+
+.form-structure {
+  background-color: #8a8a8a;
+  color: white;
+  display: flex;
+  font-family: Segoe UI , Tahoma , Geneva , Verdana , sans-serif;
+  justify-content: space-around;
+  padding: 8px;
+}
