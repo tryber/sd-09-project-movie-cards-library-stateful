@@ -13,27 +13,26 @@ class AddMovie extends React.Component {
     };
 
     this.handleInput = this.handleInput.bind(this);
-    this.createInput = this.createInput.bind(this);
+    this.createTextInput = this.createTextInput.bind(this);
   }
 
   handleInput(event) {
     const { target: { name, value } } = event;
-    console.log(`name = ${name}, value = ${value}`);
     this.setState({ [name]: value });
   }
 
-  createInput(type, label, name, handler) {
+  createTextInput(label, name, testid, handler) {
     const { [name]: stateName } = this.state;
     return (
-      <label htmlFor={ `${name}-input` } data-testid={ `${name}-input-label` }>
+      <label htmlFor={ `${testid}-input` } data-testid={ `${testid}-input-label` }>
         { label }
         <input
-          type={ type }
-          id={ `${name}-input` }
+          type="text"
+          id={ `${testid}-input` }
           name={ name }
           value={ stateName }
           onChange={ handler }
-          data-testid={ `${name}-input` }
+          data-testid={ `${testid}-input` }
         />
       </label>
     );
@@ -42,8 +41,9 @@ class AddMovie extends React.Component {
   render() {
     return (
       <form action="" data-testid="add-movie-form">
-        { this.createInput('text', 'Título', 'title', this.handleInput) }
-        { this.createInput('text', 'Subtítulo', 'subtitle', this.handleInput) }
+        { this.createTextInput('Título', 'title', 'title', this.handleInput) }
+        { this.createTextInput('Subtítulo', 'subtitle', 'subtitle', this.handleInput) }
+        { this.createTextInput('Imagem', 'imagePath', 'image', this.handleInput) }
         {/* <label htmlFor="title-input" data-testid="title-input-label">
           Título
           <input
