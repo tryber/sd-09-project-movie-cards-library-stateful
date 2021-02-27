@@ -163,7 +163,8 @@ class AddMovie extends Component {
       <form
         data-testid="add-movie-form"
         onSubmit={ this.onClick }
-        className="form-structure">
+        className="form-structure"
+      >
         { this.inputText(this.handleChange) }
         { this.inputSubtitle(this.handleChange) }
         { this.inputImage(this.handleChange) }
