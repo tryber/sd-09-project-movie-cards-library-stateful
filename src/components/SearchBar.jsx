@@ -1,45 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 class SearchBar extends Component {
-  constructor(props) {
-    super(props)
-
-    // this.onSearchTextChange = this.onSearchTextChange.bind(this);
-    // this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
-    // this.onSelectedGenreChange = this.onSelectedGenreChange(this);
-    
-    this.state = {
-      searchText: '',
-      bookmarkedOnly: false,
-      selectedGenre: '',
-    }
-  }
-
-  // onSearchTextChange ({ target }) {
-  //   const { value } = target;
-  //   console.log(value)
-  //   this.setState({
-  //       searchText: value
-  //   });
-  // }
-
-  // onBookmarkedChange ({ target }) {
-  //   const { checked } = target;
-  //   this.setState({
-  //     bookmarkedOnly: checked
-  //   });
-  // }
-
-  // onSelectedGenreChange ({ target }) {
-  //   const { value } = target;
-  //   console.log(value)
-  //   this.setState({
-  //     selectedGenre: value
-  //   });
-  // }
- 
   render() {
-
     const { 
       searchText,
       onSearchTextChange,
@@ -55,7 +17,8 @@ class SearchBar extends Component {
           <label data-testid="text-input-label">Inclui o texto:</label>
         </div>
         <div>
-          <input data-testid="text-input"
+          <input 
+            data-testid="text-input"
             type="text"
             name="searchText" 
             value={ searchText }
@@ -64,7 +27,8 @@ class SearchBar extends Component {
         </div>
         <div>
           <label data-testid="checkbox-input-label">
-            <input data-testid="checkbox-input"
+            <input 
+              data-testid="checkbox-input"
               type="checkbox"
               name="bookmarkedOnly"
               checked={ bookmarkedOnly }
@@ -78,7 +42,8 @@ class SearchBar extends Component {
             </label>
           </div>
           <div>
-            <select data-testid="select-input"
+            <select 
+              data-testid="select-input"
               name="selectedGenre"
               value={ selectedGenre }
               onChange={ onSelectedGenreChange }
@@ -96,11 +61,3 @@ class SearchBar extends Component {
 }
 
 export default SearchBar;
-
-// onChange={ (event) => {
-//   const { value } = event.target
-//   this.setState ({
-//     selectedGenre: value
-//   })
-// }
-// }
