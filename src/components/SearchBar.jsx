@@ -11,7 +11,7 @@ class SearchBar extends React.Component {
       <form data-testid="search-bar-form">
         <label data-testid="text-input-label" htmlFor="text-input">
           Inclui o texto
-          <span> </span>
+          <br />
           <input
             id="text-input"
             type="text"
@@ -35,7 +35,7 @@ class SearchBar extends React.Component {
         <br />
         <label data-testid="select-input-label" htmlFor="select-input">
           Filtrar por gênero
-          <span> </span>
+          <br />
           <select
             id="select-input"
             data-testid="select-input"

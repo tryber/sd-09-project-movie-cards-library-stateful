@@ -4,6 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
   // constructor() {
@@ -27,6 +28,7 @@ class MovieLibrary extends React.Component {
         onSelectedGenreChange = { onSelectedGenreChange }
         /> */}
         <MovieList movies={ movies } />
+        <AddMovie />
       </div>
     );
   }
