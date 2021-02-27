@@ -23,6 +23,7 @@ body {
   display: flex;
   flex-flow: row wrap;
   padding: 48px 30px;
+  text-align: center;
 }
 
 .movie-card {
@@ -31,8 +32,8 @@ body {
   border-radius: 3px;
   display: flex;
   flex-direction: column;
-  height: 450px;
   margin: 5px;
+  min-height: 450px;
   overflow: hidden;
   width: 300px;
 }
@@ -80,4 +81,57 @@ body {
   display: flex;
   justify-content: flex-end;
   padding: 12px 20px;
+}
+
+.movie-list-error {
+  font-weight: 700;
+  text-align: center;
+  width: 100%;
+}
+
+fieldset {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  margin: 35px;
+  padding: 35px;
+}
+
+fieldset legend {
+  font-weight: 700;
+  padding: 0 16px;
+  width: auto;
+}
+
+fieldset form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+fieldset span {
+  margin-right: 16px;
+}
+
+.searchmovie-fieldset {
+  margin-bottom: 0;
+}
+
+.addmovie-fieldset {
+  margin-top: 0;
+}
+
+.addmovie-fieldset label {
+  width: 30%;
+}
+
+.addmovie-fieldset span + * {
+  width: 100%;
+}
+
+.addmovie-fieldset span {
+  display: block;
+  width: 100%;
+}
+
+.addmovie-fieldset .storyline-input {
+  flex: 1 0 100%;
 }
