@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 class AddMovie extends Component {
   constructor() {
     super();
-    this.buttonCLick = this.buttonCLick.bind(this);
+    this.onClick = this.onClick.bind(this);
     this.state = {
       title: '',
       subtitle: '',
@@ -13,6 +13,18 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     };
+  }
+
+  onClick() {
+    this.setState({
+      title: 'Star Trek: First Contact',
+      subtitle: '',
+      imagePath: '',
+      storyline: 'gru',
+      rating: 0,
+      genre: 'action',
+    });
+    // console.log(this);
   }
 
   getNewMovieStoryline(onSearchTextChange) {
@@ -63,18 +75,6 @@ class AddMovie extends Component {
     );
   }
 
-  buttonCLick() {
-    this.setState({
-      title: 'Star Trek: First Contact',
-      subtitle: '',
-      imagePath: '',
-      storyline: 'gru',
-      rating: 0,
-      genre: 'action',
-    });
-    // console.log(this);
-  }
-
   render() {
     const { title, subtitle, imagePath } = this.state;
     const { onSearchTextChange } = this.props;
@@ -112,7 +112,7 @@ class AddMovie extends Component {
         <button
           type="button"
           data-testid="send-button"
-          onClick={ this.buttonCLick }
+          onClick={ this.onClick }
         >
           Adicionar filme
         </button>
