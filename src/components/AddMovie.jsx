@@ -5,6 +5,12 @@ class AddMovie extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
+    this.createTitle = this.createTitle.bind(this);
+    this.createSubtitle = this.createSubtitle.bind(this);
+    this.createImage = this.createImage.bind(this);
+    this.createStoryline = this.createStoryline.bind(this);
+    this.createRating = this.createRating.bind(this);
+    this.createGenre = this.createGenre.bind(this);
 
     this.state = {
       subtitle: '',
@@ -24,6 +30,17 @@ class AddMovie extends React.Component {
       storyline: event.target.value,
       rating: event.target.value,
       genre: event.target.value,
+    });
+  }
+
+  clearState() {
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
     });
   }
 
@@ -125,7 +142,7 @@ class AddMovie extends React.Component {
     return (
       <form data-testid="add-movie-form">
         { this.createTitle(title) }
-        { this.createSubTitle(subtitle) }
+        { this.createSubtitle(subtitle) }
         { this.createImage(imagePath) }
         { this.createStoryline(storyline) }
         { this.createRating(rating) }
