@@ -86,7 +86,7 @@ body {
   background-color: #8a8a8a;
   color: white;
   display: flex;
-  font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Segoe UI , Tahoma , Geneva , Verdana , sans-serif;
   justify-content: space-around;
   padding: 8px;
 }
