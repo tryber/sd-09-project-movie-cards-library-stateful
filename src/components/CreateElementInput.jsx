@@ -26,9 +26,7 @@ Input.defaultProps = {
   labelName: string,
   type: string,
   value: oneOf(['string', 'number']),
-  'data-testid': string,
   func,
-  onChange: func,
 };
 
 Input.propTypes = {
