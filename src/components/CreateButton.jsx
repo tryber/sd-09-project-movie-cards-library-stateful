@@ -18,6 +18,6 @@ class Button extends React.Component {
 
 Button.propTypes = {
   func: PropTypes.func.isRequired,
-}
+};
 
 export default Button;

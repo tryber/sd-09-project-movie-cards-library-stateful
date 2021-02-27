@@ -30,6 +30,6 @@ Select.propTypes = {
   labelName: PropTypes.string.isRequired,
   value: PropTypes.oneOf(['string', 'number']).isRequired,
   func: PropTypes.func.isRequired,
-}
+};
 
 export default Select;
