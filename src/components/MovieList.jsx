@@ -21,4 +21,8 @@ MovieList.propTypes = {
   ).isRequired,
 };
 
+MovieList.propTypes = {
+  movies: PropTypes.string.isRequired,
+};
+
 export default MovieList;
