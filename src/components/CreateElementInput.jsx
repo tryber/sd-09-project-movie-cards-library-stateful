@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 class Input extends React.Component {
   render() {
@@ -29,6 +29,17 @@ Input.defaultProps = {
   'data-testid': string,
   func: func,
   onChange: func,
+};
+
+Input.propTypes = {
+  nameTest: PropTypes.string,
+  nameId: PropTypes.string,
+  labelName: PropTypes.string,
+  type: PropTypes.string,
+  value: PropTypes.oneOf(['string', 'number']),
+  'data-testid': PropTypes.string,
+  func: PropTypes.func,
+  onChange: PropTypes.func,
 };
 
 export default Input;

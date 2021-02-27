@@ -25,6 +25,6 @@ MovieLibrary.defaultProps = {
 
 MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.object),
-}
+};
 
 export default MovieLibrary;
