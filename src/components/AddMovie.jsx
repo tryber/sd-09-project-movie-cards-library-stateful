@@ -28,16 +28,16 @@ class AddMovie extends Component {
     return (
       <div className="input-container">
         <label
-          htmlFor={ arrayState[0] }
-          data-testid={ `${arrayState[0]}-input-label` }
+          htmlFor={ arrayState[0][0] }
+          data-testid={ `${arrayState[0][0]}-input-label` }
         >
           {labelName}
           <input
-            name={ arrayState[0] }
+            name={ arrayState[0][0] }
             type={ type }
-            value={ arrayState[1] }
+            value={ arrayState[0][1] }
             onChange={ this.handleChange }
-            data-testid={ `${arrayState[0]}-input` }
+            data-testid={ `${arrayState[0][0]}-input` }
           />
         </label>
       </div>
