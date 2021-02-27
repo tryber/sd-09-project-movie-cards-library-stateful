@@ -2,63 +2,81 @@
 import React, { Component } from 'react';
 import PropTypes, { func } from 'prop-types';
 
-class SearchBar extends Component {
-  render() {
-    const {
-      searchText,
-      onSearchTextChange,
-      bookmarkedOnly,
-      onBookmarkedChange,
-      selectedGenre,
-      onSelectedGenreChange,
-    } = this.props;
+import Input from './tags/Input';
+import Select from './tags/Select';
+import Option from './tags/Option';
 
+class SearchBar extends Component {
+  elementInput() {
+    const { searchText, onSearchTextChange } = this.props;
+
+    return {
+      type: 'text',
+      name: 'searchText',
+      text: 'Inclui o texto:',
+      value: searchText,
+      callback: onSearchTextChange,
+      dataLabel: 'text-input-label',
+      dataInput: 'text-input',
+    };
+  }
+
+  elementCheckbox() {
+    const { bookmarkedOnly, onBookmarkedChange } = this.props;
+
+    return {
+      type: 'checkbox',
+      name: 'bookmarkedOnly',
+      text: 'Mostrar somente favoritos',
+      callback: onBookmarkedChange,
+      dataLabel: 'checkbox-input-label',
+      dataInput: 'checkbox-input',
+      checked: bookmarkedOnly,
+    };
+  }
+
+  elementSelect() {
+    const { selectedGenre, onSelectedGenreChange } = this.props;
+
+    return {
+      name: 'selectedGenre',
+      text: 'Filtrar por gênero:',
+      value: selectedGenre,
+      callback: onSelectedGenreChange,
+      dataLabel: 'select-input-label',
+      dataInput: 'select-input',
+      dataOptions: 'select-option',
+      options: {
+        all: 'Todos',
+        action: 'Ação',
+        comedy: 'Comédia',
+        thriller: 'Suspense',
+      },
+    };
+  }
+
+  elementOptions() {
+    return {
+      dataOptions: 'select-option',
+      options: {
+        action: 'Ação',
+        comedy: 'Comédia',
+        thriller: 'Suspense',
+      },
+    };
+  }
+
+  render() {
     return (
-      <fieldset>
+      <fieldset className="searchmovie-fieldset">
         <legend>Pesquise</legend>
         <form data-testid="search-bar-form">
-          <label htmlFor="searchText" data-testid="text-input-label">
-            <span>Inclui o texto:</span>
-            <input
-              type="text"
-              id="searchText"
-              value={ searchText }
-              onChange={ onSearchTextChange }
-              data-testid="text-input"
-            />
-          </label>
-          <label htmlFor="bookmarkedOnly" data-testid="checkbox-input-label">
-            <span>Mostrar somente favoritos</span>
-            <input
-              type="checkbox"
-              id="bookmarkedOnly"
-              checked={ bookmarkedOnly }
-              onChange={ onBookmarkedChange }
-              data-testid="checkbox-input"
-            />
-          </label>
-          <label htmlFor="selectedGenre" data-testid="select-input-label">
-            <span>Filtrar por gênero</span>
-            <select
-              value={ selectedGenre }
-              id="selectedGenre"
-              onChange={ onSelectedGenreChange }
-              data-testid="select-input"
-            >
-              <option data-testid="select-option" value="">
-                Todos
-              </option>
-              <option data-testid="select-option" value="action">
-                Ação
-              </option>
-              <option data-testid="select-option" value="comedy">
-                Comédia
-              </option>
-              <option data-testid="select-option" value="thriller">
-                Suspense
-              </option>
-            </select>
-          </label>
+          <Input element={ this.elementInput() } />
+          <Input element={ this.elementCheckbox() } />
+          <Select element={ this.elementSelect() }>
+            <option data-testid="select-option" value="">Todos</option>
+            <Option element={ this.elementOptions() } />
+          </Select>
         </form>
       </fieldset>
     );

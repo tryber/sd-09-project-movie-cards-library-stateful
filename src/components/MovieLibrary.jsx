@@ -47,7 +47,10 @@ class MovieLibrary extends Component {
   filteredMovies() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
 
-    let newArray = movies.filter((movie) => movie.title.toLowerCase().includes(searchText) || movie.subtitle.toLowerCase().includes(searchText) || movie.storyline.toLowerCase().includes(searchText));
+    let newArray = movies.filter((movie) => (
+      movie.title.toLowerCase().includes(searchText)
+      || movie.subtitle.toLowerCase().includes(searchText)
+      || movie.storyline.toLowerCase().includes(searchText)));
 
     if (bookmarkedOnly) {
       newArray = newArray.filter((movie) => movie.bookmarked === bookmarkedOnly);
@@ -73,8 +76,7 @@ class MovieLibrary extends Component {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
 
     return (
-      <div>
-        <h2> My awesome movie library </h2>
+      <main>
         <SearchBar
           searchText={ searchText }
           onSearchTextChange={ this.onSearchTextChange }
@@ -85,18 +87,12 @@ class MovieLibrary extends Component {
         />
         <MovieList movies={ this.filteredMovies() } />
         <AddMovie onClick={ this.addMovieArray } />
-      </div>
+      </main>
     );
   }
 }
 
 MovieLibrary.propTypes = {
-  // subtitle: PropTypes.string,
-  // title: PropTypes.string,
-  // imagePath: PropTypes.string,
-  // storyline: PropTypes.string,
-  // rating: PropTypes.number,
-  // genre: PropTypes.string,
   movies: PropTypes.arrayOf(
     PropTypes.object,
   ).isRequired,

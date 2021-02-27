@@ -11,7 +11,7 @@ class MovieList extends React.Component {
       <div data-testid="movie-list" className="movie-list">
         { movies.length > 0
           ? movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)
-          : 'Não achamos nenhum filme!' }
+          : <p className="movie-list-error">Desculpe, não achamos nenhum filme!</p> }
       </div>
     );
   }
