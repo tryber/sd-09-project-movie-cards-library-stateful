@@ -160,7 +160,10 @@ class AddMovie extends Component {
 
   render() {
     return (
-      <form data-testid="add-movie-form" onSubmit={ this.onClick }>
+      <form
+        data-testid="add-movie-form"
+        onSubmit={ this.onClick }
+        className="form-structure">
         { this.inputText(this.handleChange) }
         { this.inputSubtitle(this.handleChange) }
         { this.inputImage(this.handleChange) }

@@ -7,9 +7,8 @@ import MovieList from './MovieList';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
-    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
-    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.movieFilter = this.movieFilter.bind(this);
     this.onClick = this.onClick.bind(this);
     const { movies } = this.props;
@@ -19,6 +18,13 @@ class MovieLibrary extends Component {
       selectedGenre: '',
       movies,
     };
+  }
+
+  handleChange({ target }) {
+    const { name, value } = target;
+    this.setState({
+      [name]: value,
+    });
   }
 
   onClick(newMovie) {
@@ -38,20 +44,6 @@ class MovieLibrary extends Component {
         bookmarkedOnly: false,
       });
     }
-  }
-
-  onSearchTextChange(event) {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value,
-    });
-  }
-
-  onSelectedGenreChange({ target }) {
-    const { name, value } = target;
-    this.setState({
-      [name]: value,
-    });
   }
 
   movieFilter() {
@@ -86,9 +78,9 @@ class MovieLibrary extends Component {
           searchText={ searchText }
           bookmarkedOnly={ bookmarkedOnly }
           selectedGenre={ selectedGenre }
-          onSearchTextChange={ this.onSearchTextChange }
+          onSearchTextChange={ this.handleChange }
           onBookmarkedChange={ this.onBookmarkedChange }
-          onSelectedGenreChange={ this.onSelectedGenreChange }
+          onSelectedGenreChange={ this.handleChange }
         />
         <MovieList
           movies={ movies }
