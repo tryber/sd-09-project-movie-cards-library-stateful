@@ -1,11 +1,11 @@
 import React from 'react';
-import Input from './inputComponent';
+import Input from './CreateElementInput';
+import Select from './CreateElementSelect';
+import Button from './CreateButton';
 
 class AddMovie extends React.Component {
   constructor(props) {
     super(props);
-
-    const { onClick } = this.props;
 
     this.state = {
       subtitle: "",
@@ -60,20 +60,11 @@ class AddMovie extends React.Component {
                type="number" value={ rating } nameTest="rating-input"
                func={ this.handleInputChange } />
 
-        <label data-testid="genre-input-label" htmlFor="genre">
-          Gênero
-          <select
-            id="genre"
-            name="genre"
-            value={ genre }
-            data-testid="genre-input"
-            onChange={ this.handleInputChange }
-          >
-            <option data-testid="genre-option" value="action">Ação</option>
-            <option data-testid="genre-option" value="comedy">Comédia</option>
-            <option data-testid="genre-option" value="thriller">Suspense</option>
-          </select>
-        </label>
+        <Select nameTestLabel="genre-input" nameTestOption="genre-option"
+                nameId="genre" labelName="Gênero" value={ genre }
+                func={ this.handleInputChange } />
+
+        <Button />
       </form>
     );
   }

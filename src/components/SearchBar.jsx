@@ -1,5 +1,5 @@
 import React from 'react';
-import Input from './inputComponent';
+import Input from './CreateElementInput';
 import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
