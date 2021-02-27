@@ -62,7 +62,7 @@ class AddMovie extends Component {
               data-testid="storyline-input"
             />
           </label>
-          { this.inputCreate('number', 'rating', rating, 'Avaliação') }
+          { this.inputCreate('number', { rating }, 'Avaliação') }
           <label htmlFor="genre" data-testid="genre-input-label">
             Gênero
             <select
