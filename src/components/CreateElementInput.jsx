@@ -21,13 +21,14 @@ class Input extends React.Component {
 }
 
 Input.propTypes = {
-  nameTest: PropTypes.string.isRequired,
-  nameId: PropTypes.string.isRequired,
-  labelName: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  value: PropTypes.oneOf(['string', 'number']).isRequired,
-  'data-testid': PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
+  nameTest: PropTypes.string,
+  nameId: PropTypes.string,
+  labelName: PropTypes.string,
+  type: PropTypes.string,
+  value: PropTypes.oneOf(['string', 'number']),
+  'data-testid': PropTypes.string,
+  func: PropTypes.func,
+  onChange: PropTypes.func,
 };
 
 export default Input;
