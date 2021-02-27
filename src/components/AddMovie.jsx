@@ -39,11 +39,22 @@ class AddMovie extends React.Component {
   }
 
   render() {
+    const { storyline } = this.state;
     return (
       <form action="" data-testid="add-movie-form">
         { this.createTextInput('Título', 'title', 'title', this.handleInput) }
         { this.createTextInput('Subtítulo', 'subtitle', 'subtitle', this.handleInput) }
         { this.createTextInput('Imagem', 'imagePath', 'image', this.handleInput) }
+        <label htmlFor="storyline-input" data-testid="storyline-input-label">
+          Sinopse
+          <textarea
+            id="storyline-input"
+            name="storyline"
+            value={ storyline }
+            onChange={ this.handleInput }
+            data-testid="storyline-input"
+          />
+        </label>
         {/* <label htmlFor="title-input" data-testid="title-input-label">
           Título
           <input
