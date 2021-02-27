@@ -15,6 +15,20 @@ class AddMovie extends Component {
     };
   }
 
+  getNewMovieStoryline(onSearchTextChange) {
+    const { storyline } = this.state;
+    return (
+      <label data-testid="storyline-input-label" htmlFor="text-input">
+        Sinopse
+        <textarea
+          onChange={ onSearchTextChange }
+          data-testid="storyline-input"
+          defaultValue={ storyline }
+        />
+      </label>
+    );
+  }
+
   getNewMovieRating(onSearchTextChange) {
     const { rating } = this.state;
     return (
@@ -52,12 +66,17 @@ class AddMovie extends Component {
   buttonCLick() {
     this.setState({
       title: 'Star Trek: First Contact',
+      subtitle: '',
+      imagePath: '',
+      storyline: 'gru',
+      rating: 0,
+      genre: 'action',
     });
     // console.log(this);
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline } = this.state;
+    const { title, subtitle, imagePath } = this.state;
     const { onSearchTextChange } = this.props;
     // console.log(this.state);
     return (
@@ -67,7 +86,7 @@ class AddMovie extends Component {
           <input
             type="text"
             defaultValue={ title }
-            value={ title }
+            // value={ title }
             data-testid="title-input"
             onChange={ onSearchTextChange }
           />
@@ -90,17 +109,16 @@ class AddMovie extends Component {
             onChange={ onSearchTextChange }
           />
         </label>
-        <label data-testid="storyline-input-label" htmlFor="text-input">
-          Sinopse
-          <textarea
-            defaultValue={ storyline }
-            data-testid="storyline-input"
-            onChange={ onSearchTextChange }
-          />
-        </label>
-        <button type="button" onClick={ this.buttonCLick }>Add Movie</button>
+        <button
+          type="button"
+          data-testid="send-button"
+          onClick={ this.buttonCLick }
+        >
+          Adicionar filme
+        </button>
         { this.getNewMovieRating(onSearchTextChange) }
         { this.getNewMovieGenre(onSearchTextChange) }
+        {this.getNewMovieStoryline(onSearchTextChange)}
       </form>
     );
   }
