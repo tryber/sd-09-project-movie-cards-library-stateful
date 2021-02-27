@@ -14,7 +14,7 @@ class MovieLibrary extends Component {
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
-      selectedGenre: 'action',
+      selectedGenre: '',
       movies,
     };
   }

@@ -20,22 +20,24 @@ class AddMovie extends Component {
   handleChange({ target }) {
     const { type, checked, value, name } = target;
     const valueChange = type === 'checkbox' ? checked : value;
-    this.setState({
-      [name]: valueChange,
-    });
+    this.setState({ [name]: valueChange });
   }
 
-  inputCreate(type, stateKey, stateValue, labelName) {
+  inputCreate(type, state, labelName) {
+    const arrayState = Object.entries(state);
     return (
       <div className="input-container">
-        <label htmlFor={ stateKey } data-testid={ `${stateKey}-input-label` }>
+        <label
+          htmlFor={ arrayState[0] }
+          data-testid={ `${arrayState[0]}-input-label` }
+        >
           {labelName}
           <input
-            name={ stateKey }
+            name={ arrayState[0] }
             type={ type }
-            value={ stateValue }
+            value={ arrayState[1] }
             onChange={ this.handleChange }
-            data-testid={ `${stateKey}-input` }
+            data-testid={ `${arrayState[0]}-input` }
           />
         </label>
       </div>
@@ -48,9 +50,9 @@ class AddMovie extends Component {
     return (
       <div className="form-container">
         <form data-testid="add-movie-form" className="forms">
-          { this.inputCreate('text', 'title', title, 'Título') }
-          { this.inputCreate('text', 'subtitle', subtitle, 'Subtítulo') }
-          { this.inputCreate('text', 'imagePath', imagePath, 'Imagem') }
+          { this.inputCreate('text', { title }, 'Título') }
+          { this.inputCreate('text', { subtitle }, 'Subtítulo') }
+          { this.inputCreate('text', { image: imagePath }, 'Imagem') }
           <label htmlFor="storyline" data-testid="storyline-input-label">
             Sinopse
             <textarea
@@ -76,7 +78,7 @@ class AddMovie extends Component {
           </label>
           <div>
             <button
-              type="button"
+              type="submit"
               onClick={ onClick }
               data-testid="send-button"
             >
