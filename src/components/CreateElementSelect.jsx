@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 class Select extends React.Component {
   render() {
-    const { nameTestLabel, nameTestOption, nameId, labelName, value, func } = this.props
+    const { nameTestLabel, nameTestOption, nameId, labelName, value, func } = this.props;
     return (
       <label data-testid={ `${nameTestLabel}-label` } htmlFor={ nameId }>
         { labelName }
@@ -20,6 +21,15 @@ class Select extends React.Component {
       </label>
     );
   }
+}
+
+Select.propTypes = {
+  nameTestLabel: PropTypes.string.isRequired,
+  nameTestOption: PropTypes.bool.isRequired,
+  nameId: PropTypes.string.isRequired,
+  labelName: PropTypes.string.isRequired,
+  value: PropTypes.oneOf(['string', 'number']).isRequired,
+  func: PropTypes.func.isRequired,
 }
 
 export default Select;

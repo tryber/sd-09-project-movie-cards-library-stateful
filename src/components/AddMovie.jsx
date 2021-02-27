@@ -8,24 +8,24 @@ class AddMovie extends React.Component {
     super(props);
 
     this.state = {
-      subtitle: "",
-      title: "",
-      imagePath: "",
-      storyline: "",
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
       rating: 0,
-      genre: "action"
+      genre: 'action'
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
-  handleInputChange(event) {
-    const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name;
+  handleInputChange({ target }) {
+    // const target = event.target;
+    // const value = target.type === 'checkbox' ? target.checked : target.value;
+    const { name, value } = target;
 
     this.setState({
-      [name]: value
+      [name]: value,
     });
   }
 
@@ -33,17 +33,32 @@ class AddMovie extends React.Component {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <Input nameId="title" labelName="Título"
-               type="text" value={ title } nameTest="title-input"
-               func={ this.handleInputChange } />
+        <Input
+          nameId="title"
+          labelName="Título"
+          type="text"
+          value={ title }
+          nameTest="title-input"
+          func={ this.handleInputChange }
+        />
 
-        <Input nameId="subtitle" labelName="Subtítulo"
-               type="text" value={ subtitle } nameTest="subtitle-input"
-               func={ this.handleInputChange } />
+        <Input
+          nameId="subtitle"
+          labelName="Subtítulo"
+          type="text"
+          value={ subtitle }
+          nameTest="subtitle-input"
+          func={ this.handleInputChange }
+        />
 
-        <Input nameId="imagePath" labelName="Imagem"
-               type="text" value={ imagePath } nameTest="image-input"
-               func={ this.handleInputChange } />
+        <Input
+          nameId="imagePath"
+          labelName="Imagem"
+          type="text"
+          value={ imagePath }
+          nameTest="image-input"
+          func={ this.handleInputChange }
+        />
 
         <label data-testid="storyline-input-label" htmlFor="storyline">
           Sinopse
@@ -56,13 +71,23 @@ class AddMovie extends React.Component {
           />
         </label>
 
-        <Input nameId="rating" labelName="Avaliação"
-               type="number" value={ rating } nameTest="rating-input"
-               func={ this.handleInputChange } />
+        <Input
+          nameId="rating"
+          labelName="Avaliação"
+          type="number"
+          value={ rating }
+          nameTest="rating-input"
+          func={ this.handleInputChange }
+        />
 
-        <Select nameTestLabel="genre-input" nameTestOption="genre-option"
-                nameId="genre" labelName="Gênero" value={ genre }
-                func={ this.handleInputChange } />
+        <Select
+          nameTestLabel="genre-input"
+          nameTestOption="genre-option"
+          nameId="genre"
+          labelName="Gênero"
+          value={ genre }
+          func={ this.handleInputChange }
+        />
 
         <Button />
       </form>

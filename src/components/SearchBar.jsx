@@ -1,6 +1,6 @@
 import React from 'react';
-import Input from './CreateElementInput';
 import PropTypes from 'prop-types';
+import Input from './CreateElementInput';
 
 class SearchBar extends React.Component {
   render() {
@@ -10,13 +10,18 @@ class SearchBar extends React.Component {
       bookmarkedOnly,
       onBookmarkedChange,
       selectedGenre,
-      onSelectedGenreChange
+      onSelectedGenreChange,
     } = this.props;
     return (
       <form data-testid="search-bar-form">
-        <Input nameId="search" labelName="Inclui o texto:"
-               type="text" value={ searchText } nameTest="text-input"
-               func={ onSearchTextChange } />
+        <Input
+          nameId="search"
+          labelName="Inclui o texto:"
+          type="text"
+          value={ searchText }
+          nameTest="text-input"
+          func={ onSearchTextChange }
+        />
 
         <label data-testid="checkbox-input-label" htmlFor="checkBox">
           Mostrar somente favoritos
@@ -55,7 +60,7 @@ SearchBar.propTypes = {
   bookmarkedOnly: PropTypes.bool,
   onBookmarkedChange: PropTypes.string,
   selectedGenre: PropTypes.string,
-  onSelectedGenreChange: PropTypes.string
+  onSelectedGenreChange: PropTypes.string,
 };
 
 export default SearchBar;
