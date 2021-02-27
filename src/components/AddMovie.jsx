@@ -6,8 +6,7 @@ import fields from './AddMovieFields';
 export default class AddMovie extends Component {
   constructor() {
     super();
-    this.handleChanges = this.handleChanges.bind(this);
-    this.submitForm = this.submitForm.bind(this);
+    // Set state
     this.state = {
       subtitle: '',
       title: '',
@@ -16,7 +15,10 @@ export default class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     };
-    this.initialState = this.state;
+    this.initialState = this.state; // Store initial state
+    // Bind methods
+    this.handleChanges = this.handleChanges.bind(this);
+    this.submitForm = this.submitForm.bind(this);
   }
 
   handleChanges({ target }) {
