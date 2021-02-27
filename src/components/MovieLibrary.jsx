@@ -31,7 +31,10 @@ class MovieLibrary extends Component {
     }));
   }
 
-  onSelectedGenreChange() {
+  onSelectedGenreChange({ target }) {
+    this.setState(({
+      selectedGenre: target.value,
+    }));
   }
 
   render() {
@@ -41,9 +44,11 @@ class MovieLibrary extends Component {
       const moviesFiltred = movies
         .filter(({ storyline, subtitle, title }) => (storyline.includes(searchText)
           || subtitle.includes(searchText)
-          || title.includes(searchText)));
+          || title.includes(searchText)))
+        .filter(({ genre }) => genre.includes(selectedGenre));
       if (bookmarkedOnly) {
-        return moviesFiltred.filter(({ bookmarked }) => bookmarked === true);
+        return moviesFiltred.filter(({ bookmarked }) => bookmarked === true)
+          .filter(({ genre }) => genre.includes(selectedGenre));
       }
       return moviesFiltred;
     }
