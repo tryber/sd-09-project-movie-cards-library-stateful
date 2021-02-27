@@ -34,6 +34,8 @@ class AddMovie extends React.Component {
   }
 
   clearState() {
+    const { onClick } = this.props;
+    onClick(this.state);
     this.setState({
       subtitle: '',
       title: '',
@@ -137,6 +139,18 @@ class AddMovie extends React.Component {
     );
   }
 
+  createButton() {
+    return (
+      <button
+        data-testid="send-button"
+        type="button"
+        onClick={ this.clearState }
+      >
+        Adicionar Filme
+      </button>
+    );
+  }
+
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
@@ -147,13 +161,14 @@ class AddMovie extends React.Component {
         { this.createStoryline(storyline) }
         { this.createRating(rating) }
         { this.createGenre(genre) }
+        { this.createButton() }
       </form>
     );
   }
 }
 
-// AddMovie.propTypes = {
-//   onClick: PropTypes.func.isRequired,
-// };
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
