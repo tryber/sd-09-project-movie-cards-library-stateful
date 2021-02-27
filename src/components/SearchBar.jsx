@@ -14,7 +14,7 @@ class SearchBar extends Component {
             Inclui o texto:
             <input
               type="text"
-              value={ searchText }
+              defaultValue={ searchText }
               onChange={ onSearchTextChange }
               data-testid="text-input"
             />

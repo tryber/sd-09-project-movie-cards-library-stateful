@@ -67,6 +67,7 @@ class AddMovie extends Component {
           <input
             type="text"
             defaultValue={ title }
+            value={ title }
             data-testid="title-input"
             onChange={ onSearchTextChange }
           />
