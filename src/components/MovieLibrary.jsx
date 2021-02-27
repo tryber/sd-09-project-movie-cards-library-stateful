@@ -5,53 +5,50 @@ import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
-class MovieLibrary extends Component {
+export default class MovieLibrary extends Component {
   constructor({ movies }) {
     super();
-    this.onChange = this.onChange.bind(this);
-    this.addNewMovie = this.addNewMovie.bind(this);
+    // Set state
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
       movies,
     };
+    // Bind methods
+    this.onChange = this.onChange.bind(this);
+    this.addNewMovie = this.addNewMovie.bind(this);
+    this.filterMovies = this.filterMovies.bind(this);
   }
 
   onChange({ target }) {
     const { type, name } = target;
     const value = type === 'checkbox' ? target.checked : target.value;
-    this.setState(({ movies }) => {
-      if (Object.keys(this.filters).includes(name)) {
-        movies = this.filters[name](value);
-      }
-      return { [name]: value, movies };
+    this.setState({ [name]: value }, () => {
+      this.setState({ movies: this.filterMovies() });
     });
   }
 
   get filters() {
     return {
-      searchText: (text) => {
-        const { movies } = this.state;
-        return movies.filter(({ title, subtitle, storyline }) => {
-          const textInTitle = title.includes(text);
-          const textInSubtitle = subtitle.includes(text);
-          const textInStoryline = storyline.includes(text);
-          return textInTitle || textInSubtitle || textInStoryline;
-        });
-      },
-      bookmarkedOnly: (isSet) => {
-        const { movies } = this.state;
-        if (isSet) {
-          return movies.filter(({ bookmarked }) => bookmarked === true);
-        }
-        return movies;
-      },
-      selectedGenre: (genre) => {
-        const { movies } = this.state;
-        return movies.filter(({ genre: currGenre }) => currGenre.includes(genre));
-      },
+      searchText: (value, { title, subtitle, storyline }) => (
+        [title, subtitle, storyline]
+          .some((field) => field.includes(value))
+      ),
+      bookmarkedOnly: (value, { bookmarked }) => bookmarked === value,
+      selectedGenre: (value, { genre }) => genre.includes(value),
     };
+  }
+
+  filterMovies() {
+    const { movies: allMovies } = this.props;
+    const fields = Object.entries(this.state);
+    return fields.reduce((movies, [key, value]) => {
+      if (key !== 'movies' && value !== false) {
+        movies = movies.filter(this.filters[key].bind(null, value));
+      }
+      return movies;
+    }, allMovies);
   }
 
   addNewMovie(movie) {
@@ -95,5 +92,3 @@ MovieLibrary.propTypes = {
     genre: PropTypes.string,
   })).isRequired,
 };
-
-export default MovieLibrary;
