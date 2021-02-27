@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 class AddMovie extends Component {
   constructor() {
     super();
-    this.onClick = this.onClick.bind(this);
+    this.buttonCLick = this.buttonCLick.bind(this);
     this.state = {
       title: '',
       subtitle: '',
@@ -13,18 +13,6 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     };
-  }
-
-  onClick() {
-    this.setState({
-      title: 'Star Trek: First Contact',
-      subtitle: '',
-      imagePath: '',
-      storyline: 'gru',
-      rating: 0,
-      genre: 'action',
-    });
-    // console.log(this);
   }
 
   getNewMovieStoryline(onSearchTextChange) {
@@ -36,6 +24,9 @@ class AddMovie extends Component {
           onChange={ onSearchTextChange }
           data-testid="storyline-input"
           defaultValue={ storyline }
+          // value={ storyline }
+          // onChange={ this.handleChange }
+          // [event.taget.name]: event.target.value
         />
       </label>
     );
@@ -75,10 +66,24 @@ class AddMovie extends Component {
     );
   }
 
+  buttonCLick() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+    // console.log(this);
+  }
+
   render() {
     const { title, subtitle, imagePath } = this.state;
-    const { onSearchTextChange } = this.props;
-    // console.log(this.state);
+    const { onSearchTextChange, onClick } = this.props;
+    console.log(onClick);
     return (
       <form data-testid="add-movie-form" method="get">
         <label data-testid="title-input-label" htmlFor="text-input">
@@ -112,7 +117,7 @@ class AddMovie extends Component {
         <button
           type="button"
           data-testid="send-button"
-          onClick={ this.onClick }
+          onClick={ this.buttonCLick }
         >
           Adicionar filme
         </button>
@@ -125,7 +130,7 @@ class AddMovie extends Component {
 }
 
 AddMovie.propTypes = {
-  // onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
   onSearchTextChange: PropTypes.func.isRequired,
 };
 
