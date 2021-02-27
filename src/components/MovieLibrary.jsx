@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
-// import MovieList from './MovieList';
+import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
@@ -32,7 +32,7 @@ class MovieLibrary extends Component {
         <AddMovie
           onClick={ this.onClick }
         />
-        {/* <MovieList movies={ movies } /> */}
+        <MovieList movies={ movies } />
       </div>
     );
   }
