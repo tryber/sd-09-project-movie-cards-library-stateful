@@ -27,7 +27,7 @@ Input.defaultProps = {
   type: string,
   value: oneOf(['string', 'number']),
   'data-testid': string,
-  func: func,
+  func,
   onChange: func,
 };
 
@@ -37,9 +37,7 @@ Input.propTypes = {
   labelName: PropTypes.string,
   type: PropTypes.string,
   value: PropTypes.oneOf(['string', 'number']),
-  'data-testid': PropTypes.string,
   func: PropTypes.func,
-  onChange: PropTypes.func,
 };
 
 export default Input;
