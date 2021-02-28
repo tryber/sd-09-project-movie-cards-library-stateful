@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TitleInput, SubtitleInput, ImagePath, StorylineInput } from './AddMovieInputs';
+import { TitleInput, SubtitleInput, ImagePath, StorylineInput, RatingInput } from './AddMovieInputs';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -31,8 +31,12 @@ class AddMovie extends React.Component {
     this.setState({ storyline });
   }
 
+  handleChangeRating(rating) {
+    this.setState({ rating });
+  }
+
   render() {
-    const { title, subtitle, imagePath, storyline } = this.state;
+    const { title, subtitle, imagePath, storyline, rating } = this.state;
     return (
       <div>
         <form data-testid="add-movie-form">
@@ -46,13 +50,18 @@ class AddMovie extends React.Component {
           />
 
           <ImagePath
-            value={ imagePath }
+            imagePath={ imagePath }
             onChange={ (value) => this.handleChangeImagePath(value) }
           />
 
           <StorylineInput
-            value={ storyline }
+            storyline={ storyline }
             onChange={ (value) => this.handleChangeStoryline(value) }
+          />
+
+          <RatingInput
+            rating={ rating }
+            onChange={ (value) => this.handleChangeRating(value) }
           />
         </form>
       </div>
