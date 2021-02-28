@@ -14,14 +14,14 @@ class HandleInputs extends React.Component {
     } = this.props;
     return (
       <label
-        data-testid={ dataTestidLabel }
+        dataTestidLabel={ dataTestidLabel }
         title={ title }
         htmlFor={ title }
       >
         {labelValue}
         <input
           value={ value }
-          data-testid={ dataTestidInput }
+          dataTestidInput={ dataTestidInput }
           onChange={ handleOnChange }
           id={ title }
           name={ name }
@@ -33,9 +33,9 @@ class HandleInputs extends React.Component {
 
 HandleInputs.propTypes = {
   labelValue: PropTypes.string,
-  dataTestid: PropTypes.string,
+  dataTestidLabel: PropTypes.string,
+  dataTestidInput: PropTypes.string,
   title: PropTypes.string,
-  htmlFor: PropTypes.string,
   value: PropTypes.string,
   handleOnChange: PropTypes.func,
   name: PropTypes.string,
@@ -43,9 +43,9 @@ HandleInputs.propTypes = {
 
 HandleInputs.defaultProps = {
   labelValue: '',
-  dataTestid: '',
+  dataTestidLabel: '',
+  dataTestidInput: '',
   title: '',
-  htmlFor: '',
   value: '',
   handleOnChange: 'undefined',
   name: '',
