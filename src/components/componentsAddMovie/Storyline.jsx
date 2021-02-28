@@ -8,11 +8,11 @@ class Storyline extends Component {
       <label data-testid="image-input-label" htmlFor="imagePath">
         Sinopse
         <input
-          type="text"
+          type="textarea"
           name="imagePath"
           value={ storyline }
           onChange={ handleChange }
-          data-testid="image-input"
+          data-testid="storyline-input"
         />
       </label>
     );

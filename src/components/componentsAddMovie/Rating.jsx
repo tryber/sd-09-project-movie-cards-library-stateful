@@ -8,7 +8,7 @@ class Rating extends Component {
       <label data-testid="rating-input-label" htmlFor="rating">
         Avaliação
         <input
-          type="text"
+          type="numberata-testid=d"
           name="rating"
           value={ rating }
           onChange={ handleChange }
@@ -20,7 +20,7 @@ class Rating extends Component {
 }
 
 Rating.propTypes = {
-  rating: PropTypes.string,
+  rating: PropTypes.number,
   handleChange: PropTypes.func,
 }.isRequired;
 

@@ -27,6 +27,10 @@ class AddMovie extends React.Component {
     });
   }
 
+  insertMovie(event) {
+    event.preventDefault();
+  }
+
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     const { handleChange } = this;
@@ -41,6 +45,13 @@ class AddMovie extends React.Component {
         <Storyline handleChange={ handleChange } storyline={ storyline } />
         <Rating handleChange={ handleChange } rating={ rating } />
         <Genre handleChange={ handleChange } genre={ genre } />
+        <button
+          type="button"
+          data-testid="send-button"
+          onClick={ this.insertMovie }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
