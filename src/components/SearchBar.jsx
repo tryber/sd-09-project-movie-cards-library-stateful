@@ -13,31 +13,31 @@ class SearchBar extends React.Component {
 
     return (
       <form data-testid="search-bar-form">
-        <label data-testid="text-input-label" htmlFor="text-input">
+        <label data-testid="text-input-label" htmlFor="searchText">
           Inclui o texto:
           <input
             data-testid="text-input"
-            id="text-input"
+            name="searchText"
             value={ searchText }
             onChange={ onSearchTextChange }
             type="text"
           />
         </label>
-        <label data-testid="checkbox-input-label" htmlFor="checkbox-input">
+        <label data-testid="checkbox-input-label" htmlFor="bookmarkedOnly">
           <input
             data-testid="checkbox-input"
-            id="checkbox-input"
+            name="bookmarkedOnly"
             checked={ bookmarkedOnly }
             onChange={ onBookmarkedChange }
             type="checkbox"
           />
           Mostrar somente favoritos
         </label>
-        <label data-testid="select-input-label" htmlFor="select-input">
+        <label data-testid="select-input-label" htmlFor="selectedGenre">
           Filtrar por gênero
           <select
             data-testid="select-input"
-            id="select-input"
+            name="selectedGenre"
             value={ selectedGenre }
             onChange={ onSelectedGenreChange }
           >

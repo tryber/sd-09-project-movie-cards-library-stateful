@@ -24,7 +24,7 @@ class AddMovie extends React.Component {
 
   handleClick() {
     const { onClick } = this.props;
-    onClick()
+    onClick(this.state);
     this.setState({
       subtitle: '',
       title: '',
@@ -73,7 +73,8 @@ class AddMovie extends React.Component {
         { this.createInput('image-input-label', 'image-input', 'Imagem', 'text', 'imagePath', imagePath) }
         { this.createTextArea('storyline-input-label', 'storyline-input', 'Sinopse', 'storyline', storyline) }
         { this.createInput('rating-input-label', 'rating-input', 'Avaliação', 'number', 'rating', rating) }
-        <label data-testid="genre-input-label" htmlFor="genre">Gênero
+        <label data-testid="genre-input-label" htmlFor="genre">
+          Gênero
           <select data-testid="genre-input" onChange={ this.handleChange } name="genre" value={ genre }>
             <option data-testid="genre-option" value="action">Ação</option>
             <option data-testid="genre-option" value="comedy">Comédia</option>
