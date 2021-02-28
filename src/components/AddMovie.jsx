@@ -67,8 +67,8 @@ class AddMovie extends Component {
   }
 
   buttonCLick() {
-    const { onClick } = this.props;
-    onClick(this.state);
+    // const { onClick } = this.props;
+    // onClick(this.state);
     this.setState({
       title: '',
       subtitle: '',

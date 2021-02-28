@@ -23,14 +23,14 @@ class MovieLibrary extends Component {
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={ searchText }
-          // onSearchTextChange={ this.onSearchTextChange }
-          onSearchTextChange={ Component }
+          onSearchTextChange={ this.onSearchTextChange }
+          // onSearchTextChange={ Component }
           bookmarkedOnly={ bookmarkedOnly }
-          // onBookmarkedChange={ this.onBookmarkedChange }
-          onBookmarkedChange={ Component }
+          onBookmarkedChange={ this.onBookmarkedChange }
+          // onBookmarkedChange={ Component }
           selectedGenre={ selectedGenre }
-          // onSelectedGenreChange={ this.onSelectedGenreChange }
-          onSelectedGenreChange={ Component }
+          onSelectedGenreChange={ this.onSelectedGenreChange }
+          // onSelectedGenreChange={ Component }
         />
         <AddMovie
           onClick={ this.onClick }
