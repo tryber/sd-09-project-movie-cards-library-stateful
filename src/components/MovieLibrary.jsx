@@ -13,7 +13,7 @@ class MovieLibrary extends React.Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: props.movies,
-    }
+    };
   }
 
   render() {
@@ -22,7 +22,7 @@ class MovieLibrary extends React.Component {
       <div>
         <SearchBar />
         <MovieList movies={ movies } />
-        <AddMovie onClick={  }/>
+        {/* <AddMovie onClick={  }/> */}
       </div>
     );
   }
