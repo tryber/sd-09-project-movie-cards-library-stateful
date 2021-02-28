@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { TitleInput, SubtitleInput, ImagePath, StorylineInput } from './AddMovieInputs';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -22,7 +23,7 @@ class AddMovie extends React.Component {
     this.setState({ subtitle });
   }
 
-  handleChangeimagePath(imagePath) {
+  handleChangeImagePath(imagePath) {
     this.setState({ imagePath });
   }
 
@@ -35,50 +36,24 @@ class AddMovie extends React.Component {
     return (
       <div>
         <form data-testid="add-movie-form">
-          <label htmlFor="title-input" data-testid="title-input-label">
-            Título
-            <input
-              id="title-input"
-              type="text"
-              value={ title }
-              onChange={ (ev) => this.handleChangeTitle(ev.target.value) }
-              data-testid="title-input"
-            />
-          </label>
+          <TitleInput
+            title={ title }
+            onChange={ (value) => this.handleChangeTitle(value) }
+          />
+          <SubtitleInput
+            subtitle={ subtitle }
+            onChange={ (value) => this.handleChangeSubtitle(value) }
+          />
 
-          <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
-            Subtítulo
-            <input
-              id="subtitle-input"
-              value={ subtitle }
-              onChange={ (ev) => this.handleChangeSubtitle(ev.target.value) }
-              type="text"
-              data-testid="subtitle-input"
-            />
-          </label>
+          <ImagePath
+            value={ imagePath }
+            onChange={ (value) => this.handleChangeImagePath(value) }
+          />
 
-          <label htmlFor="image-input" data-testid="image-input-label">
-            Imagem
-            <input
-              value={ imagePath }
-              onChange={ (ev) => this.handleChangeimagePath(ev.target.value) }
-              id="image-input"
-              type="text"
-              data-testid="image-input"
-            />
-          </label>
-
-          <label htmlFor="sinopse-input" data-testid="storyline-input-label">
-            Sinopse
-            <textarea
-              value={ storyline }
-              onChange={ (ev) => this.handleChangeStoryline(ev.target.value) }
-              id="sinopse-input"
-              cols="30"
-              rows="10"
-              data-testid="storyline-input"
-            />
-          </label>
+          <StorylineInput
+            value={ storyline }
+            onChange={ (value) => this.handleChangeStoryline(value) }
+          />
         </form>
       </div>
     );
