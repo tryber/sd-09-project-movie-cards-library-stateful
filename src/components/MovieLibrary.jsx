@@ -1,9 +1,29 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-class MovieLibrary extends React.Component {
+import MovieList from './MovieList';
+import SearchBar from './SearchBar';
+import AddMovie from './AddMovie';
+
+class MovieLibrary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      movies: props.movies,
+    };
+  }
+
   render() {
-    const { props: { movies } } = this;
-    return (<p>MovieLibrary</p>);
+    return (
+      <div>
+        <h2> My awesome movie library </h2>
+        <SearchBar />
+        <MovieList movies={this.props.movies} />
+        <AddMovie />
+      </div>
+    );
   }
 }
 
