@@ -1,6 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TitleInput, SubtitleInput, ImagePath, StorylineInput, RatingInput, GenreInput } from './AddMovieInputs';
+import {
+  TitleInput,
+  SubtitleInput,
+  ImagePath,
+  StorylineInput,
+  RatingInput,
+  GenreInput,
+} from './AddMovieInputs';
 
 class AddMovie extends React.Component {
   constructor(props) {
