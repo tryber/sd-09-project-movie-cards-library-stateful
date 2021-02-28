@@ -1,7 +1,7 @@
 // implement AddMovie component here
 import React from 'react';
 import PropTypes from 'prop-types';
-import InputText from './Inputs/InputTextSearchBar';
+import InputText from './Inputs/InputText';
 import './Styles/SearchBar.css';
 
 class SearchBar extends React.Component {
@@ -21,26 +21,26 @@ class SearchBar extends React.Component {
           searchText={ searchText }
           onSearchTextChange={ onSearchTextChange }
         />
-        <label data-testid="checkbox-input-label" htmlFor="inputCheckbox">
+        <label data-testid="checkbox-input-label" htmlFor="bookmarkedOnly">
           Mostrar somente favoritos
           <input
             data-testid="checkbox-input"
             onChange={ onBookmarkedChange }
             checked={ bookmarkedOnly }
-            id="inputCheckbox"
+            name="bookmarkedOnly"
             type="checkbox"
           />
         </label>
         <label
           data-testid="select-input-label"
-          htmlFor="inputSelect"
+          htmlFor="selectedGenre"
         >
           Filtrar por gênero
           <select
             data-testid="select-input"
             onChange={ onSelectedGenreChange }
             value={ selectedGenre }
-            id="inputSelect"
+            name="selectedGenre"
           >
             <option data-testid="select-option" value="">Todos</option>
             <option data-testid="select-option" value="action">Ação</option>
