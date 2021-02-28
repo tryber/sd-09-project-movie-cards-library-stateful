@@ -14,11 +14,25 @@ class AddMovie extends React.Component {
 
     this.handleInput = this.handleInput.bind(this);
     this.createTextInput = this.createTextInput.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleInput(event) {
     const { target: { name, value } } = event;
     this.setState({ [name]: value });
+  }
+
+  handleClick() {
+    const { props: { onClick } } = this;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   createTextInput(label, name, testid, handler) {
@@ -80,6 +94,9 @@ class AddMovie extends React.Component {
             <option value="thriller" data-testid="genre-option">Suspense</option>
           </select>
         </label>
+        <button type="button" data-testid="send-button" onClick={ this.handleClick }>
+          Adicionar filme
+        </button>
       </form>
     );
   }
