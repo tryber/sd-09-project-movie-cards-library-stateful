@@ -21,27 +21,13 @@ class AddMovie extends React.Component {
     this.textAreaInput = this.textAreaInput.bind(this);
     this.ratingInput = this.ratingInput.bind(this);
     this.genreInput = this.genreInput.bind(this);
-    this.onClickFunc = this.onClickFunc.bind(this);
-    this.sendButton = this.sendButton.bind(this);
+    this.addNewMovie = this.addNewMovie.bind(this);
   }
 
   handleChange(event) {
     const { name, value } = event.target;
     this.setState({
       [name]: value,
-    });
-  }
-
-  onClickFunc() {
-    const { onClick } = this.props;
-    onClick(this.state);
-    this.setState({
-      title: '',
-      subtitle: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
     });
   }
 
@@ -139,16 +125,19 @@ class AddMovie extends React.Component {
     );
   }
 
-  sendButton() {
-    return (
-      <button
-        type="button"
-        data-testid="send-button"
-        onClick={ this.onClickFunc }
-      >
-        Adicionar filme
-      </button>
-    );
+  addNewMovie(event) {
+    event.preventDefault();
+    const { onClick } = this.props;
+    onClick(this.state);
+
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   render() {
@@ -161,7 +150,13 @@ class AddMovie extends React.Component {
         {this.textAreaInput(storyline)}
         {this.ratingInput(rating)}
         {this.genreInput(genre)}
-        {this.sendButton()}
+        <button
+          type="button"
+          data-testid="send-button"
+          onClick={ this.addNewMovie }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }

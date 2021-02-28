@@ -1,76 +1,76 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-
-import MovieList from './MovieList';
 import SearchBar from './SearchBar';
+import MovieList from './MovieList';
 import AddMovie from './AddMovie';
 
-class MovieLibrary extends Component {
+class MovieLibrary extends React.Component {
   constructor(props) {
-    super(props);
-
-    const { movies } = this.props;
+    super();
+    this.handleChange = this.handleChange.bind(this);
+    this.filterMovies = this.filterMovies.bind(this);
+    this.addNewMovie = this.addNewMovie.bind(this);
 
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies,
+      movies: props.movies,
     };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleMovieAdd = this.handleMovieAdd.bind(this);
   }
 
   handleChange({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    this.setState({
-      [name]: value,
-    });
+
+    if (!value) this.setState({ [name]: false });
+    this.setState({ [name]: value });
   }
 
-  handleFilterFilms() {
+  filterMovies() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
-    const libMovies = [...movies];
+
+    if (bookmarkedOnly) {
+      return movies.filter((currentMovie) => currentMovie.bookmarked);
+    }
+
     if (searchText) {
-      return libMovies.filter(({ title, subtitle, storyline }) => (
+      return movies.filter(({ title, subtitle, storyline }) => (
         title.includes(searchText)
-          || subtitle.includes(searchText)
-          || storyline.includes(searchText)
+        || subtitle.includes(searchText)
+        || storyline.includes(searchText)
       ));
     }
-    if (bookmarkedOnly) {
-      return libMovies.filter((value) => value.bookmarked === true);
+
+    if (selectedGenre) {
+      return movies.filter((currentMovie) => currentMovie.genre === selectedGenre);
     }
-    if (selectedGenre !== '') {
-      return libMovies.filter(({ genre }) => genre === selectedGenre);
-    }
-    return libMovies;
+
+    return movies;
   }
 
-  handleMovieAdd(newMovie) {
+  addNewMovie(newMovie) {
     const { movies } = this.state;
-    this.setState({
-      movies: [...movies, newMovie],
-    });
+    this.setState({ movies: [...movies, newMovie] });
   }
 
   render() {
+    const movies = this.filterMovies();
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+
     return (
-      <div>
+      <main>
         <SearchBar
           searchText={ searchText }
           onSearchTextChange={ this.handleChange }
-          onBookmarkedChange={ this.handleChange }
           bookmarkedOnly={ bookmarkedOnly }
-          onSelectedGenreChange={ this.handleChange }
+          onBookmarkedChange={ this.handleChange }
           selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ this.handleChange }
         />
-        <MovieList movies={ this.handleFilterFilms() } />
-        <AddMovie onClick={ this.handleMovieAdd } />
-      </div>
+        <MovieList movies={ movies } />
+        <AddMovie onClick={ this.addNewMovie } />
+      </main>
     );
   }
 }
