@@ -1,5 +1,6 @@
 /* eslint-disable max-lines-per-function */
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
   constructor(props) {
@@ -27,6 +28,8 @@ class AddMovie extends Component {
   }
 
   buttonCliked() {
+    const { onClick } = this.props;
+    onClick(this.state);
     this.setState({
       subtitle: '',
       title: '',
@@ -48,44 +51,42 @@ class AddMovie extends Component {
       genre,
     } = this.state;
 
-    const { handleChange } = this;
-
     return (
       <form data-testid="add-movie-form">
         <div>
           <label data-testid="title-input-label">Título</label>
         </div>
         <div>
-          <input 
+          <input
             data-testid="title-input"
             name="title"
             type="text"
             value={ title }
-            onChange={ handleChange }
+            onChange={ this.handleChange }
           />
         </div>
         <div>
           <label data-testid="subtitle-input-label">Subtítulo</label>
         </div>
         <div>
-          <input 
+          <input
             data-testid="subtitle-input"
             name="subtitle"
             type="text"
             value={ subtitle }
-            onChange={ handleChange }
+            onChange={ this.handleChange }
           />
         </div>
         <div>
           <label data-testid="image-input-label">Imagem</label>
         </div>
         <div>
-          <input 
+          <input
             data-testid="image-input"
             name="imagePath"
             type="text"
             value={ imagePath }
-            onChange={ handleChange }
+            onChange={ this.handleChange }
           />
         </div>
         <div>
@@ -96,7 +97,7 @@ class AddMovie extends Component {
             data-testid="storyline-input"
             name="storyline"
             value={ storyline }
-            onChange={ handleChange }
+            onChange={ this.handleChange }
           />
         </div>
         <div>
@@ -108,18 +109,18 @@ class AddMovie extends Component {
             name="rating"
             type="number"
             value={ rating }
-            onChange={ handleChange }
+            onChange={ this.handleChange }
           />
         </div>
         <div>
           <label data-testid="genre-input-label">Gênero</label>
         </div>
         <div>
-          <select 
+          <select
             data-testid="genre-input"
             name="genre"
             value={ genre }
-            onChange={ handleChange }
+            onChange={ this.handleChange }
           >
             <option data-testid="genre-option" value="action">Ação</option>
             <option data-testid="genre-option" value="comedy">Comédia</option>
@@ -131,5 +132,9 @@ class AddMovie extends Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  handleChange: PropTypes.func,
+};
 
 export default AddMovie;
