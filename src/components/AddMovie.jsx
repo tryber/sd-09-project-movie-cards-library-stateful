@@ -18,6 +18,7 @@ class AddMovie extends React.Component {
     this.createNewCard = this.createNewCard.bind(this);
     this.renderStoryline = this.renderStoryline.bind(this);
     this.renderButton = this.renderButton.bind(this);
+    this.sendStateToParent = this.sendStateToParent.bind(this);
   }
 
   handleChange({ target }) {
@@ -34,6 +35,13 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     });
+  }
+
+  sendStateToParent(event) {
+    event.preventDefault();
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.createNewCard();
   }
 
   renderStoryline() {
@@ -53,13 +61,11 @@ class AddMovie extends React.Component {
   }
 
   renderButton() {
-    const { onClick } = this.props;
-    onClick();
     return (
       <button
         type="button"
         data-testid="send-button"
-        onClick={ this.createNewCard }
+        onClick={ this.sendStateToParent }
       >
         Adicionar filme
       </button>

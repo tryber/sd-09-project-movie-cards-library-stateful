@@ -3,14 +3,14 @@ import Header from './components/Header';
 import MovieLibrary from './components/MovieLibrary';
 import GenInput from './components/GenInput';
 import './App.css';
-import data from './data';
+import movies from './data';
 
 function App() {
   return (
     <div className="App">
       <Header />
       <GenInput />
-      <MovieLibrary movies={ data } />
+      <MovieLibrary movies={ movies } />
     </div>
   );
 }
