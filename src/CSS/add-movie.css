@@ -1,0 +1,24 @@
+.forms-container {
+  display: flex;
+  padding: 10px;
+  width: 355px;
+}
+
+.forms {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+}
+
+.forms input {
+  margin-left: 10px;
+}
+
+.forms textarea {
+  margin-left: 10px;
+}
+
+.forms button {
+  align-self: center;
+}
+
