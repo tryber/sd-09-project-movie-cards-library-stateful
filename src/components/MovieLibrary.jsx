@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import SearchBar from './SearchBar';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
@@ -13,10 +14,26 @@ class MovieLibrary extends React.Component {
     };
   }
 
+  handleSearchTextChange() {
+
+  }
+
+  bookmarkedChange() {}
+
+  selectedGenreChange() {}
+
   render() {
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
-        <h1>MovieLibrary</h1>
+        <SearchBar
+          searchText={ searchText }
+          onSearchTextChange={ () => this.handleSearchTextChange() }
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ () => this.bookmarkedChange() }
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ () => this.selectedGenreChange() }
+        />
       </div>
     );
   }
