@@ -68,7 +68,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { title, subtitle, storyline, imagePath, rating } = this.state;
+    const { title, subtitle, storyline, imagePath, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form" className="form">
         <HandleInputs
@@ -90,7 +90,7 @@ class AddMovie extends React.Component {
         <ImageInput value={ imagePath } handleOnChange={ this.handleOnChange } />
         <SinopseInput value={ storyline } handleOnChange={ this.handleOnChange } />
         <RatingInput value={ rating } handleOnChange={ this.handleOnChange } />
-        { this.SelectGenre(this.genre, this.handleOnChange) }
+        { this.SelectGenre(genre, this.handleOnChange) }
         <button
           type="button"
           onClick={ this.handleClick }
