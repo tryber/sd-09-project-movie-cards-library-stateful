@@ -67,8 +67,8 @@ class AddMovie extends Component {
   }
 
   buttonCLick() {
-    // const { onClick } = this.props;
-    // onClick(this.state);
+    const { onClick } = this.props;
+    onClick(this.state);
     this.setState({
       title: '',
       subtitle: '',
@@ -77,13 +77,13 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     });
-    // console.log(this);
+    console.log(onClick(this.setState));
   }
 
   render() {
     const { title, subtitle, imagePath } = this.state;
-    const { onSearchTextChange, onClick } = this.props;
-    console.log(onClick);
+    const { onSearchTextChange } = this.props;
+    console.log();
     return (
       <form data-testid="add-movie-form" method="get">
         <label data-testid="title-input-label" htmlFor="text-input">

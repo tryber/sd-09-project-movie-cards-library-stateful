@@ -7,12 +7,18 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends Component {
   constructor() {
     super();
+    this.onClick = this.onClick.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: '',
     };
+  }
+
+  onClick(item) {
+    const addMovieButton = [];
+    return addMovieButton.push(item);
   }
 
   render() {
