@@ -12,8 +12,8 @@ class AddMovie extends React.Component {
       subtitle: '',
       storyline: '',
       imagePath: '',
-      // genre: 'action',
-      // rating: 0,
+      genre: 'action',
+      rating: 0,
     };
 
     this.handleOnChange = this.handleOnChange.bind(this);
@@ -78,13 +78,22 @@ class AddMovie extends React.Component {
   }
 }
 
-PropTypes.shape({
-  title: 'string',
+AddMovie.propTypes = {
   subtitle: 'string',
-  storyline: 'string',
+  title: 'string',
   imagePath: 'string',
-  // genre: 'action',
-  // rating: 0,
-});
+  storyline: 'string',
+  rating: 0,
+  genre: 'action',
+};
+
+AddMovie.defaultProps = {
+  subtitle: '',
+  title: '',
+  imagePath: '',
+  storyline: '',
+  rating: 0,
+  genre: 'action',
+};
 
 export default AddMovie;
