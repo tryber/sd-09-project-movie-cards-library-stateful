@@ -26,7 +26,7 @@ class AddMovie extends React.Component {
   handleClick() {
     this.setState({
 
-    });
+    })
   }
 
   handleOnChange({ target }) {
