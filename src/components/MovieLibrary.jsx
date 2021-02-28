@@ -22,6 +22,8 @@ class MovieLibrary extends Component {
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.filterMovies = this.filterMovies.bind(this);
     this.addNewMovie = this.addNewMovie.bind(this);
+    this.loadMovies = this.loadMovies.bind(this);
+    this.testMovies = this.testMovies.bind(this);
   }
 
   onSearchTextChange({ target }) {
@@ -45,12 +47,23 @@ class MovieLibrary extends Component {
     });
   }
 
-  filterMovies() {
-    if (this.state.movies.length === 0) {
-      this.setState({
-        movies: this.props.movies,
-      });
+  loadMovies() {
+    const { movies } = this.props;
+    const arrayAux = movies;
+    this.setState({
+      movies: arrayAux,
+    });
+  }
+
+  testMovies() {
+    const { movies } = this.state;
+    if (movies.length === 0) {
+      this.loadMovies();
     }
+  }
+
+  filterMovies() {
+    this.testMovies();
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     let arrayReturn = movies;
     if (bookmarkedOnly) {
