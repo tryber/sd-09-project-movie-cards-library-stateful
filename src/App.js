@@ -1,20 +1,14 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import Header from './components/Header';
-import SearchBar from './components/SearchBar';
+import MovieLibrary from './components/MovieLibrary';
 import './App.css';
+import Data from './data';
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <SearchBar
-        searchText={ String }
-        onSearchTextChange={ useCallback }
-        bookmarkedOnly={ Boolean }
-        onBookmarkedChange={ useCallback }
-        selectedGenre={ String }
-        onSelectedGenreChange={ useCallback }
-      />
+      <MovieLibrary movies={ Data } />
     </div>
   );
 }
