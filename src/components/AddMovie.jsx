@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import HandleInputs from './Inputs/HandleInputs';
 import ImageInput from './Inputs/ImageInput';
 import SinopseInput from './Inputs/SinopseInput';
 import RatingInput from './Inputs/RatingInput';
+import TitleInput from './Inputs/TitleInput';
+import SubtitleInput from './Inputs/SuttitleInput';
+import SelectGenre from './Inputs/SelectRenge';
 import './Styles/AddMovie.css';
 
 class AddMovie extends React.Component {
@@ -43,54 +45,16 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
-  SelectGenre() {
-    return (
-      <div>
-        <label
-          data-testid="genre-input-label"
-          htmlFor="input-genre"
-        >
-          Gênero
-          <select
-            data-testid="genre-input"
-            onChange={ this.handleOnChange }
-            id="input-genre"
-            name="genre"
-            value={ this.value }
-          >
-            <option value="action" data-testid="genre-option">Ação</option>
-            <option value="comedy" data-testid="genre-option">Comédia</option>
-            <option value="thriller" data-testid="genre-option">Suspense</option>
-          </select>
-        </label>
-      </div>
-    );
-  }
-
   render() {
     const { title, subtitle, storyline, imagePath, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form" className="form">
-        <HandleInputs
-          labelValue="Título"
-          dataTestidLabel="title-input-label"
-          dataTestidInput="title-input"
-          name="title"
-          value={ title }
-          handleOnChange={ this.handleOnChange }
-        />
-        <HandleInputs
-          labelValue="Subtítulo"
-          dataTestidLabel="subtitle-input-label"
-          dataTestidInput="subtitle-input"
-          name="subtitle"
-          value={ subtitle }
-          handleOnChange={ this.handleOnChange }
-        />
+        <TitleInput value={ title } handleOnChange={ this.handleOnChange } />
+        <SubtitleInput value={ subtitle } handleOnChange={ this.handleOnChange } />
         <ImageInput value={ imagePath } handleOnChange={ this.handleOnChange } />
         <SinopseInput value={ storyline } handleOnChange={ this.handleOnChange } />
         <RatingInput value={ rating } handleOnChange={ this.handleOnChange } />
-        { this.SelectGenre(genre, this.handleOnChange) }
+        <SelectGenre value={ genre } handleOnChange={ this.handleOnChange } />
         <button
           type="button"
           onClick={ this.handleClick }
