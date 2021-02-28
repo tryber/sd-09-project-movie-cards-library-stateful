@@ -1,22 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class ImageInput extends React.Component {
+class RatingInput extends React.Component {
   render() {
     const { handleOnChange, value } = this.props;
     return (
       <div>
         <label
-          data-testid="image-input-label"
-          htmlFor="path"
+          data-testid="rating-input-label"
+          htmlFor="input-storyline"
         >
-          Imagem
+          Avaliação
           <input
-            data-testid="image-input"
+            data-testid="rating-input"
             onChange={ handleOnChange }
-            id="path"
-            name="imagePath"
+            id="input-storyline"
+            name="rating"
             value={ value }
+            type="number"
           />
         </label>
       </div>
@@ -24,9 +25,9 @@ class ImageInput extends React.Component {
   }
 }
 
-ImageInput.propTypes = {
+RatingInput.propTypes = {
   handleOnChange: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,
 };
 
-export default ImageInput;
+export default RatingInput;

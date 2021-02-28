@@ -5,25 +5,25 @@ class HandleInputs extends React.Component {
   render() {
     const {
       labelValue,
-      dataTestid,
+      dataTestidLabel,
+      dataTestidInput,
       title,
-      htmlFor,
       value,
       handleOnChange,
       name,
     } = this.props;
     return (
       <label
-        data-testid={ dataTestid }
+        data-testid={ dataTestidLabel }
         title={ title }
-        htmlFor={ htmlFor }
+        htmlFor={ title }
       >
         {labelValue}
         <input
           value={ value }
-          data-testid={ dataTestid }
+          data-testid={ dataTestidInput }
           onChange={ handleOnChange }
-          id={ htmlFor }
+          id={ title }
           name={ name }
         />
       </label>

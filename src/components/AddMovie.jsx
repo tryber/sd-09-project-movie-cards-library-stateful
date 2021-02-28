@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import HandleInputs from './Inputs/HandleInputs';
+import ImageInput from './Inputs/ImageInput';
+import SinopseInput from './Inputs/SinopseInput';
+import RatingInput from './Inputs/RatingInput';
 import './Styles/AddMovie.css';
 
 class AddMovie extends React.Component {
@@ -8,19 +11,22 @@ class AddMovie extends React.Component {
     super(props);
 
     this.state = {
-      title: '',
       subtitle: '',
-      storyline: '',
+      title: '',
       imagePath: '',
-      genre: 'action',
+      storyline: '',
       rating: 0,
+      genre: 'action',
     };
 
     this.handleOnChange = this.handleOnChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(e) {
-    return console.log(e);
+  handleClick() {
+    this.setState({
+
+    });
   }
 
   handleOnChange({ target }) {
@@ -29,62 +35,73 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
+  SelectGenre() {
+    return (
+      <div>
+        <label
+          data-testid="genre-input-label"
+          htmlFor="input-genre"
+        >
+          Gênero
+          <select
+            data-testid="genre-input"
+            onChange={ this.handleOnChange }
+            id="input-genre"
+            name="genre"
+            value={ this.value }
+          >
+            <option value="action" data-testid="genre-option">Ação</option>
+            <option value="comedy" data-testid="genre-option">Comédia</option>
+            <option value="thriller" data-testid="genre-option">Suspense</option>
+          </select>
+        </label>
+      </div>
+    );
+  }
+
   render() {
-    const { title, subtitle, imagePath, storyline } = this.state;
+    const { title, subtitle, storyline, imagePath, rating } = this.state;
     return (
       <form data-testid="add-movie-form" className="form">
         <HandleInputs
           labelValue="Título"
-          dataTestid="title-input-label"
+          dataTestidLabel="title-input-label"
+          dataTestidInput="title-input"
           name="title"
-          htmlFor="input-title"
           value={ title }
           handleOnChange={ this.handleOnChange }
         />
         <HandleInputs
           labelValue="Subtítulo"
-          dataTestid="subtitle-input-label"
+          dataTestidLabel="subtitle-input-label"
+          dataTestidInput="subtitle-input"
           name="subtitle"
-          htmlFor="input-subtitle"
           value={ subtitle }
           handleOnChange={ this.handleOnChange }
         />
-        <label
-          data-testid="image-input-label"
-          subtitle={ subtitle }
-          htmlFor="input-subtitle"
-          value={ imagePath }
+        <ImageInput value={ imagePath } handleOnChange={ this.handleOnChange } />
+        <SinopseInput value={ storyline } handleOnChange={ this.handleOnChange } />
+        <RatingInput value={ rating } handleOnChange={ this.handleOnChange } />
+        { this.SelectGenre(this.genre, this.handleOnChange) }
+        <button
+          type="button"
+          onClick={ this.handleClick }
+          data-testid="send-button"
         >
-          Imagem
-          <input
-            data-testid="image-input"
-            onChange={ this.handleOnChange }
-            id="input-subtitle"
-            name="imagePath"
-          />
-        </label>
-        <label htmlFor="input-storyline" data-testid="storyline-input-label">
-          Sinopse
-          <textarea
-            name="storyline"
-            onChange={ this.handleOnChange }
-            id="input-storyline"
-            value={ storyline }
-            data-testid="storyline-input"
-          />
-        </label>
+          Adicionar filme
+        </button>
       </form>
     );
   }
 }
 
 AddMovie.propTypes = {
-  subtitle: 'string',
-  title: 'string',
-  imagePath: 'string',
-  storyline: 'string',
-  rating: 0,
-  genre: 'action',
+  subtitle: PropTypes.string,
+  title: PropTypes.string,
+  imagePath: PropTypes.string,
+  storyline: PropTypes.string,
+  rating: PropTypes.number,
+  genre: PropTypes.string,
 };
 
 AddMovie.defaultProps = {
