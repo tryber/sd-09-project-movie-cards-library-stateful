@@ -8,12 +8,17 @@ import Data from '../data';
 class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
+    // const movies = this.props;
     this.state = {
-      searchText: '',
-      bookmarkedOnly: false,
-      selectedGenre: '',
-      movies: props.movies,
+      // searchText: '',
+      // bookmarkedOnly: false,
+      // selectedGenre: '',
+      // movies,
     };
+  }
+
+  AddMovie() {
+
   }
 
   render() {
@@ -22,7 +27,7 @@ class MovieLibrary extends React.Component {
       <div>
         <SearchBar />
         <MovieList movies={ movies } />
-        {/* <AddMovie onClick={  }/> */}
+        <AddMovie onClick={ this.AddMovie } />
       </div>
     );
   }
