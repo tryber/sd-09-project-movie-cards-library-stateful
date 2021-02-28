@@ -2,19 +2,22 @@ import React, { Component } from 'react';
 import { func } from 'prop-types';
 import '../CSS/add-movie.css';
 
+const defaultState = {
+  subtitle: '',
+  title: '',
+  imagePath: '',
+  storyline: '',
+  rating: 0,
+  genre: 'action',
+};
+
 class AddMovie extends Component {
   constructor() {
     super();
     this.handleChange = this.handleChange.bind(this);
     this.inputCreate = this.inputCreate.bind(this);
-    this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    };
+    this.resetState = this.resetState.bind(this);
+    this.state = defaultState;
   }
 
   handleChange({ target }) {
@@ -23,6 +26,12 @@ class AddMovie extends Component {
     const valueChange = type === 'checkbox' ? checked : value;
     name = name === 'image' ? 'imagePath' : name;
     this.setState({ [name]: valueChange });
+  }
+
+  resetState() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState(defaultState);
   }
 
   inputCreate(type, state, labelName) {
@@ -47,7 +56,6 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { onClick } = this.props;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <div className="form-container">
@@ -80,8 +88,8 @@ class AddMovie extends Component {
           </label>
           <div>
             <button
-              type="submit"
-              onClick={ onClick }
+              type="button"
+              onClick={ this.resetState }
               data-testid="send-button"
             >
               Adicionar filme
