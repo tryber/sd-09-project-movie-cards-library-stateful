@@ -1,8 +1,11 @@
 // implement AddMovie component here
 import React from 'react';
 import PropTypes from 'prop-types';
-import Label from './Label';
+import LabelAndTitle from './LabelAndTitle';
+import LabelAndSubtitle from './LabelAndSubtitle';
+import LabelAndImage from './LabelAndImage';
 import LabelAndTextarea from './LabelAndTextarea';
+import LabelAndNumber from './LabelAndNumber';
 import LabelAndSelect from './LabelAndSelect';
 
 class AddMovie extends React.Component {
@@ -30,33 +33,12 @@ class AddMovie extends React.Component {
     return (
       <div>
         <form data-testid="add-movie-form" className="input-container">
-          <Label
-            title={ title }
-            func={ this.changeValue }
-            textControl="title"
-            textLabel="Título"
-          />
-          <Label
-            title={ subtitle }
-            func={ this.changeValue }
-            textControl="subtitle"
-            textLabel="Subtítulo"
-          />
-          <Label
-            title={ imagePath }
-            func={ this.changeValue }
-            textControl="image"
-            textLabel="Imagem"
-          />
-          <LabelAndTextarea storyline={ storyline } func={ this.changeValue } />
-          <Label
-            type="number"
-            title={ rating }
-            func={ this.changeValue }
-            textControl="rating"
-            textLabel="Avaliação"
-          />
-          <LabelAndSelect genre={ genre } func={ this.changeValue } />
+          <LabelAndTitle title={ title } changeValue={ this.changeValue } />
+          <LabelAndSubtitle subtitle={ subtitle } changeValue={ this.changeValue } />
+          <LabelAndImage imagePath={ imagePath } changeValue={ this.changeValue } />
+          <LabelAndTextarea storyline={ storyline } changeValue={ this.changeValue } />
+          <LabelAndNumber rating={ rating } changeValue={ this.changeValue } />
+          <LabelAndSelect genre={ genre } changeValue={ this.changeValue } />
           <button
             type="submit"
             data-testid="send-button"

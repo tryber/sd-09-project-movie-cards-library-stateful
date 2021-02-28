@@ -19,9 +19,12 @@ class MovieLibrary extends React.Component {
   }
 
   changeState(event) {
+    const { bookmarkedOnly } = this.state;
     const { movies } = this.props;
     const { name, value } = event.target;
-    this.setState({ [name]: value });
+    if (name !== 'bookmarkedOnly') this.setState({ [name]: value });
+    else if (bookmarkedOnly) this.setState({ [name]: false });
+    else this.setState({ [name]: true });
     this.setState((state) => {
       if (state.selectedGenre === '') return ({ movies });
       return ({ movies: movies.filter((movie) => movie.genre === state.selectedGenre) });
