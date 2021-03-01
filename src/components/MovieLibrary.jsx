@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
@@ -18,6 +18,8 @@ class MovieLibrary extends Component {
 
   onClick(item) {
     const addMovieButton = [];
+    const { movies } = this.props;
+    console.log(movies);
     return addMovieButton.push(item);
   }
 
@@ -47,8 +49,8 @@ class MovieLibrary extends Component {
   }
 }
 
-// MovieLibrary.propTypes = {
-//   movies: PropTypes.string.isRequired,
-// };
+MovieLibrary.propTypes = {
+  movies: PropTypes.string.isRequired,
+};
 
 export default MovieLibrary;
