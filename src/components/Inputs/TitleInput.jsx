@@ -14,7 +14,6 @@ class TitleInput extends React.Component {
           <input
             data-testid="title-input"
             onChange={ handleOnChange }
-            id="title"
             name="title"
             value={ value }
           />

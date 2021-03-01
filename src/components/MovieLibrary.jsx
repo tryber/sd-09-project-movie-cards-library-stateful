@@ -15,6 +15,8 @@ class MovieLibrary extends React.Component {
       movies: props.movies,
     };
     this.handleOnChange = this.handleOnChange.bind(this);
+    this.filterMovies = this.filterMovies.bind(this);
+    this.clickButton = this.clickButton.bind(this);
   }
 
   handleOnChange({ target }) {
@@ -23,8 +25,32 @@ class MovieLibrary extends React.Component {
     this.setState({ [name]: value });
   }
 
+  filterMovies() {
+    const { movies, bookmarkedOnly, selectedGenre, searchText } = this.state;
+
+    if (bookmarkedOnly) {
+      return movies.filter((movie) => movie.bookmarked === true);
+    }
+    if (searchText) {
+      return movies.filter((movie) => movie.title.includes(searchText)
+      || movie.subtitle.includes(searchText)
+      || movie.storyline.includes(searchText));
+    }
+    if (selectedGenre) {
+      return movies.filter((movie) => movie.genre.includes(selectedGenre));
+    }
+
+    return movies;
+  }
+
+  clickButton(newMovie) {
+    const { movies } = this.state;
+    this.setState({
+      movies: [...movies, newMovie],
+    });
+  }
+
   render() {
-    const { movies } = this.props;
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
@@ -36,8 +62,8 @@ class MovieLibrary extends React.Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.handleOnChange }
         />
-        <MovieList movies={ movies } />
-        <AddMovie />
+        <MovieList movies={ this.filterMovies() } />
+        <AddMovie onClick={ this.clickButton } />
       </div>
     );
   }
