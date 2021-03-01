@@ -10,8 +10,8 @@ class AddMovie extends Component {
       title: '',
       imagePath: '',
       storyline: '',
-      rating: 0,
-      genre: 'action',
+      // rating: 0,
+      // genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -78,7 +78,7 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { onClick } = this.props;
+    // const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
         <Input input={ this.inputTitleData() } />
