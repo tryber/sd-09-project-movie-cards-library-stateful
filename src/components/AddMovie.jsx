@@ -177,7 +177,6 @@ class AddMovie extends React.Component {
     return (
       <div>
         <button
-          value={ JSON.stringify(this.state) }
           type="button"
           data-testid="send-button"
           onClick={ this.submit }
