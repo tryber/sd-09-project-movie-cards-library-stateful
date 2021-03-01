@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -23,6 +24,7 @@ class AddMovie extends React.Component {
 
   render() {
     const { onClick } = this.props;
+    const { title } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label data-testid="title-input-label" htmlFor="title-input">
@@ -32,7 +34,7 @@ class AddMovie extends React.Component {
             type="text"
             name="title"
             id="title-input"
-            value={ this.state.title }
+            value={ title }
             onChange={ this.handleChange }
           />
         </label>
