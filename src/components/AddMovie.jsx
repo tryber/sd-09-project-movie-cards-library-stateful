@@ -28,13 +28,14 @@ class AddMovie extends Component {
     });
   }
 
-  resetState(evt) {
+  setup(evt, funcOnClick) {
     evt.preventDefault();
+    funcOnClick(this.state);
     this.setState(INITIAL_STATE);
   }
 
   render() {
-    const { onAddMovieClick } = this.props;
+    const { onClick } = this.props;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
@@ -77,7 +78,7 @@ class AddMovie extends Component {
           handleChange={ this.handleChange }
         />
         <ParentSelect value={ genre } handleChange={ this.handleChange } />
-        <button data-testid="send-button" type="submit" onClick={ onAddMovieClick(this.state) }>
+        <button data-testid="send-button" type="submit" onClick={ setup(evt, onClick) }>
           Adicionar filme
         </button>
       </form>
@@ -85,6 +86,6 @@ class AddMovie extends Component {
   }
 }
 AddMovie.propTypes = {
-  onAddMovieClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 export default AddMovie;
