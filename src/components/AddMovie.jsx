@@ -33,7 +33,6 @@ class AddMovie extends Component {
     evt.preventDefault();
     onClick(this.state);
     this.setState(INITIAL_STATE);
-    console.log(this.state);
   }
 
   render() {

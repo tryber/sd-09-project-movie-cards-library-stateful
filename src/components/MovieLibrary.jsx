@@ -57,7 +57,18 @@ class MovieLibrary extends Component {
   }
 
   onAddMovieClick(state) {
-    console.log(state);
+    const { movies } = this.props;
+    const newMovie = {
+      title: state.title,
+      subtitle: state.subtitle,
+      storyline: state.storyline,
+      rating: parseInt(state.rating, 10),
+      imagePath: state.imagePath,
+      bookmarked: false,
+      genre: state.genre,
+    };
+    movies.push(newMovie);
+    this.setState({ movies });
   }
 
   render() {
