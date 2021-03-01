@@ -45,7 +45,7 @@ class AddMovie extends React.Component {
         <input
           data-testid={ `${name}-input` }
           type={ type }
-          name={ `${value}` }
+          name={ name === 'image' ? 'imagePath' : name }
           value={ value }
           onChange={ this.handleChange }
         />
