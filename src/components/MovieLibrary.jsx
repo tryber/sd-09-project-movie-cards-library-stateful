@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -32,15 +33,6 @@ class MovieLibrary extends Component {
     this.setState({
       bookmarkedOnly: checked,
     });
-    // if (checked) {
-    //   this.setState({
-    //     bookmarkedOnly: true,
-    //   });
-    // } else {
-    //   this.setState({
-    //     bookmarkedOnly: false,
-    //   });
-    // }
   }
 
   changeGenre({ target }) {
@@ -80,6 +72,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.changeGenre }
         />
         <MovieList movies={ searchGenre } />
+        <AddMovie />
       </section>
     );
   }
