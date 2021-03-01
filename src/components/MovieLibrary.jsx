@@ -26,8 +26,7 @@ class MovieLibrary extends Component {
   }
 
   filterMovies() {
-    const { movies } = this.state;
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     const result = movies
       .filter(({ genre }) => genre.includes(selectedGenre))
       .filter(({ title, subtitle, storyline }) => (
@@ -64,7 +63,9 @@ class MovieLibrary extends Component {
 }
 
 MovieLibrary.propTypes = {
-  movies: PropTypes.arrayOf().isRequired,
+  movies: PropTypes.arrayOf(
+    PropTypes.object,
+  ).isRequired,
 };
 
 export default MovieLibrary;
