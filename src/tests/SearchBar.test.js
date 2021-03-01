@@ -61,20 +61,20 @@ describe('3 - Renderize um input do tipo texto dentro do formulário em `<Search
     expect(textInput).toHaveLength(1);
   });
 
-  it.skip('Renderize o input de texto associado à label "Inclui o texto"', () => {
+  it('Renderize o input de texto associado à label "Inclui o texto"', () => {
     const { getAllByTestId } = searchBar();
     const textInputLabel = getAllByTestId('text-input-label');
     expect(textInputLabel).toHaveLength(1);
     expect(textInputLabel[0]).toHaveTextContent('Inclui o texto');
   });
 
-  it.skip('Renderize o input de texto com o valor passado pela prop `searchText`', () => {
+  it('Renderize o input de texto com o valor passado pela prop `searchText`', () => {
     const { getByTestId } = searchBar();
     const textInput = getByTestId(textTestId);
     expect(textInput).toHaveValue(props.searchText);
   });
 
-  it.skip('Passe a props `onSearchTextChange` para o atributo `onChange` do input', () => {
+  it('Passe a props `onSearchTextChange` para o atributo `onChange` do input', () => {
     const expectedTimes = 6;
     const { getByTestId } = searchBar();
     const textInput = getByTestId(textTestId);
@@ -86,27 +86,27 @@ describe('3 - Renderize um input do tipo texto dentro do formulário em `<Search
 describe('4 - Renderize um input do tipo checkbox dentro do formulário em `<SearchBar />`', () => {
   beforeEach(() => beforeEachUnitTest());
 
-  it.skip('Renderize uma checkbox dentro do form', () => {
+  it('Renderize uma checkbox dentro do form', () => {
     const { getAllByTestId } = searchBar();
     const checkboxInput = getAllByTestId(checkboxTestId);
     expect(checkboxInput).toHaveLength(1);
   });
 
-  it.skip('Renderize, associada ao checkbox, a label "Mostrar somente favoritos"', () => {
+  it('Renderize, associada ao checkbox, a label "Mostrar somente favoritos"', () => {
     const { getAllByTestId } = searchBar();
     const checkboxInputLabel = getAllByTestId('checkbox-input-label');
     expect(checkboxInputLabel).toHaveLength(1);
     expect(checkboxInputLabel[0]).toHaveTextContent('Mostrar somente favoritos');
   });
 
-  it.skip('Passe a prop `bookmarkedOnly` para o atributo `checked` do input', () => {
+  it('Passe a prop `bookmarkedOnly` para o atributo `checked` do input', () => {
     const { getByTestId } = searchBar();
     const checkboxInput = getByTestId(checkboxTestId);
 
     expect(checkboxInput).toBeChecked();
   });
 
-  it.skip('Passe a prop `onBookmarkedChange` para o atributo `onChange` do input', () => {
+  it('Passe a prop `onBookmarkedChange` para o atributo `onChange` do input', () => {
     const { getByTestId } = searchBar();
     const checkboxInput = getByTestId(checkboxTestId);
     event.click(checkboxInput);
