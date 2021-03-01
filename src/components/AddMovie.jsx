@@ -36,9 +36,9 @@ class AddMovie extends Component{
           <label data-testid="title-input-label">
             Título
             <input
-              onChange={this.updateStateValue}
+              onChange={ this.updateStateValue }
               data-testid="title-input"
-              value={this.state.title}
+              value={ this.state.title }
               type="text"
               name="title"
               id=""/>
@@ -46,7 +46,7 @@ class AddMovie extends Component{
           <label data-testid="subtitle-input-label">
             Subtítulo
             <input
-              onChange={this.updateStateValue}
+              onChange={ this.updateStateValue }
               data-testid="subtitle-input"
               value={this.state.subtitle}
               type="text"
@@ -56,9 +56,9 @@ class AddMovie extends Component{
           <label data-testid="image-input-label">
             Imagem
             <input
-              onChange={this.updateStateValue}
+              onChange={ this.updateStateValue }
               data-testid="image-input"
-              value={this.state.imagePath}
+              value={ this.state.imagePath }
               type="text"
               name="imagePath"
               id=""/>
@@ -66,14 +66,24 @@ class AddMovie extends Component{
           <label data-testid="storyline-input-label">
             Sinopse
             <textarea
-              onChange={this.updateStateValue}
+              onChange={ this.updateStateValue }
               data-testid="storyline-input"
-              value={this.state.storyline}
+              value={ this.state.storyline }
               name="storyline"
               id=""
               cols="30"
               rows="10"
             ></textarea>
+          </label>
+          <label data-testid="rating-input-label">
+            Avaliação
+            <input
+              onChange={ this.updateStateValue }
+              data-testid="rating-input"
+              value={ this.state.rating }
+              type="number"
+              name="rating"
+              id=""/>
           </label>
         </form>
       </div>
