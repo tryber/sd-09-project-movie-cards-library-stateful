@@ -41,7 +41,7 @@ class AddMovie extends React.Component {
 
   render() {
     const { onClick } = this.props;
-    const { title, subtitle, imagePath, storyline, rating } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         { this.createInput(Título, 'title', 'text', title) }
@@ -58,6 +58,14 @@ class AddMovie extends React.Component {
           />
         </label>
         { this.createInput(Avaliação, 'rating', 'number', rating) }
+        <label data-testid="genre-input-label" htmlFor="genre-input">
+          Gênero
+          <select data-testid="genre-input" value={ genre } onChange={ this.handleChange }>
+            <option data-testid="genre-option" value="action">Ação</option>
+            <option data-testid="genre-option" value="comedy">Comédia</option>
+            <option data-testid="genre-option" value="thriller">Suspense</option>
+          </select>
+        </label>
       </form>
     );
   }
