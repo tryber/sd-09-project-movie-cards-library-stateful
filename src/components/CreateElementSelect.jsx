@@ -10,9 +10,9 @@ class Select extends React.Component {
         <select
           id="genre"
           name="genre"
-          value={value}
+          value={ value }
           data-testid="genre-input"
-          onChange={func}
+          onChange={ func }
         >
           <option data-testid="genre-option" value="action">
             Ação
@@ -32,7 +32,7 @@ class Select extends React.Component {
 Select.defaultProps = {
   value: PropTypes.oneOf(['string', 'number']),
   func: PropTypes.func,
-}
+};
 
 Select.propTypes = {
   value: PropTypes.oneOf(['string', 'number']),
