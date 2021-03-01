@@ -81,13 +81,13 @@ class AddMovie extends Component {
           imagePath={ genre }
           handleChange={ this.handleChange }
         />
-        <imput
+        <button
           data-testid="send-button"
           type="button"
           onClick={ this.buttonCliked }
         >
           Adicionar filme
-        </imput>
+        </button>
       </form>
     );
   }
