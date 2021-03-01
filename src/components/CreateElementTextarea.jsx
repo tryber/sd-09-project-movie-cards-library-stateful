@@ -10,9 +10,9 @@ class TextArea extends React.Component {
         <textarea
           id="storyline"
           name="storyline"
-          value={value}
+          value={ value }
           data-testid="storyline-input"
-          onChange={onChange}
+          onChange={ onChange }
         />
       </label>
     );
