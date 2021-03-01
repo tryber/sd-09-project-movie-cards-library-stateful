@@ -14,7 +14,7 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: movies,
+      movies,
     };
 
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
@@ -93,7 +93,7 @@ class MovieLibrary extends Component {
   }
 }
 
-MovieList.propTypes = {
+MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
@@ -104,7 +104,7 @@ MovieList.propTypes = {
       bookmarked: PropTypes.bool,
       genre: PropTypes.string,
     }),
-  ),
+  ).isRequired,
 };
 
 export default MovieLibrary;
