@@ -14,7 +14,7 @@ class SearchBar extends Component {
               onChange={ this.props.onSearchTextChange }
               value={ this.props.searchText }
               type="text"
-              name=""
+              name="searchText"
               id=""/>
           </label>
           <label data-testid="checkbox-input-label">
@@ -24,7 +24,7 @@ class SearchBar extends Component {
               onChange={ this.props.onBookmarkedChange }
               checked={ this.props.bookmarkedOnly }
               type="checkbox"
-              name=""
+              name="bookmarkedOnly"
               id=""/>
           </label>
           <label data-testid="select-input-label">
@@ -33,7 +33,7 @@ class SearchBar extends Component {
               data-testid="select-input"
               onChange={ this.props.onSelectedGenreChange }
               value={ this.props.selectedGenre }
-              name=""
+              name="selectedGenre"
               id="">
               <option data-testid="select-option" value="">Todos</option>
               <option data-testid="select-option" value="action">Ação</option>
