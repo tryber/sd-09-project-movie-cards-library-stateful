@@ -31,14 +31,29 @@ class MovieLibrary extends Component {
 
   onSelectedGenreChange(evt) {
     this.handleChange(evt);
+    const genre = evt.target.value === 'Todos' ? '' : evt.target.value;
+    const { movies } = this.props;
+    const filteredMovies = movies.filter((movie) => movie.genre.includes(genre));
+    this.setState({ movies: filteredMovies });
   }
 
   onBookmarkedChange(evt) {
     this.handleChange(evt);
+    const { movies } = this.props;
+    const filteredMovies = evt.target.checked
+      ? movies.filter((movie) => movie.bookmarked === true)
+      : movies;
+    this.setState({ movies: filteredMovies });
   }
 
   onSearchTextChange(evt) {
     this.handleChange(evt);
+    const searchText = evt.target.value;
+    const { movies } = this.props;
+    const filteredMovies = movies.filter((movie) => movie.title.includes(searchText)
+    || movie.subtitle.includes(searchText)
+    || movie.storyline.includes(searchText));
+    this.setState({ movies: filteredMovies });
   }
 
   onAddMovieClick(state) {
