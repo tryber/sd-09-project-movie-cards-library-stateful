@@ -35,7 +35,7 @@ class AddMovie extends React.Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-    })
+    });
   }
 
   createInput(label, name, type, value) {
@@ -75,15 +75,16 @@ class AddMovie extends React.Component {
         <label data-testid="genre-input-label" htmlFor="genre-input">
           Gênero
           <select
-          data-testid="genre-input"
-          name="genre"
-          value={ genre }
-          onChange={ this.handleChange }>
+            data-testid="genre-input"
+            name="genre"
+            value={ genre }
+            onChange={ this.handleChange }
+          >
             <option data-testid="genre-option" value="action">Ação</option>
             <option data-testid="genre-option" value="comedy">Comédia</option>
             <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
-          <button data-testid="send-button" type="button" onClick={this.handleClick}>
+          <button data-testid="send-button" type="button" onClick={ this.handleClick }>
             Adicionar filme
           </button>
         </label>
