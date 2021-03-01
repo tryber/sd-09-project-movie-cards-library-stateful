@@ -1,6 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
+import MovieList from './MovieList';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
@@ -8,8 +10,9 @@ class MovieLibrary extends React.Component {
 
     this.state = {
       searchText: '',
-      bookmarkedOnly: true,
+      bookmarkedOnly: false,
       selectedGenre: '',
+      movies: props.movies,
     };
 
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
@@ -38,7 +41,34 @@ class MovieLibrary extends React.Component {
     });
   }
 
+  addNewMovie(newMovie) {
+    const { movies } = this.state;
+    this.setState({ movies: [...movies, newMovie] });
+  }
+
+  filterMovies() {
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    if (bookmarkedOnly) {
+      return movies.filter((movie) => movie.bookmaeked);
+    }
+
+    if (searchText) {
+      return movies.filter(({ title, subtitle, storyline }) => (
+        title.includes(searchText)
+        || subtitle.includes(searchText)
+        || storyline.includes(searchText)
+      ));
+    }
+
+    if (selectedGenre) {
+      return movies.filter((movie) => movie.genre === selectedGenre);
+    }
+
+    return movies;
+  }
+
   render() {
+    const movies = this.filterMovies();
     const {
       searchText,
       bookmarkedOnly,
@@ -55,10 +85,15 @@ class MovieLibrary extends React.Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
-        <AddMovie />
+        <MovieList movies={ movies } />
+        <AddMovie onClick={ this.addNewMovie } />
       </div>
     );
   }
 }
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default MovieLibrary;
