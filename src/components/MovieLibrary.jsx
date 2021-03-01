@@ -25,6 +25,25 @@ class MovieLibrary extends Component {
     });
   }
 
+  filterMovies() {
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    let filterMovie = movies;
+    if (bookmarkedOnly) {
+      filterMovie = movies.filter((movie) => movie.bookmarked);
+    }
+    if (searchText) {
+      filterMovie = movies.filter(({ title, subtitle, storyline }) => (
+        title.includes(searchText)
+        || subtitle.includes(searchText)
+        || storyline.includes(searchText)
+      ));
+    }
+    if (selectedGenre) {
+      filterMovie = movies.filter((movie) => movie.genre === selectedGenre);
+    }
+    return filterMovie;
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
