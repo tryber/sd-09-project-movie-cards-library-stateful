@@ -7,10 +7,17 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
+    const { movies } = this.props;
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      movies,
+    };
   }
 
   render() {
-    const { movies } = this.props;
+    const { movies } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
@@ -32,7 +39,7 @@ MovieLibrary.propTypes = {
       imagePath: PropTypes.string,
       bookmarked: PropTypes.bool,
       genre: PropTypes.string,
-    })
+    }),
   ),
 }.isRequired;
 
