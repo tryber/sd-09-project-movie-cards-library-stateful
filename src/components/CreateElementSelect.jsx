@@ -10,22 +10,33 @@ class Select extends React.Component {
         <select
           id="genre"
           name="genre"
-          value={ value }
+          value={value}
           data-testid="genre-input"
-          onChange={ func }
+          onChange={func}
         >
-          <option data-testid="genre-option" value="action">Ação</option>
-          <option data-testid="genre-option" value="comedy">Comédia</option>
-          <option data-testid="genre-option" value="thriller">Suspense</option>
+          <option data-testid="genre-option" value="action">
+            Ação
+          </option>
+          <option data-testid="genre-option" value="comedy">
+            Comédia
+          </option>
+          <option data-testid="genre-option" value="thriller">
+            Suspense
+          </option>
         </select>
       </label>
     );
   }
 }
 
+Select.defaultProps = {
+  value: PropTypes.oneOf(['string', 'number']),
+  func: PropTypes.func,
+}
+
 Select.propTypes = {
-  value: PropTypes.oneOf(['string', 'number']).isRequired,
-  func: PropTypes.func.isRequired,
+  value: PropTypes.oneOf(['string', 'number']),
+  func: PropTypes.func,
 };
 
 export default Select;
