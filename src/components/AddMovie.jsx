@@ -5,6 +5,7 @@ class AddMovie extends Component {
   constructor() {
     super();
     this.buttonCLick = this.buttonCLick.bind(this);
+    this.changeHandler = this.changeHandler.bind(this);
     this.state = {
       title: '',
       subtitle: '',
@@ -15,47 +16,48 @@ class AddMovie extends Component {
     };
   }
 
-  getNewMovieStoryline(onSearchTextChange) {
+  getNewMovieStoryline() {
     const { storyline } = this.state;
     return (
       <label data-testid="storyline-input-label" htmlFor="text-input">
         Sinopse
         <textarea
-          onChange={ onSearchTextChange }
           data-testid="storyline-input"
           defaultValue={ storyline }
-          // value={ storyline }
-          // onChange={ this.handleChange }
-          // [event.taget.name]: event.target.value
+          value={ storyline }
+          name="storyline"
+          onChange={ this.changeHandler }
         />
       </label>
     );
   }
 
-  getNewMovieRating(onSearchTextChange) {
+  getNewMovieRating() {
     const { rating } = this.state;
     return (
       <label data-testid="rating-input-label" htmlFor="text-input">
         Avaliação
         <input
           type="number"
-          onChange={ onSearchTextChange }
+          name="rating"
+          onChange={ this.changeHandler }
           data-testid="rating-input"
-          defaultValue={ rating }
+          value={ rating }
         />
       </label>
     );
   }
 
-  getNewMovieGenre(onSearchTextChange) {
+  getNewMovieGenre() {
     const { genre } = this.state;
     return (
       <label data-testid="genre-input-label" htmlFor="genre-input">
         Gênero
         <select
-          onChange={ onSearchTextChange }
+          name="genre"
+          onChange={ this.changeHandler }
           data-testid="genre-input"
-          defaultValue={ genre }
+          value={ genre }
         >
           <option value="action" data-testid="genre-option">Ação</option>
           <option value="comedy" data-testid="genre-option">Comédia</option>
@@ -76,8 +78,13 @@ class AddMovie extends Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-    });
-    console.log(onClick(this.setState));
+    }, () => console.log(this.state));
+  }
+
+  changeHandler(event) {
+    this.setState({
+      [event.target.name]: event.target.value,
+    }, () => console.log(this.state));
   }
 
   render() {
@@ -90,28 +97,30 @@ class AddMovie extends Component {
           Título
           <input
             type="text"
-            defaultValue={ title }
-            // value={ title }
+            value={ title }
             data-testid="title-input"
-            onChange={ onSearchTextChange }
+            name="title"
+            onChange={ this.changeHandler }
           />
         </label>
         <label data-testid="subtitle-input-label" htmlFor="subtitle-input">
           Subtítulo
           <input
             type="text"
-            defaultValue={ subtitle }
+            value={ subtitle }
             data-testid="subtitle-input"
-            onChange={ onSearchTextChange }
+            name="subtitle"
+            onChange={ this.changeHandler }
           />
         </label>
         <label data-testid="image-input-label" htmlFor="image-input">
           Imagem
           <input
             type="text"
-            defaultValue={ imagePath }
+            value={ imagePath }
             data-testid="image-input"
-            onChange={ onSearchTextChange }
+            name="imagePath"
+            onChange={ this.changeHandler }
           />
         </label>
         <button
@@ -121,9 +130,9 @@ class AddMovie extends Component {
         >
           Adicionar filme
         </button>
-        { this.getNewMovieRating(onSearchTextChange) }
-        { this.getNewMovieGenre(onSearchTextChange) }
-        {this.getNewMovieStoryline(onSearchTextChange)}
+        { this.getNewMovieRating() }
+        { this.getNewMovieGenre() }
+        { this.getNewMovieStoryline(onSearchTextChange) }
       </form>
     );
   }
