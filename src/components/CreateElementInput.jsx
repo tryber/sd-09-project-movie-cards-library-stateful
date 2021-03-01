@@ -21,12 +21,12 @@ class Input extends React.Component {
 }
 
 Input.defaultProps = {
-  nameTest: string,
-  nameId: string,
-  labelName: string,
-  type: string,
-  value: oneOf(['string', 'number']),
-  func,
+  nameTest: PropTypes.string,
+  nameId: PropTypes.string,
+  labelName: PropTypes.string,
+  type: PropTypes.string,
+  value: PropTypes.oneOf(['string', 'number']),
+  func: PropTypes.func,
 };
 
 Input.propTypes = {

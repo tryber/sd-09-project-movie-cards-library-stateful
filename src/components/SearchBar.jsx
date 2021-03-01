@@ -55,12 +55,12 @@ class SearchBar extends React.Component {
 }
 
 SearchBar.defaultProps = {
-  searchText: string,
-  onSearchTextChange: string,
-  bookmarkedOnly: bool,
-  onBookmarkedChange: string,
-  selectedGenre: string,
-  onSelectedGenreChange: string,
+  searchText: PropTypes.string,
+  onSearchTextChange: PropTypes.string,
+  bookmarkedOnly: PropTypes.bool,
+  onBookmarkedChange: PropTypes.string,
+  selectedGenre: PropTypes.string,
+  onSelectedGenreChange: PropTypes.string,
 };
 
 SearchBar.propTypes = {

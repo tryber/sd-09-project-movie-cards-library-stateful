@@ -20,7 +20,7 @@ class MovieLibrary extends React.Component {
 }
 
 MovieLibrary.defaultProps = {
-  movies: arrayOf(PropTypes.object),
+  movies: PropTypes.arrayOf(PropTypes.object),
 };
 
 MovieLibrary.propTypes = {

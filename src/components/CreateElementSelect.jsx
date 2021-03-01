@@ -3,20 +3,20 @@ import PropTypes from 'prop-types';
 
 class Select extends React.Component {
   render() {
-    const { nameTestLabel, nameTestOption, nameId, labelName, value, func } = this.props;
+    const { value, func } = this.props;
     return (
-      <label data-testid={ `${nameTestLabel}-label` } htmlFor={ nameId }>
-        { labelName }
+      <label data-testid="genre-input-label" htmlFor="genre">
+        Gênero
         <select
-          id={ nameId }
-          name={ nameId }
+          id="genre"
+          name="genre"
           value={ value }
-          data-testid={ nameTestLabel }
+          data-testid="genre-input"
           onChange={ func }
         >
-          <option data-testid={ nameTestOption } value="action">Ação</option>
-          <option data-testid={ nameTestOption } value="comedy">Comédia</option>
-          <option data-testid={ nameTestOption } value="thriller">Suspense</option>
+          <option data-testid="genre-option" value="action">Ação</option>
+          <option data-testid="genre-option" value="comedy">Comédia</option>
+          <option data-testid="genre-option" value="thriller">Suspense</option>
         </select>
       </label>
     );
@@ -24,10 +24,6 @@ class Select extends React.Component {
 }
 
 Select.propTypes = {
-  nameTestLabel: PropTypes.string.isRequired,
-  nameTestOption: PropTypes.bool.isRequired,
-  nameId: PropTypes.string.isRequired,
-  labelName: PropTypes.string.isRequired,
   value: PropTypes.oneOf(['string', 'number']).isRequired,
   func: PropTypes.func.isRequired,
 };

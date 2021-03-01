@@ -2,6 +2,7 @@ import React from 'react';
 import Input from './CreateElementInput';
 import Select from './CreateElementSelect';
 import Button from './CreateButton';
+import TextArea from './CreateElementTextarea';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -58,16 +59,7 @@ class AddMovie extends React.Component {
           func={ this.handleInputChange }
         />
 
-        <label data-testid="storyline-input-label" htmlFor="storyline">
-          Sinopse
-          <textarea
-            id="storyline"
-            name="storyline"
-            value={ storyline }
-            data-testid="storyline-input"
-            onChange={ this.handleInputChange }
-          />
-        </label>
+        <TextArea value={ storyline } onChange={ this.handleInputChange } />
 
         <Input
           nameId="rating"
@@ -78,14 +70,7 @@ class AddMovie extends React.Component {
           func={ this.handleInputChange }
         />
 
-        <Select
-          nameTestLabel="genre-input"
-          nameTestOption="genre-option"
-          nameId="genre"
-          labelName="Gênero"
-          value={ genre }
-          func={ this.handleInputChange }
-        />
+        <Select value={ genre } func={ this.handleInputChange } />
 
         <Button />
       </form>
