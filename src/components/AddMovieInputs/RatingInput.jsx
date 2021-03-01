@@ -7,7 +7,7 @@ export default function RatingInput({ rating, onChange }) {
       Avaliação
       <input
         value={ rating }
-        onChange={ (ev) => onChange(ev.target.value) }
+        onChange={ (ev) => onChange(Number(ev.target.value)) }
         type="number"
         id="rating-input"
         data-testid="rating-input"
