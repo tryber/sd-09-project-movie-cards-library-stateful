@@ -27,7 +27,7 @@ class MovieLibrary extends Component {
   }
 
   filterMovies() {
-    
+
   }
 
   render() {
