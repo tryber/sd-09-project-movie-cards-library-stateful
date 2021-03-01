@@ -108,20 +108,20 @@ describe('9 - Renderize um input do tipo texto dentro do formulário em `<AddMov
 });
 
 describe('10 - Renderize um input do tipo texto dentro do formulário em `<AddMovie />` para obter o caminho da imagem do novo filme', () => {
-  it.skip('Renderize um input de texto para quem usa inserir a url da imagem do filme', () => {
+  it('Renderize um input de texto para quem usa inserir a url da imagem do filme', () => {
     expect(imageInput).toBeInTheDocument();
   });
 
-  it.skip('Renderize a label "Imagem" para o input de imagem', () => {
+  it('Renderize a label "Imagem" para o input de imagem', () => {
     expect(imageInputLabel).toBeInTheDocument();
     expect(imageInputLabel).toHaveTextContent('Imagem');
   });
 
-  it.skip('Defina o estado inicial do input de imagem como "", ou seja, uma string vazia', () => {
+  it('Defina o estado inicial do input de imagem como "", ou seja, uma string vazia', () => {
     expect(imageInput).toHaveValue(initialState.imagePath);
   });
 
-  it.skip('Altere o valor do input de imagem quando algo é digitado nele', () => {
+  it('Altere o valor do input de imagem quando algo é digitado nele', () => {
     event.type(imageInput, 'http://localhost:3000/images/Appleseed_Alpha.jpg');
     expect(imageInput).toHaveValue('http://localhost:3000/images/Appleseed_Alpha.jpg');
   });
