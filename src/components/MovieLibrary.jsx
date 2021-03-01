@@ -7,14 +7,14 @@ class MovieLibrary extends Component {
   // constructor(props) {
   //   super(props);
 
-    // HANDLER GENÉRICO
-    // handleChange = ({ target }) => {
-    //   const { name } = target;
-    //   const value = target.type === 'checkbox' ? target.checked : target.value;
-    //   this.setState({
-    //     [name]: value,
-    //   });
-    // }
+  // HANDLER GENÉRICO
+  // handleChange = ({ target }) => {
+  //   const { name } = target;
+  //   const value = target.type === 'checkbox' ? target.checked : target.value;
+  //   this.setState({
+  //     [name]: value,
+  //   });
+  // }
 
   //   this.state = {
   //     searchText: '',

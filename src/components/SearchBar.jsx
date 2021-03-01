@@ -2,15 +2,13 @@ import React, { Component } from 'react';
 
 class SearchBar extends Component {
   render() {
-    const {
-      searchText,
+    const { searchText,
       onSearchTextChange,
       bookmarkedOnly,
       onBookmarkedChange,
       selectedGenre,
-      onSelectedGenreChange
+      onSelectedGenreChange,
     } = this.props;
-
     return (
       <form data-testid="search-bar-form">
         {/* LINT ISSUE: error  A form label must be associated with a control */}
@@ -25,7 +23,6 @@ class SearchBar extends Component {
             data-testid="text-input"
           />
         </label>
-
         <label data-testid="checkbox-input-label" htmlFor="checkbox-input">
           Mostrar somente favoritos
           <input
@@ -36,7 +33,6 @@ class SearchBar extends Component {
             data-testid="checkbox-input"
           />
         </label>
-
         <label data-testid="select-input-label" htmlFor="select-input">
           Filtrar por gênero
           <select
