@@ -16,7 +16,7 @@ class AddMovie extends Component {
     super(props);
     this.state = INITIAL_STATE;
     this.handleChange = this.handleChange.bind(this);
-    this.resetState = this.resetState.bind(this);
+    this.setup = this.setup.bind(this);
   }
 
   handleChange({ target }) {
