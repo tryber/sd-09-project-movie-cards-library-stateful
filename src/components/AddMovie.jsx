@@ -63,6 +63,18 @@ class AddMovie extends Component{
               name="imagePath"
               id=""/>
           </label>
+          <label data-testid="storyline-input-label">
+            Sinopse
+            <textarea
+              onChange={this.updateStateValue}
+              data-testid="storyline-input"
+              value={this.state.storyline}
+              name="storyline"
+              id=""
+              cols="30"
+              rows="10"
+            ></textarea>
+          </label>
         </form>
       </div>
     )
