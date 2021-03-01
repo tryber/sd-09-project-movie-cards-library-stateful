@@ -5,6 +5,7 @@ class AddMovie extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
+    this.createInput = this.createInput.bind(this);
     this.state = {
       subtitle: '',
       title: '',
@@ -22,44 +23,30 @@ class AddMovie extends React.Component {
     });
   }
 
+  createInput(label, name, type, value) {
+    return (
+      <label data-testid={`${name}-input-label`} htmlFor={`${name}-input`}>
+        {label}
+        <input
+          data-testid={`${name}-input`}
+          type={type}
+          name={name}
+          id={`${name}-input`}
+          value={ value }
+          onChange={ this.handleChange }
+        />
+      </label>
+    );
+  }
+
   render() {
     const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label data-testid="title-input-label" htmlFor="title-input">
-          Título
-          <input
-            data-testid="title-input"
-            type="text"
-            name="title"
-            id="title-input"
-            value={ title }
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label data-testid="subtitle-input-label" htmlFor="subtitle-input">
-          Subtítulo
-          <input
-            data-testid="subtitle-input"
-            type="text"
-            name="subtitle"
-            id="subtitle-input"
-            value={ subtitle }
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label data-testid="image-input-label" htmlFor="image-input">
-          Subtítulo
-          <input
-            data-testid="image-input"
-            type="text"
-            name="image"
-            id="image-input"
-            value={ imagePath }
-            onChange={ this.handleChange }
-          />
-        </label>
+        {this.createInput(Título, "title", "text", title)}
+        {this.createInput(Subtítulo, "subtitle", "text", subtitle)}
+        {this.createInput(Imagem, "image", "text", imagePath)}
         <label data-testid="storyline-input-label" htmlFor="storyline-input">
           Sinopse
           <textarea
