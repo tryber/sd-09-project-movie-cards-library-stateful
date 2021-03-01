@@ -2,19 +2,63 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class InputText extends Component {
-  render() {
-    const { inputTestId, stateValue, onChangeFunc, labelTesId, inputLabel } = this.props;
-    let input = { type: 'text' };
-    if (inputTestId === 'title-input') {
-      input = { ...input, name: 'title', id: 'title-input', value: stateValue };
-    } else if (inputTestId === 'subtitle-input') {
-      input = { ...input, name: 'subtitle', id: 'subtitle-input', value: stateValue };
-    } else if (inputTestId === 'image-input') {
-      input = { ...input, name: 'imagePath', id: 'image-input', value: stateValue };
-    } else if (inputTestId === 'rating-input') {
-      input = { type: 'number', name: 'rating', id: 'rating-input', value: stateValue };
+  constructor() {
+    super();
+    this.validatesField = this.validatesField.bind(this);
+  }
+
+  validatesField(val, testId) {
+    let field = { type: 'text' };
+    if (testId === 'title-input') {
+      field = {
+        ...field,
+        name: 'title',
+        id: 'title-input',
+        value: val,
+        labelTesId: 'title-input-label',
+        inputLabel: 'Título',
+      };
+    } else if (testId === 'subtitle-input') {
+      field = {
+        ...field,
+        name: 'subtitle',
+        id: 'subtitle-input',
+        value: val,
+        labelTesId: 'subtitle-input-label',
+        inputLabel: 'Subtítulo',
+      };
+    } else if (testId === 'image-input') {
+      field = {
+        ...field,
+        name: 'imagePath',
+        id: 'image-input',
+        value: val,
+        labelTesId: 'image-input-label',
+        inputLabel: 'Imagem',
+      };
+    } else if (testId === 'rating-input') {
+      field = {
+        type: 'number',
+        name: 'rating',
+        id: 'rating-input',
+        value: val,
+        labelTesId: 'rating-input-label',
+        inputLabel: 'Avaliação',
+      };
     }
-    const { type, name, id, value } = input;
+    return field;
+  }
+
+  render() {
+    const { testId, val, evtFunc } = this.props;
+    const {
+      type,
+      name,
+      id,
+      value,
+      labelTesId,
+      inputLabel,
+    } = this.validatesField(val, testId);
     return (
       <label htmlFor={ id } data-testid={ labelTesId }>
         { inputLabel }
@@ -23,8 +67,8 @@ class InputText extends Component {
           name={ name }
           id={ id }
           value={ value }
-          data-testid={ inputTestId }
-          onChange={ onChangeFunc }
+          data-testid={ testId }
+          onChange={ evtFunc }
         />
       </label>
     );
@@ -32,14 +76,12 @@ class InputText extends Component {
 }
 
 InputText.propTypes = {
-  inputTestId: PropTypes.string.isRequired,
-  stateValue: PropTypes.oneOfType([
+  testId: PropTypes.string.isRequired,
+  val: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
   ]).isRequired,
-  onChangeFunc: PropTypes.func.isRequired,
-  labelTesId: PropTypes.string.isRequired,
-  inputLabel: PropTypes.string.isRequired,
+  evtFunc: PropTypes.func.isRequired,
 };
 
 export default InputText;

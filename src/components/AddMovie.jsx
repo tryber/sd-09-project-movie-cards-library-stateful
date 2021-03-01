@@ -11,7 +11,7 @@ class AddMovie extends Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      // genre: 'action',
+      genre: 'action',
     };
     this.handleInput = this.handleInput.bind(this);
   }
@@ -27,30 +27,13 @@ class AddMovie extends Component {
     // const {
     //   onClick
     // } = this.props;
-    const { title, subtitle, imagePath, storyline, rating } = this.state;
+    const { state, handleInput } = this;
+    const { title, subtitle, imagePath, storyline, rating, genre } = state;
     return (
       <form data-testid="add-movie-form">
-        <InputText
-          labelTesId="title-input-label"
-          inputLabel="Título"
-          inputTestId="title-input"
-          stateValue={ title }
-          onChangeFunc={ this.handleInput }
-        />
-        <InputText
-          labelTesId="subtitle-input-label"
-          inputLabel="Subtítulo"
-          inputTestId="subtitle-input"
-          stateValue={ subtitle }
-          onChangeFunc={ this.handleInput }
-        />
-        <InputText
-          labelTesId="image-input-label"
-          inputLabel="Imagem"
-          inputTestId="image-input"
-          stateValue={ imagePath }
-          onChangeFunc={ this.handleInput }
-        />
+        <InputText testId="title-input" val={ title } evtFunc={ handleInput } />
+        <InputText testId="subtitle-input" val={ subtitle } evtFunc={ handleInput } />
+        <InputText testId="image-input" val={ imagePath } evtFunc={ handleInput } />
         <label htmlFor="storyline-input" data-testid="storyline-input-label">
           Sinopse
           <textarea
@@ -59,16 +42,24 @@ class AddMovie extends Component {
             id="storyline-input"
             data-testid="storyline-input"
             value={ storyline }
-            onChange={ this.handleInput }
+            onChange={ handleInput }
           />
         </label>
-        <InputText
-          labelTesId="rating-input-label"
-          inputLabel="Avaliação"
-          inputTestId="rating-input"
-          stateValue={ rating }
-          onChangeFunc={ this.handleInput }
-        />
+        <InputText testId="rating-input" val={ rating } evtFunc={ handleInput } />
+        <label htmlFor="genre-select" data-testid="genre-input-label">
+          Gênero
+          <select
+            name="genre"
+            id="genre-select"
+            data-testid="genre-input"
+            onChange={ handleInput }
+            value={ genre }
+          >
+            <option data-testid="genre-option" value="action">Ação</option>
+            <option data-testid="genre-option" value="comedy">Comédia</option>
+            <option data-testid="genre-option" value="thriller">Suspense</option>
+          </select>
+        </label>
       </form>
     );
   }
