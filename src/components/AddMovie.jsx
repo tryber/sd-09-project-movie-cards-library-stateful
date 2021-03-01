@@ -6,6 +6,7 @@ class AddMovie extends React.Component {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.createInput = this.createInput.bind(this);
+    this.handleClick = this.handleClick.bind(this);
     this.state = {
       subtitle: '',
       title: '',
@@ -21,6 +22,20 @@ class AddMovie extends React.Component {
     this.setState({
       [name]: value,
     });
+  }
+
+  handleClick(event) {
+    const { onClick } = this.props;
+    event.preventDefault();
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    })
   }
 
   createInput(label, name, type, value) {
@@ -40,7 +55,6 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
@@ -60,11 +74,18 @@ class AddMovie extends React.Component {
         { this.createInput(Avaliação, 'rating', 'number', rating) }
         <label data-testid="genre-input-label" htmlFor="genre-input">
           Gênero
-          <select data-testid="genre-input" value={ genre } onChange={ this.handleChange }>
+          <select
+          data-testid="genre-input"
+          name="genre"
+          value={ genre }
+          onChange={ this.handleChange }>
             <option data-testid="genre-option" value="action">Ação</option>
             <option data-testid="genre-option" value="comedy">Comédia</option>
             <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
+          <button data-testid="send-button" type="button" onClick={this.handleClick}>
+            Adicionar filme
+          </button>
         </label>
       </form>
     );
