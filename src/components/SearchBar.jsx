@@ -1,32 +1,16 @@
 import React, { Component } from 'react';
 
 class SearchBar extends Component {
-  constructor() {
-    super();
-
-    this.handleChange = this.handleChange.bind(this);
-
-    this.state = {
-      searchText: '',
-      // onSearchTextChange: undefined,
-      bookmarkedOnly: false,
-      // onBookmarkedChange: undefined,
-      selectedGenre: 'Todos',
-      // onSelectedGenreChange: undefined,
-    };
-  }
-
-  handleChange({ target }) {
-    const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-
-    this.setState({
-      [name]: value,
-    });
-  }
-
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const {
+      searchText,
+      onSearchTextChange,
+      bookmarkedOnly,
+      onBookmarkedChange,
+      selectedGenre,
+      onSelectedGenreChange
+    } = this.props;
+
     return (
       <form data-testid="search-bar-form">
         {/* LINT ISSUE: error  A form label must be associated with a control */}
@@ -37,7 +21,7 @@ class SearchBar extends Component {
             type="text"
             name="searchText"
             value={ searchText }
-            onChange={ this.handleChange }
+            onChange={ onSearchTextChange }
             data-testid="text-input"
           />
         </label>
@@ -48,7 +32,7 @@ class SearchBar extends Component {
             type="checkbox"
             name="bookmarkedOnly"
             checked={ bookmarkedOnly }
-            onChange={ this.handleChange }
+            onChange={ onBookmarkedChange }
             data-testid="checkbox-input"
           />
         </label>
@@ -58,7 +42,7 @@ class SearchBar extends Component {
           <select
             value={ selectedGenre }
             name="selectedGenre"
-            onChange={ this.handleChange }
+            onChange={ onSelectedGenreChange }
             data-testid="select-input"
           >
             <option value="" data-testid="select-option">Todos</option>
