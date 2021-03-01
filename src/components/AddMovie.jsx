@@ -25,13 +25,13 @@ class AddMovie extends React.Component {
 
   createInput(label, name, type, value) {
     return (
-      <label data-testid={`${name}-input-label`} htmlFor={`${name}-input`}>
-        {label}
+      <label data-testid={ `${ name }-input-label` } htmlFor={ `${ name }-input` }>
+        { label }
         <input
-          data-testid={`${name}-input`}
-          type={type}
-          name={name}
-          id={`${name}-input`}
+          data-testid={ `${ name }-input` }
+          type={ type }
+          name={ name }
+          id={ `${ name }-input` }
           value={ value }
           onChange={ this.handleChange }
         />
@@ -44,9 +44,9 @@ class AddMovie extends React.Component {
     const { title, subtitle, imagePath, storyline } = this.state;
     return (
       <form data-testid="add-movie-form">
-        {this.createInput(Título, "title", "text", title)}
-        {this.createInput(Subtítulo, "subtitle", "text", subtitle)}
-        {this.createInput(Imagem, "image", "text", imagePath)}
+        { this.createInput(Título, 'title', 'text', title) }
+        { this.createInput(Subtítulo, 'subtitle', 'text', subtitle) }
+        { this.createInput(Imagem, 'image', 'text', imagePath) }
         <label data-testid="storyline-input-label" htmlFor="storyline-input">
           Sinopse
           <textarea
