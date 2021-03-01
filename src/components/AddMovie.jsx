@@ -74,7 +74,7 @@ class AddMovie extends Component {
           handleChange={ this.handleChange }
         />
         <AddRating
-          imagePath={ rating }
+          rating={ rating }
           handleChange={ this.handleChange }
         />
         <AddGenre
