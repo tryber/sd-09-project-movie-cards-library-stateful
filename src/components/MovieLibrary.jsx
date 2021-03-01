@@ -8,6 +8,7 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
+    console.log('teste');
   }
 
   render() {
@@ -23,5 +24,9 @@ class MovieLibrary extends Component {
     );
   }
 }
+
+MovieLibrary.propTypes = ({
+  movies: PropTypes.arrayOf(PropTypes.string).isRequired,
+});
 
 export default MovieLibrary;
