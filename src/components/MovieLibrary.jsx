@@ -1,5 +1,5 @@
 // implement AddMovie component here
-import React, { useCallback } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import AddMovie from './AddMovie';
 import SearchBar from './SearchBar';
@@ -9,6 +9,7 @@ class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
     this.changeState = this.changeState.bind(this);
+    this.insertMovie = this.insertMovie.bind(this);
     const { movies } = this.props;
     this.state = {
       searchText: '',
@@ -48,6 +49,16 @@ class MovieLibrary extends React.Component {
     });
   }
 
+  insertMovie(movie) {
+    const { movies } = this.props;
+    this.setState({
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      movies: [...movies, movie],
+    });
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
@@ -61,7 +72,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={ this.changeState }
         />
         <MovieList movies={ movies } />
-        <AddMovie onclick={ useCallback } />
+        <AddMovie onClick={ this.insertMovie } />
       </div>
     );
   }

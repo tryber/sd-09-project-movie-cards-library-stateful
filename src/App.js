@@ -2,13 +2,13 @@ import React from 'react';
 import Header from './components/Header';
 import MovieLibrary from './components/MovieLibrary';
 import './App.css';
-import Data from './data';
+import movies from './data';
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <MovieLibrary movies={ Data } />
+      <MovieLibrary movies={ movies } />
     </div>
   );
 }

@@ -11,6 +11,7 @@ class AddMovie extends React.Component {
     this.createStoryline = this.createStoryline.bind(this);
     this.createGenre = this.createGenre.bind(this);
     this.createButton = this.createButton.bind(this);
+    this.submit = this.submit.bind(this);
     this.state = {
       subtitle: '',
       title: '',
@@ -159,14 +160,27 @@ class AddMovie extends React.Component {
     );
   }
 
+  submit() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   createButton() {
-    const { onclick } = this.props;
     return (
       <div>
         <button
-          type="submit"
+          value={ JSON.stringify(this.state) }
+          type="button"
           data-testid="send-button"
-          onClick={ onclick }
+          onClick={ this.submit }
         >
           Adicionar filme
         </button>
@@ -192,11 +206,11 @@ class AddMovie extends React.Component {
 }
 
 AddMovie.defaultProps = {
-  onclick: () => {},
+  onClick: () => {},
 };
 
 AddMovie.propTypes = {
-  onclick: PropTypes.func,
+  onClick: PropTypes.func,
 };
 
 export default AddMovie;
