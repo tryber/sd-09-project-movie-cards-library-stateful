@@ -13,8 +13,8 @@ const INITIAL_STATE = {
 
 class AddMovie extends Component{
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = INITIAL_STATE;
   }
 
