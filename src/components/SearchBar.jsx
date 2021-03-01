@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './SearchBar.css';
+// import './SearchBar.css';
 
 class SearchBar extends React.Component {
   render() {
@@ -16,7 +16,7 @@ class SearchBar extends React.Component {
     } = this.props;
     return (
       <section>
-        <form data-testid="search-bar-form">
+        <form data-testid="search-bar-form" className="formSearchBar">
           <label data-testid="text-input-label" htmlFor="textInput">
             Inclui o texto:
             <input
