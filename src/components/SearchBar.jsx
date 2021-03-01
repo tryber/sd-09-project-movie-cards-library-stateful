@@ -34,6 +34,15 @@ class SearchBar extends React.Component {
               onChange={ onBookmarkedChange }
             />
           </label>
+          <label data-testid="select-input-label" htmlFor="select-search">
+          Filtrar por gênero
+          <select data-testid="select-input" id="select-search" value={ selectedGenre } onchange={ onSelectedGenreChange }>
+            <option data-testid="select-option" value="">Todos</option>
+            <option data-testid="select-option" value="action">Ação</option>
+            <option data-testid="select-option" value="comedy">Comédia</option>
+            <option data-testid="select-option" value="thriller">Suspense</option>
+          </select>
+          </label>
         </form>
       </div>
     );
