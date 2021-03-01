@@ -53,6 +53,16 @@ class AddMovie extends Component{
               name="subtitle"
               id=""/>
           </label>
+          <label data-testid="image-input-label">
+            Imagem
+            <input
+              onChange={this.updateStateValue}
+              data-testid="image-input"
+              value={this.state.imagePath}
+              type="text"
+              name="imagePath"
+              id=""/>
+          </label>
         </form>
       </div>
     )
