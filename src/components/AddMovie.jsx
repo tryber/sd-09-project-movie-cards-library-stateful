@@ -1,6 +1,6 @@
 import React from 'react';
 import InputGeneric from './InputGeneric';
-// import SelectGenre from './SelectGenre';
+import SelectGenre from './SelectGenre';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -11,7 +11,7 @@ class AddMovie extends React.Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      // genre: 'action',
+      genre: 'action',
     };
     this.reloadState = this.reloadState.bind(this);
   }
@@ -22,7 +22,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline, rating } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         <InputGeneric
@@ -56,7 +56,7 @@ class AddMovie extends React.Component {
             data-testid="storyline-input"
             id="label-textarea"
             name="storyline"
-            onChange={ this.reloadState }
+            onChange={ this.reloagenre }
             value={ storyline }
           />
         </label>
@@ -67,6 +67,7 @@ class AddMovie extends React.Component {
           type="number"
           value={ rating }
         />
+        <SelectGenre genre={ genre } reload={ this.reloadState } />
       </form>
     );
   }
