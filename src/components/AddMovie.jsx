@@ -23,7 +23,6 @@ class AddMovie extends Component {
         Sinopse
         <textarea
           data-testid="storyline-input"
-          defaultValue={ storyline }
           value={ storyline }
           name="storyline"
           onChange={ this.changeHandler }
