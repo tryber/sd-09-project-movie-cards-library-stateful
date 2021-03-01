@@ -11,6 +11,7 @@ class AddMovie extends React.Component {
     this.createStorylineInput = this.createStorylineInput.bind(this);
     this.createRatingInput = this.createRatingInput.bind(this);
     this.createGenreInput = this.createGenreInput.bind(this);
+    this.createButton = this.createButton.bind(this);
     this.resetState = this.resetState.bind(this);
 
     this.state = {
@@ -23,25 +24,14 @@ class AddMovie extends React.Component {
     };
   }
 
-  /* handleChange({ target }) {
+  handleChange({ target }) {
     const { name, value } = target;
     this.setState({ [name]: value });
-  } */
-
-  handleChange(event) {
-    this.setState({
-      title: event.target.value,
-      subtitle: event.target.value,
-      imagePath: event.target.value,
-      storyline: event.target.value,
-      rating: event.target.value,
-      genre: event.target.value,
-    });
   }
 
   resetState() {
     const { onClick } = this.props;
-    onClick(this.state);
+    onClick();
     this.setState({
       subtitle: '',
       title: '',
@@ -61,7 +51,7 @@ class AddMovie extends React.Component {
           type="text"
           value={ title }
           onChange={ this.handleChange }
-          id="title-input"
+          name="title"
         />
       </label>
     );
@@ -76,7 +66,7 @@ class AddMovie extends React.Component {
           type="text"
           value={ subtitle }
           onChange={ this.handleChange }
-          id="subtitle-input"
+          name="subtitle"
         />
       </label>
     );
@@ -91,7 +81,7 @@ class AddMovie extends React.Component {
           type="text"
           value={ imagePath }
           onChange={ this.handleChange }
-          id="image-input"
+          name="imagePath"
         />
       </label>
     );
@@ -106,7 +96,7 @@ class AddMovie extends React.Component {
           type="text"
           value={ storyline }
           onChange={ this.handleChange }
-          id="storyline-input"
+          name="storyline"
         />
       </label>
     );
@@ -121,7 +111,7 @@ class AddMovie extends React.Component {
           type="number"
           value={ rating }
           onChange={ this.handleChange }
-          id="rating-input"
+          name="rating"
         />
       </label>
     );
@@ -135,7 +125,7 @@ class AddMovie extends React.Component {
           data-testid="genre-input"
           value={ genre }
           onChange={ this.handleChange }
-          id="genre-input"
+          name="genre"
         >
           <option value="action" data-testid="genre-option">Ação</option>
           <option value="comedy" data-testid="genre-option">Comédia</option>
@@ -167,13 +157,7 @@ class AddMovie extends React.Component {
         { this.createStorylineInput(storyline) }
         { this.createRatingInput(rating) }
         { this.createGenreInput(genre) }
-        <button
-          type="button"
-          onClick={ this.resetState }
-          data-testid="send-button"
-        >
-          Adicionar filme
-        </button>
+        { this.createButton() }
       </form>
     );
   }

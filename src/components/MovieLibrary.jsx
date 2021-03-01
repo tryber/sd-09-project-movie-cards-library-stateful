@@ -8,21 +8,23 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
+    const { movies } = this.props;
     this.state = {
-    /*  searchText: '',
+      searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: this.props.movies, */
+      movies: movies,
     };
   }
 
+  // função pra pegar o estado quando digitar nos inputs para atualizar o estado do movielibrary. o parâmetro vai ser o obj com o estado
+
   render() {
-    const { movies } = this.props;
     return (
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar />
-        <MovieList movies={ movies } />
+        <MovieList movies={ this.movies } />
         <AddMovie />
       </div>
     );
