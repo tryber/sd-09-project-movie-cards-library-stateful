@@ -129,10 +129,11 @@ class AddMovie extends React.Component {
   }
 
   createAddMovieButton() {
+    const { addNewMovie } = this.props;
     return (
       <button
         type="button"
-        onClick={ this.addNewMovie }
+        onClick={ addNewMovie }
         data-testid="send-button"
       >
         Adicionar filme
@@ -166,6 +167,7 @@ class AddMovie extends React.Component {
 
 AddMovie.propTypes = {
   onClick: PropTypes.func.isRequired,
+  addNewMovie: PropTypes.func.isRequired,
 };
 
 export default AddMovie;
