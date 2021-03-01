@@ -21,51 +21,70 @@ class AddMovie extends Component {
     this.setState({ [name]: value });
   }
 
+  inputTitleData() {
+    const { title } = this.state;
+
+    return {
+      dataTestIdLabel: 'title-input-label',
+      labelTitle: 'Título',
+      id: 'title-input',
+      name: 'title',
+      type: 'text',
+      value: title,
+      onChange: this.handleChange,
+    };
+  }
+
+  inputSubtitleData() {
+    const { subtitle } = this.state;
+
+    return {
+      dataTestIdLabel: 'subtitle-input-label',
+      labelTitle: 'Subtítulo',
+      id: 'subtitle-input',
+      name: 'subtitle',
+      type: 'text',
+      value: subtitle,
+      onChange: this.handleChange,
+    };
+  }
+
+  inputImageData() {
+    const { imagePath } = this.state;
+
+    return {
+      dataTestIdLabel: 'image-input-label',
+      labelTitle: 'Imagem',
+      id: 'image-input',
+      name: 'imagePath',
+      type: 'text',
+      value: imagePath,
+      onChange: this.handleChange,
+    };
+  }
+
+  inputStorylineData() {
+    const { storyline } = this.state;
+
+    return {
+      dataTestIdLabel: 'storyline-input-label',
+      labelTitle: 'Sinopse',
+      id: 'storyline-input',
+      name: 'storyline',
+      type: 'textarea',
+      value: storyline,
+      onChange: this.handleChange,
+    };
+  }
+
   render() {
     const { onClick } = this.props;
-    const { subtitle, title, imagePath, storyline } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <Input
-          dataTestIdLabel="title-input-label"
-          labelTitle="Título"
-          id="title-input"
-          name="title"
-          type="text"
-          value={ title }
-          dataTestIdInput="title-input"
-          onChange={ this.handleChange }
-        />
-        <Input
-          dataTestIdLabel="subtitle-input-label"
-          labelTitle="Subtítulo"
-          id="subtitle-input"
-          name="subtitle"
-          type="text"
-          value={ subtitle }
-          dataTestIdInput="subtitle-input"
-          onChange={ this.handleChange }
-        />
-        <Input
-          dataTestIdLabel="image-input-label"
-          labelTitle="Imagem"
-          id="image-input"
-          name="imagePath"
-          type="text"
-          value={ imagePath }
-          dataTestIdInput="image-input"
-          onChange={ this.handleChange }
-        />
-        <Input
-          dataTestIdLabel="storyline-input-label"
-          labelTitle="Sinopse"
-          id="storyline-input"
-          name="storyline"
-          type="textarea"
-          value={ storyline }
-          dataTestIdInput="storyline-input"
-          onChange={ this.handleChange }
-        />
+        <Input input={ this.inputTitleData() } />
+        <Input input={ this.inputSubtitleData() } />
+        <Input input={ this.inputImageData() } />
+        <Input input={ this.inputStorylineData() } />
       </form>
     );
   }
