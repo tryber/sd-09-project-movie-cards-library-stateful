@@ -16,9 +16,10 @@ class AddMovie extends Component{
   constructor(props) {
     super(props);
     this.state = INITIAL_STATE;
+    this.updateStateValue = this.updateStateValue.bind(this);
   }
 
-  updateStateValue = ({ target }) => {
+  updateStateValue({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState(
