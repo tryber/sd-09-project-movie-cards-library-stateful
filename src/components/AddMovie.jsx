@@ -14,11 +14,11 @@ class AddMovie extends React.Component {
     };
   }
 
-  handleChange({target}) {
+  handleChange({ target }) {
     const { name, value } = target;
     this.setState({
       [name]: value,
-    })
+    });
   }
 
   render() {
@@ -27,13 +27,13 @@ class AddMovie extends React.Component {
       <form data-testid="add-movie-form">
         <label data-testid="title-input-label" htmlFor="title-input">
           Título
-          <input 
-          data-testid="title-input" 
-          type="text"
-          name="title"
-          id="title-input" 
-          value={ this.state.title } 
-          onChange={ this.handleChange }
+          <input
+            data-testid="title-input"
+            type="text"
+            name="title"
+            id="title-input"
+            value={ this.state.title }
+            onChange={ this.handleChange }
           />
         </label>
       </form>
