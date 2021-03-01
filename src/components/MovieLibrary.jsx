@@ -18,7 +18,7 @@ class MovieLibrary extends Component {
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
-    this.onClick = this.onClick.bind(this);
+    this.onAddMovieClick = this.onAddMovieClick.bind(this);
   }
 
   handleChange({ target }) {
@@ -30,25 +30,18 @@ class MovieLibrary extends Component {
   }
 
   onSelectedGenreChange(evt) {
-    this.setState({
-      selectedGenre: evt.target.value,
-    });
+    this.handleChange(evt);
   }
 
   onBookmarkedChange(evt) {
-    this.setState({
-      bookmarkedOnly: evt.target.checked,
-    });
+    this.handleChange(evt);
   }
 
   onSearchTextChange(evt) {
-    console.log(this.state);
-    this.setState({
-      searchText: evt.target.value,
-    });
+    this.handleChange(evt);
   }
 
-  onClick(state) {
+  onAddMovieClick(state) {
     console.log(state);
   }
 
@@ -66,7 +59,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList movies={ movies } />
-        <AddMovie onClick={ this.onClick } />
+        <AddMovie onAddMovieClick={ this.onAddMovieClick } />
       </div>
     );
   }

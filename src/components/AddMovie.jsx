@@ -3,18 +3,18 @@ import PropTypes from 'prop-types';
 import ParentInput from './ParentInput';
 import ParentSelect from './ParentSelect';
 
+const INITIAL_STATE = {
+  title: '',
+  subtitle: '',
+  storyline: '',
+  rating: 0,
+  imagePath: '',
+  genre: 'action',
+};
 class AddMovie extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      title: '',
-      subtitle: '',
-      storyline: '',
-      rating: 0,
-      imagePath: '',
-      genre: 'action',
-    };
-    this.baseState = this.state;
+    this.state = INITIAL_STATE;
     this.handleChange = this.handleChange.bind(this);
     this.resetState = this.resetState.bind(this);
   }
@@ -30,11 +30,11 @@ class AddMovie extends Component {
 
   resetState(evt) {
     evt.preventDefault();
-    this.setState(this.baseState);
+    this.setState(INITIAL_STATE);
   }
 
   render() {
-    const { onClick } = this.props;
+    const { onAddMovieClick } = this.props;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
@@ -77,7 +77,7 @@ class AddMovie extends Component {
           handleChange={ this.handleChange }
         />
         <ParentSelect value={ genre } handleChange={ this.handleChange } />
-        <button data-testid="send-button" type="submit" onClick={ onClick(this.state) } onMouseDown={ this.resetState }>
+        <button data-testid="send-button" type="submit" onClick={ onAddMovieClick(this.state) }>
           Adicionar filme
         </button>
       </form>
@@ -85,6 +85,6 @@ class AddMovie extends Component {
   }
 }
 AddMovie.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  onAddMovieClick: PropTypes.func.isRequired,
 };
 export default AddMovie;
