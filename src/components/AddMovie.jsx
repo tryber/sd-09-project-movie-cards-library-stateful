@@ -56,7 +56,7 @@ class AddMovie extends React.Component {
             data-testid="storyline-input"
             id="label-textarea"
             name="storyline"
-            onChange={ this.reloagenre }
+            onChange={ this.reloadState }
             value={ storyline }
           />
         </label>
