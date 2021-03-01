@@ -12,7 +12,6 @@ class MovieLibrary extends React.Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies,
-      filteredMovies: movies,
     };
   }
 
