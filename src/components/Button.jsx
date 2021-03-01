@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 
 class Button extends Component {
   render() {
-    const { changeState } = this.props;
+    const { submitForm } = this.props;
     return (
       <button
         type="button"
         data-testid="send-button"
-        onClick={ changeState }
+        onClick={ submitForm }
       >
         Adicionar filme
       </button>

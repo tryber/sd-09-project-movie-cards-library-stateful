@@ -5,10 +5,11 @@ import GenreSelect from './GenreSelect';
 import Button from './Button';
 
 class AddMovie extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.changeState = this.changeState.bind(this);
+    this.submitForm = this.submitForm.bind(this);
 
     this.state = {
       subtitle: '',
@@ -24,6 +25,19 @@ class AddMovie extends Component {
     const { name, value } = target;
     this.setState({
       [name]: value,
+    });
+  }
+
+  submitForm() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
     });
   }
 
@@ -70,9 +84,9 @@ class AddMovie extends Component {
             onChange={ this.changeState }
           />
         </label>
-        <RatingInput value={ rating } changeState={this.changeState} />
-        <GenreSelect value={ genre } changeState={this.changeState} />
-        <Button changeState={ this.changeState } />
+        <RatingInput value={ rating } changeState={ this.changeState } />
+        <GenreSelect value={ genre } changeState={ this.changeState } />
+        <Button submitForm={ this.submitForm } />
       </form>
     );
   }
