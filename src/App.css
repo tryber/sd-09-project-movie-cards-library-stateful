@@ -81,3 +81,9 @@ body {
   justify-content: flex-end;
   padding: 12px 20px;
 }
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 40px;
+}
