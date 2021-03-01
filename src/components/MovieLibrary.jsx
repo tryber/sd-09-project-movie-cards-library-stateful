@@ -24,33 +24,28 @@ class MovieLibrary extends Component {
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
-    console.log(movies);
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const { movies } = this.props;
     return (
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={ searchText }
           onSearchTextChange={ this.onSearchTextChange }
-          // onSearchTextChange={ Component }
           bookmarkedOnly={ bookmarkedOnly }
           onBookmarkedChange={ this.onBookmarkedChange }
-          // onBookmarkedChange={ Component }
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.onSelectedGenreChange }
-          // onSelectedGenreChange={ Component }
-        />
-        <AddMovie
-          onClick={ this.onClick }
         />
         <MovieList movies={ movies } />
+        <AddMovie onClick={ this.onClick } />
       </div>
     );
   }
 }
 
 MovieLibrary.propTypes = {
-  movies: PropTypes.string.isRequired,
+  movies: PropTypes.arrayOf.isRequired,
 };
 
 export default MovieLibrary;
