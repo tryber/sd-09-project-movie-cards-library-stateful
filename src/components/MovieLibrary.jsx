@@ -12,23 +12,65 @@ class MovieLibrary extends React.Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies,
+      filteredMovies: movies,
     };
   }
 
   handleSearchTextChange(searchText) {
     this.setState({ searchText });
+    const { bookmarkedOnly, selectedGenre } = this.state;
+    this.filterMovies({ bookmarkedOnly, searchText, selectedGenre });
   }
 
   bookmarkedChange(bookmarkedOnly) {
     this.setState({ bookmarkedOnly });
+    const { selectedGenre, searchText } = this.state;
+    this.filterMovies({ bookmarkedOnly, searchText, selectedGenre });
   }
 
   selectedGenreChange(selectedGenre) {
     this.setState({ selectedGenre });
+    const { bookmarkedOnly, searchText } = this.state;
+    this.filterMovies({ bookmarkedOnly, searchText, selectedGenre });
+  }
+
+  filterMovies(newState) {
+    const { movies } = this.props;
+    const { bookmarkedOnly, selectedGenre, searchText } = newState;
+    const bookmarkedFilter = (movie) => {
+      if (bookmarkedOnly) {
+        return movie.bookmarked;
+      }
+      return true;
+    };
+    const genreFilter = (movie) => {
+      console.log(selectedGenre);
+      if (selectedGenre) {
+        return movie.genre === selectedGenre;
+      }
+      return true;
+    };
+    const textFilter = ({ title, subtitle, storyline }) => {
+      const includes = (text) => text.includes(searchText);
+      if (searchText) {
+        return includes(title) || includes(subtitle) || includes(storyline);
+      }
+      return true;
+    };
+    const filteredMovies = movies
+      .filter(bookmarkedFilter)
+      .filter(genreFilter)
+      .filter(textFilter);
+    this.setState({ movies: filteredMovies });
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const {
+      searchText,
+      bookmarkedOnly,
+      selectedGenre,
+      movies,
+    } = this.state;
     return (
       <div>
         <SearchBar
