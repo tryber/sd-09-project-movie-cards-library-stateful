@@ -25,13 +25,13 @@ class AddMovie extends React.Component {
 
   createInput(label, name, type, value) {
     return (
-      <label data-testid={ `${ name }-input-label` } htmlFor={ `${ name }-input` }>
+      <label data-testid={`${ name }-input-label`} htmlFor={`${ name }-input`}>
         { label }
         <input
-          data-testid={ `${ name }-input` }
+          data-testid={`${ name }-input`}
           type={ type }
           name={ name }
-          id={ `${ name }-input` }
+          id={`${ name }-input`}
           value={ value }
           onChange={ this.handleChange }
         />
