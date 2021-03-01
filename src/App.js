@@ -6,7 +6,6 @@ function App() {
   return (
     <div className="App">
       <Header />
-      {/* {Inicio do projeto movie library com estados} */}
     </div>
   );
 }
