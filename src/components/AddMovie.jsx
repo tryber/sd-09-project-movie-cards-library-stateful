@@ -10,13 +10,15 @@ class AddMovie extends React.Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-    }
+    };
   }
 
   render() {
     const { onClick } = this.props;
-    return (placeholder)
-  }
+    return (
+      <form data-testid="add-movie-form"></form>
+    );
+  };
 }
 
 AddMovie.propTypes = {
