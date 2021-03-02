@@ -37,10 +37,9 @@ class MovieLibrary extends Component {
 
     if (searchText) {
       filteredMovies = movies.filter(
-        ({ title, subtitle, storyline }) =>
-          title.includes(searchText) ||
-          subtitle.includes(searchText) ||
-          storyline.includes(searchText)
+        ({ title, subtitle, storyline }) => title.includes(searchText)
+        || subtitle.includes(searchText)
+        || storyline.includes(searchText),
       );
     }
 
