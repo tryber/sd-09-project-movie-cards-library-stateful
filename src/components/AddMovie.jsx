@@ -6,19 +6,21 @@ class AddMovie extends Component {
     super(props);
     this.inputTitle = this.inputTitle.bind(this);
     this.textContentInput = this.textContentInput.bind(this);
+    this.inputSubtitle = this.inputSubtitle.bind(this);
     this.state = {
       subtitle: '',
       title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
+      // imagePath: '',
+      // storyline: '',
+      // rating: 0,
+      // genre: 'action',
     };
   }
 
   textContentInput(event) {
+    const { name, value } = event.target;
     this.setState({
-      title: event.target.value,
+      [name]: value,
     });
   }
 
@@ -29,8 +31,26 @@ class AddMovie extends Component {
         Título:
         <input
           data-testid="title-input"
+          name="title"
           type="text"
           value={ title }
+          onChange={ this.textContentInput }
+        />
+      </label>
+    );
+    return input;
+  }
+
+  inputSubtitle() {
+    const { subtitle } = this.state;
+    const input = (
+      <label data-testid="subtitle-input-label" htmlFor="*">
+        Subtítulo:
+        <input
+          type="text"
+          name="subtitle"
+          value={ subtitle }
+          data-testid="subtitle-input"
           onChange={ this.textContentInput }
         />
       </label>
@@ -42,18 +62,19 @@ class AddMovie extends Component {
     return (
       <form data-testid="add-movie-form">
         { this.inputTitle() }
+        { this.inputSubtitle() }
       </form>
     );
   }
 }
 
-AddMovie.propTypes = {
-  subtitle: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  imagePath: PropTypes.string.isRequired,
-  storyline: PropTypes.string.isRequired,
-  rating: PropTypes.number.isRequired,
-  genre: PropTypes.string.isRequired,
-};
+// AddMovie.propTypes = {
+//   subtitle: PropTypes.string.isRequired,
+//   title: PropTypes.string.isRequired,
+//   imagePath: PropTypes.string.isRequired,
+//   storyline: PropTypes.string.isRequired,
+//   rating: PropTypes.number.isRequired,
+//   genre: PropTypes.string.isRequired,
+// };
 
 export default AddMovie;
