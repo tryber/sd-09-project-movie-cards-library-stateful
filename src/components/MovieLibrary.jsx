@@ -49,11 +49,7 @@ class MovieLibrary extends Component {
   }
 
   addNewMovie(movieInfo) {
-    const { movies } = this.state;
-    movies.push(movieInfo);
-    this.setState({
-      movies,
-    });
+    this.setState((oldState) => ({ movies: [...oldState.movies, movieInfo] }));
   }
 
   render() {
