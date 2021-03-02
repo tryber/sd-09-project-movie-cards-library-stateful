@@ -1,21 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const initialState = {
-  subtitle: '',
-  title: '',
-  imagePath: '',
-  storyline: '',
-  rating: 0,
-  genre: 'action',
-};
-
 class AddMovie extends React.Component {
   constructor(props) {
     super(props);
     this.onClick = this.onClick.bind(this);
     this.addNewMovie = this.addNewMovie.bind(this);
-    this.state = initialState;
+    this.state = {
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    };
   }
 
   onClick({ target }) {
@@ -28,7 +26,14 @@ class AddMovie extends React.Component {
   addNewMovie() {
     const { onClick } = this.props;
     onClick(this.state);
-    this.setState = initialState;
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyLine: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   createTitleInput(title) {
@@ -79,7 +84,6 @@ class AddMovie extends React.Component {
       <label htmlFor="storyline-input" data-testid="storyline-input-label">
         Sinopse
         <textarea
-          type="text"
           name="storyline"
           value={ storyline }
           onChange={ this.onClick }
@@ -128,7 +132,7 @@ class AddMovie extends React.Component {
     return (
       <button
         type="button"
-        onClick={ () => { this.addNewMovie(); } }
+        onClick={ this.addNewMovie }
         data-testid="send-button"
       >
         Adicionar filme
