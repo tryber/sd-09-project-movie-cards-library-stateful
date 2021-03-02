@@ -4,6 +4,7 @@ import Subtitulo from './auxiliaries/Subtitulo';
 import Imagem from './auxiliaries/Imagem';
 import Sinopse from './auxiliaries/Sinopse';
 import Avaliacao from './auxiliaries/Avaliacao';
+import Genero from './auxiliaries/Genero';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -14,6 +15,7 @@ class AddMovie extends React.Component {
     this.imageChange = this.imageChange.bind(this);
     this.storylineChange = this.storylineChange.bind(this);
     this.ratingChange = this.ratingChange.bind(this);
+    this.genreChange = this.genreChange.bind(this);
 
     this.state = ({
       title: '',
@@ -21,6 +23,7 @@ class AddMovie extends React.Component {
       imagePath: '',
       storyline: '',
       rating: 0,
+      genre: 'action',
     });
   }
 
@@ -44,8 +47,12 @@ class AddMovie extends React.Component {
     this.setState({ rating: event.target.value });
   }
 
+  genreChange(event) {
+    this.setState({ genre: event.target.value });
+  }
+
   render() {
-    const { title, subtitle, imagePath, storyline, rating } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         <Titulo onValue={ title } change={ this.titleChange } />
@@ -53,6 +60,7 @@ class AddMovie extends React.Component {
         <Imagem onValue={ imagePath } change={ this.imageChange } />
         <Sinopse onValue={ storyline } change={ this.storylineChange } />
         <Avaliacao onValue={ rating } change={ this.ratingChange } />
+        <Genero onValue={ genre } change={ this.genreChange } />
       </form>
     );
   }
