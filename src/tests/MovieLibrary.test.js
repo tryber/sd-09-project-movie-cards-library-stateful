@@ -133,7 +133,6 @@ describe('18 - Renderize `<MovieList />` dentro de `<MovieLibrary />`', () => {
     event.type(textInput, 'incredible');
 
     const movieCard = getAllByTestId(movieCardTestId);
-r
 
     const movieCardTitle = getByTestId(movieCardTitleId);
     expect(movieCardTitle).toHaveTextContent(movies[1].title);
