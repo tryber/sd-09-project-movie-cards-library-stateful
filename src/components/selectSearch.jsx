@@ -14,6 +14,7 @@ class selectSearch extends React.Component {
       >
         Filtrar por gênero
         <select
+          name="selectedGenre"
           id="genero"
           value={ selectedGenre }
           onChange={ onSelectedGenreChange }
