@@ -31,17 +31,20 @@ class MovieLibrary extends Component {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     let filteredMovies = movies;
 
-    if ( bookmarkedOnly ) {
+    if (bookmarkedOnly) {
       filteredMovies = movies.filter(({ bookmarked }) => bookmarked);
     }
 
-    if ( searchText ) {
-      filteredMovies = movies.filter(({ title, subtitle, storyline }) => {
-       return title.includes( searchText ) || subtitle.includes( searchText ) || storyline.includes( searchText );
-      } )
+    if (searchText) {
+      filteredMovies = movies.filter(
+        ({ title, subtitle, storyline }) =>
+          title.includes(searchText) ||
+          subtitle.includes(searchText) ||
+          storyline.includes(searchText)
+      );
     }
 
-    if ( selectedGenre ) {
+    if (selectedGenre) {
       filteredMovies = movies.filter(({ genre }) => genre === selectedGenre);
     }
 
@@ -70,7 +73,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.handleChange }
         />
         <MovieList movies={ movies } />
-        <AddMovie onClick={ this.addMovieOnClick }/>
+        <AddMovie onClick={ this.addMovieOnClick } />
       </div>
     );
   }
