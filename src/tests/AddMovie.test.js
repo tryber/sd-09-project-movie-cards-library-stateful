@@ -111,16 +111,16 @@ describe('10 - Renderize um input do tipo texto dentro do formulário em `<AddMo
   it('Renderize um input de texto para quem usa inserir a url da imagem do filme', () => {
     expect(imageInput).toBeInTheDocument();
   });
-
+ 
   it('Renderize a label "Imagem" para o input de imagem', () => {
     expect(imageInputLabel).toBeInTheDocument();
     expect(imageInputLabel).toHaveTextContent('Imagem');
   });
-
+ 
   it('Defina o estado inicial do input de imagem como "", ou seja, uma string vazia', () => {
     expect(imageInput).toHaveValue(initialState.imagePath);
   });
-
+ 
   it('Altere o valor do input de imagem quando algo é digitado nele', () => {
     event.type(imageInput, 'http://localhost:3000/images/Appleseed_Alpha.jpg');
     expect(imageInput).toHaveValue('http://localhost:3000/images/Appleseed_Alpha.jpg');
@@ -214,8 +214,8 @@ describe('14 - Renderize um botão do formulário em `<AddMovie />` para fazer u
     event.type(subtitleInput, subtitleMagical);
     fireEvent.change(storylineInput, { target: { value: `${inputStoryline}` } });
     event.type(storylineInput, inputStoryline);
-    event.type(ratingInput, '3.5');
-
+  event.type(ratingInput, '3.5');
+    
     event.click(sendButton);
 
     expect(onClick).toHaveBeenCalled();
