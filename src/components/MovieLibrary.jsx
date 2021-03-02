@@ -8,7 +8,7 @@ class MovieLibrary extends React.Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: props.movies,
+      // movies: props.movies,
     };
     this.HandleChange = this.HandleChange.bind(this);
   }
