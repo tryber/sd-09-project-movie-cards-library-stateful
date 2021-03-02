@@ -18,6 +18,7 @@ class SearchBar extends React.Component {
           <input
             type="text"
             value={ searchText }
+            name="searchText"
             onChange={ onSearchTextChange }
             data-testid="text-input"
             id="text-label"
@@ -40,6 +41,7 @@ class SearchBar extends React.Component {
             onChange={ onSelectedGenreChange }
             data-testid="select-input"
             id="select-label"
+            name="selectedGenre"
           >
             <option value="" data-testid="select-option">Todos</option>
             <option value="action" data-testid="select-option">Ação</option>
