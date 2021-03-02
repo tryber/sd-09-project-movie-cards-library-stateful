@@ -25,11 +25,10 @@ class AddMovie extends React.Component {
     this.CustomInput = this.CustomInput.bind(this);
     this.TextAreaInput = this.TextAreaInput.bind(this);
     this.SelectInput = this.SelectInput.bind(this);
-    this.resetState = this.resetState.bind(this);
+    this.ResetState = this.ResetState.bind(this);
   }
 
   HandleChange({ target }) {
-    // console.log(target.children);
     const { name, value } = target;
     this.setState({
       [name]: value,
@@ -83,7 +82,7 @@ class AddMovie extends React.Component {
     );
   }
 
-  resetState() {
+  ResetState() {
     const { onClick } = this.props;
     this.setState(initialState);
     onClick();
@@ -121,7 +120,7 @@ class AddMovie extends React.Component {
         <button
           type="button"
           data-testid="send-button"
-          onClick={ () => { this.resetState(); } }
+          onClick={ () => { this.ResetState(); } }
         >
           Adicionar filme
         </button>
