@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Input from './Input';
+import Select from './SelectInput';
 
 class AddMovie extends Component {
   constructor() {
@@ -11,7 +12,7 @@ class AddMovie extends Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      // genre: 'action',
+      genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -91,6 +92,19 @@ class AddMovie extends Component {
     };
   }
 
+  inputGenreData() {
+    const { genre } = this.state;
+
+    return {
+      dataTestIdLabel: 'genre-input-label',
+      labelTitle: 'Gênero',
+      id: 'genre-input',
+      name: 'genre',
+      value: genre,
+      onChange: this.handleChange,
+    };
+  }
+
   render() {
     // const { onClick } = this.props;
     return (
@@ -100,7 +114,7 @@ class AddMovie extends Component {
         <Input input={ this.inputImageData() } />
         <Input input={ this.inputStorylineData() } />
         <Input input={ this.inputRatingData() } />
-
+        <Select input={ this.inputGenreData() } />
       </form>
     );
   }
