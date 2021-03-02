@@ -18,6 +18,7 @@ class MovieLibrary extends Component {
     };
     this.onChangeFunction = this.onChangeFunction.bind(this);
     this.filterMovies = this.filterMovies.bind(this);
+    this.addNewMovie = this.addNewMovie.bind(this);
   }
 
   onChangeFunction({ target }) {
@@ -46,9 +47,14 @@ class MovieLibrary extends Component {
     }
     return searchFiltered;
   }
-  //   addMovieToList() {
-  //     movies;
-  //   }
+
+  addNewMovie(movieInfo) {
+    const { movies } = this.state;
+    movies.push(movieInfo);
+    this.setState({
+      movies,
+    });
+  }
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;

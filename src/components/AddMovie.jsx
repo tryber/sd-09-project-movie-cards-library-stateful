@@ -15,6 +15,11 @@ class AddMovie extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.addMovieClick = this.addMovieClick.bind(this);
     this.addFormItemTitle = this.addFormItemTitle.bind(this);
+    this.addFormItemSubtitle = this.addFormItemSubtitle.bind(this);
+    this.addFormItemStoryline = this.addFormItemStoryline.bind(this);
+    this.addFormItemImage = this.addFormItemImage.bind(this);
+    this.addFormItemGenre = this.addFormItemGenre.bind(this);
+    this.addFormItemRating = this.addFormItemRating.bind(this);
   }
 
   handleChange({ target }) {
