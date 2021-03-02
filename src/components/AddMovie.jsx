@@ -34,7 +34,7 @@ class AddMovie extends React.Component {
 
   clearState() {
     const { onClick } = this.props;
-    onClick();
+    onClick(this.state);
     this.setState({
       title: '',
       subtitle: '',
@@ -161,13 +161,6 @@ class AddMovie extends React.Component {
         { this.createRating(rating) }
         { this.createGenre(genre) }
         { this.createButton() }
-        {/* <button
-          data-testid="send-button"
-          type="button"
-          onClick={ this.clearState }
-        >
-          Adicionar filme
-        </button> */}
       </form>
     );
   }

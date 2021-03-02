@@ -17,6 +17,7 @@ class MovieLibrary extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.movieList = this.movieList.bind(this);
+    this.addMoviefct = this.addMoviefct.bind(this);
   }
 
   handleChange({ target }) { // requisito 17
@@ -47,6 +48,11 @@ class MovieLibrary extends Component {
     } return movieListReturn;
   }
 
+  addMoviefct(newMovie) {
+    const { movies } = this.state;
+    this.setState({ movies: [...movies, newMovie] });
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     const movies = this.movieList();
@@ -63,14 +69,14 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.handleChange } // requisito 17
         />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ this.addMoviefct } />
       </div>
     );
   }
 }
 
 MovieLibrary.propTypes = ({
-  movies: PropTypes.arrayOf(PropTypes.string).isRequired,
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
 });
 
 export default MovieLibrary;
