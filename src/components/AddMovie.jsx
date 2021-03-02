@@ -27,6 +27,14 @@ class AddMovie extends React.Component {
   handlerOnClick(state) {
     const { onClick } = this.props;
     onClick(state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   setTitle(event) {
@@ -117,8 +125,7 @@ class AddMovie extends React.Component {
     return (
       <label htmlFor="storyline" data-testid="storyline-input-label">
         Sinopse
-        <input
-          type="textarea"
+        <textarea
           name="storyline"
           id="storyline"
           data-testid="storyline-input"

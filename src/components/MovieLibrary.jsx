@@ -20,13 +20,9 @@ class MovieLibrary extends React.Component {
   }
 
   addMovieOnClick(state) {
-    state.setState({
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
+    const { movies } = this.state;
+    this.setState({
+      movies: [...movies, state],
     });
   }
 
@@ -42,7 +38,7 @@ class MovieLibrary extends React.Component {
           // onBookmarkedChange={}
           // onSelectedGenreChange={}
         />
-        <MovieList />
+        <MovieList movies={ movies } />
         <AddMovie onClick={ this.addMovieOnClick } />
       </div>
     );
