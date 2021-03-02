@@ -7,35 +7,56 @@ import AddMovie from './AddMovie';
 export default class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
-    const { movies } = this.props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies,
+      movies: props.movies,
     };
   }
 
   onClick = () => {};
 
   onSearchTextChange = (event) => {
+    const { searchText, movies } = this.state;
     const { value } = event.target;
+    const searchFilter = movies
+      .filter(({ title, subtitle, storyline }) => title.includes(searchText)
+        || subtitle.includes(searchText)
+        || storyline.includes(searchText));
+
     this.setState({
       searchText: value,
+      movies: searchFilter,
     });
   };
 
-  onBookmarkedChange = (event) => {
-    const { value } = event.target;
+  onBookmarkedChange = ({ target }) => {
+    const { movies } = this.state;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    let movieFilter = movies.filter((movie) => movie.bookmarked === value);
+    if (!value) {
+      movieFilter = movies;
+    }
+
     this.setState({
       bookmarkedOnly: value,
+      movies: movieFilter,
     });
   };
 
   onSelectedGenreChange = (event) => {
+    const { movies } = this.state;
+
     const { value } = event.target;
+    let genrerFilter = movies.filter((movie) => movie.genre === value);
+    if (value === '') {
+      genrerFilter = movies;
+    }
+
     this.setState({
       selectedGenre: value,
+      movies: genrerFilter,
     });
   };
 
