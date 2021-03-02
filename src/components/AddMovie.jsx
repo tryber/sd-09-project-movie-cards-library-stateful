@@ -29,10 +29,14 @@ class AddMovie extends Component {
   }
 
   setup(evt) {
+    let { rating } = this.state;
+    rating = parseFloat(rating);
     const { onClick } = this.props;
     evt.preventDefault();
-    onClick(this.state);
-    this.setState(INITIAL_STATE);
+    if (!Number.isNaN(rating)) {
+      onClick(this.state);
+      this.setState(INITIAL_STATE);
+    }
   }
 
   render() {

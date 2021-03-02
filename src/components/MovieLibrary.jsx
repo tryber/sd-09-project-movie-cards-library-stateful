@@ -62,7 +62,7 @@ class MovieLibrary extends Component {
       title: state.title,
       subtitle: state.subtitle,
       storyline: state.storyline,
-      rating: parseInt(state.rating, 10),
+      rating: parseFloat(state.rating),
       imagePath: state.imagePath,
       bookmarked: false,
       genre: state.genre,
