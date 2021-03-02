@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { string, bool, func } from 'prop-types';
 
 class SearchBar extends React.Component {
   render() {
@@ -54,7 +54,12 @@ class SearchBar extends React.Component {
 }
 
 SearchBar.propTypes = {
-
+  searchText: string.isRequired,
+  onSearchTextChange: func.isRequired,
+  bookmarkedOnly: bool.isRequired,
+  onBookmarkedChange: func.isRequired,
+  selectedGenre: string.isRequired,
+  onSelectedGenreChange: func.isRequired,
 };
 
 export default SearchBar;

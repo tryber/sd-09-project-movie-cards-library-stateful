@@ -1,11 +1,12 @@
 import React from 'react';
+import { func } from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      subtitle: '',
       title: '',
+      subtitle: '',
       imagePath: '',
       storyline: '',
       rating: 0,
@@ -101,5 +102,9 @@ class AddMovie extends React.Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: func.isRequired,
+};
 
 export default AddMovie;

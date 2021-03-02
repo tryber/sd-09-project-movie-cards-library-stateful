@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { string, number, bool, arrayOf, shape } from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
@@ -16,18 +16,18 @@ class MovieLibrary extends Component {
 
     this.handleInput = this.handleInput.bind(this);
     this.filterMovies = this.filterMovies.bind(this);
+    this.addNewMovie = this.addNewMovie.bind(this);
   }
 
   handleInput(event, name) {
     const { target: { value, type, checked } } = event;
     const stateValue = type === 'checkbox' ? checked : value;
-    this.setState({ [name]: stateValue }, () => this.filterMovies());
+    this.setState({ [name]: stateValue });
   }
 
   filterMovies() {
-    const { state: { searchText, bookmarkedOnly, selectedGenre } } = this;
-    const { props: { movies } } = this;
-    let newMovies = [...movies];
+    const { state: { searchText, bookmarkedOnly, selectedGenre, movies } } = this;
+    let newMovies = movies;
     if (bookmarkedOnly) {
       newMovies = newMovies.filter(({ bookmarked }) => bookmarked);
     }
@@ -35,19 +35,22 @@ class MovieLibrary extends Component {
       newMovies = newMovies.filter(({ genre }) => genre === selectedGenre);
     }
     if (searchText) {
-      newMovies = newMovies.filter(({ title, subtitle, storyline }) => {
-        return (
-          title.includes(searchText)
+      newMovies = newMovies.filter(
+        ({ title, subtitle, storyline }) => title.includes(searchText)
           || subtitle.includes(searchText)
-          || storyline.includes(searchText)
-        );
-      });
+          || storyline.includes(searchText),
+      );
     }
-    this.setState({ movies: newMovies });
+    return newMovies;
+  }
+
+  addNewMovie(newMovie) {
+    const { state: { movies } } = this;
+    this.setState({ movies: [...movies, newMovie] });
   }
 
   render() {
-    const { state: { searchText, bookmarkedOnly, selectedGenre, movies } } = this;
+    const { state: { searchText, bookmarkedOnly, selectedGenre } } = this;
     return (
       <div>
         <h2> My awesome movie library </h2>
@@ -59,11 +62,25 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ (event) => this.handleInput(event, 'selectedGenre') }
         />
-        <MovieList movies={ movies } />
-        <AddMovie />
+        <MovieList movies={ this.filterMovies() } />
+        <AddMovie onClick={ this.addNewMovie } />
       </div>
     );
   }
 }
+
+MovieLibrary.propTypes = {
+  movies: arrayOf(
+    shape({
+      title: string,
+      subtitle: string,
+      storyline: string,
+      rating: number,
+      imagePath: string,
+      bookmarked: bool,
+      genre: string,
+    }).isRequired,
+  ).isRequired,
+};
 
 export default MovieLibrary;
