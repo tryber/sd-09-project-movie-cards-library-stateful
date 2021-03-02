@@ -1,4 +1,5 @@
 import React from 'react';
+// import Input from './Input';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -8,12 +9,14 @@ class AddMovie extends React.Component {
     this.subtitleChange = this.subtitleChange.bind(this);
     this.imageChange = this.imageChange.bind(this);
     this.storylineChange = this.storylineChange.bind(this);
+    this.ratingChange = this.ratingChange.bind(this);
 
     this.state = ({
       title: '',
       subtitle: '',
       imagePath: '',
       storyline: '',
+      rating: 0,
     });
   }
 
@@ -33,8 +36,12 @@ class AddMovie extends React.Component {
     this.setState({ storyline: event.target.value });
   }
 
+  ratingChange(event) {
+    this.setState({ rating: event.target.value });
+  }
+
   render() {
-    const { title, subtitle, imagePath, storyline } = this.state;
+    const { title, subtitle, imagePath, storyline, rating } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label data-testid="title-input-label" htmlFor="titulo">
@@ -69,13 +76,16 @@ class AddMovie extends React.Component {
         </label>
         <label data-testid="storyline-input-label" htmlFor="sinopse">
           Sinopse
-          <textarea
-            id="sinopse"
-            cols=""
-            rows=""
-            value={ storyline }
-            onChange={ this.storylineChange }
-            data-testid="storyline-input"
+          <textarea id="sinopse" cols="" rows="" value={ storyline } onChange={ this.storylineChange } data-testid="storyline-input" />
+        </label>
+        <label data-testid="rating-input-label" htmlFor="avaliacao">
+          Avaliação
+          <input
+            id="avaliacao"
+            type="number"
+            value={ rating }
+            onChange={ this.ratingChange }
+            data-testid="rating-input"
           />
         </label>
       </form>
