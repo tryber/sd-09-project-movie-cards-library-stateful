@@ -7,9 +7,7 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
-    this.onSearchTextChange = this.onSearchTextChange.bind(this);
-    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
-    this.onSelectedGenreChange = this.onSelectedGenreChange(this);
+    this.handleChange = this.handleChange.bind(this);
     const { movies } = this.props;
     this.state = {
       searchText: '',
@@ -20,26 +18,13 @@ class MovieLibrary extends React.Component {
     this.state.movie = movies;
   }
 
-  // handleChange({ target }) {
-  //   const { name } = target;
-  //   const value = target.type === 'checkbox' ? target.checked : target.value;
+  handleChange({ target }) {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
 
-  //   this.setState({
-  //     [name]: value,
-  //   });
-  // }
-  onSearchTextChange(event) {
-    const { value } = event.target;
-    this.setState({ searchText: value });
-  }
-
-  onBookmarkedChange(event) {
-    const { checked } = event.target;
-    this.setState({ bookmarkedOnly: checked });
-  }
-
-  onSelectedGenreChange(event) {
-
+    this.setState({
+      [name]: value,
+    });
   }
 
   render() {
@@ -52,9 +37,9 @@ class MovieLibrary extends React.Component {
           searchText={ searchText }
           bookmarkedOnly={ bookmarkedOnly }
           selectedGenre={ selectedGenre }
-          onSearchTextChange={ this.onSearchTextChange }
-          onBookmarkedChange={ this.onBookmarkedChange }
-          onSelectedGenreChange={ this.onSelectedGenreChange }
+          onSearchTextChange={ this.handleChange }
+          onBookmarkedChange={ this.handleChange }
+          onSelectedGenreChange={ this.handleChange }
         />
         <MovieList movies={ movies } />
         <AddMovie />
