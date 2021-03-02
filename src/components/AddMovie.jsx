@@ -93,9 +93,10 @@ class AddMovie extends React.Component {
     return (
       <label htmlFor="rating-input" data-testid="rating-input-label">
         Avaliação
-        <textarea
+        <input
           type="number"
-          id="rating"
+          min="0"
+          max="5"
           name="rating"
           value={ rating }
           onChange={ this.onClick }
