@@ -1,13 +1,14 @@
 import React from 'react';
 import Header from './components/Header';
-import AddMovie from './components/AddMovie';
+import MovieLibrary from './components/MovieLibrary';
+import Movies from './data';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <AddMovie />
+      <MovieLibrary movies={ Movies } />
     </div>
   );
 }
