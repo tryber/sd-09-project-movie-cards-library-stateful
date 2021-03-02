@@ -143,6 +143,7 @@ class AddMovie extends Component {
         { this.inputImage() }
         { this.inputSinopse() }
         { this.inputRating() }
+        { this.inputSelected() }
       </form>
     );
   }
