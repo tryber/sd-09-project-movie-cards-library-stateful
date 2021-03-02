@@ -48,7 +48,7 @@ class MovieLibrary extends Component {
   }
 
   searchMovies(movies) {
-    const { bookmarkedOnly } = this.state;
+    const { bookmarkedOnly, selectedGenre, searchText } = this.state;
     let filteredMovies = movies;
     /* Para início da função e criação de filtro para filmes favoritos, consultei o PR de Johnealves
     https://github.com/tryber/sd-09-project-movie-cards-library-stateful/pull/75
@@ -56,7 +56,20 @@ class MovieLibrary extends Component {
     do colega cedo demais. My bad :'(
     Farei os demais filtros sozinho, prometo */
     if (bookmarkedOnly) {
-      filteredMovies = filteredMovies.filter((movie) => movie.bookmarked === true);
+      filteredMovies = movies.filter((movie) => movie.bookmarked === true);
+    }
+    /**
+     * Consegui criar os filtros abaixo sem a necessidade de consulta, como prometido
+     */
+    if (selectedGenre) {
+      filteredMovies = movies.filter((movie) => movie.genre === selectedGenre);
+    }
+    if (searchText) {
+      filteredMovies = movies.filter((movie) => (
+        movie.title.includes(searchText)
+        || movie.subtitle.includes(searchText)
+        || movie.storyline.includes(searchText)
+      ));
     }
     return filteredMovies;
   }
