@@ -6,18 +6,17 @@ import '@testing-library/jest-dom';
 import SearchBar from '../components/SearchBar';
 
 let props;
-const searchBar = () => (
+const searchBar = () =>
   render(
     <SearchBar
-      searchText={ props.searchText }
-      onSearchTextChange={ props.onSearchTextChange }
-      bookmarkedOnly={ props.bookmarkedOnly }
-      onBookmarkedChange={ props.onBookmarkedChange }
-      selectedGenre={ props.selectedGenre }
-      onSelectedGenreChange={ props.onSelectedGenreChange }
-    />,
-  )
-);
+      searchText={props.searchText}
+      onSearchTextChange={props.onSearchTextChange}
+      bookmarkedOnly={props.bookmarkedOnly}
+      onBookmarkedChange={props.onBookmarkedChange}
+      selectedGenre={props.selectedGenre}
+      onSelectedGenreChange={props.onSelectedGenreChange}
+    />
+  );
 
 const beforeEachUnitTest = () => {
   props = {
@@ -96,7 +95,9 @@ describe('4 - Renderize um input do tipo checkbox dentro do formulário em `<Sea
     const { getAllByTestId } = searchBar();
     const checkboxInputLabel = getAllByTestId('checkbox-input-label');
     expect(checkboxInputLabel).toHaveLength(1);
-    expect(checkboxInputLabel[0]).toHaveTextContent('Mostrar somente favoritos');
+    expect(checkboxInputLabel[0]).toHaveTextContent(
+      'Mostrar somente favoritos'
+    );
   });
 
   it('Passe a prop `bookmarkedOnly` para o atributo `checked` do input', () => {
