@@ -34,9 +34,7 @@ class MovieLibrary extends Component {
     const genre = evt.target.value === 'Todos' ? '' : evt.target.value;
     const { movies } = this.props;
     const filteredMovies = movies.filter((movie) => movie.genre.includes(genre));
-    this.setState((previousState) => (
-      { movies: [...previousState.movies, filteredMovies] }
-    ));
+    this.setState({ movies: filteredMovies });
   }
 
   onBookmarkedChange(evt) {
@@ -45,9 +43,7 @@ class MovieLibrary extends Component {
     const filteredMovies = evt.target.checked
       ? movies.filter((movie) => movie.bookmarked === true)
       : movies;
-    this.setState((previousState) => (
-      { movies: [...previousState.movies, filteredMovies] }
-    ));
+    this.setState({ movies: filteredMovies });
   }
 
   onSearchTextChange(evt) {
@@ -57,9 +53,7 @@ class MovieLibrary extends Component {
     const filteredMovies = movies.filter((movie) => movie.title.includes(searchText)
     || movie.subtitle.includes(searchText)
     || movie.storyline.includes(searchText));
-    this.setState((previousState) => (
-      { movies: [...previousState.movies, filteredMovies] }
-    ));
+    this.setState({ movies: filteredMovies });
   }
 
   onAddMovieClick(state) {
