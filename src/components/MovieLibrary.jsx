@@ -16,18 +16,19 @@ class MovieLibrary extends Component {
       selectedGenre: '',
       movies,
     };
-    this.handleChange= this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange({ target }) { // requisito 17
-    const { name } = target; // requisito 17
-    const value = target.type === 'checkbox' ? target.checked : target.value; // requisito 17
+    const { name, value } = target; // requisito 17
+    // const value = target.type === 'checkbox' ? target.checked : target.value; // requisito 17
 
-    if (!value) {
-      if (this.setState({ [name]: false })) {
-        this.setState({ [name]: true });
-      } this.setState({ [name]: false }); // requisito 17
-    } this.setState({ [name]: value }); // requisito 17
+    if (target.type === 'checkbox') {
+      const isBookmarked = target.checked;
+      (this.setState({ bookmarkedOnly: isBookmarked }));
+    } else {
+      this.setState({ [name]: value }); // requisito 17 // Por que precisa do ELSE para funcionar?
+    }
   }
 
   render() {
