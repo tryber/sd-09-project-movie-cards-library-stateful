@@ -6,6 +6,7 @@ class AddMovie extends React.Component {
     super(props);
     this.onClick = this.onClick.bind(this);
     this.addNewMovie = this.addNewMovie.bind(this);
+    this.createStorylineInput = this.createStorylineInput.bind(this);
     this.state = {
       title: '',
       subtitle: '',
@@ -30,7 +31,7 @@ class AddMovie extends React.Component {
       title: '',
       subtitle: '',
       imagePath: '',
-      storyLine: '',
+      storyline: '',
       rating: 0,
       genre: 'action',
     });
@@ -84,6 +85,7 @@ class AddMovie extends React.Component {
       <label htmlFor="storyline-input" data-testid="storyline-input-label">
         Sinopse
         <textarea
+          type="text"
           name="storyline"
           value={ storyline }
           onChange={ this.onClick }
