@@ -9,14 +9,14 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
-    const { movies } = this.props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies,
+      movies: props.movies,
     };
     this.handleChange = this.handleChange.bind(this);
+    this.movieList = this.movieList.bind(this);
   }
 
   handleChange({ target }) { // requisito 17
@@ -31,9 +31,25 @@ class MovieLibrary extends Component {
     }
   }
 
+  movieList() {
+    const { movies, searchText, selectedGenre, bookmarkedOnly } = this.state;
+    let movieListReturn = movies;
+    if (searchText !== '') {
+      movieListReturn = movies.filter((movie) => movie.title.includes(searchText)
+        || movie.subtitle.includes(searchText)
+        || movie.storyline.includes(searchText));
+    }
+    if (bookmarkedOnly) {
+      movieListReturn = movies.filter((movie) => movie.bookmarked === (bookmarkedOnly));
+    }
+    if (selectedGenre !== '') {
+      movieListReturn = movies.filter((movie) => movie.genre === (selectedGenre));
+    } return movieListReturn;
+  }
+
   render() {
-    const { movies } = this.props;
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const movies = this.movieList();
 
     return (
       <div>
