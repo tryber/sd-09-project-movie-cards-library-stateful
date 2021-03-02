@@ -6,7 +6,6 @@ import './App.css';
 
 function App() {
   function handleClick(stateObj, initialState) {
-    stateObj = initialState;
     console.log(initialState);
     console.log(stateObj);
   }
