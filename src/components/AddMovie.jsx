@@ -1,10 +1,11 @@
 import React from 'react';
 import InputGeneric from './InputGeneric';
 import SelectGenre from './SelectGenre';
+import AdicionarFilme from './AdicionarFilme';
 
 class AddMovie extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       subtitle: '',
       title: '',
@@ -14,11 +15,40 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
     this.reloadState = this.reloadState.bind(this);
+    this.resetState = this.resetState.bind(this);
+    this.imageInput = this.imageInput.bind(this);
   }
 
   reloadState(event) {
     const { name, value } = event.target;
     this.setState({ [name]: value });
+  }
+
+  resetState() {
+    this.setState(() => ({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    }));
+  }
+
+  imageInput(valor) {
+    return (
+      <label htmlFor="label-imagepath" data-testid="image-input-label">
+        Imagem
+        <input
+          data-testid="image-input"
+          id="label-imagepath"
+          name="imagePath"
+          onChange={ this.reloadState }
+          type="text"
+          value={ valor }
+        />
+      </label>
+    );
   }
 
   render() {
@@ -39,17 +69,7 @@ class AddMovie extends React.Component {
           type="text"
           value={ subtitle }
         />
-        <label htmlFor="label-imagepath" data-testid="image-input-label">
-          Imagem
-          <input
-            data-testid="image-input"
-            id="label-imagepath"
-            name="imagePath"
-            onChange={ this.reloadState }
-            type="text"
-            value={ imagePath }
-          />
-        </label>
+        { this.imageInput(imagePath) }
         <label htmlFor="label-textarea" data-testid="storyline-input-label">
           Sinopse
           <textarea
@@ -68,6 +88,7 @@ class AddMovie extends React.Component {
           value={ rating }
         />
         <SelectGenre genre={ genre } reload={ this.reloadState } />
+        <AdicionarFilme onClick={ this.resetState } />
       </form>
     );
   }
