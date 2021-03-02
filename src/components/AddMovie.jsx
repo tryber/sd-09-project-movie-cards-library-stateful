@@ -152,6 +152,7 @@ class AddMovie extends Component {
 
 AddMovie.propTypes = {
   onClick: PropTypes.func,
+  rating: PropTypes.number,
 }.isRequired;
 
 /* AddMovie.propTypes = {
