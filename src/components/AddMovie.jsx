@@ -113,7 +113,7 @@ class AddMovie extends React.Component {
     );
   }
 
-  renderStoryLine(storyLine) {
+  renderStoryLine(storyline) {
     return (
       <label htmlFor="storyline" data-testid="storyline-input-label">
         Sinopse
@@ -122,7 +122,7 @@ class AddMovie extends React.Component {
           name="storyline"
           id="storyline"
           data-testid="storyline-input"
-          value={ storyLine }
+          value={ storyline }
           onChange={ this.setStoryLine }
         />
       </label>
@@ -165,19 +165,19 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { subtitle, title, imagePath, storyLine, rating, genre } = this.state;
+    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         {this.renderTitle(title)}
         {this.renderSubTitle(subtitle)}
         {this.renderImage(imagePath)}
-        {this.renderStoryLine(storyLine)}
+        {this.renderStoryLine(storyline)}
         {this.renderRating(rating)}
         {this.renderGenre(genre)}
         <button
           type="button"
           data-testid="send-button"
-          onClick={ this.handlerOnClick(this.state) }
+          onClick={ () => this.handlerOnClick(this.state) }
         >
           Adicionar filme
         </button>
