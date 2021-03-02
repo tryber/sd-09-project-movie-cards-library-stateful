@@ -13,14 +13,7 @@ const initialState = {
 class AddMovie extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    };
+    this.state = initialState;
     this.HandleChange = this.HandleChange.bind(this);
     this.CustomInput = this.CustomInput.bind(this);
     this.TextAreaInput = this.TextAreaInput.bind(this);
@@ -84,8 +77,8 @@ class AddMovie extends React.Component {
 
   ResetState() {
     const { onClick } = this.props;
+    onClick(this.state);
     this.setState(initialState);
-    onClick();
   }
 
   render() {
