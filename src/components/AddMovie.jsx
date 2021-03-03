@@ -75,7 +75,8 @@ class AddMovie extends Component {
             </option>
           </select>
         </label>
-        <button type="button" data-testid="send-button"
+        <button type="button" 
+          data-testid="send-button"
           onClick={ (event) => {
             event.preventDefault();
             resetState();
