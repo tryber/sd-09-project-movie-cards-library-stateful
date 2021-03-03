@@ -14,17 +14,19 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: [ ...this.props.movies ],
+      movies: [...this.props.movies],
     };
   }
 
   updateState({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    this.setState({
-      ...this.state,
-      [name]: value,
-    })
+    this.setState(() => {
+      return {
+        ...this.state,
+        [name]: value,
+      };
+    });
   }
 
   render() {
@@ -47,6 +49,6 @@ class MovieLibrary extends Component {
 
 MovieLibrary.propTypes = {
   movies: PropTypes.array,
-}
+};
 
 export default MovieLibrary;

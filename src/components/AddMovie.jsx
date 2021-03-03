@@ -17,6 +17,8 @@ class AddMovie extends Component{
     super(props);
     this.state = INITIAL_STATE;
     this.updateStateValue = this.updateStateValue.bind(this);
+    this.sendInformations = this.sendInformations.bind(this);
+    this.resetInformations = this.resetInformations.bind(this);
   }
 
   updateStateValue({ target }) {
@@ -30,13 +32,13 @@ class AddMovie extends Component{
     )
   }
 
-  sendInformations = (e) => {
+  sendInformations(e) {
     e.preventDefault();
     this.props.onClick(this.state);
     this.resetInformations();
   }
 
-  resetInformations = () => {
+  resetInformations() {
     this.setState({
       subtitle: '',
       title: '',
