@@ -11,7 +11,7 @@ const INITIAL_STATE = {
   genre: 'action',
 };
 
-class AddMovie extends Component{
+class AddMovie extends Component {
   constructor(props) {
     super(props);
     this.state = INITIAL_STATE;
@@ -23,12 +23,12 @@ class AddMovie extends Component{
   updateStateValue({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    this.setState(() => {
-      return {
+    this.setState(() => (
+      {
         ...this.state,
         [name]: value,
       }
-    });
+    ));
   }
 
   sendInformations(e) {
@@ -129,7 +129,7 @@ class AddMovie extends Component{
 }
 
 AddMovie.protoTypes = {
-  onClick: PropTypes.func,
+  onClick: PropTypes.func.isRequired,
 }
 
 export default AddMovie;
