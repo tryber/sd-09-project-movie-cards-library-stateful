@@ -10,7 +10,7 @@ class MovieLibrary extends Component {
     return (
       <>
         <SearchBar />
-        <MovieList movies={movies} />
+        <MovieList movies={ movies } />
       </>
     );
   }
