@@ -17,7 +17,7 @@ class AddMovie extends Component {
     };
     this.initialState = this.state;
     this.handleChange = this.handleChange.bind(this);
-    this.onClick = this.onClick.bind(this);
+    this.resetState = this.resetState.bind(this);
   }
 
   handleChange(event) {
@@ -25,7 +25,7 @@ class AddMovie extends Component {
     this.setState({ [name]: value });
   }
 
-  onClick() {
+  resetState() {
     this.setState(this.initialState);
   }
 
@@ -150,7 +150,7 @@ class AddMovie extends Component {
             ))}
           </Select>
         </form>
-        <button type="button" data-testid="send-button" onClick={ this.onClick }>
+        <button type="button" data-testid="send-button" onClick={ this.resetState }>
           Adicionar filme
         </button>
       </div>
