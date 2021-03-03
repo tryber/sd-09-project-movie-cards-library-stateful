@@ -8,7 +8,7 @@ class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
-    // this.insertMovie = this.insertMovie.bind(this);
+    this.movieFilter = this.movieFilter.bind(this);
     const { movies } = this.props;
     this.state = {
       searchText: '',
@@ -28,13 +28,32 @@ class MovieLibrary extends React.Component {
     });
   }
 
-  // insertMovie(state) {
-  //   this.state.movies.push(state);
-  // }
+  movieFilter() {
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    let filteredMovies = movies;
+
+    if (searchText !== '') {
+      filteredMovies = movies.filter((movie) => (
+        movie.title.includes(searchText)
+        || movie.subtitle.includes(searchText)
+        || movie.storyline.includes(searchText)
+      ));
+    }
+
+    if (bookmarkedOnly === true) {
+      filteredMovies = movies.filter((movie) => movie.bookmarked === true);
+    }
+
+    if (selectedGenre !== '') {
+      filteredMovies = movies.filter((movie) => movie.genre === selectedGenre);
+    }
+
+    return filteredMovies;
+  }
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-    const { movies } = this.state;
+    const movies = this.movieFilter();
 
     return (
       <div>
