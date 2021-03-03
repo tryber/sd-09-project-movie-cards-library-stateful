@@ -9,7 +9,7 @@ class AddCompGenre extends React.Component {
         Gênero
         <select
           type="text"
-          value={ genre }
+          defaultValue={ genre }
           data-testid="genre-input"
           onChange={ handleChange }
         >

@@ -9,7 +9,7 @@ class AddCompTitle extends React.Component {
         Título
         <input
           type="text"
-          value={ title }
+          defaultValue={ title }
           data-testid="title-input"
           onChange={ handleChange }
         />

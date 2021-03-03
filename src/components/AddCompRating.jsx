@@ -9,7 +9,7 @@ class AddCompRating extends React.Component {
         Avaliação
         <input
           type="number"
-          value={ rating }
+          defaultValue={ rating }
           data-testid="rating-input"
           onChange={ handleChange }
         />

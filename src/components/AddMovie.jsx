@@ -30,7 +30,7 @@ class AddMovie extends React.Component {
     event.preventDefault();
     const { state } = this;
     onClick(state);
-    this.state({
+    this.setState({
       subtitle: '',
       title: '',
       imagePath: '',
@@ -47,7 +47,7 @@ class AddMovie extends React.Component {
       return this.setState({ [name]: Number(value) });
     }
 
-    this.setState({
+    return this.setState({
       [name]: value });
   }
 

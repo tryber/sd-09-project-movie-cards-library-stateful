@@ -9,7 +9,7 @@ class AddCompImage extends React.Component {
         Imagem
         <input
           type="text"
-          value={ imagePath }
+          defaultValue={ imagePath }
           data-testid="image-input"
           onChange={ handleChange }
         />

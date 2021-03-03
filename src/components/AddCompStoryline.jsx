@@ -9,7 +9,7 @@ class AddCompStoryline extends React.Component {
         Sinopse
         <input
           type="textarea"
-          value={ storyline }
+          defaultValue={ storyline }
           data-testid="storyline-input"
           onChange={ handleChange }
         />
