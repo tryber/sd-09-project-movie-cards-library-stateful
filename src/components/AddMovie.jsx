@@ -11,6 +11,8 @@ class AddMovie extends Component {
     this.inputSinopse = this.inputSinopse.bind(this);
     this.inputRating = this.inputRating.bind(this);
     this.inputSelected = this.inputSelected.bind(this);
+    this.buttonContent = this.buttonContent.bind(this);
+    // this.buttonSave = this.buttonSave.bind(this);
     this.state = {
       subtitle: '',
       title: '',
@@ -88,8 +90,6 @@ class AddMovie extends Component {
           data-testid="storyline-input"
           name="storyline"
           value={ storyline }
-          cols="30"
-          rows="10"
           onChange={ this.textContentInput }
           placeholder="Digite aqui a sinopse do filme."
         />
@@ -135,22 +135,51 @@ class AddMovie extends Component {
     return input;
   }
 
+  buttonSave(event) {
+    if (event) {
+      this.setState({
+        subtitle: '',
+        title: '',
+        imagePath: '',
+        storyline: '',
+        rating: 0,
+        genre: 'action',
+      });
+    }
+  }
+
+  buttonContent() {
+    const buttonInput = (
+      <button
+        type="reset"
+        data-testid="send-button"
+        onClick={ this.buttonSave }
+      >
+        Adicionar filme
+      </button>
+    );
+    return buttonInput;
+  }
+
   render() {
     return (
       <form data-testid="add-movie-form">
-        { this.inputTitle() }
-        { this.inputSubtitle() }
-        { this.inputImage() }
-        { this.inputSinopse() }
-        { this.inputRating() }
-        { this.inputSelected() }
+        <fieldset>
+          { this.inputTitle() }
+          { this.inputSubtitle() }
+          { this.inputImage() }
+          { this.inputSinopse() }
+          { this.inputRating() }
+          { this.inputSelected() }
+          { this.buttonContent() }
+        </fieldset>
       </form>
     );
   }
 }
 
 // AddMovie.propTypes = {
-//   subtitle: PropTypes.string.isRequired,
+// subtitle: PropTypes.string.isRequired,
 //   title: PropTypes.string.isRequired,
 //   imagePath: PropTypes.string.isRequired,
 //   storyline: PropTypes.string.isRequired,

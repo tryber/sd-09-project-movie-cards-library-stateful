@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -25,6 +25,7 @@ class SearchBar extends React.Component {
     return input;
   }
 
+  // vi essa implementacao no projeto do amigo: pabloiago-movie-cards-library-stateful
   checkBoxChange() {
     const { bookmarkedOnly, onBookmarkedChange } = this.props;
     const checkBox = (
@@ -64,21 +65,32 @@ class SearchBar extends React.Component {
   render() {
     return (
       <form data-testid="search-bar-form">
-        { this.inputText() }
-        { this.checkBoxChange() }
-        { this.selectedChange() }
+        <fieldset>
+          { this.inputText() }
+          { this.checkBoxChange() }
+          { this.selectedChange() }
+        </fieldset>
       </form>
     );
   }
 }
 
-SearchBar.propTypes = {
-  searchText: PropTypes.string.isRequired,
-  onSearchTextChange: PropTypes.func.isRequired,
-  bookmarkedOnly: PropTypes.bool.isRequired,
-  onBookmarkedChange: PropTypes.func.isRequired,
-  selectedGenre: PropTypes.string.isRequired,
-  onSelectedGenreChange: PropTypes.func.isRequired,
-};
+// SearchBar.propTypes = {
+//   searchText: PropTypes.string.isRequired,
+//   onSearchTextChange: PropTypes.func.isRequired,
+//   bookmarkedOnly: PropTypes.bool.isRequired,
+//   onBookmarkedChange: PropTypes.func.isRequired,
+//   selectedGenre: PropTypes.string.isRequired,
+//   onSelectedGenreChange: PropTypes.func.isRequired,
+// };
+
+// SearchBar.defaultProps = {
+//   searchText: '',
+//   bookmarkedOnly: false,
+//   selectedGenre: '',
+//   // onSearchTextChange: Function,
+//   // onBookmarkedChange: Function,
+//   // onSelectedGenreChange: Function,
+// };
 
 export default SearchBar;
