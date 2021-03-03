@@ -34,8 +34,9 @@ class AddMovie extends Component {
 
   sendInformations(e) {
     const { state } = this.state;
+    const { onClick } = this.props;
     e.preventDefault();
-    this.props.onClick(state);
+    onClick(state);
     this.resetInformations();
   }
 
