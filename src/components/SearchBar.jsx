@@ -7,6 +7,8 @@ class SearchBar extends Component {
     super(props);
 
     this.state = 0;
+
+    console.log(this.props);
   }
 
   render() {
@@ -66,7 +68,7 @@ SearchBar.propTypes = {
   bookmarkedOnly: PropTypes.bool.isRequired,
   onBookmarkedChange: PropTypes.func.isRequired,
   selectedGenre: PropTypes.string.isRequired,
-  onSelectedGenreChange: PropTypes.string.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
 };
 
 export default SearchBar;
