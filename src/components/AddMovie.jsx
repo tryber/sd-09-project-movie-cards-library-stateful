@@ -38,18 +38,18 @@ class AddMovie extends Component {
       <form data-testid="add-movie-form">
         <InputText
           testId="title-input"
-          value={title}
-          handleInput={this.handleInput}
+          value={ title }
+          handleInput={ this.handleInput }
         />
         <InputText
           testId="subtitle-input"
-          value={subtitle}
-          handleInput={this.handleInput}
+          value={ subtitle }
+          handleInput={ this.handleInput }
         />
         <InputText
           testId="image-input"
-          value={imagePath}
-          handleInput={this.handleInput}
+          value={ imagePath }
+          handleInput={ this.handleInput }
         />
         <label htmlFor="storyline-input" data-testid="storyline-input-label">
           Sinopse
@@ -58,14 +58,14 @@ class AddMovie extends Component {
             name="storyline"
             id="storyline-input"
             data-testid="storyline-input"
-            value={storyline}
-            onChange={handleInput}
+            value={ storyline }
+            onChange={ handleInput }
           />
         </label>
         <InputText
           testId="rating-input"
-          value={rating}
-          handleInput={this.handleInput}
+          value={ rating }
+          handleInput={ this.handleInput }
         />
         <label htmlFor="genre-select" data-testid="genre-input-label">
           Gênero
@@ -73,8 +73,8 @@ class AddMovie extends Component {
             name="genre"
             id="genre-select"
             data-testid="genre-input"
-            onChange={handleInput}
-            value={genre}
+            onChange={ handleInput }
+            value={ genre }
           >
             <option data-testid="genre-option" value="action">
               Ação
