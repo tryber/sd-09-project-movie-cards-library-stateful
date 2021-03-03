@@ -115,6 +115,7 @@ class AddMovie extends React.Component {
         Gênero
         <select
           id="genre-input-id"
+          name="genre"
           data-testid="genre-input"
           value={ genre }
           onChange={ this.handleChange }
