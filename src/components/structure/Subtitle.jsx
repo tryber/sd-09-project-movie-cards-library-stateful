@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Subtitle = ({ value, onChange  }) => (
+const Subtitle = ({ value, onChange }) => (
   <label data-testid="subtitle-input-label" htmlFor="subtitle-input">
     Subtítulo
     <input
