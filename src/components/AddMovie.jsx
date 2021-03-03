@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Input from './Input';
-import Select from './SelectInput';
+import Input from './InputElement';
+import Select from './SelectElement';
+import Option from './OptionElement';
 
 class AddMovie extends Component {
   constructor() {
@@ -105,6 +106,28 @@ class AddMovie extends Component {
     };
   }
 
+  optionData() {
+    const dataTestId = 'genre-option';
+
+    return [
+      {
+        optionValue: 'action',
+        optionText: 'Ação',
+        dataTestId,
+      },
+      {
+        optionValue: 'comedy',
+        optionText: 'Comédia',
+        dataTestId,
+      },
+      {
+        optionValue: 'thriller',
+        optionText: 'Suspense',
+        dataTestId,
+      },
+    ];
+  }
+
   render() {
     // const { onClick } = this.props;
     return (
@@ -114,7 +137,11 @@ class AddMovie extends Component {
         <Input input={ this.inputImageData() } />
         <Input input={ this.inputStorylineData() } />
         <Input input={ this.inputRatingData() } />
-        <Select input={ this.inputGenreData() } />
+        <Select select={ this.inputGenreData() }>
+          { this.optionData().map((currElement) => (
+            <Option option={ currElement } key={ currElement.optionValue } />
+          ))}
+        </Select>
       </form>
     );
   }
