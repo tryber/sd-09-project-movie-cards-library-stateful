@@ -23,7 +23,7 @@ class MovieLibrary extends React.Component {
   }
 
   onClick(newMovie) {
-    this.setState((initState) => ( { movies: [...initState.movies, newMovie]}));
+    this.setState((initState) => ({ movies: [...initState.movies, newMovie] }));
   }
 
   onSearchTextChange(event) {
