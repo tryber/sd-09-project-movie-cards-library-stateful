@@ -12,7 +12,7 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movie: movies,
+      movies,
     };
   }
 
