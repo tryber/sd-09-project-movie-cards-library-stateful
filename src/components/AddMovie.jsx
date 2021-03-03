@@ -17,7 +17,21 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
 
+    this.filmAdd = this.filmAdd.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
+  }
+
+  filmAdd() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   handleInputChange({ target }) {
@@ -72,7 +86,7 @@ class AddMovie extends React.Component {
 
         <Select value={ genre } func={ this.handleInputChange } />
 
-        <Button />
+        <Button func={ this.filmAdd }/>
       </form>
     );
   }
