@@ -81,3 +81,10 @@ body {
   justify-content: flex-end;
   padding: 12px 20px;
 }
+
+.search-bar-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;;
+}

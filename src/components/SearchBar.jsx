@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
   render() {
-    const { searchText,
+    const {
+      searchText,
       onSearchTextChange,
       bookmarkedOnly,
       onBookmarkedChange,
@@ -11,7 +12,7 @@ class SearchBar extends React.Component {
       onSelectedGenreChange,
     } = this.props;
     return (
-      <form data-testid="search-bar-form">
+      <form data-testid="search-bar-form" className="search-bar-form">
         <label htmlFor="text-input" data-testid="text-input-label">
           Inclui o texto:
           <input
@@ -33,7 +34,7 @@ class SearchBar extends React.Component {
         <label htmlFor="select-input" data-testid="select-input-label">
           Filtrar por gênero
           <select
-            name=""
+            name="select"
             data-testid="select-input"
             value={ selectedGenre }
             onChange={ onSelectedGenreChange }
