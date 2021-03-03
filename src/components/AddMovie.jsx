@@ -27,6 +27,17 @@ class AddMovie extends React.Component {
     });
   }
 
+  resetState() {
+    this.state = {
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: '',
+      genre: 'action',
+    };
+  }
+
   insertMovie(event) {
     event.preventDefault();
   }
