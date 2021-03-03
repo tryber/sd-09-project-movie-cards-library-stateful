@@ -5,10 +5,10 @@ class Storyline extends Component {
   render() {
     const { storyline, handleChange } = this.props;
     return (
-      <label data-testid="storyline-input" htmlFor="storyline-input">
+      <label data-testid="storyline-input-label" htmlFor="storyline-input">
         Sinopse
         <textarea
-          type="textarea"
+          type="text"
           name="storyline"
           value={ storyline }
           onChange={ handleChange }
