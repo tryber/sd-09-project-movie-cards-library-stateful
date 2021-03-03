@@ -29,9 +29,11 @@ class AddMovie extends React.Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-    }
-    return(
-      <button data-testid="send-button"
+    };
+    return (
+      <button
+        type="button"
+        data-testid="send-button"
         onClick={ () => movieState = initialState }
       >
         Adicionar filme
@@ -42,57 +44,63 @@ class AddMovie extends React.Component {
   handleChange({ target }) {
     const { name, value } = target; 
     this.setState({
-      [name]: value,
+      [name]: value
     })
-  };
+  }
 
   setNewTitle(title) {
     return (
-      <label data-testid="title-input-label">
+      <label
+        data-testid="title-input-label"
+        htmlFor="title-input"
+      >
         Título
         <input
           name="title"
           type="text"
           data-testid="title-input"
-          htmlFor="title-input"
           onChange={ this.handleChange }
-          value={ title }>
-        </input>
+          value={ title }
+        />
       </label>
     );
-  };
+  }
 
   setNewSubtitle(subtitle) {
     return (
-      <label data-testid="subtitle-input-label">
+      <label
+        data-testid="subtitle-input-label"
+        htmlFor="subtitle-input"
+      >
         Subtítulo
         <input
           name="subtitle"
           type="text"
           data-testid="subtitle-input"
-          htmlFor="subtitle-input"
           onChange={ this.handleChange }
-          value={ subtitle }>
-        </input>
+          value={ subtitle }
+        />
       </label>
     );
-  };
+  }
 
   setNewImagePath(imagePath) {
     return (
-      <label data-testid="image-input-label">
+      <label
+        data-testid="image-input-label"
+        htmlFor="image-input"
+      >
         Imagem
         <input
           name="image"
           type="text"
           data-testid="image-input"
-          htmlFor="image-input"
           onChange={ this.handleChange }
-          value={ imagePath }>
-        </input>
+          value={ imagePath }
+        />
       </label>
     );
-  };
+  }
 
   setNewStoryline(storyline) {
     return (
@@ -104,11 +112,11 @@ class AddMovie extends React.Component {
           data-testid="storyline-input"
           htmlFor="storyline-input"
           onChange={ this.handleChange }
-          value={ storyline }>
-        </input>
+          value={ storyline }
+        />
       </label>
     );
-  };
+  }
 
   setNewRating(rating) {
     return (
@@ -120,11 +128,11 @@ class AddMovie extends React.Component {
           data-testid="rating-input"
           htmlFor="rating-input"
           onChange={ this.handleChange }
-          value={ rating }>
-        </input>
+          value={ rating }
+        />
       </label>
     );
-  };
+  }
 
   setNewGenre(genre) {
     return (
@@ -143,12 +151,12 @@ class AddMovie extends React.Component {
         </select>
       </label>
     );
-  };
+  }
 
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
-     <form data-testid="add-movie-form">
+      <form data-testid="add-movie-form">
         { this.setNewTitle(title) }
         { this.setNewSubtitle(subtitle) }
         { this.setNewImagePath(imagePath) }
