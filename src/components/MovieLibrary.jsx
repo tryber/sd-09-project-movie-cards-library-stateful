@@ -7,19 +7,17 @@ import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
+  resetState(estado) {
+    console.log(estado);
+  }
+
   render() {
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar searchText="string de teste" />
-        {/* searchText, uma string
-onSearchTextChange, uma callback
-bookmarkedOnly, um boolean
-onBookmarkedChange, uma callback
-selectedGenre, uma string
-onSelectedGenreChange, uma callback */}
+        <SearchBar />
         {/* <MovieList /> */}
-        <AddMovie />
+        <AddMovie onClick={ this.resetState } />
       </div>
     );
   }

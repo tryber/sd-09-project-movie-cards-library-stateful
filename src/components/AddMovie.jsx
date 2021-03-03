@@ -11,7 +11,7 @@ class AddMovie extends React.Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: '',
+      genre: 'action',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -23,13 +23,14 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
-  inputTile() {
+  inputTile(title) {
     return (
       <label htmlFor="title-input-label" data-testid="title-input-label">
         Título
         <input
           type="text"
           data-testid="title-input"
+          value={ title }
           onChange={ this.handleChange }
           id="title-input-label"
           name="title"
@@ -38,15 +39,17 @@ class AddMovie extends React.Component {
     );
   }
 
-  inputSubtitle() {
+  inputSubtitle(subtitle) {
     return (
       <label htmlFor="subtitle-input-label" data-testid="subtitle-input-label">
         Subtítulo
         <input
           type="text"
+          value={ subtitle }
           data-testid="subtitle-input"
           onChange={ this.handleChange }
           id="subtitle-input-label"
+          name="subtitle"
         />
       </label>
     );
@@ -99,11 +102,17 @@ class AddMovie extends React.Component {
     );
   }
 
-  select() {
+  selectGenere(genre) {
     return (
       <label data-testid="genre-input-label" htmlFor="genre-input-label">
         Gênero
-        <select id="genre-input-label" data-testid="genre-input">
+        <select
+          id="genre-input-label"
+          data-testid="genre-input"
+          onChange={ this.handleChange }
+          name="genre"
+          value={ genre }
+        >
           <option value="action" data-testid="genre-option">Ação</option>
           <option value="comedy" data-testid="genre-option">Comédia</option>
           <option value="thriller" data-testid="genre-option">Suspense</option>
@@ -112,17 +121,18 @@ class AddMovie extends React.Component {
     );
   }
 
-  addMovieByState() {
+  addMovieByState(event) {
+    event.preventDefault();
     const { onClick } = this.props;
-    onClick(this.state);
     this.setState({
       title: '',
       subtitle: '',
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: '',
+      genre: 'action',
     });
+    onClick(this.state);
   }
 
   addButton() {
@@ -138,14 +148,14 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { imagePath, storyline, rating, genre } = this.state;
+    const { imagePath, storyline, rating, genre, title, subtitle } = this.state;
     return (
       <div>
         <p>teste</p>
         <form data-testid="add-movie-form">
-          {this.inputTile()}
+          {this.inputTile(title)}
           <br />
-          {this.inputSubtitle()}
+          {this.inputSubtitle(subtitle)}
           <br />
           {this.inputImage(imagePath)}
           <br />
@@ -153,7 +163,7 @@ class AddMovie extends React.Component {
           <br />
           {this.inputNumber(rating)}
           <br />
-          {this.select(genre)}
+          {this.selectGenere(genre)}
           <br />
           {this.addButton()}
         </form>
