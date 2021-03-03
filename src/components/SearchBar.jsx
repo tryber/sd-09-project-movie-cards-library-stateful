@@ -8,8 +8,8 @@ class SearchBar extends Component {
     const { onSelectedGenreChange, selectedGenre, bookmarkedOnly } = this.props;
     return (
       <div>
-        <form data-testid="search-bar-form" id="inputText">
-          <label data-testid="text-input-label">
+        <form data-testid="search-bar-form">
+          <label data-testid="text-input-label" for="inputText">
             Inclui o texto:
           </label>
           <input
@@ -19,7 +19,7 @@ class SearchBar extends Component {
             type="text"
             name="searchText"
             id="inputText"/>
-          <label data-testid="checkbox-input-label" id="inputBookMarked">
+          <label data-testid="checkbox-input-label" for="inputBookMarked">
             Mostrar somente favoritos
           </label>
           <input
@@ -29,7 +29,7 @@ class SearchBar extends Component {
             type="checkbox"
             name="bookmarkedOnly"
             id="inputBookMarked"/>
-          <label data-testid="select-input-label" id="inputSelectInput">
+          <label data-testid="select-input-label" for="inputSelectInput">
             Filtrar por gênero
           </label>
           <select
