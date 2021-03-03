@@ -20,19 +20,6 @@ class AddMovie extends React.Component {
     this.setNewSubtitle = this.setNewSubtitle.bind(this);
     this.setNewGenre = this.setNewGenre.bind(this);
     this.resetState = this.resetState.bind(this);
-    this.setNewButton = this.setNewButton.bind(this);
-  }
-
-  setNewButton() {
-    return (
-      <button
-        type="button"
-        data-testid="send-button"
-        onClick={ this.resetState }
-      >
-        Adicionar filme
-      </button>
-    );
   }
 
   resetState() {
@@ -178,6 +165,13 @@ class AddMovie extends React.Component {
         { this.setNewRating(rating) }
         { this.setNewGenre(genre) }
         { this.resetButton }
+        <button
+          type="button"
+          data-testid="send-button"
+          onClick={ this.resetState }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
