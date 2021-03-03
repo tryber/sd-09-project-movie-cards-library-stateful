@@ -3,14 +3,17 @@ import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
   render() {
-    const { searchText,
+    const {
+      searchText,
       onSearchTextChange,
       bookmarkedOnly,
       onBookmarkedChange,
       selectedGenre,
-      onSelectedGenreChange } = this.props;
+      onSelectedGenreChange,
+    } = this.props;
+
     return (
-      <form data-testid="text-input-label">
+      <form data-testid="search-bar-form">
         <label data-testid="checkbox-input-label" htmlFor="text">
           Inclui o texto:
           <input
