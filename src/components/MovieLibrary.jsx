@@ -5,26 +5,26 @@ import AddMovie from './AddMovie';
 import movies from '../data';
 
 class MovieLibrary extends Component {
-  constructor(props) {
-    super(props);
+  // constructor(props) {
+  //   super(props);
 
-    // const { movies } = this.props;
+  //   // const { movies } = this.props;
 
-    // HANDLER GENÉRICO
-    // handleChange = ({ target }) => {
-    //   const { name } = target;
-    //   const value = target.type === 'checkbox' ? target.checked : target.value;
-    //   this.setState({
-    //     [name]: value,
-    //   });
-    // }
+  //   // HANDLER GENÉRICO
+  //   // handleChange = ({ target }) => {
+  //   //   const { name } = target;
+  //   //   const value = target.type === 'checkbox' ? target.checked : target.value;
+  //   //   this.setState({
+  //   //     [name]: value,
+  //   //   });
+  //   // }
 
-    this.state = {
-      // searchText: '',
-      // bookmarkedOnly: false,
-      // selectedGenre: '',
-    };
-  }
+  //   // this.state = {
+  //   //   // searchText: '',
+  //   //   // bookmarkedOnly: false,
+  //   //   // selectedGenre: '',
+  //   // };
+  // }
 
   render() {
     return (

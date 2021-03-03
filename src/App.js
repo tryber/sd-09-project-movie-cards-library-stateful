@@ -1,6 +1,6 @@
 import React from 'react';
 // import SearchBar from './components/SearchBar';
-// import Header from './components/Header';
+import Header from './components/Header';
 // import MovieList from './components/MovieList';
 // import movies from './data';
 import MovieLibrary from './components/MovieLibrary';
@@ -10,9 +10,9 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <Header />
         <MovieLibrary />
-        {/* <Header />
-        <SearchBar />
+        {/* <SearchBar />
         <MovieList movies={ movies } /> */}
       </div>
     );
