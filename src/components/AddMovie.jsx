@@ -37,9 +37,11 @@ class AddMovie extends Component {
     return (
       <form data-testid="add-movie-form">
         <InputText testId="title-input" 
-          value={ title } handleInput={ this.handleInput }
+          value={ title } 
+          handleInput={ this.handleInput }
         />
-        <InputText testId="subtitle-input" value={ subtitle }
+        <InputText testId="subtitle-input" 
+          value={ subtitle }
           handleInput={ this.handleInput }
         />
         <InputText testId="image-input" value={ imagePath }
