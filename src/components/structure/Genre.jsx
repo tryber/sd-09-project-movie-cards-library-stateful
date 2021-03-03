@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Genre = ({ value, onChange }) => (
   <label data-testid="genre-input-label" htmlFor="genre-input">
@@ -15,5 +16,10 @@ const Genre = ({ value, onChange }) => (
     </select>
   </label>
 );
+
+Genre.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 
 export default Genre;

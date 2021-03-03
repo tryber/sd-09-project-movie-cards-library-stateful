@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Rating = ({ value, onChange }) => (
   <label data-testid="rating-input-label" htmlFor="rating-input">
@@ -12,5 +13,10 @@ const Rating = ({ value, onChange }) => (
     />
   </label>
 );
+
+Rating.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 
 export default Rating;
