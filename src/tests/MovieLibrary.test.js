@@ -42,31 +42,31 @@ const movieCardTestId = 'movie-card';
 const movieCardTitleId = 'movie-card-title';
 
 describe('15 - Crie um componente chamado `<MovieLibrary />`', () => {
-  it.skip('Renderize o componente', () => {
+  it('Renderize o componente', () => {
     render(<MovieLibrary movies={ movies } />);
   });
 });
 
 describe('16 - Configure o estado inicial do componente `<MovieLibrary />`', () => {
-  it.skip('Defina o estado inicial de `searchText` como uma string vazia', () => {
+  it('Defina o estado inicial de `searchText` como uma string vazia', () => {
     const { getByTestId } = render(<MovieLibrary movies={ movies } />);
     const searchText = getByTestId(textTestId);
     expect(searchText).toHaveValue('');
   });
 
-  it.skip('Defina o estado inicial de `bookmarkedOnly` como o boleano `falso`', () => {
+  it('Defina o estado inicial de `bookmarkedOnly` como o boleano `falso`', () => {
     const { getByTestId } = render(<MovieLibrary movies={ movies } />);
     const bookmarkedOnly = getByTestId(checkboxTestId);
     expect(bookmarkedOnly).not.toBeChecked();
   });
 
-  it.skip('Defina o estado inicial de `selectedGenre` como uma string vazia', () => {
+  it('Defina o estado inicial de `selectedGenre` como uma string vazia', () => {
     const { getByTestId } = render(<MovieLibrary movies={ movies } />);
     const selectInput = getByTestId(selectTestId);
     expect(selectInput).toHaveValue('');
   });
 
-  it.skip('Renderize todos os filmes passados pela prop `movies`', () => {
+  it('Renderize todos os filmes passados pela prop `movies`', () => {
     const { getAllByTestId } = render(<MovieLibrary movies={ movies } />);
     const movieCards = getAllByTestId(movieCardTestId);
     expect(movieCards).toHaveLength(movies.length);
