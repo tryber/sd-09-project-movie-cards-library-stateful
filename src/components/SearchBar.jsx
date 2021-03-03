@@ -3,13 +3,11 @@ import PropTypes from 'prop-types';
 import Input from './CreateElementInput';
 
 class SearchBar extends React.Component {
-  handleInputChange(event) {
-    const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name;
+  handleInputChange({ target: { name, type } }) {
+    const value = type === 'checkbox' ? target.checked : target.value;
 
     this.setState({
-      [name]: value
+      [name]: value,
     });
   }
 
