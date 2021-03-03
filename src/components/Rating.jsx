@@ -19,4 +19,3 @@ Rating.defaultProps = {
 };
 
 export default Rating;
-

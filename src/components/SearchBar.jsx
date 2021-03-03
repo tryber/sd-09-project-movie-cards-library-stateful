@@ -18,8 +18,8 @@ class SearchBar extends Component {
           <input
             type="text"
             id="text-input"
-            value={ searchText }
-            onChange={ onSearchTextChange }
+            value={searchText}
+            onChange={onSearchTextChange}
             data-testid="text-input"
           />
         </label>
@@ -28,8 +28,8 @@ class SearchBar extends Component {
           <input
             type="checkbox"
             id="checkbox-input"
-            checked={ bookmarkedOnly }
-            onChange={ onBookmarkedChange }
+            checked={bookmarkedOnly}
+            onChange={onBookmarkedChange}
             data-testid="checkbox-input"
           />
         </label>
@@ -37,14 +37,22 @@ class SearchBar extends Component {
           Filtrar por gênero
           <select
             id="select-input"
-            value={ selectedGenre }
-            onChange={ onSelectedGenreChange }
+            value={selectedGenre}
+            onChange={onSelectedGenreChange}
             data-testid="select-input"
           >
-            <option data-testid="select-option" value="">Todos</option>
-            <option data-testid="select-option" value="action">Ação</option>
-            <option data-testid="select-option" value="comedy">Comédia</option>
-            <option data-testid="select-option" value="thriller">Suspense</option>
+            <option data-testid="select-option" value="">
+              Todos
+            </option>
+            <option data-testid="select-option" value="action">
+              Ação
+            </option>
+            <option data-testid="select-option" value="comedy">
+              Comédia
+            </option>
+            <option data-testid="select-option" value="thriller">
+              Suspense
+            </option>
           </select>
         </label>
       </form>

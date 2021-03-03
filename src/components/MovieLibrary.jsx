@@ -4,23 +4,20 @@ import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 
 class MovieLibrary extends Component {
- 
   render() {
     const { props } = this;
     const { movies } = props;
     return (
       <>
         <SearchBar />
-        <MovieList movies={ movies } />
+        <MovieList movies={movies} />
       </>
     );
   }
 }
 
 MovieLibrary.propTypes = {
-  movies: PropTypes.arrayOf(
-    PropTypes.object,
-  ).isRequired,
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default MovieLibrary;
