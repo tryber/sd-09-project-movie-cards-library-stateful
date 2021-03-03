@@ -128,21 +128,29 @@ class AddMovie extends Component {
     ];
   }
 
+  onClick(actualState) {
+    
+    //reseta o state
+  }
+
   render() {
-    // const { onClick } = this.props;
+    const { onClick } = this.props;
     return (
-      <form data-testid="add-movie-form">
-        <Input input={ this.inputTitleData() } />
-        <Input input={ this.inputSubtitleData() } />
-        <Input input={ this.inputImageData() } />
-        <Input input={ this.inputStorylineData() } />
-        <Input input={ this.inputRatingData() } />
-        <Select select={ this.inputGenreData() }>
-          { this.optionData().map((currElement) => (
-            <Option option={ currElement } key={ currElement.optionValue } />
-          ))}
-        </Select>
-      </form>
+      <div>
+        <form data-testid="add-movie-form">
+          <Input input={ this.inputTitleData() } />
+          <Input input={ this.inputSubtitleData() } />
+          <Input input={ this.inputImageData() } />
+          <Input input={ this.inputStorylineData() } />
+          <Input input={ this.inputRatingData() } />
+          <Select select={ this.inputGenreData() }>
+            { this.optionData().map((currElement) => (
+              <Option option={ currElement } key={ currElement.optionValue } />
+            ))}
+          </Select>
+        </form>
+        <button type="button" data-testid="send-button" onClick={ onClick() }>Adicionar filme</button>
+      </div>
     );
   }
 }
