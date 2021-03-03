@@ -5,7 +5,7 @@ class Title extends Component {
   render() {
     const { title, handleChange } = this.props;
     return (
-      <label data-testid="title-input-label" htmlFor="title">
+      <label data-testid="title-input-label" htmlFor="title-input">
         Título
         <input
           type="text"

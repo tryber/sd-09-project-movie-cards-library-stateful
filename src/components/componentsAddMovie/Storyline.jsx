@@ -5,7 +5,7 @@ class Storyline extends Component {
   render() {
     const { storyline, handleChange } = this.props;
     return (
-      <label data-testid="image-input-label" htmlFor="imagePath">
+      <label data-testid="storyline-input" htmlFor="storyline-input">
         Sinopse
         <textarea
           type="textarea"
