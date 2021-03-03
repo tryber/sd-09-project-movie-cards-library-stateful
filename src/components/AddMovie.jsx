@@ -27,24 +27,10 @@ class AddMovie extends React.Component {
     });
   }
 
-  resetState() {
-    this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: '',
-      genre: 'action',
-    };
-  }
-
-  insertMovie(event) {
-    event.preventDefault();
-  }
-
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     const { handleChange } = this;
+    // const { insertMovie } = this.props
     // Ideia de componentização em diversos arquivos veio do pull do LucioOSilva
     // Disponível: https://github.com/tryber/sd-09-project-movie-cards-library-stateful/pull/7/files
 
@@ -59,7 +45,7 @@ class AddMovie extends React.Component {
         <button
           type="button"
           data-testid="send-button"
-          onClick={ this.insertMovie }
+          onClick=""
         >
           Adicionar filme
         </button>

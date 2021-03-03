@@ -8,7 +8,7 @@ class Rating extends Component {
       <label data-testid="rating-input-label" htmlFor="rating">
         Avaliação
         <input
-          type="numberata-testid=d"
+          type="number"
           name="rating"
           value={ rating }
           onChange={ handleChange }
