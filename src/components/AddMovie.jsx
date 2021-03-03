@@ -52,7 +52,6 @@ class AddMovie extends React.Component {
   // eslint-disable-next-line max-lines-per-function
   render() {
     const { storyline, rating, genre } = this.state;
-    const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
         { inputsData.map((input) => this.inputRender(input.name, input)) }
