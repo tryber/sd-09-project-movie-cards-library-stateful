@@ -7,7 +7,7 @@ class AddMovie extends React.Component {
     this.changeContent = this.changeContent.bind(this);
 
     this.state = {
-      // subtitle: '',
+      subtitle: '',
       title: '',
       // imagePath: '',
       // storyline: '',
@@ -27,6 +27,7 @@ class AddMovie extends React.Component {
   render() {
     const {
       title,
+      subtitle,
     } = this.state;
 
     return (
@@ -42,6 +43,16 @@ class AddMovie extends React.Component {
           />
         </label>
 
+        <label data-testid="subtitle-input-label" htmlFor="inputSutitle">
+          Subtítulo:
+          <input
+            type="text"
+            name="subtitle"
+            value={ subtitle }
+            data-testid="subtitle-input"
+            onChange={ this.changeContent }
+          />
+        </label>
       </form>
     );
   }
