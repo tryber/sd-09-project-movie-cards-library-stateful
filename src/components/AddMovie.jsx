@@ -16,8 +16,8 @@ class AddMovie extends Component {
       genre: 'action',
     };
     this.initialState = this.state;
-    this.handleChange = this.handleChange.bind(this);
     this.resetState = this.resetState.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(event) {
@@ -25,7 +25,10 @@ class AddMovie extends Component {
     this.setState({ [name]: value });
   }
 
-  resetState() {
+  resetState(event) {
+    const { onClick } = this.props;
+    event.preventDefault();
+    onClick(this.state);
     this.setState(this.initialState);
   }
 
@@ -135,7 +138,6 @@ class AddMovie extends Component {
   }
 
   render() {
-    // const { onClick } = this.props;
     return (
       <div>
         <form data-testid="add-movie-form">
