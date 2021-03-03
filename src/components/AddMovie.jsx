@@ -6,13 +6,13 @@ class AddMovie extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
-    this.titleInput = this.titleInput(this);
-    this.subtitleInput = this.subtitleInput(this);
-    this.imageInput = this.imageInput(this);
-    this.textareaInput = this.textareaInput(this);
-    this.ratingInput = this.ratingInput(this);
-    this.genreInput = this.genreInput(this);
-    this.resetState = this.resetState(this);
+    this.titleInput = this.titleInput.bind(this);
+    this.subtitleInput = this.subtitleInput.bind(this);
+    this.imageInput = this.imageInput.bind(this);
+    this.textareaInput = this.textareaInput.bind(this);
+    this.ratingInput = this.ratingInput.bind(this);
+    this.genreInput = this.genreInput.bind(this);
+    this.resetState = this.resetState.bind(this);
     this.state = {
       subtitle: '',
       title: '',
@@ -49,7 +49,7 @@ class AddMovie extends React.Component {
   subtitleInput(subtitle) {
     return (
       <label data-testid="subtitle-input-label" htmlFor="subtitle-input-id">
-        Título
+        Subtítulo
         <input
           id="subtitle-input-id"
           name="subtitle"
@@ -65,7 +65,7 @@ class AddMovie extends React.Component {
   imageInput(imagePath) {
     return (
       <label data-testid="image-input-label" htmlFor="image-input-id">
-        Título
+        Imagem
         <input
           id="image-input-id"
           name="imagePath"
@@ -96,7 +96,7 @@ class AddMovie extends React.Component {
   ratingInput(rating) {
     return (
       <label data-testid="rating-input-label" htmlFor="rating-input-id">
-        Título
+        Avaliação
         <input
           id="rating-input-id"
           name="rating"
