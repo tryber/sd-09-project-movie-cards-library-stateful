@@ -22,6 +22,10 @@ class MovieLibrary extends React.Component {
     this.onClick = this.onClick.bind(this);
   }
 
+  onClick(newMovie) {
+    this.setState((initState) => ({ movies: [...initState.movies, newMovie]}))
+  }
+
   onSearchTextChange(event) {
     this.setState({ searchText: event.target.value });
   }
@@ -32,10 +36,6 @@ class MovieLibrary extends React.Component {
 
   onSelectedGenreChange(event) {
     this.setState({ selectedGenre: event.target.value });
-  }
-
-  onClick(newMovie) {
-    this.setState((initState) => ({ movies: [...initState.movies, newMovie]}))
   }
 
   movieFilter() {
