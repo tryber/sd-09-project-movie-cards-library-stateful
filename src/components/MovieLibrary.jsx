@@ -34,6 +34,22 @@ class MovieLibrary extends Component {
     const { props, state, handleInput } = this;
     const { movies } = props;
     const { searchText, bookmarkedOnly, selectedGenre } = state;
+    let propsMovies = {
+      genreFilter: false,
+      genre: '',
+      textFilter: false,
+      text: '',
+      noFilter: false,
+    };
+    if (selectedGenre.length !== 0) {
+      propsMovies = { ...propsMovies, genreFilter: true, genre: selectedGenre };
+    }
+    if (searchText.length !== 0) {
+      propsMovies = { ...propsMovies, textFilter: true, text: searchText };
+    }
+    if ((selectedGenre.length === 0) && (searchText.length === 0) && !(bookmarkedOnly)) {
+      propsMovies = { ...propsMovies, noFilter: true };
+    }
     return (
       <>
         <SearchBar
@@ -44,7 +60,11 @@ class MovieLibrary extends Component {
           onBookmarkedChange={ handleInput }
           onSelectedGenreChange={ handleInput }
         />
-        <MovieList movies={ movies } />
+        <MovieList
+          movies={ movies }
+          bookmarked={ bookmarkedOnly }
+          propsMovies={ propsMovies }
+        />
       </>
     );
   }
