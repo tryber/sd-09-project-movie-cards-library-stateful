@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 import MovieList from './MovieList';
@@ -15,7 +15,7 @@ class MovieLibrary extends React.Component {
       movies,
     };
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
-    // this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
   }
 
@@ -24,11 +24,10 @@ class MovieLibrary extends React.Component {
     this.setState({ [name]: value });
   }
 
-  // onBookmarkedChange() {
-  //   this.setState((previusState) => {
-  //     if(!bookmarkedOnly) { previusState.bookmarkedOnly: bookmarkedOnly }
-  //   });
-  // }
+  onBookmarkedChange(e) {
+    const { name, checked } = e.target;
+    this.setState({ [name]: checked });
+  }
 
   onSelectedGenreChange(e) {
     const { name, value } = e.target;
@@ -36,7 +35,6 @@ class MovieLibrary extends React.Component {
   }
 
   render() {
-    // const { movies } = this.props;
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <div>
@@ -45,7 +43,7 @@ class MovieLibrary extends React.Component {
           bookmarkedOnly={ bookmarkedOnly }
           selectedGenre={ selectedGenre }
           onSearchTextChange={ this.onSearchTextChange }
-          // onBookmarkedChange={ this.onBookmarkedChange }
+          onBookmarkedChange={ this.onBookmarkedChange }
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <AddMovie />
@@ -55,8 +53,16 @@ class MovieLibrary extends React.Component {
   }
 }
 
-// MovieLibrary.PropType = {
-//   movies: PropTypes.arrayOf(PropTypes.object).isRequired,
-// };
+MovieLibrary.propType = {
+  movies: PropTypes.shape({
+    title: PropTypes.string,
+    subtitle: PropTypes.string,
+    storyline: PropTypes.string,
+    rating: PropTypes.number,
+    imagePath: PropTypes.string,
+    bookmarked: PropTypes.bool,
+    genre: PropTypes.string,
+  }).isRequired,
+};
 
 export default MovieLibrary;
