@@ -21,6 +21,7 @@ class MovieLibrary extends Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.filterMovies = this.filterMovies.bind(this);
   }
 
   onClick(newMovie) {
@@ -39,17 +40,7 @@ class MovieLibrary extends Component {
     this.setState({
       bookmarkedOnly: target.checked,
     });
-    const { movies, bookmarkedOnly } = this.state;
-    if (bookmarkedOnly) {
-      const filterMovies = movies
-        .filter(({ bookmarked }) => bookmarkedOnly === bookmarked);
-      this.setState({
-        movies: filterMovies,
-      });
-    }
   }
-
-  // Observei como Brolesi filtrava a lista de filmes em seu pull 23
 
   onSelectedGenreChange({ target }) {
     this.setState({
@@ -57,13 +48,36 @@ class MovieLibrary extends Component {
     });
   }
 
+  // Utilizei a lógica de Bruno Brolesi para filtar na SearchBar a lista de filmes referente ao requisito 18.
+
+  filterMovies() {
+    const { movies, selectedGenre, bookmarkedOnly, searchText } = this.state;
+    if (selectedGenre !== '') {
+      const filterMovies = movies.filter(({ genre }) => genre === selectedGenre);
+      return filterMovies;
+    }
+    if (bookmarkedOnly) {
+      const filterMovies = movies
+        .filter(({ bookmarked }) => bookmarkedOnly === bookmarked);
+      return filterMovies;
+    }
+    if (searchText !== '') {
+      const filterMovies = movies.filter(({ title, subtitle, storyline }) => (
+        title.includes(searchText) || subtitle.includes(searchText) || storyline
+          .includes(searchText)
+      ));
+      return filterMovies;
+    }
+    return movies;
+  }
+
   render() {
     const {
       searchText,
       bookmarkedOnly,
       selectedGenre,
-      movies,
     } = this.state;
+    const filterMovies = this.filterMovies();
     return (
       <div>
         <SearchBar
@@ -74,7 +88,7 @@ class MovieLibrary extends Component {
           onBookmarkedChange={ this.onBookmarkedChange }
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
-        <MovieList movies={ movies } />
+        <MovieList movies={ filterMovies } />
         <AddMovie onClick={ this.onClick } />
       </div>
     );
