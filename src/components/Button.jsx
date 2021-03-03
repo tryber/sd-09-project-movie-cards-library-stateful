@@ -15,4 +15,8 @@ class Button extends Component {
   }
 }
 
+Button.propTypes = {
+  submitForm: PropTypes.func.isRequired,
+};
+
 export default Button;

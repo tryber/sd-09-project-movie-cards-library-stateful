@@ -2,19 +2,17 @@ import React, { Component } from 'react';
 
 class SelectGenre extends Component {
   render() {
+    const { value, changeState } = this.props;
 
-    const { genre, changeState } = this.props;
-
-    return(
+    return (
       <label htmlFor="gender" data-testid="genre-input-label">
         Gênero
         <select
           name="genre"
-          value={ genre }
+          value={ value }
           data-testid="genre-input"
           onChange={ changeState }
         >
-          <option value="" data-testid="genre-option">Todos</option>
           <option value="action" data-testid="genre-option">Ação</option>
           <option value="comedy" data-testid="genre-option">Comédia</option>
           <option value="thriller" data-testid="genre-option">Suspense</option>
@@ -23,5 +21,10 @@ class SelectGenre extends Component {
     );
   }
 }
+
+SelectGenre.propTypes = {
+  value: PropTypes.string.isRequired,
+  changeState: PropTypes.func.isRequired,
+};
 
 export default SelectGenre;

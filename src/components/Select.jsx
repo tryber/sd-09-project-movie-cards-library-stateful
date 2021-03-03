@@ -21,4 +21,9 @@ class Select extends Component {
   }
 }
 
+Select.propTypes = {
+  selectedGenre: PropTypes.string.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
+};
+
 export default Select;
