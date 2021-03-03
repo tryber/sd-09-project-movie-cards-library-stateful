@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Input from './CreateElementInput';
 import Select from './CreateElementSelect';
 import Button from './CreateButton';
@@ -21,6 +22,14 @@ class AddMovie extends React.Component {
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
+  handleInputChange({ target }) {
+    const { name, value } = target;
+
+    this.setState({
+      [name]: value,
+    });
+  }
+
   filmAdd() {
     const { onClick } = this.props;
     onClick(this.state);
@@ -31,14 +40,6 @@ class AddMovie extends React.Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-    });
-  }
-
-  handleInputChange({ target }) {
-    const { name, value } = target;
-
-    this.setState({
-      [name]: value,
     });
   }
 
@@ -86,10 +87,14 @@ class AddMovie extends React.Component {
 
         <Select value={ genre } func={ this.handleInputChange } />
 
-        <Button func={ this.filmAdd }/>
+        <Button func={ this.filmAdd } />
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
