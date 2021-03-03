@@ -45,7 +45,7 @@ class AddMovie extends React.Component {
         <AddCompStoryline storyline={ storyline } handleChange={ handleChange } />
         <AddCompRating rating={ rating } handleChange={ handleChange } />
         <AddCompGenre genre={ genre } handleChange={ handleChange } />
-        <button onClick={ () => {} }>Adicionar filme</button>
+        <button type="submit" onClick={ () => {} }>Adicionar filme</button>
       </form>
     );
   }
