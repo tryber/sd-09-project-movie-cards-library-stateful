@@ -60,15 +60,15 @@ class InputText extends Component {
       inputLabel,
     } = this.validatesField(val, testId);
     return (
-      <label htmlFor={id} data-testid={labelTesId}>
-        {inputLabel}
+      <label htmlFor={ id } data-testid={ labelTesId }>
+        { inputLabel }
         <input
-          type={type}
-          name={name}
-          id={id}
-          value={value}
-          data-testid={testId}
-          onChange={handleInput}
+          type={ type }
+          name={ name }
+          id={ id }
+          value={ value }
+          data-testid={ testId }
+          onChange={ handleInput }
         />
       </label>
     );
