@@ -38,13 +38,16 @@ class AddMovie extends Component {
       <form data-testid="add-movie-form">
         <InputText testId="title-input" 
           value={ title } 
-          handleInput={ this.handleInput }/>
+          handleInput={ this.handleInput }
+        />
         <InputText testId="subtitle-input" 
           value={ subtitle }
-          handleInput={ this.handleInput }/>
+          handleInput={ this.handleInput }
+        />
         <InputText testId="image-input" 
           value={ imagePath }
-          handleInput={ this.handleInput }/>
+          handleInput={ this.handleInput }
+        />
         <label htmlFor="storyline-input" data-testid="storyline-input-label">
           Sinopse
           <textarea type="text" name="storyline" id="storyline-input"
