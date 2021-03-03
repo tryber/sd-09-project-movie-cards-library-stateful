@@ -11,6 +11,7 @@ import Button from './Button';
 class AddMovie extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       subtitle: '',
       title: '',
@@ -21,7 +22,6 @@ class AddMovie extends Component {
     };
     this.baseState = this.state;
     this.onChange = this.onChange.bind(this);
-    this.onSend = this.onSend.bind(this);
   }
 
   onChange({ target }) {
@@ -31,8 +31,7 @@ class AddMovie extends Component {
     });
   }
 
-  onSend() {
-    const { onClick } = this.props;
+  onSend(onClick) {
     onClick(this.state);
     this.setState({
       subtitle: '',
@@ -46,6 +45,8 @@ class AddMovie extends Component {
 
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
+    const { onClick } = this.props;
+
     return (
       <form id="add-movie-form" data-testid="add-movie-form">
         <TitleInput title={ title } onChange={ this.onChange } />
@@ -54,7 +55,7 @@ class AddMovie extends Component {
         <Storyline storyline={ storyline } onChange={ this.onChange } />
         <NewRating rating={ rating } onChange={ this.onChange } />
         <Genre genre={ genre } onChange={ this.onChange } />
-        <Button onClick={ this.onSend } />
+        <Button onClick={ () => this.onSend(onClick) } />
       </form>
     );
   }

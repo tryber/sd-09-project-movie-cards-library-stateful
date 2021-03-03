@@ -7,19 +7,26 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
+
+    const { movies } = this.props;
+
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
+      movies,
     };
+
     this.onClick = this.onClick.bind(this);
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
   }
 
-  onClick(state) {
-    this.setState(state);
+  onClick(newMovie) {
+    this.setState(({ movies }) => ({
+      movies: [...movies, newMovie],
+    }));
   }
 
   onSearchTextChange({ target }) {
@@ -32,7 +39,17 @@ class MovieLibrary extends Component {
     this.setState({
       bookmarkedOnly: target.checked,
     });
+    const { movies, bookmarkedOnly } = this.state;
+    if (bookmarkedOnly) {
+      const filterMovies = movies
+        .filter(({ bookmarked }) => bookmarkedOnly === bookmarked);
+      this.setState({
+        movies: filterMovies,
+      });
+    }
   }
+
+  // Observei como Brolesi filtrava a lista de filmes em seu pull 23
 
   onSelectedGenreChange({ target }) {
     this.setState({
@@ -41,11 +58,11 @@ class MovieLibrary extends Component {
   }
 
   render() {
-    const { movies } = this.props;
     const {
       searchText,
       bookmarkedOnly,
       selectedGenre,
+      movies,
     } = this.state;
     return (
       <div>
