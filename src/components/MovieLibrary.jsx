@@ -21,26 +21,27 @@ class MovieLibrary extends Component {
   updateState({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    this.setState(() => {
+    this.setState((prevState) => {
       return {
-        ...this.state,
+        prevState,
         [name]: value,
       };
     });
   }
 
   render() {
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar
-          searchText={ this.state.searchText }
+          searchText={ searchText }
           onSearchTextChange={ this.updateState }
-          bookmarkedOnly={ this.state.bookmarkedOnly }
+          bookmarkedOnly={ bookmarkedOnly }
           onBookmarkedChange={ this.updateState }
-          selectedGenre={ this.state.selectedGenre }
+          selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.updateState } />
-        <MovieList movies={ this.state.movies } />
+        <MovieList movies={ movies } />
         <AddMovie />
       </div>
     );

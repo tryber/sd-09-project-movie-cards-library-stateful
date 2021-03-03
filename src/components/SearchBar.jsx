@@ -16,6 +16,7 @@ class SearchBar extends Component {
               onChange={ onSearchTextChange }
               value={ searchText }
               type="text"
+              name="searchText"
               id="inputText"
             />
           </label>
@@ -26,6 +27,7 @@ class SearchBar extends Component {
               onChange={ onBookmarkedChange }
               checked={ bookmarkedOnly }
               type="checkbox"
+              name="bookmarkedOnly"
               id="inputBookMarked"
             />
           </label>
@@ -35,6 +37,7 @@ class SearchBar extends Component {
               data-testid="select-input"
               onChange={ onSelectedGenreChange }
               value={ selectedGenre }
+              name="selectedGenre"
               id="inputSelect"
             >
               <option data-testid="select-option" value="">Todos</option>
