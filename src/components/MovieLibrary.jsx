@@ -1,5 +1,6 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
@@ -13,6 +14,7 @@ class MovieLibrary extends Component {
     this.changeBookmark = this.changeBookmark.bind(this);
     this.changeGenre = this.changeGenre.bind(this);
     this.onClick = this.onClick.bind(this);
+    this.searchListInput = this.searchListInput.bind(this);
 
     this.state = {
       searchText: '',
@@ -50,24 +52,27 @@ class MovieLibrary extends Component {
     });
   }
 
+  searchListInput(movies, searchText) {
+    return movies.filter(({ title, subtitle, storyline }) => title
+      .toUpperCase().includes(searchText.toUpperCase()) || subtitle
+      .toUpperCase().includes(searchText.toUpperCase()) || storyline
+      .toUpperCase().includes(searchText.toUpperCase()));
+  }
+
   render() {
     const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
 
-    const searchList = movies.filter(({ title, subtitle, storyline }) => {
-      return title.toUpperCase().includes(searchText.toUpperCase())
-      || subtitle.toUpperCase().includes(searchText.toUpperCase())
-      || storyline.toUpperCase().includes(searchText.toUpperCase());
-    });
+    const searchList = this.searchListInput(movies, searchText);
 
     // Recuperar os filmes com bookmarked = true
     // Filter tem que retornar o card com o bookmarked = true
-    const searchBookmarked = searchList.filter(({ bookmarked }) => {
-      return bookmarkedOnly ? bookmarked === true : true;
-    });
+    const searchBookmarked = searchList.filter(({ bookmarked }) => (
+      (bookmarkedOnly ? bookmarked === true : true)
+    ));
 
-    const searchGenre = searchBookmarked.filter(({ genre }) => {
-      return genre.includes(selectedGenre);
-    });
+    const searchGenre = searchBookmarked.filter(({ genre }) => (
+      (genre.includes(selectedGenre))
+    ));
 
     return (
       <section>
