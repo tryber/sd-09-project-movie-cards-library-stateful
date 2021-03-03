@@ -7,8 +7,6 @@ class SearchBar extends Component {
     super(props);
 
     this.state = 0;
-
-    console.log(this.props);
   }
 
   render() {
