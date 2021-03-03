@@ -1,10 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Titulo from './auxiliaries/Titulo';
 import Subtitulo from './auxiliaries/Subtitulo';
 import Imagem from './auxiliaries/Imagem';
 import Sinopse from './auxiliaries/Sinopse';
 import Avaliacao from './auxiliaries/Avaliacao';
 import Genero from './auxiliaries/Genero';
+import BtFilme from './auxiliaries/BtFilme';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -16,15 +18,18 @@ class AddMovie extends React.Component {
     this.storylineChange = this.storylineChange.bind(this);
     this.ratingChange = this.ratingChange.bind(this);
     this.genreChange = this.genreChange.bind(this);
+    this.addFilm = this.addFilm.bind(this);
 
-    this.state = ({
+    this.state = {
       title: '',
       subtitle: '',
       imagePath: '',
       storyline: '',
       rating: 0,
       genre: 'action',
-    });
+    };
+
+    this.stateInitial = this.state;
   }
 
   titleChange(event) {
@@ -51,6 +56,12 @@ class AddMovie extends React.Component {
     this.setState({ genre: event.target.value });
   }
 
+  addFilm() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState(this.stateInitial);
+  }
+
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
@@ -61,9 +72,14 @@ class AddMovie extends React.Component {
         <Sinopse onValue={ storyline } change={ this.storylineChange } />
         <Avaliacao onValue={ rating } change={ this.ratingChange } />
         <Genero onValue={ genre } change={ this.genreChange } />
+        <BtFilme onclick={ this.addFilm } />
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
