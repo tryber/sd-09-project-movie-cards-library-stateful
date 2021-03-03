@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import AddCompTitle from './AddCompTitle';
 import AddCompSubtitle from './AddCompSubtitle';
@@ -21,6 +22,22 @@ class AddMovie extends React.Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmitButton = this.handleSubmitButton.bind(this);
+  }
+
+  handleSubmitButton(event) {
+    const { onClick } = this.props;
+    event.preventDefault();
+    const { state } = this;
+    onClick(state);
+    this.state({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   handleChange({ target }) {
@@ -35,7 +52,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { handleChange } = this;
+    const { handleChange, handleSubmitButton } = this;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form action="" data-testid="add-movie-form">
@@ -45,10 +62,20 @@ class AddMovie extends React.Component {
         <AddCompStoryline storyline={ storyline } handleChange={ handleChange } />
         <AddCompRating rating={ rating } handleChange={ handleChange } />
         <AddCompGenre genre={ genre } handleChange={ handleChange } />
-        <button type="submit" onClick={ () => {} }>Adicionar filme</button>
+        <button
+          type="submit"
+          data-testid="send-button"
+          onClick={ handleSubmitButton }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
