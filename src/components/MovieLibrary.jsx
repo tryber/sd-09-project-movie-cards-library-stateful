@@ -23,7 +23,7 @@ class MovieLibrary extends React.Component {
   }
 
   onClick(newMovie) {
-    this.setState((initState) => ({ movies: [...initState.movies, newMovie]}))
+    this.setState((initState) => ( { movies: [...initState.movies, newMovie] }));
   }
 
   onSearchTextChange(event) {
@@ -85,7 +85,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList movies={ this.movieFilter() } />
-        <AddMovie onClick={ this.onClick} />
+        <AddMovie onClick={ this.onClick } />
       </div>
     );
   }
