@@ -18,6 +18,7 @@ class SearchBar extends Component {
           <input
             type="text"
             id="text-input"
+            name="searchText"
             value={ searchText }
             onChange={ onSearchTextChange }
             data-testid="text-input"
@@ -37,6 +38,7 @@ class SearchBar extends Component {
           Filtrar por gênero
           <select
             id="select-input"
+            name="selectedGenre"
             value={ selectedGenre }
             onChange={ onSelectedGenreChange }
             data-testid="select-input"
