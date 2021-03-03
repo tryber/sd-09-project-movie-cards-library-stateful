@@ -45,7 +45,7 @@ class MovieLibrary extends Component {
     const { checked } = event.target;
     const { movies } = this.props;
     this.setState({
-      bookmarkedOnly: (checked === true ? true : false),
+      bookmarkedOnly: checked,
       movies: (checked ? movies.filter((movie) => movie.bookmarked === checked) : movies),
     });
   }
@@ -71,18 +71,9 @@ class MovieLibrary extends Component {
 }
 
 MovieLibrary.propTypes = {
-  searchText: PropTypes.string,
-  bookmarkedOnly: PropTypes.bool,
-  selectedGenre: PropTypes.string,
   movies: PropTypes.arrayOf(
     PropTypes.object,
   ).isRequired,
-};
-
-MovieLibrary.defaultProps = {
-  searchText: '',
-  bookmarkedOnly: false,
-  selectedGenre: '',
 };
 
 export default MovieLibrary;
