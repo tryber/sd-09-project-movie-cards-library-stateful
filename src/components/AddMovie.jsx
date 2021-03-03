@@ -36,9 +36,7 @@ class AddMovie extends Component {
     const { onClick } = props;
     return (
       <form data-testid="add-movie-form">
-        <InputText
-          testId="title-input"
-          value={ title }
+        <InputText testId="title-input" value={ title }
           handleInput={ this.handleInput }
         />
         <InputText
