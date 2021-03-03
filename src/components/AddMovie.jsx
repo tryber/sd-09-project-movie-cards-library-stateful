@@ -1,6 +1,6 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 const INITIAL_STATE = {
   subtitle: '',
@@ -9,10 +9,9 @@ const INITIAL_STATE = {
   storyline: '',
   rating: 0,
   genre: 'action',
-}
+};
 
 class AddMovie extends Component{
-
   constructor(props) {
     super(props);
     this.state = INITIAL_STATE;
@@ -24,12 +23,12 @@ class AddMovie extends Component{
   updateStateValue({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    this.setState(
-      {
+    this.setState(() => {
+      return {
         ...this.state,
         [name]: value,
       }
-    )
+    });
   }
 
   sendInformations(e) {
