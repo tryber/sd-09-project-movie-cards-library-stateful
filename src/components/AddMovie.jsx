@@ -90,7 +90,7 @@ class AddMovie extends React.Component {
         </label>
         <button
           type="submit"
-          onClick={ onClick }
+          onClick={ this.handleClick }
           data-testid="send-button"
         >
           Adicionar filme
