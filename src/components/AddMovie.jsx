@@ -17,6 +17,7 @@ class AddMovie extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.setNewTitle = this.setNewTitle.bind(this);
     this.setNewSubtitle = this.setNewSubtitle.bind(this);
+    this.setNewGenre = this.setNewGenre.bind(this);
   }
 
   handleChange({ target }) {
@@ -68,7 +69,7 @@ class AddMovie extends React.Component {
           data-testid="image-input"
           htmlFor="image-input"
           onChange={ this.handleChange }
-          value={ image }>
+          value={ imagePath }>
         </input>
       </label>
     );
@@ -110,19 +111,17 @@ class AddMovie extends React.Component {
     return (
       <label data-testid="genre-input-label">
         Gênero
-        <input
+        <select
           name="genre"
           type="select"
           data-testid="genre-input"
           htmlFor="genre-input"
           onChange={ this.handleChange }
           value={ genre }>
-          <select>
-            <option data-testid="genre-option" value="action">Ação</option>
-            <option data-testid="genre-option" value="comedy">Comédia</option>
-            <option data-testid="genre-option" value="thriller">Suspense</option>
-          </select>
-        </input>
+          <option data-testid="genre-option" value="action">Ação</option>
+          <option data-testid="genre-option" value="comedy">Comédia</option>
+          <option data-testid="genre-option" value="thriller">Suspense</option>
+        </select>
       </label>
     );
   };
@@ -131,12 +130,12 @@ class AddMovie extends React.Component {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
      <form data-testid="add-movie-form">
-       { this.setNewTitle(title) }
-       { this.setNewSubtitle(subtitle) }
-       { this.setNewImagePath(imagePath) }
-       { this.setNewStoryline(storyline) }
-       { this.setNewRating(rating) }
-
+        { this.setNewTitle(title) }
+        { this.setNewSubtitle(subtitle) }
+        { this.setNewImagePath(imagePath) }
+        { this.setNewStoryline(storyline) }
+        { this.setNewRating(rating) }
+        { this.setNewGenre(genre) }
      </form>
     );
   }
