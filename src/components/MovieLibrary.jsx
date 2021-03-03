@@ -13,8 +13,8 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: props.movies
-    }
+      movies,
+    };
   }
 
   render() {

@@ -42,10 +42,10 @@ class AddMovie extends React.Component {
   }
 
   handleChange({ target }) {
-    const { name, value } = target; 
+    const { name, value } = target;
     this.setState({
-      [name]: value
-    })
+      [name]: value,
+    });
   }
 
   setNewTitle(title) {
@@ -104,13 +104,15 @@ class AddMovie extends React.Component {
 
   setNewStoryline(storyline) {
     return (
-      <label data-testid="storyline-input-label">
+      <label
+        data-testid="storyline-input-label"
+        htmlFor="storyline-input"
+      >
         Sinopse
         <input
           name="storyline"
           type="text"
           data-testid="storyline-input"
-          htmlFor="storyline-input"
           onChange={ this.handleChange }
           value={ storyline }
         />
@@ -120,13 +122,15 @@ class AddMovie extends React.Component {
 
   setNewRating(rating) {
     return (
-      <label data-testid="rating-input-label">
+      <label
+        data-testid="rating-input-label"
+        htmlFor="rating-input"
+      >
         Avaliação
         <input
           name="rating"
           type="number"
           data-testid="rating-input"
-          htmlFor="rating-input"
           onChange={ this.handleChange }
           value={ rating }
         />
@@ -136,15 +140,18 @@ class AddMovie extends React.Component {
 
   setNewGenre(genre) {
     return (
-      <label data-testid="genre-input-label">
+      <label
+        data-testid="genre-input-label"
+        htmlFor="genre-input"
+      >
         Gênero
         <select
           name="genre"
           type="select"
           data-testid="genre-input"
-          htmlFor="genre-input"
           onChange={ this.handleChange }
-          value={ genre }>
+          value={ genre }
+        >
           <option data-testid="genre-option" value="action">Ação</option>
           <option data-testid="genre-option" value="comedy">Comédia</option>
           <option data-testid="genre-option" value="thriller">Suspense</option>
@@ -164,7 +171,7 @@ class AddMovie extends React.Component {
         { this.setNewRating(rating) }
         { this.setNewGenre(genre) }
         { this.resetButton }
-     </form>
+      </form>
     );
   }
 }
