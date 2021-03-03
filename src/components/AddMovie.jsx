@@ -39,38 +39,26 @@ class AddMovie extends Component {
         <InputText testId="title-input" value={ title }
           handleInput={ this.handleInput }
         />
-        <InputText
-          testId="subtitle-input"
-          value={ subtitle }
+        <InputText testId="subtitle-input" value={ subtitle }
           handleInput={ this.handleInput }
         />
-        <InputText
-          testId="image-input"
-          value={ imagePath }
+        <InputText testId="image-input" value={ imagePath }
           handleInput={ this.handleInput }
         />
         <label htmlFor="storyline-input" data-testid="storyline-input-label">
           Sinopse
-          <textarea
-            type="text"
-            name="storyline"
-            id="storyline-input"
+          <textarea type="text" name="storyline" id="storyline-input"
             data-testid="storyline-input"
             value={ storyline }
             onChange={ handleInput }
           />
         </label>
-        <InputText
-          testId="rating-input"
-          value={ rating }
+        <InputText testId="rating-input" value={ rating }
           handleInput={ this.handleInput }
         />
         <label htmlFor="genre-select" data-testid="genre-input-label">
           Gênero
-          <select
-            name="genre"
-            id="genre-select"
-            data-testid="genre-input"
+          <select name="genre" id="genre-select" data-testid="genre-input"
             onChange={ handleInput }
             value={ genre }
           >
@@ -85,9 +73,7 @@ class AddMovie extends Component {
             </option>
           </select>
         </label>
-        <button
-          type="button"
-          data-testid="send-button"
+        <button type="button" data-testid="send-button"
           onClick={ (event) => {
             event.preventDefault();
             resetState();
