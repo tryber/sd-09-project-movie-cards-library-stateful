@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Title from './componentsAddMovie/Title';
 import Subtitle from './componentsAddMovie/Subtitle';
 import Image from './componentsAddMovie/Image';
@@ -10,12 +11,13 @@ class AddMovie extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
+    this.resetState = this.resetState.bind(this);
     this.state = {
       subtitle: '',
       title: '',
       imagePath: '',
       storyline: '',
-      rating: '',
+      rating: 0,
       genre: 'action',
     };
   }
@@ -24,6 +26,21 @@ class AddMovie extends React.Component {
     const { name, value } = target;
     this.setState({
       [name]: value,
+    });
+  }
+
+  // Ideia de juntar o resetState e o onClick veio do pull da Fernanda Cajueiro
+  // Disponível: https://github.com/tryber/sd-09-project-movie-cards-library-stateful/pull/74/files
+  resetState() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
     });
   }
 
@@ -44,6 +61,7 @@ class AddMovie extends React.Component {
         <button
           type="button"
           data-testid="send-button"
+          onClick={ this.resetState }
         >
           Adicionar filme
         </button>
@@ -51,5 +69,9 @@ class AddMovie extends React.Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
