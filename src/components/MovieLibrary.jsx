@@ -7,27 +7,51 @@ import MovieList from './MovieList';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
+
+    const { movies } = this.props;
+
+    this.state = {
+      searchText: '',
+      selectedGenre: '',
+      bookmarkedOnly: false,
+      movies,
+    };
 
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.filmAdd = this.filmAdd.bind(this);
   }
 
-  handleInputChange({ target }) {
-    const { name, value } = target;
+  handleInputChange(event) {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
 
     this.setState({
-      [name]: value,
+      [name]: value
     });
   }
 
+  filmAdd(movie) {
+    this.setState(({ movies }) => ({
+      movies: [...movies, movie],
+    }));
+  }
+
   render() {
-    const { movies } = this.props;
     return (
       <>
         <Header />
-        <SearchBar />
-        <AddMovie />
-        <MovieList movies={ movies } />
+        <SearchBar
+          searchText={ this.state.searchText }
+          selectedGenre={ this.state.selectedGenre }
+          bookmarkedOnly={ this.state.bookmarkedOnly }
+          onSearchTextChange={ this.handleInputChange }
+          onBookmarkedChange={ this.handleInputChange }
+          onSelectedGenreChange={ this.handleInputChange }
+        />
+        <AddMovie onClick={ this.filmAdd } />
+        <MovieList movies={ this.state.movies } />
       </>
     );
   }
