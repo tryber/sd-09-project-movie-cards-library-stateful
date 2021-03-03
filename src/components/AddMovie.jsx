@@ -33,7 +33,7 @@ class AddMovie extends Component {
   }
 
   sendInformations(e) {
-    const state = this.state
+    const { state } = this.state;
     e.preventDefault();
     this.props.onClick(state);
     this.resetInformations();
