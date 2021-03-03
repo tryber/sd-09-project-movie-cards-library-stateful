@@ -53,7 +53,7 @@ class MovieLibrary extends React.Component {
   }
 }
 
-MovieLibrary.propType = {
+MovieLibrary.propTypes = {
   movies: PropTypes.shape({
     title: PropTypes.string,
     subtitle: PropTypes.string,
