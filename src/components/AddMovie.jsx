@@ -50,6 +50,7 @@ class AddMovie extends Component {
       genre: 'action',
     });
   }
+  
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
@@ -64,28 +65,28 @@ class AddMovie extends Component {
               name="title" 
               id="inputTitle"/>
           </label>
-          <label data-testid="subtitle-input-label" id="inputSubtitle">
+          <label data-testid="subtitle-input-label" htmlFor="inputSubtitle">
             Subtítulo
             <input onChange={ this.updateStateValue } data-testid="subtitle-input"
               value={ subtitle } type="text" name="subtitle" id="inputSubtitle"/>
           </label>
-          <label data-testid="image-input-label" id="inputImage">
+          <label data-testid="image-input-label" htmlFor="inputImage">
             Imagem
             <input onChange={ this.updateStateValue } data-testid="image-input"
               value={ imagePath } type="text" name="imagePath" id="inputImage"/>
           </label>
-          <label data-testid="storyline-input-label" id="inputSinopse">
+          <label data-testid="storyline-input-label" htmlFor="inputSinopse">
             Sinopse
             <textarea onChange={ this.updateStateValue } data-testid="storyline-input"
               value={ storyline } name="storyline" id="inputSinopse" cols="30" rows="10"
             ></textarea>
           </label>
-          <label data-testid="rating-input-label" id="inputAvaliacao">
+          <label data-testid="rating-input-label" htmlFor="inputAvaliacao">
             Avaliação
             <input onChange={ this.updateStateValue } data-testid="rating-input"
               value={ rating } type="number" name="rating" id="inputAvaliacao"/>
           </label>
-          <label data-testid="genre-input-label" id="inputGenero">
+          <label data-testid="genre-input-label" htmlFor="inputGenero">
             Gênero
             <select onChange={ this.updateStateValue } value={ genre }
               data-testid="genre-input" name="genre" id="inputGenero">
@@ -103,8 +104,8 @@ class AddMovie extends Component {
   }
 }
 
-AddMovie.protoTypes = {
-  onClick: PropTypes.func(Object),
+AddMovie.propTypes = {
+  onClick: PropTypes.func,
 }
 
 export default AddMovie;
