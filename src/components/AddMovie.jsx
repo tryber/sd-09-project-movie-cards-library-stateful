@@ -12,7 +12,6 @@ const INITIAL_STATE = {
 };
 
 class AddMovie extends Component {
-
   constructor(props) {
     super(props);
     this.state = INITIAL_STATE;
@@ -50,7 +49,7 @@ class AddMovie extends Component {
       genre: 'action',
     });
   }
-  
+
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
@@ -84,17 +83,17 @@ class AddMovie extends Component {
               <option data-testid="genre-option" value="thriller">Suspense</option>
             </select>
           </label>
-          <button type='submit' data-testid="send-button" onClick={this.sendInformations}>
+          <button type='submit' data-testid="send-button" onClick={ this.sendInformations }>
             Adicionar filme
           </button>
         </form>
       </div>
-    )
+    );
   }
 }
 
 AddMovie.propTypes = {
-  onClick: PropTypes.func,
-}
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
