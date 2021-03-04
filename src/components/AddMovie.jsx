@@ -5,9 +5,9 @@ class AddMovie extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      /* subtitle: '',
-      title: ''
-      /* imagePath: '',
+    /* subtitle: '',
+      title: '',
+      imagePath: '',
       storyline: '',
       rating: 0,
       genre: 'action', */
@@ -44,6 +44,14 @@ class AddMovie extends React.Component {
         <label data-testid="storyline-input-label" htmlFor="storyline-input">
           Sinopse
           <textarea data-testid="storyline-input" />
+        </label>
+        <label data-testid="rating-input-label" htmlFor="rating-input">
+          Avaliação
+          <input
+            data-testid="rating-input"
+            type="number"
+            onChange={ this.setState.rating }
+          />
         </label>
       </form>
     );
