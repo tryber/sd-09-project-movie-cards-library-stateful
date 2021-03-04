@@ -24,7 +24,7 @@ class MovieLibrary extends Component {
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState((prevState) => (
       {
-        prevState,
+        ...prevState,
         [name]: value,
       }
     ));
