@@ -10,6 +10,7 @@ class GenreType extends Component {
     }
     return options.map((option) => <Option key={ option.id } properties={ option } />);
   }
+  
   render() {
     const { label, name, value, onChange } = this.props;
     const genreOptions = [
