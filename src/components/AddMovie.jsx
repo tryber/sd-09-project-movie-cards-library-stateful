@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import InputText from './InputText';
 
 const initialState = {
-  subtitle: '',
   title: '',
-  imagePath: '',
+  subtitle: '',
   storyline: '',
   rating: 0,
+  imagePath: '',
+  bookmarked: false,
   genre: 'action',
 };
 
@@ -70,8 +71,8 @@ class AddMovie extends Component {
           data-testid="send-button"
           onClick={ (event) => {
             event.preventDefault();
-            resetState();
             onClick(state);
+            resetState();
           } }
         >
           Adicionar filme

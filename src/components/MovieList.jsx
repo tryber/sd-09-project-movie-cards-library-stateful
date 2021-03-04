@@ -14,11 +14,13 @@ class MovieList extends React.Component {
             .filter((movie) => (movie.bookmarked))
             .map((movie) => <MovieCard key={ movie.title } movie={ movie } />)
         ) }
+
         { (genreFilter) && (
           movies
             .filter((movie) => (movie.genre === genre))
             .map((movie) => <MovieCard key={ movie.title } movie={ movie } />)
         ) }
+
         { (textFilter) && (
           movies
             .filter((movie) => ((movie.title.includes(text))
@@ -26,6 +28,7 @@ class MovieList extends React.Component {
               || (movie.storyline.includes(text))))
             .map((movie) => <MovieCard key={ movie.title } movie={ movie } />)
         ) }
+
         { (noFilter) && (
           movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)
         ) }
@@ -37,15 +40,27 @@ class MovieList extends React.Component {
 MovieList.propTypes = {
   movies: PropTypes.arrayOf(
     PropTypes.object,
-  ).isRequired,
-  bookmarked: PropTypes.bool.isRequired,
+  ),
+  bookmarked: PropTypes.bool,
   propsMovies: PropTypes.shape({
     genreFilter: PropTypes.bool,
     genre: PropTypes.string,
     textFilter: PropTypes.bool,
     text: PropTypes.string,
     noFilter: PropTypes.bool,
-  }).isRequired,
+  }),
+};
+
+MovieList.defaultProps = {
+  movies: [],
+  bookmarked: false,
+  propsMovies: {
+    genreFilter: false,
+    genre: '',
+    textFilter: false,
+    text: '',
+    noFilter: true,
+  },
 };
 
 export default MovieList;
