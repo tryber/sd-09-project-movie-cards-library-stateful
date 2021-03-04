@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import MovieCard from './MovieCard';
 
 class MovieList extends React.Component {
@@ -8,7 +7,26 @@ class MovieList extends React.Component {
     const { movies, bookmarked, searchText, selectedGenre } = this.props;
     let moviesList = movies
       .map((movie) => <MovieCard key={ movie.title } movie={ movie } />);
-    if (searchText.length !== 0) {
+    if ((searchText.length !== 0) && (selectedGenre.length !== 0)) {
+      moviesList = movies
+        .filter((movie) => ((movie.title.includes(searchText))
+          || (movie.subtitle.includes(searchText))
+          || (movie.storyline.includes(searchText)))
+          && ((movie.genre === selectedGenre)))
+        .map((movie) => <MovieCard key={ movie.title } movie={ movie } />);
+    } else if ((searchText.length !== 0) && (bookmarked)) {
+      moviesList = movies
+        .filter((movie) => ((movie.title.includes(searchText))
+          || (movie.subtitle.includes(searchText))
+          || (movie.storyline.includes(searchText)))
+          && ((movie.bookmarked)))
+        .map((movie) => <MovieCard key={ movie.title } movie={ movie } />);
+    } else if ((selectedGenre.length !== 0) && (bookmarked)) {
+      moviesList = movies
+        .filter((movie) => (movie.genre === selectedGenre)
+          && ((movie.bookmarked)))
+        .map((movie) => <MovieCard key={ movie.title } movie={ movie } />);
+    } else if (searchText.length !== 0) {
       moviesList = movies
         .filter((movie) => ((movie.title.includes(searchText))
           || (movie.subtitle.includes(searchText))
