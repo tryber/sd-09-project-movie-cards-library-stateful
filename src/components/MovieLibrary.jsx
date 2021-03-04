@@ -14,6 +14,16 @@ class MovieLibrary extends Component {
       selectedGenre: '',
       movies,
     };
+    this.changeHandler = this.changeHandler.bind(this);
+  }
+
+  changeHandler(event) {
+    const { name, value, type, checked } = event.target;
+    if (type === 'checkbox') {
+      this.setState({ bookmarkedOnly: checked });
+    } else {
+      this.setState({ [name]: value });
+    }
   }
 
   render() {
@@ -22,11 +32,11 @@ class MovieLibrary extends Component {
       <>
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ () => {} }
+          onSearchTextChange={ this.changeHandler }
           bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ () => {} }
+          onBookmarkedChange={ this.changeHandler }
           selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ () => {} }
+          onSelectedGenreChange={ this.changeHandler }
         />
         <AddMovie />
         <MovieList movies={ movies } />
