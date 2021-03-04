@@ -8,12 +8,12 @@ class AddMovie extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      subtitle: "",
-      title: "",
-      imagePath: "",
-      storyline: "",
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
       rating: 0,
-      genre: "action",
+      genre: 'action',
     };
     this.randomChange = this.randomChange.bind(this);
     this.addMovie = this.addMovie.bind(this);
