@@ -30,6 +30,7 @@ class AddMovie extends React.Component {
     };
 
     this.stateInitial = this.state;
+    console.log(this.props);
   }
 
   titleChange(event) {
@@ -59,7 +60,7 @@ class AddMovie extends React.Component {
   addFilm() {
     const { onClick } = this.props;
     onClick(this.state);
-    this.setState(this.stateInitial);
+    this.setState({ ...this.stateInitial });
   }
 
   render() {

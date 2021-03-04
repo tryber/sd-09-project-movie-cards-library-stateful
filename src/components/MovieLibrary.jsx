@@ -12,6 +12,7 @@ class MovieLibrary extends React.Component {
     this.onSearchText = this.onSearchText.bind(this);
     this.onBookmarked = this.onBookmarked.bind(this);
     this.onSelectedGenre = this.onSelectedGenre.bind(this);
+    this.addCard = this.addCard.bind(this);
 
     this.state = {
       searchText: '',
@@ -34,9 +35,35 @@ class MovieLibrary extends React.Component {
     this.setState({ selectedGenre: event.target.value });
   }
 
+  filterText(param1, param2) {
+    return param1
+      .filter((element) => element.title.toUpperCase().includes(param2.toUpperCase())
+      || element.subtitle.toUpperCase().includes(param2.toUpperCase())
+      || element.storyline.toUpperCase().includes(param2.toUpperCase()));
+  }
+
+  filterBookmarked(param1, param2) {
+    if (param2 === true) return param1.filter((element) => element.bookmarked === true);
+    return param1;
+  }
+
+  filterGenre(param1, param2) {
+    return param1.filter((element) => element.genre.includes(param2));
+  }
+
+  addCard(param) {
+    this.setState((prevStates) => ({
+      movies: [...prevStates.movies, param],
+    }));
+  }
+
   render() {
     // const { movies } = this.props;
-    const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    let { movies } = this.state;
+    movies = this.filterText(movies, searchText);
+    movies = this.filterBookmarked(movies, bookmarkedOnly);
+    movies = this.filterGenre(movies, selectedGenre);
     return (
       <div>
         <h2>My awesome movie library</h2>
@@ -49,7 +76,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={ this.onSelectedGenre }
         />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ this.addCard } />
       </div>
     );
   }
