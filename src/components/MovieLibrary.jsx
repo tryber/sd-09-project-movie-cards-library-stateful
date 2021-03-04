@@ -15,34 +15,83 @@ class MovieLibrary extends Component {
     };
     this.handleInput = this.handleInput.bind(this);
     this.addNewMovie = this.addNewMovie.bind(this);
-    this.saveMoviesList = this.saveMoviesList.bind(this);
+    this.updateMoviesList = this.updateMoviesList.bind(this);
   }
 
   componentDidMount() {
-    this.saveMoviesList();
+    this.updateMoviesList();
   }
 
   handleInput({ target }) {
-    if (target.type !== 'checkbox') {
+    const { type, name, checked, value } = target;
+    if (type !== 'checkbox') {
       this.setState({
-        [target.name]: target.value,
+        [name]: value,
+      }, () => {
+        this.updateMoviesList();
       });
-    } else if (target.checked) {
+    } else if (checked) {
       this.setState({
         bookmarkedOnly: true,
+      }, () => {
+        this.updateMoviesList();
       });
     } else {
       this.setState({
         bookmarkedOnly: false,
+      }, () => {
+        this.updateMoviesList();
       });
     }
   }
 
-  saveMoviesList() {
+  updateMoviesList() {
+    const { searchText, selectedGenre, bookmarkedOnly } = this.state;
     const { movies } = this.props;
+    const text = searchText.toUpperCase();
     this.setState({
       movies,
     });
+    if ((searchText.length !== 0) && (selectedGenre.length !== 0)) {
+      this.setState({
+        movies: movies
+          .filter((movie) => ((movie.title.toUpperCase().includes(text))
+            || (movie.subtitle.toUpperCase().includes(text))
+            || (movie.storyline.toUpperCase().includes(text)))
+            && (movie.genre === selectedGenre)),
+      });
+    } else if ((searchText.length !== 0) && (bookmarkedOnly)) {
+      this.setState({
+        movies: movies
+          .filter((movie) => ((movie.title.toUpperCase().includes(text))
+            || (movie.subtitle.toUpperCase().includes(text))
+            || (movie.storyline.toUpperCase().includes(text)))
+            && (movie.bookmarked)),
+      });
+    } else if ((selectedGenre.length !== 0) && (bookmarkedOnly)) {
+      this.setState({
+        movies: movies
+          .filter((movie) => (movie.genre === selectedGenre)
+          && (movie.bookmarked)),
+      });
+    } else if (searchText.length !== 0) {
+      this.setState({
+        movies: movies
+          .filter((movie) => ((movie.title.toUpperCase().includes(text))
+          || (movie.subtitle.toUpperCase().includes(text))
+          || (movie.storyline.toUpperCase().includes(text)))),
+      });
+    } else if (selectedGenre.length !== 0) {
+      this.setState({
+        movies: movies
+          .filter((movie) => (movie.genre === selectedGenre)),
+      });
+    } else if (bookmarkedOnly) {
+      this.setState({
+        movies: movies
+          .filter((movie) => (movie.bookmarked)),
+      });
+    }
   }
 
   addNewMovie(newMovie) {
@@ -64,12 +113,7 @@ class MovieLibrary extends Component {
           onBookmarkedChange={ handleInput }
           onSelectedGenreChange={ handleInput }
         />
-        <MovieList
-          movies={ movies }
-          bookmarked={ bookmarkedOnly }
-          selectedGenre={ selectedGenre }
-          searchText={ searchText }
-        />
+        <MovieList movies={ movies } />
         <AddMovie onClick={ addNewMovie } />
       </>
     );
