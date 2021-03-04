@@ -50,6 +50,19 @@ class AddMovie extends Component {
     });
   }
 
+  inputGen(id, name, type, value, dataTestId) {
+    return (
+      <input
+        id={ id }
+        name={ name }
+        type={ type }
+        value={ value }
+        data-testid={ dataTestId }
+        onChange={ this.updateStateValue }
+      />
+    )
+  }
+
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
@@ -57,36 +70,17 @@ class AddMovie extends Component {
         <form data-testid="add-movie-form">
           <label data-testid="title-input-label" htmlFor="inputTitle">
             Título
-            <input
-              onChange={ this.updateStateValue }
-              data-testid="title-input"
-              value={ title }
-              type="text"
-              name="title"
-              id="inputTitle"
-            />
+            { this.inputGen("inputTitle", "title", "text", title, "title-input") }
           </label>
           <label data-testid="subtitle-input-label" htmlFor="inputSubtitle">
             Subtítulo
-            <input
-              onChange={ this.updateStateValue }
-              data-testid="subtitle-input"
-              value={ subtitle }
-              type="text"
-              name="subtitle"
-              id="inputSubtitle"
-            />
+            { this.inputGen("inputSubtitle", "subtitle", 
+            "text", subtitle, "subtitle-input") }
           </label>
           <label data-testid="image-input-label" htmlFor="inputImage">
             Imagem
-            <input
-              onChange={ this.updateStateValue }
-              data-testid="image-input"
-              value={ imagePath }
-              type="text"
-              name="imagePath"
-              id="inputImage"
-            />
+            { this.inputGen("inputImage", "imagePath", 
+            "text", imagePath, "image-input") }
           </label>
           <label data-testid="storyline-input-label" htmlFor="inputSinopse">
             Sinopse
@@ -102,14 +96,8 @@ class AddMovie extends Component {
           </label>
           <label data-testid="rating-input-label" htmlFor="inputAvaliacao">
             Avaliação
-            <input
-              onChange={ this.updateStateValue }
-              data-testid="rating-input"
-              value={ rating }
-              type="number"
-              name="rating"
-              id="inputAvaliacao"
-            />
+            { this.inputGen("inputAvaliacao", "rating", 
+            "number", rating, "rating-input") }
           </label>
           <label data-testid="genre-input-label" htmlFor="inputGenero">
             Gênero
