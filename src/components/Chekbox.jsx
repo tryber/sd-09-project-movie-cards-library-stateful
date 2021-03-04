@@ -6,25 +6,25 @@ class Checkbox extends React.Component {
     const { checked, value, onChange } = this.props;
     return (
       <label htmlFor="bookmark" data-testid="checkbox-input-label">
-          Mostrar somente favoritos
-          <input
-            type="checkbox"
-            checked={ checked }
-            id="bookmark"
-            name="bookmark"
-            value={ value }
-            onChange={ onChange }
-            data-testid="checkbox-input"
-          />
-        </label>
+        Mostrar somente favoritos
+        <input
+          type="checkbox"
+          checked={ checked }
+          id="bookmark"
+          name="bookmark"
+          value={ value }
+          onChange={ onChange }
+          data-testid="checkbox-input"
+        />
+      </label>
     );
   }
 }
 
 Checkbox.propTypes = {
-  checked: PropTypes.bool,
-  value: PropTypes.string,
-  onChange: PropTypes.func,
+  checked: PropTypes.bool.isRequired,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 export default Checkbox;

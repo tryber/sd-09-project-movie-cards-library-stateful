@@ -47,24 +47,28 @@ class AddMovie extends Component {
           type="text"
           name="title"
           value={ title }
-          onChange={ this.handleInputTextChange } />
+          onChange={ this.handleInputTextChange }
+        />
         <Input
           label="Subtítulo"
           type="text"
           name="subtitle"
           value={ subtitle }
-          onChange={ this.handleInputTextChange } />
+          onChange={ this.handleInputTextChange }
+        />
         <Input
           label="Imagem"
           type="text"
           name="image"
           value={ imagePath }
-          onChange={ this.handleInputTextChange } />
+          onChange={ this.handleInputTextChange }
+        />
         <TextArea
           label="Sinopse"
           name="storyline"
           value={ storyline }
-          onChange={ this.handleInputTextChange } />
+          onChange={ this.handleInputTextChange }
+        />
         <Input
           type="number"
           label="Avaliação"
@@ -77,7 +81,6 @@ class AddMovie extends Component {
           name="genre"
           value={ genre }
           onChange={ this.handleInputTextChange }
-          testLabel='genre-input-label'
         />
         <Button onClick={ this.handleClickSendButton } />
       </form>
@@ -86,7 +89,7 @@ class AddMovie extends Component {
 }
 
 AddMovie.propTypes = {
-  onClick: PropTypes.func,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default AddMovie;

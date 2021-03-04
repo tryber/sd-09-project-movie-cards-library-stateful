@@ -8,11 +8,13 @@ class MovieLibrary extends Component {
   constructor(props) {
     super(props);
 
+    const { movies } = this.props;
+
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: this.props.movies,
+      movies,
     };
 
     this.handleSearchTextChange = this.handleSearchTextChange.bind(this);
@@ -32,29 +34,31 @@ class MovieLibrary extends Component {
     });
   }
 
-  handleBookmarkedChange(event) {}
+  handleBookmarkedChange() {}
 
-  handleSelectedGenreChange(event) {}
+  handleSelectedGenreChange() {}
 
   filterMovies(value) {
-    const { searchText, bookmarkedOnly, selectedGenre, movies }= this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     let filteredMovies = [];
     let textFilter = [];
     let bookmarkFilter = [];
 
-    if(searchText) {
-      textFilter = movies.filter(movie => {
+    if (searchText) {
+      textFilter = movies.filter((movie) => {
         const { title, subtitle, storyline } = movie;
-        return title.includes(value) || subtitle.includes(value) || storyline.includes(value);
+        return (
+          title.includes(value) || subtitle.includes(value) || storyline.includes(value)
+        );
       });
     }
 
     if (bookmarkedOnly) {
-      bookmarkFilter = textFilter.filter(movie => movie.bookmarkedOnly);
+      bookmarkFilter = textFilter.filter((movie) => movie.bookmarkedOnly);
     }
     
     if (selectedGenre) {
-      filteredMovies = bookmarkFilter.filter(movie => movie.genre === selectedGenre);
+      filteredMovies = bookmarkFilter.filter((movie) => movie.genre === selectedGenre);
     }
 
     return filteredMovies;
@@ -72,7 +76,7 @@ class MovieLibrary extends Component {
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange ={ this.handleSearchTextChange }
+          onSearchTextChange={ this.handleSearchTextChange }
           bookmarkedOnly={ bookmarkedOnly }
           onBookmarkedChange={ this.handleBookmarkedChange }
           selectedGenre={ selectedGenre }

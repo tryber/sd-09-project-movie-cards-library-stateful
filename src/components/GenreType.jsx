@@ -34,10 +34,11 @@ class GenreType extends Component {
     let options = [];
     if (name === 'genre') {
       options = genreOptions.filter((_, index) => index > 0)
-        .map((option) => <Option key={option.id} properties={option} />);
+        .map((option) => <Option key={ option.id } properties={ option } />);
     } else {
       options = genreOptions.map((option) => {
-        return <Option key={ option.id } properties={ option } />
+        const { id } = option;
+        return (<Option key={ id } properties={ option } />);
       });
     }
     return (
@@ -48,7 +49,8 @@ class GenreType extends Component {
           id={ name }
           value={ value }
           onChange={ onChange }
-          data-testid={ `${name}-input` } >
+          data-testid={ `${name}-input` }
+        >
           {options}
         </select>
       </div>
@@ -57,10 +59,10 @@ class GenreType extends Component {
 }
 
 GenreType.propTypes = {
-  label: PropTypes.string,
-  name: PropTypes.string,
-  value: PropTypes.string,
-  onChange: PropTypes.func,
+  label: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 export default GenreType;

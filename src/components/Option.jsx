@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 class Option extends React.Component {
   render() {
     const { description, value, test } = this.props.properties;
@@ -8,9 +9,9 @@ class Option extends React.Component {
 }
 
 Option.propTypes = {
-  description: PropTypes.string,
-  value: PropTypes.string,
-  test: PropTypes.string,
+  description: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  test: PropTypes.string.isRequired,
 };
 
 export default Option;

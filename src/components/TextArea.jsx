@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 class TextArea extends React.Component {
   render() {
     const { label, value, name, onChange } = this.props;
@@ -13,7 +14,8 @@ class TextArea extends React.Component {
             cols="30"
             rows="10"
             onChange={ onChange }
-            data-testid="storyline-input" >
+            data-testid="storyline-input"
+          >
             { value }
           </textarea>
         </label>
@@ -23,10 +25,10 @@ class TextArea extends React.Component {
 }
 
 TextArea.propTypes = {
-  label:  PropTypes.string,
-  value: PropTypes.string,
-  name: PropTypes.string, 
-  onChange: PropTypes.func,
+  label: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 export default TextArea;
