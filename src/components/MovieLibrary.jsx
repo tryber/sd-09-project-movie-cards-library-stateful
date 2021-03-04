@@ -9,6 +9,9 @@ class MovieLibrary extends Component {
     super(props);
 
     this.AddMovie = this.AddMovie.bind(this);
+    this.upSearch = this.upSearch.bind(this);
+    this.upBook = this.upBook.bind(this);
+    this.upSelect = this.upSelect.bind(this);
 
     const { movies } = this.props;
     this.state = {
@@ -26,6 +29,21 @@ class MovieLibrary extends Component {
     });
   }
 
+  upSearch(content) {
+    const { value } = content.target;
+    this.setState({ searchText: value });
+  }
+
+  upBook() {
+    const { bookmarkedOnly } = this.state;
+    this.setState({ bookmarkedOnly: !bookmarkedOnly });
+  }
+
+  upSelect(element) {
+    const { value } = element.target;
+    this.setState({ selectedGenre: value });
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
 
@@ -33,8 +51,11 @@ class MovieLibrary extends Component {
       <div>
         <SearchBar
           searchText={ searchText }
+          onSearchTextChange={ this.upSearch }
           bookmarkedOnly={ bookmarkedOnly }
-          selectedGenr={ selectedGenre }
+          onBookmarkedChange={ this.upBook }
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ this.upSelect }
         />
 
         <MovieList movies={ movies } />

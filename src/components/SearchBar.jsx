@@ -36,6 +36,7 @@ class SearchBar extends Component {
           checked={ bookmarkedOnly }
           onChange={ onBookmarkedChange }
           data-testid="checkbox-input"
+          id="checkBox"
         />
       </label>
     );
