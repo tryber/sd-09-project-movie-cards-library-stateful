@@ -20,6 +20,7 @@ class MovieLibrary extends React.Component {
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.filmAdd = this.filmAdd.bind(this);
+    this.filterMovie = this.filterMovie.bind(this);
   }
 
   handleInputChange({ target: { name, type, checked, value } }) {
@@ -34,6 +35,28 @@ class MovieLibrary extends React.Component {
     this.setState(({ movies }) => ({
       movies: [...movies, movie],
     }));
+  }
+
+  filterMovie() {
+    const { searchText, selectedGenre, bookmarkedOnly, movies } = this.state;
+    let filtered = movies;
+
+    if (searchText) {
+      filtered = movies.filter((movie) => {
+        movie.title.includes(searchText)
+        || movie.subtitle.includes(searchText)
+      });
+    }
+
+    if (bookmarkedOnly) {
+      filtered = movies.filter((movie) => movie.bookmarked === true);
+    }
+
+    if (selectedGenre) {
+      filtered = movies.filter((movie) => movie.genre === selectedGenre);
+    }
+
+    return filtered;
   }
 
   render() {

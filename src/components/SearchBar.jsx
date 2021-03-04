@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import FilterGender from './CreateFilterGender';
 
 class SearchBar extends React.Component {
   render() {
@@ -21,8 +22,10 @@ class SearchBar extends React.Component {
             type="text"
             value={ searchText }
             onChange={ onSearchTextChange }
-            data-testid="text-input" />
+            data-testid="text-input"
+          />
         </label>
+
         <label data-testid="checkbox-input-label" htmlFor="checkbox-input">
           Mostrar somente favoritos
           <input
@@ -31,22 +34,14 @@ class SearchBar extends React.Component {
             type="checkbox"
             checked={ bookmarkedOnly }
             onChange={ onBookmarkedChange }
-            data-testid="checkbox-input" />
+            data-testid="checkbox-input"
+          />
         </label>
-        <label data-testid="select-input-label" htmlFor="genre">
-          Filtrar por gênero
-          <select
-            id="genre"
-            name="selectedGenre"
-            value={ selectedGenre }
-            onChange={ onSelectedGenreChange }
-            data-testid="select-input">
-            <option data-testid="select-option" value="">Todos</option>
-            <option data-testid="select-option" value="action">Ação</option>
-            <option data-testid="select-option" value="comedy">Comédia</option>
-            <option data-testid="select-option" value="thriller">Suspense</option>
-          </select>
-        </label>
+
+        <FilterGender
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ onSelectedGenreChange }
+        />
       </form>
     );
   }
@@ -54,7 +49,7 @@ class SearchBar extends React.Component {
 
 SearchBar.defaultProps = {
   searchText: PropTypes.string,
-  onSearchTextChange: PropTypes.sfunc,
+  onSearchTextChange: PropTypes.func,
   bookmarkedOnly: PropTypes.bool,
   onBookmarkedChange: PropTypes.func,
   selectedGenre: PropTypes.string,
