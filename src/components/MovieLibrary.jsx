@@ -34,7 +34,10 @@ class MovieLibrary extends Component {
     this.setState({ bookmarkedOnly: checked });
   }
 
-  handleSelectedGenreChange() {}
+  handleSelectedGenreChange(event) {
+    const { value } = event.target;
+    this.setState({ selectedGenre: value });
+  }
 
   handleAddMovie(movie) {
     const { movies } = this.state;
