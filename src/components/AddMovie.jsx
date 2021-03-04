@@ -118,13 +118,18 @@ class AddMovie extends Component {
               value={ genre }
               data-testid="genre-input"
               name="genre"
-              id="inputGenero">
+              id="inputGenero"
+            >
               <option data-testid="genre-option" value="action">Ação</option>
               <option data-testid="genre-option" value="comedy">Comédia</option>
               <option data-testid="genre-option" value="thriller">Suspense</option>
             </select>
           </label>
-          <button type="submit" data-testid="send-button" onClick={ this.sendInformations }>
+          <button
+            type="submit"
+            data-testid="send-button"
+            onClick={ this.sendInformations }
+          >
             Adicionar filme
           </button>
         </form>
