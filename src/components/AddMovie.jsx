@@ -1,18 +1,9 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
   constructor(props) {
     super(props);
-    this.inputTitle = this.inputTitle.bind(this);
-    this.textContentInput = this.textContentInput.bind(this);
-    this.inputSubtitle = this.inputSubtitle.bind(this);
-    this.inputImage = this.inputImage.bind(this);
-    this.inputSinopse = this.inputSinopse.bind(this);
-    this.inputRating = this.inputRating.bind(this);
-    this.inputSelected = this.inputSelected.bind(this);
-    this.buttonContent = this.buttonContent.bind(this);
-    // this.buttonSave = this.buttonSave.bind(this);
     this.state = {
       subtitle: '',
       title: '',
@@ -21,6 +12,15 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     };
+    this.inputTitle = this.inputTitle.bind(this);
+    this.textContentInput = this.textContentInput.bind(this);
+    this.inputSubtitle = this.inputSubtitle.bind(this);
+    this.inputImage = this.inputImage.bind(this);
+    this.inputSinopse = this.inputSinopse.bind(this);
+    this.inputRating = this.inputRating.bind(this);
+    this.inputSelected = this.inputSelected.bind(this);
+    this.buttonContent = this.buttonContent.bind(this);
+    this.buttonSave = this.buttonSave.bind(this);
   }
 
   textContentInput(event) {
@@ -137,6 +137,8 @@ class AddMovie extends Component {
 
   buttonSave(event) {
     if (event) {
+      const { onClick } = this.props;
+      onClick(this.state);
       this.setState({
         subtitle: '',
         title: '',
@@ -178,13 +180,8 @@ class AddMovie extends Component {
   }
 }
 
-// AddMovie.propTypes = {
-// subtitle: PropTypes.string.isRequired,
-//   title: PropTypes.string.isRequired,
-//   imagePath: PropTypes.string.isRequired,
-//   storyline: PropTypes.string.isRequired,
-//   rating: PropTypes.number.isRequired,
-//   genre: PropTypes.string.isRequired,
-// };
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
