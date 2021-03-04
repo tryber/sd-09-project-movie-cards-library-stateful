@@ -9,11 +9,11 @@ function App() {
       <Header />
       <SearchBar
         searchText=""
-        onSearchTextChange={() => ''}
-        bookmarkedOnly={true}
-        onBookmarkedChange={() => ''}
-        selectedGenre=''
-        onSelecetedGenreChange={() => ''}
+        onSearchTextChange={ () => '' }
+        bookmarkedOnly={ Boolean }
+        onBookmarkedChange={ () => '' }
+        selectedGenre=""
+        onSelecetedGenreChange={ () => '' }
       />
     </div>
   );
