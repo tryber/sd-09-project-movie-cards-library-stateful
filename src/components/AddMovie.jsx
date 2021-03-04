@@ -48,7 +48,7 @@ class AddMovie extends React.Component {
         <RatingLabel rating={ rating } changeStateValue={ changeStateValue } />
         <GenreLabel genre={ genre } changeStateValue={ changeStateValue } />
         <button
-          type="button"
+          type="submit"
           data-testid="send-button"
           onClick={ onClick }
         >
