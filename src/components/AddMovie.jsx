@@ -62,7 +62,7 @@ class AddMovie extends Component {
         cols="30"
         rows="10"
       />
-    )
+    );
   }
 
   inputSelect() {
@@ -79,7 +79,7 @@ class AddMovie extends Component {
         <option data-testid="genre-option" value="comedy">Comédia</option>
         <option data-testid="genre-option" value="thriller">Suspense</option>
       </select>
-    )
+    );
   }
 
   inputGen(id, name, type, value) {
