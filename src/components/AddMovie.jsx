@@ -30,7 +30,6 @@ class AddMovie extends React.Component {
     };
 
     this.stateInitial = this.state;
-    console.log(this.props);
   }
 
   titleChange(event) {
@@ -57,6 +56,7 @@ class AddMovie extends React.Component {
     this.setState({ genre: event.target.value });
   }
 
+  // addFilm => abstração da lógica com o auxílio do Johne Alves - Turma 9
   addFilm() {
     const { onClick } = this.props;
     onClick(this.state);

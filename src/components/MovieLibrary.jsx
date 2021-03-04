@@ -27,7 +27,6 @@ class MovieLibrary extends React.Component {
   }
 
   onBookmarked(event) {
-    console.log(event.target.checked);
     this.setState({ bookmarkedOnly: event.target.checked });
   }
 
@@ -35,6 +34,7 @@ class MovieLibrary extends React.Component {
     this.setState({ selectedGenre: event.target.value });
   }
 
+  // filterText => abstração da lógica com o auxílio do Johne Alves - Turma 9
   filterText(param1, param2) {
     return param1
       .filter((element) => element.title.toUpperCase().includes(param2.toUpperCase())
@@ -51,6 +51,7 @@ class MovieLibrary extends React.Component {
     return param1.filter((element) => element.genre.includes(param2));
   }
 
+  // addCard => abstração da lógica com o auxílio do Johne Alves - Turma 9
   addCard(param) {
     this.setState((prevStates) => ({
       movies: [...prevStates.movies, param],
@@ -58,9 +59,9 @@ class MovieLibrary extends React.Component {
   }
 
   render() {
-    // const { movies } = this.props;
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     let { movies } = this.state;
+    // lógica das chamadas de funções com o auxílio do Johne Alves - Turma 9
     movies = this.filterText(movies, searchText);
     movies = this.filterBookmarked(movies, bookmarkedOnly);
     movies = this.filterGenre(movies, selectedGenre);
