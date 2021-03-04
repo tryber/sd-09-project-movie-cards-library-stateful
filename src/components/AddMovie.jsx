@@ -15,9 +15,11 @@ constructor(props) {
     rating: 0,
     genre: 'action',    
   };
+
+  this.handleChange=this.handleChange.bind(this)
 }
 
-handleChange = (event)=>{
+handleChange(event) {
   this.setState({
     [event.target.name]: event.target.value,
   });   
