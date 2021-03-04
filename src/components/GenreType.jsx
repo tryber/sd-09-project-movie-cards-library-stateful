@@ -48,7 +48,9 @@ class GenreType extends Component {
           value={ value }
           onChange={ onChange }
           data-testid={ `${name}-input` }
-        >{ options }</select>
+        >
+          { options }
+        </select>
       </div>
     );
   }

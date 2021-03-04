@@ -10,9 +10,11 @@ class Option extends React.Component {
 }
 
 Option.propTypes = {
-  description: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
-  test: PropTypes.string.isRequired,
+  properties: PropTypes.shape({
+    description: PropTypes.string,
+    value: PropTypes.string,
+    test: PropTypes.string,
+  }).isRequired,
 };
 
 export default Option;

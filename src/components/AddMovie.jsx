@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Input from './Input';
+import InputNumber from './InputNumber';
 import TextArea from './TextArea';
 import GenreType from './GenreType';
 import Button from './Button';
@@ -69,8 +70,7 @@ class AddMovie extends Component {
           value={ storyline }
           onChange={ this.handleInputTextChange }
         />
-        <Input
-          type="number"
+        <InputNumber
           label="Avaliação"
           name="rating"
           value={ rating }
