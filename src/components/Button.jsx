@@ -6,9 +6,8 @@ class Button extends React.Component {
     return (
       <button
         type="button"
-        onClick={onClick}
-        data-testid={ test }
-      >
+        onClick={ onClick }
+        data-testid={ test } >
         {value}
       </button>
     );

@@ -5,10 +5,10 @@ class Input extends React.Component {
     const { label, type, name, value, onChange, test, testLabel } = this.props;
     return (
       <div>
-        <label htmlFor={ name } data-testid={testLabel}>
+        <label htmlFor={ name } data-testid={ testLabel }>
           { label }
           <input
-            type={type}
+            type={ type }
             id={ name }
             name= { name }
             value={ value }
