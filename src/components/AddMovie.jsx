@@ -124,6 +124,7 @@ class AddMovie extends React.Component {
   addMovieByState(event) {
     event.preventDefault();
     const { onClick } = this.props;
+    onClick(this.state);
     this.setState({
       title: '',
       subtitle: '',
@@ -132,7 +133,6 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     });
-    onClick(this.state);
   }
 
   addButton() {
