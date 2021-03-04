@@ -1,6 +1,7 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import TextInputs from './TextInputs';
+import Button from './Button';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -58,6 +59,7 @@ class AddMovie extends React.Component {
             </select>
           </label>
         </form>
+        <Button />
       </div>
     );
   }
