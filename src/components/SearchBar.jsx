@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
 import Input from './Input';
+import Checkbox from './Chekbox';
 import GenreType from './GenreType';
 
 class SearchBar extends Component {
@@ -20,29 +21,31 @@ class SearchBar extends Component {
           type="text"
           name="text"
           value={ searchText }
-          onChange={ onSearchTextChange } />
-        <label htmlFor="bookmark" data-testid="checkbox-input-label">
-          Mostrar somente favoritos
-          <input
-            type="checkbox"
-            checked={ bookmarkedOnly }
-            id="bookmark"
-            name="bookmark"
-            value={ searchText }
-            onChange={ onBookmarkedChange }
-            data-testid="checkbox-input" />
-        </label>
+          onChange={ onSearchTextChange }
+        />
+        <Checkbox
+          checked={ bookmarkedOnly }
+          value={ searchText }
+          onChange={ onBookmarkedChange }
+        />
         <GenreType
           label="Filtrar por gênero"
           name="select"
           value={ selectedGenre }
           onChange={ onSelectedGenreChange }
-          testLabel='select-input-label'
-          test='select-input'
-          testOption='select-option' />
+        />
       </form>
     );
   }
+}
+
+SearchBar.propTypes = {
+  searchText: PropTypes.string,
+  onSearchTextChange: PropTypes.func,
+  bookmarkedOnly: PropTypes.bool,
+  onBookmarkedChange: PropTypes.func,
+  selectedGenre: PropTypes.string,
+  onSelectedGenreChange: PropTypes.func,
 }
 
 export default SearchBar;

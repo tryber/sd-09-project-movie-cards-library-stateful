@@ -13,7 +13,7 @@ const stateDefault = {
   storyline: '',
   rating: 0,
   genre: 'action',
-}
+};
 
 class AddMovie extends Component {
   constructor(props) {
@@ -70,27 +70,23 @@ class AddMovie extends Component {
           label="Avaliação"
           name="rating"
           value={ rating }
-          onChange={ this.handleInputTextChange } />
+          onChange={ this.handleInputTextChange }
+        />
         <GenreType
-          label='Gênero'
-          name='genre'
+          label="Gênero"
+          name="genre"
           value={ genre }
           onChange={ this.handleInputTextChange }
           testLabel='genre-input-label'
-          test='genre-input'
-          testOption='genre-option' />
-        <Button
-          value="Adicionar filme"
-          test="send-button"
-          onClick={ this.handleClickSendButton } />
+        />
+        <Button onClick={ this.handleClickSendButton } />
       </form>
     );
   }
 }
 
 AddMovie.propTypes = {
-  name: PropTypes.string,
-  lastName: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 export default AddMovie;
