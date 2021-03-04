@@ -4,26 +4,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
-constructor(props) {
-  super();
-  
-  this.state = {
-    title: '',
-    subtitle: '',
-    imagePath: '',
-    storyline: '',
-    rating: 0,
-    genre: 'action',    
-  };
+  constructor(props) {
+    super();
 
-  this.handleChange=this.handleChange.bind(this)
-}
+    this.state = {
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',    
+    };
 
-handleChange(event) {
-  this.setState({
-    [event.target.name]: event.target.value,
-  });   
-}
+    this.handleChange=this.handleChange.bind(this)
+  }
+
+  handleChange(event) {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });   
+  }
   render() {
     const {
       title,
@@ -70,9 +70,5 @@ handleChange(event) {
     );
   }
 }
-
-AddMovie.propTypes = {
-  onClick: PropTypes.func.isRequired,
-};
 
 export default AddMovie;
