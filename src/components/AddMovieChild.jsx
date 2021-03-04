@@ -3,13 +3,12 @@ import PropTypes from 'prop-types';
 
 class AddMovieChild extends React.Component {
   render() {
-    const { storyline, handleChange, rating, genre, onClickProps } = this.props;
+    const { storyline, handleChange, rating, genre, onClick } = this.props;
     return (
       <div>
         <label htmlFor="storyline-input" data-testid="storyline-input-label">
           Sinopse
-          <input
-            type="textarea"
+          <textarea
             data-testid="storyline-input"
             id="storyline-input"
             value={ storyline }
@@ -41,7 +40,7 @@ class AddMovieChild extends React.Component {
             <option value="thriller" data-testid="genre-option">Suspense</option>
           </select>
         </label>
-        <button type="button" data-testid="send-button" onClick={ onClickProps }>
+        <button type="button" data-testid="send-button" onClick={ onClick }>
           Adicionar filme
         </button>
       </div>
