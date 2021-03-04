@@ -9,24 +9,25 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
+    const { movies } = this.props;
     this.updateState = this.updateState.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: [...this.props.movies],
+      movies: [...movies],
     };
   }
 
   updateState({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    this.setState((prevState) => {
-      return {
+    this.setState((prevState) => (
+      {
         prevState,
         [name]: value,
-      };
-    });
+      }
+    ));
   }
 
   render() {
@@ -40,7 +41,8 @@ class MovieLibrary extends Component {
           bookmarkedOnly={ bookmarkedOnly }
           onBookmarkedChange={ this.updateState }
           selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ this.updateState } />
+          onSelectedGenreChange={ this.updateState }
+        />
         <MovieList movies={ movies } />
         <AddMovie />
       </div>
