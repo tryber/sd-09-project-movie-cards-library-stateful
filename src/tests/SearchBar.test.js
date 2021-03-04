@@ -9,7 +9,7 @@ let props;
 const searchBar = () => (
   render(
     <SearchBar
-      searchText={ props.searchText }
+    searchText={ props.searchText }
       onSearchTextChange={ props.onSearchTextChange }
       bookmarkedOnly={ props.bookmarkedOnly }
       onBookmarkedChange={ props.onBookmarkedChange }
