@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './components/Header';
 import './App.css';
+import SearchBar from './SearchBar';
 
 function App() {
   return (
