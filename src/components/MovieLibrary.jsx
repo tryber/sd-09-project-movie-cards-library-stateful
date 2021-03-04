@@ -37,31 +37,36 @@ class MovieLibrary extends React.Component {
     }));
   }
 
+  // Função construida com a ajuda da colega Ana Luiza Machado :)
+  // fui dar uma espiadinha no código dela para encontrar onde eu
+  // estava errando
   filterMovie() {
-    const { searchText, selectedGenre, bookmarkedOnly, movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     let filtered = movies;
 
-
-    filtered = filtered.filter((movie) => {
-      movie.title.includes(searchText)
-      || movie.subtitle.includes(searchText)
-    });
-
+    if (searchText) {
+      filtered = movies.filter((movie) => (
+        movie.title.includes(searchText)
+        || movie.subtitle.includes(searchText)
+        || movie.storyline.includes(searchText)
+      ));
+    }
 
     if (bookmarkedOnly) {
-      filtered = filtered.filter((movie) => movie.bookmarked === true);
+      filtered = movies.filter((movie) => movie.bookmarked === true);
     }
 
     if (selectedGenre) {
-      filtered = filtered.filter((movie) => movie.genre === selectedGenre);
+      filtered = movies.filter((movie) => movie.genre === selectedGenre);
     }
 
     return filtered;
   }
 
   render() {
-    const { searchText, selectedGenre, bookmarkedOnly } = this.state;
-    let { movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const movies = this.filterMovie();
+
     return (
       <>
         <Header />
