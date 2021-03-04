@@ -5,33 +5,27 @@ import MovieCard from './MovieCard';
 
 class MovieList extends React.Component {
   render() {
-    const { movies, bookmarked, propsMovies } = this.props;
-    const { genreFilter, genre, textFilter, text, noFilter } = propsMovies;
+    const { movies, bookmarked, searchText, selectedGenre } = this.props;
+    let moviesList = movies
+      .map((movie) => <MovieCard key={ movie.title } movie={ movie } />);
+    if (searchText.length !== 0) {
+      moviesList = movies
+        .filter((movie) => ((movie.title.includes(searchText))
+          || (movie.subtitle.includes(searchText))
+          || (movie.storyline.includes(searchText))))
+        .map((movie) => <MovieCard key={ movie.title } movie={ movie } />);
+    } else if (selectedGenre.length !== 0) {
+      moviesList = movies
+        .filter((movie) => (movie.genre === selectedGenre))
+        .map((movie) => <MovieCard key={ movie.title } movie={ movie } />);
+    } else if (bookmarked) {
+      moviesList = movies
+        .filter((movie) => (movie.bookmarked))
+        .map((movie) => <MovieCard key={ movie.title } movie={ movie } />);
+    }
     return (
       <div data-testid="movie-list" className="movie-list">
-        { (bookmarked) && (
-          movies
-            .filter((movie) => (movie.bookmarked))
-            .map((movie) => <MovieCard key={ movie.title } movie={ movie } />)
-        ) }
-
-        { (genreFilter) && (
-          movies
-            .filter((movie) => (movie.genre === genre))
-            .map((movie) => <MovieCard key={ movie.title } movie={ movie } />)
-        ) }
-
-        { (textFilter) && (
-          movies
-            .filter((movie) => ((movie.title.includes(text))
-              || (movie.subtitle.includes(text))
-              || (movie.storyline.includes(text))))
-            .map((movie) => <MovieCard key={ movie.title } movie={ movie } />)
-        ) }
-
-        { (noFilter) && (
-          movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)
-        ) }
+        { moviesList }
       </div>
     );
   }
@@ -42,25 +36,15 @@ MovieList.propTypes = {
     PropTypes.object,
   ),
   bookmarked: PropTypes.bool,
-  propsMovies: PropTypes.shape({
-    genreFilter: PropTypes.bool,
-    genre: PropTypes.string,
-    textFilter: PropTypes.bool,
-    text: PropTypes.string,
-    noFilter: PropTypes.bool,
-  }),
+  searchText: PropTypes.string,
+  selectedGenre: PropTypes.string,
 };
 
 MovieList.defaultProps = {
   movies: [],
   bookmarked: false,
-  propsMovies: {
-    genreFilter: false,
-    genre: '',
-    textFilter: false,
-    text: '',
-    noFilter: true,
-  },
+  searchText: '',
+  selectedGenre: '',
 };
 
 export default MovieList;

@@ -54,22 +54,6 @@ class MovieLibrary extends Component {
   render() {
     const { state, handleInput, addNewMovie } = this;
     const { searchText, bookmarkedOnly, selectedGenre, movies } = state;
-    let propsMovies = {
-      genreFilter: false,
-      genre: '',
-      textFilter: false,
-      text: '',
-      noFilter: false,
-    };
-    if (selectedGenre.length !== 0) {
-      propsMovies = { ...propsMovies, genreFilter: true, genre: selectedGenre };
-    }
-    if (searchText.length !== 0) {
-      propsMovies = { ...propsMovies, textFilter: true, text: searchText };
-    }
-    if ((selectedGenre.length === 0) && (searchText.length === 0) && !(bookmarkedOnly)) {
-      propsMovies = { ...propsMovies, noFilter: true };
-    }
     return (
       <>
         <SearchBar
@@ -83,7 +67,8 @@ class MovieLibrary extends Component {
         <MovieList
           movies={ movies }
           bookmarked={ bookmarkedOnly }
-          propsMovies={ propsMovies }
+          selectedGenre={ selectedGenre }
+          searchText={ searchText }
         />
         <AddMovie onClick={ addNewMovie } />
       </>
