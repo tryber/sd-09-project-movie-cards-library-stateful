@@ -38,12 +38,15 @@ class MovieLibrary extends Component {
 
   addMovie(estado) {
     console.log(estado);
-    const { movies } = this.state;
-    console.log(movies);
-    this.setState({
-      movies: [...movies, estado],
-    });
-    console.log(this.state);
+    this.setState(({ movies }) => ({ movies: [...movies, estado] }));
+    // Esta forma que esta aqui abaixo, é uma maneira errada de
+    // atualizar o state baseado no valor antigo dele.
+    // const { movies } = this.state;
+    // console.log(movies);
+    // this.setState({
+    //   movies: [...movies, estado],
+    // });
+    // console.log(this.state);
   }
 
   consoleLog() {
