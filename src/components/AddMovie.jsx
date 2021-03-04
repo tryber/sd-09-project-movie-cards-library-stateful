@@ -1,6 +1,7 @@
 import React from 'react';
 
 import TitleInput from './TitleInput';
+import SubtitleInput from './SubtitleInput';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -8,6 +9,7 @@ class AddMovie extends React.Component {
 
     this.state = {
       title: '',
+      subtitle: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -20,11 +22,12 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { title } = this.state;
+    const { title, subtitle } = this.state;
     return (
       <div>
         <form data-testid="add-movie-form">
           <TitleInput value={ title } onChange={ this.handleChange } />
+          <SubtitleInput value={ subtitle } onChange={ this.handleChange } />
         </form>
       </div>
     );
