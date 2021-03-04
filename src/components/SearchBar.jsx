@@ -27,4 +27,9 @@ SearchBar.propTypes = {
   onSearchTextChange: PropTypes.func,
 };
 
+SearchBar.defaultProps = {
+  searchText: '',
+  onSearchTextChange: [() => ''],
+};
+
 export default SearchBar;
