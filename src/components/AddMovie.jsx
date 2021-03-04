@@ -8,11 +8,11 @@ class AddMovie extends Component {
     this.handleChangeMovie = this.handleChangeMovie.bind(this);
     this.handleClickMovie = this.handleClickMovie.bind(this);
     this.changeTitle = this.changeTitle.bind(this);
-    this.changeSubtitle = this.changeSubtitle(this);
-    this.changeImage = this.changeImage(this);
-    this.changeStoryLine = this.changeStoryLine(this);
-    this.changeRating = this.changeRating(this);
-    this.changeGenre = this.changeGenre(this);
+    this.changeSubtitle = this.changeSubtitle.bind(this);
+    this.changeImage = this.changeImage.bind(this);
+    this.changeStoryLine = this.changeStoryLine.bind(this);
+    this.changeRating = this.changeRating.bind(this);
+    this.changeGenre = this.changeGenre.bind(this);
 
     this.state = {
       subtitle: '',
@@ -53,10 +53,10 @@ class AddMovie extends Component {
 
   changeSubtitle(subtitle) {
     return (
-      <label htmlFor="subtitl" data-testid="subtitle-input-label">
+      <label htmlFor="subtitle" data-testid="subtitle-input-label">
         Subtítulo
         <input
-          id="subtitl"
+          id="subtitle"
           name="subtitle"
           value={ subtitle }
           onChange={ this.handleChangeMovie }

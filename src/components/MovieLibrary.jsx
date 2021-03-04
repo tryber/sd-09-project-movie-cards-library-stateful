@@ -1,13 +1,16 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
-import data from '../data';
+// import PropTypes from 'prop-types';
+
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
-import MovieList from './MovieList';
+// import MovieList from './MovieList';
 
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
+
+    // const { movies } = this.props;
 
     this.handleChangeLibrary = this.handleChangeLibrary.bind(this);
 
@@ -15,7 +18,7 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: [...data],
+      // movies,
     };
   }
 
@@ -29,7 +32,7 @@ class MovieLibrary extends Component {
   }
 
   render() {
-    const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <SearchBar
@@ -40,10 +43,14 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
         />
         <AddMovie />
-        <MovieList />
+        {/* <MovieList movies={ movies } /> */}
       </div>
     );
   }
 }
 
 export default MovieLibrary;
+
+// MovieLibrary.protoTypes = {
+//   movies: PropTypes.isRequired,
+// };
