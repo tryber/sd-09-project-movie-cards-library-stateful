@@ -1,6 +1,6 @@
 import React from 'react';
 import propTypes from 'prop-types';
-// import Inputs from './Inputs';
+import TextInputs from './TextInputs';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -10,7 +10,7 @@ class AddMovie extends React.Component {
       title: '',
       imagePath: '',
       storyline: '',
-      // rating: 0,
+      rating: 0,
       // genre: 'action',
     };
     this.updateState2 = this.updateState.bind(this);
@@ -21,53 +21,30 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline } = this.state;
+    const { title, subtitle, imagePath, storyline, rating } = this.state;
     return (
-      <form data-testid="add-movie-form">
-        <label htmlFor="title-input" data-testid="title-input-label">
-          Título
-          <input
-            type="text"
-            value={ title }
-            data-testid="title-input"
-            onChange={ this.updateState2 }
-            name="title"
-            itemID="title-input"
-          />
-        </label>
-        <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            type="text"
-            value={ subtitle }
-            data-testid="subtitle-input"
-            onChange={ this.updateState2 }
-            name="subtitle"
-            itemID="subtitle-input"
-          />
-        </label>
-        <label htmlFor="image-input" data-testid="image-input-label">
-          Imagem
-          <input
-            type="text"
-            value={ imagePath }
-            data-testid="image-input"
-            onChange={ this.updateState2 }
-            name="imagePath"
-            itemID="image-input"
-          />
-        </label>
-        <label htmlFor="storyline-input" data-testid="storyline-input-label">
-          Sinopse
-          <textarea
-            value={ storyline }
-            data-testid="storyline-input"
-            onChange={ this.updateState2 }
-            name="storyline"
-            itemID="storyline-input"
-          />
-        </label>
-      </form>
+      <div>
+        <TextInputs
+          title={ title }
+          subtitle={ subtitle }
+          imagePath={ imagePath }
+          storyline={ storyline }
+          updateState2={ this.updateState2 }
+        />
+        <form>
+          <label htmlFor="rating-input" data-testid="rating-input-label">
+            Avaliação
+            <input
+              type="number"
+              value={ rating }
+              data-testid="rating-input"
+              onChange={ this.updateState2 }
+              name="rating"
+              itemID="rating-input"
+            />
+          </label>
+        </form>
+      </div>
     );
   }
 }
