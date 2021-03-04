@@ -1,27 +1,29 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
+import Proptypes from 'prop-types';
+
+const begin = {
+  subtitle: '',
+  title: '',
+  imagePath: '',
+  storyline: '',
+  rating: 0,
+  genre: 'action',
+};
 
 class AddMovie extends Component {
   constructor(props) {
     super(props);
 
+    this.state = begin;
     this.handleChangeMovie = this.handleChangeMovie.bind(this);
-    this.handleClickMovie = this.handleClickMovie.bind(this);
     this.changeTitle = this.changeTitle.bind(this);
     this.changeSubtitle = this.changeSubtitle.bind(this);
     this.changeImage = this.changeImage.bind(this);
     this.changeStoryLine = this.changeStoryLine.bind(this);
     this.changeRating = this.changeRating.bind(this);
     this.changeGenre = this.changeGenre.bind(this);
-
-    this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    };
+    this.clearState = this.clearState.bind(this);
   }
 
   handleChangeMovie({ target }) {
@@ -32,8 +34,6 @@ class AddMovie extends Component {
       [name]: value,
     });
   }
-
-  handleClickMovie() {}
 
   changeTitle(title) {
     return (
@@ -133,6 +133,12 @@ class AddMovie extends Component {
     );
   }
 
+  clearState() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState(begin);
+  }
+
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
@@ -144,9 +150,9 @@ class AddMovie extends Component {
         { this.changeRating(rating) }
         { this.changeGenre(genre) }
         <button
-          type="reset"
-          onClick={ this.handleClickMovie }
+          type="button"
           data-testid="send-button"
+          onClick={ this.clearState }
         >
           Adicionar filme
         </button>
@@ -154,5 +160,9 @@ class AddMovie extends Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: Proptypes.func.isRequired,
+};
 
 export default AddMovie;

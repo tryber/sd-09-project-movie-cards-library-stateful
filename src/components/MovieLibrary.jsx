@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
-// import MovieList from './MovieList';
+import MovieList from './MovieList';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -13,6 +13,7 @@ class MovieLibrary extends Component {
     const { movies } = this.props;
 
     this.handleChangeLibrary = this.handleChangeLibrary.bind(this);
+    this.onclick = this.onClick.bind(this);
 
     this.state = {
       searchText: '',
@@ -24,10 +25,17 @@ class MovieLibrary extends Component {
 
   handleChangeLibrary({ target }) {
     const { name } = target;
-    const { value } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
     // declação coringa vista no conteudo
     this.setState({
       [name]: value,
+    });
+  }
+
+  onClick(mv) {
+    const { movies } = this.state;
+    this.setState({
+      movies: [...movies, mv],
     });
   }
 
@@ -38,12 +46,14 @@ class MovieLibrary extends Component {
         <SearchBar
           movies={ movies }
           searchText={ searchText }
-          handleChangeLibrary={ this.handleChangeLibrary }
+          onSearchTextChange={ this.handleChangeLibrary }
           bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ this.handleChangeLibrary }
           selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ this.handleChangeLibrary }
         />
-        <AddMovie />
-        {/* <MovieList movies={ movies } /> */}
+        <AddMovie onClick={ this.onclick } />
+        <MovieList movies={ movies } />
       </div>
     );
   }
