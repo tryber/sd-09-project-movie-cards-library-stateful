@@ -8,6 +8,8 @@ class MovieLibrary extends Component {
   constructor(props) {
     super(props);
 
+    this.AddMovie = this.AddMovie.bind(this);
+
     const { movies } = this.props;
     this.state = {
       searchText: '',
@@ -15,6 +17,13 @@ class MovieLibrary extends Component {
       selectedGenre: '',
       movies,
     };
+  }
+
+  AddMovie(movieToAdd) {
+    const { movies } = this.state;
+    this.setState({
+      movies: [...movies, movieToAdd],
+    });
   }
 
   render() {
@@ -36,10 +45,8 @@ class MovieLibrary extends Component {
   }
 }
 
-MovieLibrary.propType = {
-  movies: PropTypes.arrayOf(
-    PropTypes.object,
-  ).isRequired,
-};
+MovieLibrary.propTypes = {
+  movies: PropTypes.array,
+}.isRequired;
 
 export default MovieLibrary;
