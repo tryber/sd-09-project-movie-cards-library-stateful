@@ -22,11 +22,11 @@ class MovieLibrary extends React.Component {
     this.filmAdd = this.filmAdd.bind(this);
   }
 
-  handleInputChange({ target: { name, type } }) {
-    const value = type === 'checkbox' ? target.checked : target.value;
+  handleInputChange({ target: { name, type, checked, value } }) {
+    const newValue = type === 'checkbox' ? checked : value;
 
     this.setState({
-      [name]: value,
+      [name]: newValue,
     });
   }
 
@@ -55,10 +55,6 @@ class MovieLibrary extends React.Component {
     );
   }
 }
-
-MovieLibrary.defaultProps = {
-  movies: PropTypes.arrayOf(PropTypes.object),
-};
 
 MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.object),
