@@ -26,15 +26,13 @@ class MovieLibrary extends Component {
 
   handleSearchTextChange(event) {
     const { name, value } = event.target;
-    console.log('CHANGE!');
-    console.log('name:',name,'value:',value);
-    this.setState({
-      [name]: value,
-      // movies,
-    });
+    this.setState({ [name]: value });
   }
 
-  handleBookmarkedChange() {}
+  handleBookmarkedChange(event) {
+    const { checked } = event.target;
+    this.setState({ bookmarkedOnly: checked });
+  }
 
   handleSelectedGenreChange() {}
 
