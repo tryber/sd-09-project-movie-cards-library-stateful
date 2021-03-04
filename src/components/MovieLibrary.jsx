@@ -1,6 +1,6 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
-import movies from '../data';
+import data from '../data';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 import MovieList from './MovieList';
@@ -15,13 +15,13 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: [...movies],
+      movies: [...data],
     };
   }
 
   handleChangeLibrary({ target }) {
     const { name } = target;
-    const value = target.value;
+    const { value } = target;
     // declação coringa vista no conteudo
     this.setState({
       [name]: value,
@@ -29,19 +29,17 @@ class MovieLibrary extends Component {
   }
 
   render() {
+    const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <SearchBar
-          movies={ this.state.movies }
-          searchText={ this.state.searchText }
+          movies={ movies }
+          searchText={ searchText }
           handleChangeLibrary={ this.handleChangeLibrary }
-          bookmarkedOnly={ this.state.bookmarkedOnly }
-          selectedGenre={ this.state.selectedGenre }
+          bookmarkedOnly={ bookmarkedOnly }
+          selectedGenre={ selectedGenre }
         />
-        <AddMovie
-        movies={ this.movies }
-        handleChangeLibrary={ this.handleChangeLibrary }
-        />
+        <AddMovie />
         <MovieList />
       </div>
     );
