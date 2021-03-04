@@ -15,6 +15,7 @@ class MovieLibrary extends Component {
     this.filter = this.filter.bind(this);
     this.filterBookMark = this.filterBookMark.bind(this);
     this.filterSelect = this.filterSelect.bind(this);
+    this.addNewMovie = this.addNewMovie.bind(this);
 
     const { movies } = this.props;
     this.state = {
@@ -93,6 +94,14 @@ class MovieLibrary extends Component {
     });
   }
 
+  addNewMovie(newMovie) {
+    const { movies } = this.state;
+
+    this.setState({
+      movies: [...movies, newMovie],
+    });
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
 
@@ -109,7 +118,7 @@ class MovieLibrary extends Component {
 
         <MovieList movies={ this.filter(movies, this.state) } />
 
-        <AddMovie />
+        <AddMovie onClick={ this.addNewMovie } />
       </div>
     );
   }

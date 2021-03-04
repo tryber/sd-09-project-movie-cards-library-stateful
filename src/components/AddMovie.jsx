@@ -16,11 +16,12 @@ class AddMovie extends React.Component {
     this.submit = this.submit.bind(this);
 
     this.state = {
-      subtitle: '',
       title: '',
-      imagePath: '',
+      subtitle: '',
       storyline: '',
       rating: 0,
+      imagePath: '',
+      bookmarked: false,
       genre: 'action',
     };
   }
@@ -33,7 +34,7 @@ class AddMovie extends React.Component {
     });
   }
 
-  submit() {
+  submit(event) {
     const { onClick } = this.props;
     onClick(this.state);
     this.setState({
@@ -44,6 +45,8 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     });
+    console.log(event);
+    event.preventDefault();
   }
 
   inputTitle() {
