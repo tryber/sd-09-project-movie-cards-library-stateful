@@ -1,8 +1,10 @@
 import React from 'react';
+import propTypes from 'prop-types';
 import Button from './Button';
 import Title from './labels/Title';
 import Subtitle from './labels/Subtitle';
 import Storyline from './labels/Storyline';
+import Imagepath from './labels/Imagepath';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -74,5 +76,9 @@ class AddMovie extends React.Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: propTypes.func.isRequired,
+};
 
 export default AddMovie;
