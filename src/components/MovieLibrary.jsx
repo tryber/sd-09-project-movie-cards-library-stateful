@@ -20,6 +20,7 @@ class MovieLibrary extends Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.filterMovies = this.filterMovies.bind(this);
   }
 
   onSearchTextChange(event) {
@@ -32,7 +33,6 @@ class MovieLibrary extends Component {
 
   onSelectedGenreChange(event) {
     this.setState({ selectedGenre: event.target.value });
-    console.log(event.target.value);
   }
 
   resetState(estado) {
@@ -44,8 +44,39 @@ class MovieLibrary extends Component {
     console.log(movies);
   }
 
+  filterMovies() {
+    const { movies, bookmarkedOnly, selectedGenre, searchText } = this.state;
+    let newMovies = [...movies];
+    if (bookmarkedOnly) {
+      newMovies = movies.filter((movie) => movie.bookmarked === true);
+    }
+    if (selectedGenre !== '') {
+      newMovies = movies.filter((movie) => movie.genre === selectedGenre);
+    }
+    if (searchText !== '') {
+      newMovies = movies.filter((movie) => {
+        const movieTitle = (movie.title).toLowerCase();
+        const movieSubtitle = (movie.subtitle).toLowerCase();
+        const storyline = (movie.storyline).toLowerCase();
+        const isMovieTitleFound = movieTitle.includes(searchText.toLowerCase());
+        const isMovieSubtitleFound = movieSubtitle.includes(searchText.toLowerCase());
+        const isStorylineFound = storyline.includes(searchText.toLowerCase());
+        if (
+          isMovieTitleFound === true
+          || isMovieSubtitleFound === true
+          || isStorylineFound === true
+        ) {
+          return true;
+        }
+        return false;
+      });
+    }
+    // console.log(newMovies);
+    return newMovies;
+  }
+
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
@@ -57,7 +88,7 @@ class MovieLibrary extends Component {
           onBookmarkedChange={ this.onBookmarkedChange }
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
-        <MovieList movies={ movies } />
+        <MovieList movies={ this.filterMovies() } />
         <AddMovie onClick={ this.resetState } />
       </div>
     );
