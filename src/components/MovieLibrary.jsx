@@ -26,8 +26,8 @@ class MovieLibrary extends Component {
 
   handleSearchTextChange(event) {
     const { name, value } = event.target;
-    console.log(event);
-    // console.log('name:',name,'value:',value);
+    console.log('CHANGE!');
+    console.log('name:',name,'value:',value);
     this.setState({
       [name]: value,
       // movies,

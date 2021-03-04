@@ -7,20 +7,28 @@ import TextArea from './TextArea';
 import GenreType from './GenreType';
 import Button from './Button';
 
-const stateDefault = {
+/* const stateDefault = {
   subtitle: '',
   title: '',
   imagePath: '',
   storyline: '',
   rating: 0,
   genre: 'action',
-};
+}; */
 
 class AddMovie extends Component {
   constructor(props) {
     super(props);
-
-    this.state = stateDefault;
+    this.state = {
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    };
+    // this.state = stateDefault;
+    // console.log(this.state);
 
     this.handleInputTextChange = this.handleInputTextChange.bind(this);
     this.handleClickSendButton = this.handleClickSendButton.bind(this);
@@ -28,6 +36,7 @@ class AddMovie extends Component {
 
   handleInputTextChange(event) {
     const { name, value } = event.target;
+    // console.log(name, value);
     this.setState({
       [name]: value,
     });
@@ -36,7 +45,15 @@ class AddMovie extends Component {
   handleClickSendButton() {
     const { onClick } = this.props;
     onClick(this.state);
-    this.setState(stateDefault);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+    // this.setState(stateDefault);
   }
 
   render() {
@@ -45,24 +62,27 @@ class AddMovie extends Component {
       <form data-testid="add-movie-form">
         <Input
           label="Título"
-          type="text"
           name="title"
           value={ title }
           onChange={ this.handleInputTextChange }
+          test="title-input"
+          testLabel="title-input-label"
         />
         <Input
           label="Subtítulo"
-          type="text"
           name="subtitle"
           value={ subtitle }
           onChange={ this.handleInputTextChange }
+          test="subtitle-input"
+          testLabel="subtitle-input-label"
         />
         <Input
           label="Imagem"
-          type="text"
-          name="image"
+          name="imagePath"
           value={ imagePath }
           onChange={ this.handleInputTextChange }
+          test="image-input"
+          testLabel="image-input-label"
         />
         <TextArea
           label="Sinopse"

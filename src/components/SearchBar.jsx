@@ -19,10 +19,11 @@ class SearchBar extends Component {
       <form data-testid="search-bar-form">
         <Input
           label="Inclui o texto:"
-          type="text"
-          name="text"
+          name="searchText"
           value={ searchText }
           onChange={ onSearchTextChange }
+          test="text-input"
+          testLabel="text-input-label"
         />
         <Checkbox
           checked={ bookmarkedOnly }
