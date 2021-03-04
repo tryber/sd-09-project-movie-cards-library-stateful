@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -12,6 +13,7 @@ class AddMovie extends React.Component {
     this.inputNumber = this.inputNumber.bind(this);
     this.inputGenre = this.inputGenre.bind(this);
     this.bntForm = this.bntForm.bind(this);
+    this.submit = this.submit.bind(this);
 
     this.state = {
       subtitle: '',
@@ -32,6 +34,8 @@ class AddMovie extends React.Component {
   }
 
   submit() {
+    const { onClick } = this.props;
+    onClick(this.state);
     this.setState({
       subtitle: '',
       title: '',
@@ -172,5 +176,13 @@ class AddMovie extends React.Component {
     );
   }
 }
+
+AddMovie.defaultProps = {
+  onClick: () => {},
+};
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func,
+};
 
 export default AddMovie;
