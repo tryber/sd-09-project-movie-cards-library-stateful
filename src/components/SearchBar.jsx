@@ -16,13 +16,13 @@ class SearchBar extends Component {
     return (
       <form data-testid="search-bar-form">
         <Input
-          label={ 'Inclui o texto:' }
-          type={ 'text' }
-          name={ 'search-text' }
-          value= { searchText }
+          label='Inclui o texto:'
+          type='text'
+          name='search-text'
+          value={ searchText }
           onChange={ onSearchTextChange }
-          testLabel={ 'text-input-label' }
-          test={ 'text-input' }
+          testLabel='text-input-label'
+          test='text-input'
         />
         <label htmlFor="bookmark" data-testid="checkbox-input-label">
           Mostrar somente favoritos
@@ -37,15 +37,14 @@ class SearchBar extends Component {
           />
         </label>
         <GenreType
-          label={ 'Filtrar por gênero' }
-          name={ 'genre' }
+          label='Filtrar por gênero'
+          name='select'
           value={ selectedGenre }
           onChange={ onSelectedGenreChange }
-          testLabel={ 'select-input-label' }
-          test={ 'select-input' }
-          testOption={ 'select-option' }
+          testLabel='select-input-label'
+          test='select-input'
+          testOption='select-option'
         />
-        
       </form>
     );
   }

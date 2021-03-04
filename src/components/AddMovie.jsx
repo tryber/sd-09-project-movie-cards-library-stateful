@@ -37,59 +37,59 @@ class AddMovie extends Component {
     return (
       <form data-testid="add-movie-form">
         <Input
-          label={ 'Título' }
-          type={ 'text' }
-          name={ 'title' }
+          label='Título'
+          type='text'
+          name='title'
           value={ title }
           onChange={ this.handleInputTextChange }
-          testLabel={ 'title-input-label' }
-          test={ 'title-input' }
+          testLabel='title-input-label'
+          test='title-input'
         />
         <Input
-          label={ 'Subtítulo' }
-          type={ 'text' }
-          name={ 'subtitle' }
+          label='Subtítulo'
+          type='text'
+          name='subtitle'
           value={ subtitle }
           onChange={ this.handleInputTextChange }
-          testLabel={ 'subtitle-input-label' }
-          test={ 'subtitle-input' }
+          testLabel='subtitle-input-label'
+          test='subtitle-input'
         />
         <Input
-          type={ 'text' }
-          label={ 'Imagem' }
-          name={ 'img' }
+          type='text'
+          label='Imagem'
+          name='img'
           value={ imagePath }
           onChange={ this.handleInputTextChange }
-          testLabel={ 'image-input-label' }
-          test={ 'image-input' }
+          testLabel='image-input-label'
+          test='image-input'
         />
         <TextArea
-          label={ 'Sinopse' }
-          name={ 'storyline' }
+          label='Sinopse'
+          name='storyline'
           value={ storyline }
           onChange={ this.handleInputTextChange }
         />
         <Input
-          type={ 'number' }
-          label={ 'Avaliação' }
-          name={ 'rating' }
+          type='number'
+          label='Avaliação'
+          name='rating'
           value={ rating }
           onChange={ this.handleInputTextChange }
-          testLabel={ 'rating-input-label' }
-          test={ 'rating-input' }
+          testLabel='rating-input-label'
+          test='rating-input'
         />
         <GenreType
-          label={ 'Gênero' }
-          name={ 'genre' }
+          label='Gênero'
+          name='genre'
           value={ genre }
           onChange={ this.handleInputTextChange }
-          testLabel={ 'genre-input-label' }
-          test={ 'genre-input' }
-          testOption={ 'genre-option' }
+          testLabel='genre-input-label'
+          test='genre-input'
+          testOption='genre-option'
         />
         <Button
-          value={ 'Adicionar filme' }
-          test={ 'send-button' }
+          value='Adicionar filme'
+          test='send-button'
           onClick={this.handleClickSendButton}
         />
       </form>
