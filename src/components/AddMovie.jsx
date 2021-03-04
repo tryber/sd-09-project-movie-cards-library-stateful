@@ -15,7 +15,7 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     };
-    this.initialState = this.state;
+
     this.resetState = this.resetState.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
@@ -25,11 +25,17 @@ class AddMovie extends Component {
     this.setState({ [name]: value });
   }
 
-  resetState(event) {
+  resetState() {
     const { onClick } = this.props;
-    event.preventDefault();
     onClick(this.state);
-    this.setState(this.initialState);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   inputTitleData() {
