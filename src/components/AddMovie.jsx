@@ -57,8 +57,12 @@ class AddMovie extends Component {
         <form data-testid="add-movie-form">
           <label data-testid="title-input-label" htmlFor="inputTitle">
             Título
-            <input onChange={ this.updateStateValue } data-testid="title-input" 
-              value={ title } type="text" name="title" id="inputTitle"
+            <input onChange={ this.updateStateValue }
+              data-testid="title-input"
+              value={ title }
+              type="text"
+              name="title"
+              id="inputTitle"
             />
           </label>
           <label data-testid="subtitle-input-label" htmlFor="inputSubtitle">
