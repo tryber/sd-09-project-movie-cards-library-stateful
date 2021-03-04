@@ -4,7 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
-constructor() {
+constructor(props) {
   super();
   
   this.state = {
@@ -17,7 +17,7 @@ constructor() {
   };
 }
 
-handleChange = (event) => {
+handleChange = (event)=>{
   this.setState({
     [event.target.name]: event.target.value,
   });   
