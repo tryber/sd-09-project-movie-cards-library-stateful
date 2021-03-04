@@ -36,10 +36,8 @@ class GenreType extends Component {
       options = genreOptions.filter((_, index) => index > 0)
         .map((option) => <Option key={ option.id } properties={ option } />);
     } else {
-      options = genreOptions.map((option) => {
-        const { id } = option;
-        return (<Option key={ id } properties={ option } />);
-      });
+      options = genreOptions
+        .map((option) => <Option key={ option.id } properties={ option } />);
     }
     return (
       <div>
@@ -50,9 +48,7 @@ class GenreType extends Component {
           value={ value }
           onChange={ onChange }
           data-testid={ `${name}-input` }
-        >
-          {options}
-        </select>
+        >{ options }</select>
       </div>
     );
   }

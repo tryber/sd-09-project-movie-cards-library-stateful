@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 class Option extends React.Component {
   render() {
-    const { description, value, test } = this.props.properties;
+    const { properties } = this.props;
+    const { description, value, test } = properties;
     return (<option value={ value } data-testid={ test }>{ description }</option>);
   }
 }
