@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor(props) {
-    super();
+    super(props);
 
     this.state = {
       title: '',
@@ -29,6 +29,7 @@ class AddMovie extends React.Component {
       title,
       subtitle,
       imagePath,
+      storyline,
     } = this.props;
     return (
       <div>
@@ -63,8 +64,19 @@ class AddMovie extends React.Component {
               data-testid="image-input"
               name="imagePath"
             />
-
           </label>
+
+          <label data-testid="storyline-input-label" htmlFor="storyline-input-label">
+            Sinopse
+            <textarea
+              type="text"
+              value={ storyline }
+              onChange={ this.handleChange }
+              data-testid="storyline-input"
+              name="storyline"
+            />
+          </label>
+
         </form>
       </div>
     );
