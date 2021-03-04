@@ -1,15 +1,15 @@
-import React from "react";
+import React from 'react';
 
 class AddMovie extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      subtitle: "",
-      title: "",
-      imagePath: "",
-      storyline: "",
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
       rating: 0,
-      genre: "action",
+      genre: 'action',
     };
     this.randomChange = this.randomChange.bind(this);
   }
@@ -19,7 +19,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { title, subtitle } = this.state;
+    const { title, subtitle, imagePath, storyline, rating } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="title-input" data-testid="title-input-label">
@@ -43,6 +43,36 @@ class AddMovie extends React.Component {
             itemID="subtitle-input"
             onChange={ this.randomChange }
           />
+        </label>
+        <label htmlFor="image-input" data-testid="image-input-label">
+          Imagem
+          <input
+            type="text"
+            name="imagePath"
+            value={ imagePath }
+            data-testid="image-input"
+            itemID="image-input"
+            onChange={ this.randomChange }
+          />
+        </label>
+        <label htmlFor="storyLine-input" data-testid="storyline-input-label">
+          Sinopse
+          <input
+            type="text"
+            name="storyline"
+            value={ storyline }
+            data-testid="storyline-input"
+            itemID="storyLine-input"
+            onChange={ this.randomChange }
+          />
+        </label>
+        <label htmlFor="" data-testid="rating-input-label">
+          Avaliação
+          <input
+          type="text"
+          value={ rating }
+          />
+
         </label>
       </form>
     );
