@@ -1,7 +1,68 @@
 body {
+  background-attachment: fixed;
   background-color: whitesmoke;
+  background-image: url('https://images.wallpapersden.com/image/download/among-us_bGhpaW2UmZqaraWkpJRnZWltrWZmamc.jpg');
+  background-size: cover;
   box-sizing: border-box;
   font-size: 16px;
+}
+
+legend {
+  border-radius: 4px;
+  margin: 0 1%;
+  font-family: monospace;
+  font-size: 18px;
+  padding: 0 5px;
+}
+
+label {
+  margin: 2px 4px;
+}
+
+input, select, textarea {
+  border-radius: 2px;
+  margin: 0 4px;
+}
+
+form, .movie-card-header {
+  box-shadow: 0 4px 10px #47494b;
+}
+
+form {
+  background-color: #343a40;
+  border: 1px solid #343a40;
+  color: white;
+  display: flex;
+  font-size: 13px;
+  font-family: monospace;
+  justify-content: center;
+  padding: 10px;
+  margin: 20px auto 0;
+}
+
+/* .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #343a40;
+  min-width: 460px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+} */
+
+.button-addMovie {
+  background-color: #d3d3d3;
+  border: 1px solid rgb(163, 163, 163);
+  border-radius: 2px;
 }
 
 .movie-card-header {
@@ -22,6 +83,7 @@ body {
 .movie-list {
   display: flex;
   flex-flow: row wrap;
+  justify-content: center;
   padding: 48px 30px;
 }
 
@@ -36,7 +98,6 @@ body {
   overflow: hidden;
   width: 300px;
 }
-
 
 .movie-card-image {
   width: 100%;

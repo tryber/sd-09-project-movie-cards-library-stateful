@@ -65,7 +65,8 @@ class SearchBar extends React.Component {
   render() {
     return (
       <form data-testid="search-bar-form">
-        <fieldset>
+        <fieldset className="search-fieldset">
+          <legend>Search: </legend>
           { this.inputText() }
           { this.checkBoxChange() }
           { this.selectedChange() }

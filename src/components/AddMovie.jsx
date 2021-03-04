@@ -156,6 +156,7 @@ class AddMovie extends Component {
         type="reset"
         data-testid="send-button"
         onClick={ this.buttonSave }
+        className="button-addMovie"
       >
         Adicionar filme
       </button>
@@ -166,7 +167,13 @@ class AddMovie extends Component {
   render() {
     return (
       <form data-testid="add-movie-form">
-        <fieldset>
+        <fieldset className="search-fieldset">
+          <legend className="dropdown">
+            Add:
+            {/* <div className="dropdown-content">
+              <p>Hello dropdown!</p>
+            </div> */}
+          </legend>
           { this.inputTitle() }
           { this.inputSubtitle() }
           { this.inputImage() }
