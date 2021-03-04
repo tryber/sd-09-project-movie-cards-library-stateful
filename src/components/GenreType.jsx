@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Option from './Option';
 
 class GenreType extends Component {
-
   filterOptions(options, name) {
     if (name === 'genre') {
       return options.filter((_, index) => index > 0)
@@ -11,7 +10,6 @@ class GenreType extends Component {
     }
     return options.map((option) => <Option key={ option.id } properties={ option } />);
   }
-
   render() {
     const { label, name, value, onChange } = this.props;
     const genreOptions = [
@@ -40,9 +38,7 @@ class GenreType extends Component {
         test: `${name}-option`,
       },
     ];
-
     const options = this.filterOptions(genreOptions, name);
-    
     return (
       <div>
         <label htmlFor={ name } data-testid={ `${name}-input-label` }>{ label }</label>
