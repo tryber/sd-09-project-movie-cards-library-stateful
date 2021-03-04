@@ -1,5 +1,6 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class SearchBar extends Component {
   render() {
@@ -8,17 +9,22 @@ class SearchBar extends Component {
       <form data-testid="search-bar-form">
         <label htmlFor="text-input" data-testid="text-input-label">
           Inclui o texto:
+          <input
+            type="text"
+            value={ searchText }
+            onChange={ onSearchTextChange }
+            data-testid="text-input"
+            id="text-input"
+          />
         </label>
-        <input
-          type="text"
-          value={ searchText }
-          onChange={ onSearchTextChange }
-          data-testid="text-input"
-          id="text-input"
-        />
       </form>
     );
   }
 }
+
+SearchBar.propTypes = {
+  searchText: PropTypes.string,
+  onSearchTextChange: PropTypes.func,
+};
 
 export default SearchBar;
