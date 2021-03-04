@@ -9,7 +9,7 @@ function App() {
     <div className="body">
       <Header />
       <SearchBar />
-      <AddMovie onClick={ () => {} } />
+      <AddMovie />
     </div>
   );
 }

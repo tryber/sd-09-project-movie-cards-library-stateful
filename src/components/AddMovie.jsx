@@ -15,10 +15,24 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
     this.updateState2 = this.updateState.bind(this);
+    this.addMovieButton2 = this.addMovieButton.bind(this);
   }
 
   updateState(event) {
     this.setState({ [event.target.name]: event.target.value });
+  }
+
+  addMovieButton() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   render() {
@@ -59,7 +73,7 @@ class AddMovie extends React.Component {
             </select>
           </label>
         </form>
-        <Button />
+        <Button addMovieButton2={ this.addMovieButton2 } />
       </div>
     );
   }
