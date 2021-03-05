@@ -5,26 +5,39 @@ class AddMovie extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-    /* subtitle: '',
+      subtitle: '',
       title: '',
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: 'action', */
-    };
+      genre: 'action',
+    }
+    this.handleChange = this.handleChange.bind(this);
+    
   }
 
+  handleChange(event) {
+    this.setState({ [event.target.name]: event.target.value });
+  }
+  renderTitle() {
+    const { title } = this.state;
+    return (
+      <label data-testid="title-input-label" htmlFor="title-input">
+        Título
+        <input
+          data-testid="title-input"
+          type="text"
+          onChange={ this.handleChange }
+          value={ title }
+          name="title"
+        />
+      </label>
+    );
+  }
   render() {
     return (
       <form data-testid="add-movie-form">
-        <label data-testid="title-input-label" htmlFor="title-input">
-          Título
-          <input
-            data-testid="title-input"
-            type="text"
-            onChange={ this.setState.title }
-          />
-        </label>
+        { this.renderTitle() }
         <label data-testid="subtitle-input-label" htmlFor="subtitle-input">
           Subtítulo
           <input
@@ -45,7 +58,15 @@ class AddMovie extends React.Component {
           Sinopse
           <textarea data-testid="storyline-input" />
         </label>
-
+        <label data-testid="rating-input-label" htmlFor="rating-input">
+          Avaliação
+          <input
+            data-testid="rating-input"
+            type="number"
+            value={ this.setState.rating }
+            onChange={ this.setState.rating }
+          />
+        </label>
         <label data-testid="genre-input-label" htmlFor="genre-input">
           Gênero
           <select data-testid="genre-input" onChange={ this.setState.genre }>
