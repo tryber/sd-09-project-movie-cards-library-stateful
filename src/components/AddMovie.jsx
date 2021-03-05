@@ -13,7 +13,20 @@ class AddMovie extends Component {
       genre: 'action',
     };
     this.changeHandler = this.changeHandler.bind(this);
-    this.resetState = this.resetState.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   changeHandler(event) {
@@ -36,19 +49,6 @@ class AddMovie extends Component {
         />
       </label>
     );
-  }
-
-  resetState() {
-    const { onClick } = this.props;
-    onClick();
-    this.setState({
-      title: '',
-      subtitle: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    });
   }
 
   render() {
@@ -89,7 +89,7 @@ class AddMovie extends Component {
         <button
           data-testid="send-button"
           type="button"
-          onClick={ this.resetState }
+          onClick={ this.handleClick }
         >
           Adicionar filme
         </button>
