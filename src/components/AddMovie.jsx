@@ -30,7 +30,8 @@ class AddMovie extends React.Component {
         rating: 0,
         genre: 'action',
       });
-      onClick();
+      console.log(this.state)
+      onClick(this.state);
     };
     return (
       <form data-testid="add-movie-form">
