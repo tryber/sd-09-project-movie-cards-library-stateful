@@ -8,30 +8,34 @@ import AddMovie from './AddMovie';
 
 
 class MovieLibrary extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
-        
+
+    const movies = this.props.movies;
+
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: this.props.movies,
+      movies: movies,
     };
   }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
-    const inicialMovies = this.props.movies;
+    const { movies } = this.props;
+    const inicialMovies = movies;
 
     const onSearchTextChange = (event) => {
       this.setState({
         searchText: event.target.value,
         movies: inicialMovies.filter((filme) => {
-          return filme.title.includes(event.target.value) ||
-            filme.subtitle.includes(event.target.value) ||
-            filme.storyline.includes(event.target.value)
-        }),
+          return filme.title.includes(event.target.value)
+            || filme.subtitle.includes(event.target.value)
+            || filme.storyline.includes(event.target.value);
+        })
       });
-    }
+    };
 
     const onBookmarkedChange = (event) => {
       this.setState({
@@ -44,9 +48,9 @@ class MovieLibrary extends React.Component {
       } else {
         this.setState({
           movies: inicialMovies,
-        })
-      }
-    }
+        });
+      };
+    };
 
     const onSelectedGenreChange = (event) => {
       const genre = event.target.options[event.target.selectedIndex].value;
@@ -57,13 +61,13 @@ class MovieLibrary extends React.Component {
       if (genre === '') {
         this.setState({
           movies: inicialMovies,
-        })
-      }
-    }
+        });
+      };
+    };
 
     const onClick = (filme) => {
       // inicialMovies.append(filme);
-    }
+    };
     
     return (
       <div>
@@ -78,8 +82,8 @@ class MovieLibrary extends React.Component {
         <MovieList movies={ movies } />
         <AddMovie onClick={ onClick }/>
       </div>
-    )
-  }
+    );
+  };
 }
 
 // MovieLibrary.propTypes = {
