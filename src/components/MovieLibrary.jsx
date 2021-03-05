@@ -1,7 +1,7 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
 
-import MovieList from './MovieList';
+/* import MovieList from './MovieList'; */
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
@@ -9,11 +9,11 @@ class MovieLibrary extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchText: '',
+    /* searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: '',
-    }
+      movies: this.props.movies, */
+    };
   }
 
   render() {
@@ -21,7 +21,7 @@ class MovieLibrary extends Component {
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar />
-        <MovieList movies={ this.props.movies } />
+        {/* <MovieList movies={ this.props.movies } /> */}
         <AddMovie />
       </div>
     );
