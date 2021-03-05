@@ -34,18 +34,27 @@ class AddMovie extends React.Component {
       </label>
     );
   }
+  renderSubtitle() {
+    const { subtitle } = this.state;
+    return (
+      <label data-testid="subtitle-input-label" htmlFor="subtitle-input">
+      Subtítulo
+      <input
+        data-testid="subtitle-input"
+        type="text"
+        onChange={ this.handleChange }
+        value={ subtitle }
+        name="subtitle"
+      />
+    </label>
+    );
+  }  
   render() {
     return (
       <form data-testid="add-movie-form">
         { this.renderTitle() }
-        <label data-testid="subtitle-input-label" htmlFor="subtitle-input">
-          Subtítulo
-          <input
-            data-testid="subtitle-input"
-            type="text"
-            onChange={ this.setState.subtitle }
-          />
-        </label>
+        { this.renderSubtitle() }
+
         <label data-testid="image-input-label" htmlFor="image-input">
           Imagem
           <input
