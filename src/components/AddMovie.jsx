@@ -25,10 +25,10 @@ class AddMovie extends React.Component {
   render() {
     const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
-    
+
     const handleChange = (event) => {
       this.setState({
-        [event.target.id]: event.target.value
+        [event.target.id]: event.target.value,
       });
     };
 

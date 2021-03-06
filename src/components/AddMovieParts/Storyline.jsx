@@ -19,11 +19,8 @@ class Storyline extends React.Component {
 }
 
 Storyline.propTypes = {
-  storyline: PropTypes.string,
-  handleChange: PropTypes.func,
-}
+  storyline: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+};
 
 export default Storyline;
-
-
-

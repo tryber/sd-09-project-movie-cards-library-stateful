@@ -20,8 +20,8 @@ class Subtitle extends React.Component {
 }
 
 Subtitle.propTypes = {
-  subtitle: PropTypes.string,
-  handleChange: PropTypes.func,
-}
+  subtitle: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+};
 
 export default Subtitle;

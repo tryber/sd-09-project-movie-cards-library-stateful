@@ -32,13 +32,13 @@ class MovieLibrary extends React.Component {
           return filme.title.includes(event.target.value)
             || filme.subtitle.includes(event.target.value)
             || filme.storyline.includes(event.target.value);
-          })
-        });
+        }),
+      });
       if (event.target.value === '') {
         this.setState({
           movies: inicialMovies,
-        })
-      }
+        });
+      };
     }
 
     const onBookmarkedChange = (event) => {
@@ -47,14 +47,14 @@ class MovieLibrary extends React.Component {
       });
       if (event.target.checked) {
         this.setState({
-          movies: inicialMovies.filter((filme) => filme.bookmarked)
-        })
+          movies: inicialMovies.filter((filme) => filme.bookmarked),
+        });
       } else {
         this.setState({
           movies: inicialMovies,
         });
       };
-    };
+    }
 
     const onSelectedGenreChange = (event) => {
       const genre = event.target.options[event.target.selectedIndex].value;
@@ -67,12 +67,12 @@ class MovieLibrary extends React.Component {
           movies: inicialMovies,
         });
       };
-    };
+    }
 
-    const onClick = (filme) => {
+    const onClick = () => {
       // inicialMovies.append(filme);
     };
-    
+
     return (
       <div>
         <SearchBar
@@ -84,14 +84,16 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={ onSelectedGenreChange }
         />
         <MovieList movies={ movies } />
-        <AddMovie onClick={ onClick }/>
+        <AddMovie onClick={ onClick } />
       </div>
     );
-  };
+  }
 }
 
-// MovieLibrary.propTypes = {
-//   movies: PropTypes.array,
-// }
+MovieLibrary.propTypes = {
+  movies: PropTypes.array.isRequired,
+  filter: PropTypes.func,
+
+};
 
 export default MovieLibrary;
