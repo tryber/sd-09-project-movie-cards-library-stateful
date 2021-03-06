@@ -11,6 +11,7 @@ class AddMovie extends React.Component {
   constructor() {
     super();
     this.changeStateValue = this.changeStateValue.bind(this);
+    this.clickButton = this.clickButton.bind(this);
     this.state = {
       subtitle: '',
       title: '',
@@ -28,8 +29,21 @@ class AddMovie extends React.Component {
     });
   }
 
+  clickButton() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   render() {
-    const { changeStateValue } = this;
+    const { changeStateValue, clickButton } = this;
     const { onClick } = this.props;
     const {
       subtitle,
@@ -41,16 +55,18 @@ class AddMovie extends React.Component {
     } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <TitleLabel title={ title } changeStateValue={ changeStateValue } />
-        <SubtitleLabel subtitle={ subtitle } changeStateValue={ changeStateValue } />
-        <ImageLabel imagePath={ imagePath } changeStateValue={ changeStateValue } />
+        <div>
+          <TitleLabel title={ title } changeStateValue={ changeStateValue } />
+          <SubtitleLabel subtitle={ subtitle } changeStateValue={ changeStateValue } />
+          <ImageLabel imagePath={ imagePath } changeStateValue={ changeStateValue } />
+          <RatingLabel rating={ rating } changeStateValue={ changeStateValue } />
+          <GenreLabel genre={ genre } changeStateValue={ changeStateValue } />
+        </div>
         <StorylineLabel storyline={ storyline } changeStateValue={ changeStateValue } />
-        <RatingLabel rating={ rating } changeStateValue={ changeStateValue } />
-        <GenreLabel genre={ genre } changeStateValue={ changeStateValue } />
         <button
-          type="submit"
+          type="button"
           data-testid="send-button"
-          onClick={ onClick }
+          onClick={ clickButton }
         >
           Adicionar filme
         </button>

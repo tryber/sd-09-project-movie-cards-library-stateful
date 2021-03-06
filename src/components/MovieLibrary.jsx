@@ -37,6 +37,10 @@ class MovieLibrary extends React.Component {
     });
   }
 
+  onClick(state) {
+    console.log(state);
+  }
+
   render() {
     const {
       searchText,

@@ -13,6 +13,7 @@ class StorylineLabel extends React.Component {
           cols="30"
           rows="10"
           onChange={ changeStateValue }
+          value={ storyline }
         >
           { storyline }
         </textarea>
