@@ -44,7 +44,6 @@ class AddMovie extends React.Component {
 
   render() {
     const { changeStateValue, clickButton } = this;
-    const { onClick } = this.props;
     const {
       subtitle,
       title,
