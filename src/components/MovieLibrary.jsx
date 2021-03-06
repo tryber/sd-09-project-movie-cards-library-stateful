@@ -11,7 +11,7 @@ class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
 
-    const movies = this.props.movies;
+    const { movies } = this.props;
 
     this.state = {
       searchText: '',
@@ -23,8 +23,7 @@ class MovieLibrary extends React.Component {
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
-    const { movies } = this.props;
-    const inicialMovies = movies;
+    const inicialMovies = this.props.movies;
 
     const onSearchTextChange = (event) => {
       this.setState({
@@ -33,9 +32,14 @@ class MovieLibrary extends React.Component {
           return filme.title.includes(event.target.value)
             || filme.subtitle.includes(event.target.value)
             || filme.storyline.includes(event.target.value);
+          })
+        });
+      if (event.target.value === '') {
+        this.setState({
+          movies: inicialMovies,
         })
-      });
-    };
+      }
+    }
 
     const onBookmarkedChange = (event) => {
       this.setState({
@@ -56,7 +60,7 @@ class MovieLibrary extends React.Component {
       const genre = event.target.options[event.target.selectedIndex].value;
       this.setState({
         selectedGenre: genre,
-        movies: inicialMovies.filter((filme) => filme.genre === genre)
+        movies: inicialMovies.filter((filme) => filme.genre === genre),
       });
       if (genre === '') {
         this.setState({

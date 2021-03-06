@@ -5,20 +5,17 @@ class Image extends React.Component {
     const { imagePath, handleChange } = this.props;
     return (
       <label data-testid="image-input-label" htmlFor="imagePath">
-      Imagem
-      <input
-        type="text"
-        value={ imagePath }
-        data-testid="image-input"
-        id="imagePath"
-        onChange={ handleChange }
-      />
+        Imagem
+        <input
+          type="text"
+          value={ imagePath }
+          data-testid="image-input"
+          id="imagePath"
+          onChange={ handleChange }
+        />
       </label>
     );
   }
 }
 
 export default Image;
-
-
-
