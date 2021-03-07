@@ -3,10 +3,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Title from './AddMovieParts/Title';
-// import Subtitle from './AddMovieParts/Subtitle';
-// import Image from './AddMovieParts/Image';
-// import Storyline from './AddMovieParts/Storyline';
-// import Rating from './AddMovieParts/Rating';
+import Subtitle from './AddMovieParts/Subtitle';
+import Image from './AddMovieParts/Image';
+import Storyline from './AddMovieParts/Storyline';
+import Rating from './AddMovieParts/Rating';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -47,46 +47,11 @@ class AddMovie extends React.Component {
 
     return (
       <form data-testid="add-movie-form">
-        <Title handleChange={ handleChange } title={ title }/>
-        <label data-testid="subtitle-input-label" htmlFor="subtitle">
-          Subtítulo
-          <input
-            type="text"
-            value={ subtitle }
-            data-testid="subtitle-input"
-            id="subtitle"
-            onChange={ handleChange }
-          />
-        </label>
-        <label data-testid="image-input-label" htmlFor="imagePath">
-          Imagem
-          <input
-            type="text"
-            value={ imagePath }
-            data-testid="image-input"
-            id="imagePath"
-            onChange={ handleChange }
-          />
-        </label>
-        <label data-testid="storyline-input-label" htmlFor="storyline">
-          Sinopse
-          <textarea
-            value={ storyline }
-            data-testid="storyline-input"
-            id="storyline"
-            onChange={ handleChange }
-          />
-        </label>
-        <label data-testid="rating-input-label" htmlFor="rating">
-          Avaliação
-          <input
-            type="number"
-            value={ rating }
-            data-testid="rating-input"
-            id="rating"
-            onChange={ handleChange }
-          />
-        </label>
+        <Title handleChange={ handleChange } title={ title } />
+        <Subtitle handleChange={ handleChange } subtitle={ subtitle } />
+        <Image handleChange={ handleChange } imagePath={ imagePath } />
+        <Storyline handleChange={ handleChange } storyline={ storyline } />
+        <Rating handleChange={ handleChange } rating={ rating } />
         <label data-testid="genre-input-label" htmlFor="genre">
           Gênero
           <select
