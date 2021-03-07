@@ -27,10 +27,7 @@ class AddMovie extends React.Component {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
 
     const handleChange = (event) => {
-      this.setState({
-        [event.target.id]: event.target.value,
-      });
-      console.log(event.target.value);
+      this.setState({ [event.target.id]: event.target.value });
     };
 
     const sendForm = () => {
