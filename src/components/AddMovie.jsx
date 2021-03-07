@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// import Title from './AddMovieParts/Title';
+import Title from './AddMovieParts/Title';
 // import Subtitle from './AddMovieParts/Subtitle';
 // import Image from './AddMovieParts/Image';
 // import Storyline from './AddMovieParts/Storyline';
@@ -30,6 +30,7 @@ class AddMovie extends React.Component {
       this.setState({
         [event.target.id]: event.target.value,
       });
+      console.log(event.target.value);
     };
 
     const sendForm = () => {
@@ -46,16 +47,7 @@ class AddMovie extends React.Component {
 
     return (
       <form data-testid="add-movie-form">
-        <label data-testid="title-input-label" htmlFor="title">
-          Título
-          <input
-            type="text"
-            value={ title }
-            data-testid="title-input"
-            id="title"
-            onChange={ handleChange }
-          />
-        </label>
+        <Title handleChange={ handleChange } title={ title }/>
         <label data-testid="subtitle-input-label" htmlFor="subtitle">
           Subtítulo
           <input
