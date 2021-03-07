@@ -7,7 +7,7 @@ class SearchBar extends Component() {
     return (
       <div>
         <form data-testid="search-bar-form">
-          <label for="texto" data-testid="text-input-label" value={ searchText }>
+          <label  data-testid="text-input-label" value={ searchText }>
             Inclui o texto
             <input
               id="texto"
@@ -40,7 +40,6 @@ class SearchBar extends Component() {
             <option data-testid="select-option" value="action">Ação</option>
             <option data-testid="select-option" value="comedy">Comédia</option>
             <option data-testid="select-option" value="thriller">Suspense</option>
-
             </select>
           </label>
         </form>
