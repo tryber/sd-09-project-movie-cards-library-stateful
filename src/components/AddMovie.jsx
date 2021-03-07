@@ -30,7 +30,10 @@ class AddMovie extends React.Component {
       this.setState({ [event.target.id]: event.target.value });
     };
 
-    const sendForm = () => {
+    const sendForm = (e) => {
+      e.preventDefault();
+      const data = { title, subtitle, imagePath, storyline, rating: Number(rating), genre };
+      onClick(data);
       this.setState({
         subtitle: '',
         title: '',
@@ -39,7 +42,6 @@ class AddMovie extends React.Component {
         rating: 0,
         genre: 'action',
       });
-      onClick();
     };
 
     return (

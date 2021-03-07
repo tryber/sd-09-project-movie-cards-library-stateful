@@ -52,7 +52,10 @@ class MovieLibrary extends React.Component {
       });
       if (genre === '') this.setState({ movies: inicialMovies });
     };
-    const onClick = () => {
+    const onClick = (data) => {
+      // preventDefault();
+      inicialMovies.push(data);
+      this.setState({ movies: inicialMovies });
     };
     return (
       <div>
