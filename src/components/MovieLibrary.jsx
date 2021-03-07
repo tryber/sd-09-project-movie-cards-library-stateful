@@ -10,21 +10,23 @@ class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
 
+    const { movies } = this.props;
+
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: this.props.movies,
+      movies: movies,
     };
   }
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
-    const inicialMovies = this.props.movies;
+    const inicialMovies = movies;
     const onSearchTextChange = (event) => {
       this.setState({
         searchText: event.target.value,
-        movies: inicialMovies.filter((filme) => filme.title.includes(event.target.value) 
+        movies: inicialMovies.filter((filme) => filme.title.includes(event.target.value)
           || filme.subtitle.includes(event.target.value)
           || filme.storyline.includes(event.target.value)),
       });
