@@ -17,12 +17,12 @@ class MovieLibrary extends React.Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: movies,
+      inicialMovies: movies,
     };
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
-    const inicialMovies = movies;
+    const { searchText, bookmarkedOnly, selectedGenre, movies, inicialMovies } = this.state;
     const onSearchTextChange = (event) => {
       this.setState({
         searchText: event.target.value,
