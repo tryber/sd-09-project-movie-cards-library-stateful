@@ -24,22 +24,22 @@ class MovieLibrary extends React.Component {
     const onSearchTextChange = (event) => {
       this.setState({
         searchText: event.target.value,
-        movies: inicialMovies.filter(filme => filme.title.includes(event.target.value) 
+        movies: inicialMovies.filter((filme) => filme.title.includes(event.target.value) 
           || filme.subtitle.includes(event.target.value)
           || filme.storyline.includes(event.target.value)),
       });
       if (event.target.value === '') this.setState({ movies: inicialMovies });
-    }
+    };
     const onBookmarkedChange = (event) => {
       this.setState({
-        bookmarkedOnly: event.target.checked ? true : false,
+        bookmarkedOnly: event.target.checked,
       });
       if (event.target.checked) {
-        this.setState({ movies: inicialMovies.filter(filme => filme.bookmarked),});
+        this.setState({ movies: inicialMovies.filter((filme) => filme.bookmarked) });
       } else {
         this.setState({ movies: inicialMovies });
-      };
-    }
+      }
+    };
     const onSelectedGenreChange = (event) => {
       const select = event.target;
       const genre = select.options[select.selectedIndex].value;
@@ -48,8 +48,8 @@ class MovieLibrary extends React.Component {
         movies: inicialMovies.filter((filme) => filme.genre === genre),
       });
       if (genre === '') this.setState({ movies: inicialMovies });
-    }
-    const onClick = (event) => {
+    };
+    const onClick = () => {
     };
     return (
       <div>
