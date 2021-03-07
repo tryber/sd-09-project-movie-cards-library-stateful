@@ -18,7 +18,6 @@ class MovieLibrary extends Component {
     };
 
     this.handleSearchTextChange = this.handleSearchTextChange.bind(this);
-    this.filterMovies = this.filterMovies.bind(this);
     this.handleBookmarkedChange = this.handleBookmarkedChange.bind(this);
     this.handleSelectedGenreChange = this.handleSelectedGenreChange.bind(this);
     this.handleAddMovie = this.handleAddMovie.bind(this);
@@ -27,47 +26,48 @@ class MovieLibrary extends Component {
   handleSearchTextChange(event) {
     const { name, value } = event.target;
     this.setState({ [name]: value });
+    this.textFilter();
   }
 
   handleBookmarkedChange(event) {
     const { checked } = event.target;
     this.setState({ bookmarkedOnly: checked });
+    this.checkboxFilter();
   }
 
   handleSelectedGenreChange(event) {
     const { value } = event.target;
     this.setState({ selectedGenre: value });
+    this.selectFilter();
   }
 
   handleAddMovie(movie) {
     const { movies } = this.state;
+    console.log(movie);
     this.setState({ movies: [...movies, movie] });
   }
 
-  filterMovies(value) {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
-    let filteredMovies = [];
-    let textFilter = [];
-    let bookmarkFilter = [];
+  textFilter() {
+    const { searchText, movies } = this.state;
 
-    if (searchText) {
-      textFilter = movies.filter((movie) => {
-        const { title, subtitle, storyline } = movie;
-        return (
-          title.includes(value) || subtitle.includes(value) || storyline.includes(value)
-        );
-      });
-    }
+    const filteredMovies = movies.filter((movie) => {
+      const { title, subtitle, storyline } = movie;
+      return (
+        title.includes(searchText) || subtitle.includes(searchText) || storyline.includes(searchText)
+      );
+    });
+    this.setState({ movies: filteredMovies });
+  }
 
-    if (bookmarkedOnly) {
-      bookmarkFilter = textFilter.filter((movie) => movie.bookmarkedOnly);
-    }
-
-    if (selectedGenre) {
-      filteredMovies = bookmarkFilter.filter((movie) => movie.genre === selectedGenre);
-    }
-
-    return filteredMovies;
+  checkboxFilter() {
+    const { movies } = this.state;
+    const filteredMovies = movies.filter((movie) => movie.bookmarked === true);
+    this.setState({ movies: filteredMovies });
+  }
+  selectFilter() {
+    const { selectedGenre, movies } = this.state;
+    const filteredMovies = movies.filter((movie) => movie.genre === selectedGenre);
+    this.setState({ movies: filteredMovies });
   }
 
   render() {

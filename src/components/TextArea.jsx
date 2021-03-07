@@ -11,13 +11,10 @@ class TextArea extends React.Component {
           <textarea
             name={ name }
             id={ name }
-            cols="30"
-            rows="10"
+            value={ value }
             onChange={ onChange }
             data-testid="storyline-input"
-          >
-            { value }
-          </textarea>
+          />
         </label>
       </div>
     );
