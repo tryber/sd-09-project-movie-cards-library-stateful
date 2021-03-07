@@ -34,9 +34,7 @@ class MovieLibrary extends React.Component {
       if (event.target.value === '') this.setState({ movies: inicialMovies });
     };
     const onBookmarkedChange = (event) => {
-      this.setState({
-        bookmarkedOnly: event.target.checked,
-      });
+      this.setState({ bookmarkedOnly: event.target.checked });
       if (event.target.checked) {
         this.setState({ movies: inicialMovies.filter((filme) => filme.bookmarked) });
       } else {
@@ -53,7 +51,6 @@ class MovieLibrary extends React.Component {
       if (genre === '') this.setState({ movies: inicialMovies });
     };
     const onClick = (data) => {
-      // preventDefault();
       inicialMovies.push(data);
       this.setState({ movies: inicialMovies });
     };

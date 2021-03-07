@@ -25,14 +25,12 @@ class AddMovie extends React.Component {
   render() {
     const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
-
     const handleChange = (event) => {
       this.setState({ [event.target.id]: event.target.value });
     };
-
     const sendForm = (e) => {
       e.preventDefault();
-      const data = { title, subtitle, imagePath, storyline, rating: Number(rating), genre };
+      const data = { title, subtitle, imagePath, storyline, rating, genre };
       onClick(data);
       this.setState({
         subtitle: '',
@@ -43,7 +41,6 @@ class AddMovie extends React.Component {
         genre: 'action',
       });
     };
-
     return (
       <form data-testid="add-movie-form">
         <Title handleChange={ handleChange } title={ title } />
