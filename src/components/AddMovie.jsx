@@ -26,7 +26,6 @@ class AddMovie extends React.Component {
 
   handleChange({ target }) {
     const { name, value } = target;
-    // const value = target.type === 'checkbox' ? 'checked' : target.value;
     this.setState({
       [name]: value,
     });
@@ -146,8 +145,7 @@ class AddMovie extends React.Component {
         onClick={ this.clearState }
       >
         Adicionar filme
-      </button>
-    );
+      </button>    // const value = target.type === 'checkbox' ? 'checked' : target.value;
   }
 
   render() {

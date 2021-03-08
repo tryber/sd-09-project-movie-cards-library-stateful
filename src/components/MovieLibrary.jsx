@@ -20,15 +20,14 @@ class MovieLibrary extends Component {
     this.addMoviefct = this.addMoviefct.bind(this);
   }
 
-  handleChange({ target }) { // requisito 17
-    const { name, value } = target; // requisito 17
-    // const value = target.type === 'checkbox' ? target.checked : target.value; // requisito 17
+  handleChange({ target }) {
+    const { name, value } = target;
 
     if (target.type === 'checkbox') {
       const isBookmarked = target.checked;
       (this.setState({ bookmarkedOnly: isBookmarked }));
     } else {
-      this.setState({ [name]: value }); // requisito 17 // Por que precisa do ELSE para funcionar?
+      this.setState({ [name]: value });
     }
   }
 
@@ -62,11 +61,11 @@ class MovieLibrary extends Component {
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ this.handleChange } // requisito 17
+          onSearchTextChange={ this.handleChange }
           bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ this.handleChange } // requisito 17
+          onBookmarkedChange={ this.handleChange }
           selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ this.handleChange } // requisito 17
+          onSelectedGenreChange={ this.handleChange }
         />
         <MovieList movies={ movies } />
         <AddMovie onClick={ this.addMoviefct } />
