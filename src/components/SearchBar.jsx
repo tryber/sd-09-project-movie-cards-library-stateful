@@ -9,8 +9,7 @@ class SearchBar extends Component {
           Inclui o texto
           <input data-testid="text-input" type="text" name="" id="search" />
         </label>
-      </form>
-    );
+      </form>);
   }
 }
 
