@@ -145,7 +145,8 @@ class AddMovie extends React.Component {
         onClick={ this.clearState }
       >
         Adicionar filme
-      </button>    // const value = target.type === 'checkbox' ? 'checked' : target.value;
+      </button>
+    );
   }
 
   render() {
