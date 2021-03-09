@@ -3,10 +3,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class SearchBar extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   textInput() {
     const { searchText, onSearchTextChange } = this.props;
     return (
