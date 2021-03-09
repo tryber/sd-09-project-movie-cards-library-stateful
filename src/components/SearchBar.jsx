@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import '../App.css';
 
 export default class SearchBar extends Component {
@@ -13,10 +14,8 @@ export default class SearchBar extends Component {
     } = this.props;
 
     return (
-      <div className="divBusca">
-        <img src="search3.png" alt="Buscar..." />
-        <input type="text" className="txtBusca" placeholder="Buscar..." />
-        <button className="btnBusca" type="submit">Buscar</button>
+      <div>
+        <form data-testid="search-bar-form" />
       </div>
     );
   }
