@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import '../App.css';
 import InputText from './InputText';
+import InputCheckBox from './InputCheckBox';
 
 export default class SearchBar extends Component {
   render() {
@@ -20,6 +21,10 @@ export default class SearchBar extends Component {
           <InputText
             searchText={ searchText }
             onSearchTextChange={ onSearchTextChange }
+          />
+          <InputCheckBox
+            bookmarkedOnly={ bookmarkedOnly }
+            onBookmarkedChange={ onBookmarkedChange }
           />
         </form>
       </div>
