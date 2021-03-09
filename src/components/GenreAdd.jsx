@@ -3,7 +3,7 @@ import Proptypes from 'prop-types';
 
 class GenreAdd extends React.Component {
   render() {
-    const { genre, handleChange} = this.props;
+    const { genre, handleChange } = this.props;
     return (
       <label data-testid="genre-input-label" htmlFor="genre-input">
         Gênero

@@ -3,10 +3,10 @@ import Proptypes from 'prop-types';
 
 class SubtitleAdd extends React.Component {
   render() {
-    const { subtitle, handleChange} = this.props;
+    const { subtitle, handleChange } = this.props;
     return (
       <label data-testid="subtitle-input-label" htmlFor="subtitle-input">
-      Subtítulo
+        Subtítulo
         <input
           type="text"
           name="subtitle"
@@ -21,7 +21,7 @@ class SubtitleAdd extends React.Component {
 
 SubtitleAdd.propTypes = {
   subtitle: Proptypes.string.isRequired,
-  handleChange: Proptypes.func.isRequired
+  handleChange: Proptypes.func.isRequired,
 };
 
-export default SubtitleAdd
+export default SubtitleAdd;
