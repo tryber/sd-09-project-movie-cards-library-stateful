@@ -11,6 +11,7 @@ class MovieLibrary extends React.Component {
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.onClick = this.onClick.bind(this);
+    this.filteredMovies = this.filteredMovies.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -44,13 +45,34 @@ class MovieLibrary extends React.Component {
     });
   }
 
+  filteredMovies() {
+    const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
+    let filteredMovies = movies;
+
+    if (searchText !== '') {
+      filteredMovies = filteredMovies.filter((movie) => movie.title.includes(searchText)
+      || movie.subtitle.includes(searchText) || movie.storyline.includes(searchText));
+    }
+
+    if (bookmarkedOnly === true) {
+      filteredMovies = filteredMovies
+        .filter((movie) => movie.bookmarked === bookmarkedOnly);
+    }
+
+    if (selectedGenre !== '') {
+      filteredMovies = filteredMovies.filter((movie) => movie.genre === selectedGenre);
+    }
+
+    return filteredMovies;
+  }
+
   render() {
     const {
       searchText,
       bookmarkedOnly,
       selectedGenre,
-      movies,
     } = this.state;
+    const movies = this.filteredMovies();
     const {
       onSearchTextChange,
       onBookmarkedChange,
