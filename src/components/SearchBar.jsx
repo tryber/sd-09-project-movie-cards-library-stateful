@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import '../App.css';
+import InputText from './InputText';
 
 export default class SearchBar extends Component {
   render() {
@@ -15,7 +16,12 @@ export default class SearchBar extends Component {
 
     return (
       <div>
-        <form data-testid="search-bar-form" />
+        <form data-testid="search-bar-form">
+          <InputText
+            searchText={ searchText }
+            onSearchTextChange={ onSearchTextChange }
+          />
+        </form>
       </div>
     );
   }
