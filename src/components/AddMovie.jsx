@@ -26,7 +26,7 @@ class AddMovie extends React.Component {
     });
   }
   render() {
-    const { onClick } = this.props;
+    // const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <div>
@@ -92,15 +92,15 @@ class AddMovie extends React.Component {
               <option value="thriller" data-testid="genre-option">Suspense</option>
             </select>
           </label>
-          <button data-testid="send-button" onClick={}>Adicionar filme</button>
+          <button data-testid="send-button">Adicionar filme</button>
         </form>
       </div>
     )
   }
 }
 
-AddMovie.propTypes = {
-  onClick: PropTypes.func.isRequired,
-};
+// AddMovie.propTypes = {
+//  onClick: PropTypes.func.isRequired,
+// };
 
 export default AddMovie;
