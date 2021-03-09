@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import '../App.css';
 import InputText from './InputText';
 import InputCheckBox from './InputCheckBox';
+import Select from './Select';
 
 export default class SearchBar extends Component {
   render() {
@@ -25,6 +26,10 @@ export default class SearchBar extends Component {
           <InputCheckBox
             bookmarkedOnly={ bookmarkedOnly }
             onBookmarkedChange={ onBookmarkedChange }
+          />
+          <Select
+            selectedGenre={ selectedGenre }
+            onSelectedGenreChange={ onSelectedGenreChange }
           />
         </form>
       </div>
