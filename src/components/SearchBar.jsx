@@ -12,9 +12,9 @@ export default class SearchBar extends React.Component {
     };
   }
 
-  onSearchTextChange(event.target) {
+  // onSearchTextChange(event.target) {
     
-  }
+  // }
 
   render(){
     <div>
