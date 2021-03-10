@@ -6,21 +6,21 @@ export default class SearchBar extends React.Component {
   constructor() {
     super();
     this.state = {
-      selectedGenre: '',
-    bookmarkedOnly: false,
-      searchText: ''
+      // selectedGenre: '',
+      // bookmarkedOnly: false,
+      searchText: '',
     };
   }
 
-  // onSearchTextChange(event.target) {
-    
-  // }
-
-  render(){
-    <div>
-      <form>
-        <onSearchTextChange value={this.state.searchText} onChange={this.onSearchTextChange}>
-      </form>
-    </div>
+  render() {
+    const { searchText } = this.state;
+    return (
+      <div>
+        <onSearchTextChange
+          value={ searchText }
+          onChange={ this.onSearchTextChange }
+        />
+      </div>
+    );
   }
 }
