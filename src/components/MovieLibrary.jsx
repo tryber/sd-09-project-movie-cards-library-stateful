@@ -9,7 +9,7 @@ class MovieLibrary extends Component {
   constructor(props) {
     super(props);
     this.state = {
-    /* searchText: '',
+      /* searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: this.props.movies, */

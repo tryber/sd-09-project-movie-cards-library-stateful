@@ -1,5 +1,5 @@
 import React from 'react';
-/* import PropTypes from 'prop-types'; */
+import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -13,6 +13,7 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
@@ -20,8 +21,17 @@ class AddMovie extends React.Component {
   }
 
   handleSubmit(event) {
+    const { onClick } = this.props;
     event.preventDefault();
-    console.log('sub');
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   renderTitle() {
@@ -132,7 +142,7 @@ class AddMovie extends React.Component {
         { this.renderRating() }
         { this.renderGenre() }
         <button
-          type="submit"
+          type="button"
           data-testid="send-button"
           onClick={ this.handleSubmit }
         >
@@ -142,5 +152,9 @@ class AddMovie extends React.Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
