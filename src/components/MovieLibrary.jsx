@@ -2,9 +2,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import AddMovie from './AddMovie';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -18,23 +18,18 @@ class MovieLibrary extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.movieList = this.movieList.bind(this);
     this.addMoviefct = this.addMoviefct.bind(this);
-    this.onSearchTextChange = this.onSearchTextChange.bind(this);
   }
 
-  handleChange({ target }) {
-    const { name, value } = target;
+  handleChange({ target }) { // requisito 17
+    const { name, value } = target; // requisito 17
+    // const value = target.type === 'checkbox' ? target.checked : target.value; // requisito 17
 
     if (target.type === 'checkbox') {
       const isBookmarked = target.checked;
       (this.setState({ bookmarkedOnly: isBookmarked }));
     } else {
-      this.setState({ [name]: value });
+      this.setState({ [name]: value }); // requisito 17 // Por que precisa do ELSE para funcionar?
     }
-  }
-
-  onSearchTextChange(event) {
-    const { value } = event.target;
-    this.setState({ searchText: value });
   }
 
   movieList() {
@@ -67,7 +62,7 @@ class MovieLibrary extends Component {
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ this.onSearchTextChange }
+          onSearchTextChange={ this.handleChange }
           bookmarkedOnly={ bookmarkedOnly }
           onBookmarkedChange={ this.handleChange }
           selectedGenre={ selectedGenre }
