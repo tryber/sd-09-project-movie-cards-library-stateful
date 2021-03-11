@@ -1,6 +1,7 @@
 // implement AddMovie component here
 import React from 'react';
 import onSearchTextChange from './onSearchTextChange';
+import onBookMarkedChange from './onBookMarkedChange';
 
 export default class SearchBar extends React.Component {
   constructor() {
@@ -26,6 +27,10 @@ export default class SearchBar extends React.Component {
               onChange={ onSearchTextChange }
               type="text"
             />
+          </span>
+          <span>
+            Mostrar somente favoritos
+            <input data-testid="checkbox-input-label" checked="bookmarkedOnly" onChange={ onBookMarkedChange } type="checkbox" />
           </span>
         </form>
       </div>
