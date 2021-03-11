@@ -2,7 +2,7 @@ import React from 'react';
 
 export default class MovieLibrary extends React.Component {
   render() {
-    return(
+    return (
       <h1>MovieLibrary</h1>
     );
   }
