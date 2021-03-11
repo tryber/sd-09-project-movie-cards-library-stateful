@@ -12,7 +12,7 @@ class Subtitulo extends React.Component {
           data-testid="subtitle-input"
           type="text"
           value=""
-          onChange={ handleChange }
+          onChange={ onchange }
         />
       </label>
     );

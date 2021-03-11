@@ -12,7 +12,7 @@ class Titulo extends React.Component {
           data-testid="title-input"
           type="text"
           value=""
-          onChange={ handleChange }
+          onChange={ onchange }
         />
       </label>
     );
