@@ -5,10 +5,11 @@ import Subtitle from './Subtitle';
 import Image from './Image';
 import RatingInput from './RatingInput';
 import Storyline from './Storyline';
+import Genre from './Genre';
 
 export default class RenderStates extends Component {
   render() {
-    const { title, callback, subtitle, imagePath, storyline, rating } = this.props;
+    const { title, callback, subtitle, imagePath, storyline, rating, genre } = this.props;
     return (
       <div>
         <Title title={ title } callback={ callback } />
@@ -16,6 +17,7 @@ export default class RenderStates extends Component {
         <Image image={ imagePath } callback={ callback } />
         <Storyline storyline={ storyline } callback={ callback } />
         <RatingInput rating={ rating } callback={ callback } />
+        <Genre genre={ genre } callback={ callback } />
       </div>
     );
   }
@@ -28,4 +30,5 @@ RenderStates.propTypes = {
   imagePath: PropTypes.string.isRequired,
   storyline: PropTypes.string.isRequired,
   rating: PropTypes.number.isRequired,
+  genre: PropTypes.string.isRequired,
 };
