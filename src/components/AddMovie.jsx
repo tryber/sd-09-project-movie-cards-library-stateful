@@ -15,6 +15,7 @@ export default class AddMovie extends Component {
       genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.clearInputs = this.clearInputs.bind(this);
   }
 
   handleChange(event) {
@@ -23,8 +24,20 @@ export default class AddMovie extends Component {
     });
   }
 
-  render() {
+  clearInputs() {
     const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
+  render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
@@ -37,6 +50,13 @@ export default class AddMovie extends Component {
           storyline={ storyline }
           genre={ genre }
         />
+        <button
+          onClick={ this.clearInputs }
+          type="button"
+          data-testid="send-button"
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
