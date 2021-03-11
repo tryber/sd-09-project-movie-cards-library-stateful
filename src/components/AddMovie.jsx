@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Title from './Titulo';
 import Subtitle from './Subtitulo';
 import ImagePath from './ImagePath';
+import Rating from './Rating';
 
 const initialState = {
   subtitle: '',
@@ -35,16 +36,16 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { title, subtitle, imagePath } = this.state;
-    // storyline, rating, genre
+    const { title, subtitle, imagePath, rating } = this.state;
+    // storyline, , genre
     return (
       <form data-testid="add-movie-form">
         <Title value={ title } onChange={ this.handleChange } />
         <Subtitle value={ subtitle } onChange={ this.handleChange } />
         <ImagePath value={ imagePath } onChange={ this.handleChange } />
-        {/* <TextArea value={ storyline } onChange={ this.handleChange } />
-        <InputRating value={ rating } onChange={ this.handleChange } />
-        <SelectItem value={ genre } onChange={ this.handleChange } /> */}
+        {/* <TextArea value={ storyline } onChange={ this.handleChange } /> */}
+        <Rating value={ rating } onChange={ this.handleChange } />
+        {/* <SelectItem value={ genre } onChange={ this.handleChange } /> */}
         <button
           data-testid="send-button"
           type="button"
