@@ -37,7 +37,7 @@ class MovieLibrary extends Component {
   }
 
   render() {
-    const { searchText, bookmarkedOnly, 
+    const { searchText, bookmarkedOnly,
       selectedGenre } = this.state;
         return (
       <div>
