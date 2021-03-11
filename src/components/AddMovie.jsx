@@ -3,9 +3,9 @@ import React from 'react';
 export default class AddMovie extends React.Component {
   render() {
     return (
-      <label>
-        <textarea name="estadoFavorito" value={value} onChange={handleChange} />
-      </label>
+      <div>
+        <h1>add movie</h1>
+      </div>
     );
   }
 }
