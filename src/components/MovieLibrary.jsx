@@ -15,15 +15,13 @@ class MovieLibrary extends Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: [],
-    }
+    };
   }
-  onSearchTextChange() {
-    onBookmarkedChange() {
-      this.setState({
-        bookmarkedOnly: true,
-      });
-    }
-    
+
+  onSearchTextChange(event) {
+    this.setState({
+      searchText: event.target.value,
+    });
   }
 
   onBookmarkedChange() {
@@ -34,7 +32,7 @@ class MovieLibrary extends Component {
 
   onSelectedGenreChange(event) {
     this.setState({
-      searchText: event.target.value,
+      selectedGenre: event.target.value,
     });
   }
 
