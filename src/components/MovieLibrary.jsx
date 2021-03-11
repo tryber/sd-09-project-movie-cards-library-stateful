@@ -29,8 +29,9 @@ class MovieLibrary extends Component {
   }
 
   onSearchTextChange(event) {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
+    this.setState({
+      searchText: event.target.value,
+    });
   }
 
   onBookmarkedChange(event) {
