@@ -7,8 +7,14 @@ class AddMovie extends Component {
   constructor() {
     super();
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleclick = this.handleSubmit.bind(this);
     this.state = {
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
     };
   }
 
@@ -18,7 +24,22 @@ class AddMovie extends Component {
     });
   }
 
+  handleClick() {
+    const {subtitle, title, imagePath, storyline, rating, genre } = this.state;
+    onClick(subtitle, title, imagePath, storyline, rating, genre) {
+      return this.setState = {
+        subtitle: '',
+        title: '',
+        imagePath: '',
+        storyline: '',
+        rating: 0,
+        genre: 'action',
+      };
+    }
+  }
+
   render() {
+    const { onClick } = this.props;
     return (
       <div>
         <form data-testid="add-movie-form">
@@ -57,7 +78,7 @@ class AddMovie extends Component {
               <option data-testid="genre-option" value="thriller">Suspense</option>
             </select>
           </label>
-          <button type="submit" data-testid="send-button">
+          <button type="submit" data-testid="send-button" onClick={ handleClick }>
             Send it
           </button>
         </form>
