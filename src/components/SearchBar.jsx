@@ -17,7 +17,7 @@ export default class SearchBar extends React.Component {
     return (
       <div>
         <form data-testid="search-bar-form">
-          <label>
+          <span>
             Inclui o texto:
             <input
               data-testid="text-input"
@@ -26,7 +26,7 @@ export default class SearchBar extends React.Component {
               onChange={ onSearchTextChange }
               type="text"
             />
-          </label>
+          </span>
         </form>
       </div>
     );
