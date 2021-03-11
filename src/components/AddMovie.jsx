@@ -25,14 +25,15 @@ export default class AddMovie extends Component {
 
   render() {
     const { onClick } = this.props;
-    const { title, subtitle, image } = this.state;
+    const { title, subtitle, imagePath, rating } = this.state;
     return (
       <form data-testid="add-movie-form">
         <RenderStates
           title={ title }
           callback={ this.handleChange }
           subtitle={ subtitle }
-          image={ image }
+          imagePath={ imagePath }
+          rating={ rating }
         />
       </form>
     );

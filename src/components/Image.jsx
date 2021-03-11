@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export default class Image extends Component {
   render() {
-    const { image, callback } = this.props;
+    const { imagePath, callback } = this.props;
     return (
       <div>
         <label
@@ -12,11 +12,11 @@ export default class Image extends Component {
         >
           Imagem
           <input
-            name="image"
+            name="imagePath"
             type="text"
             id="inputImage"
             data-testid="image-input"
-            value={ image }
+            value={ imagePath }
             onChange={ callback }
           />
         </label>
@@ -26,6 +26,6 @@ export default class Image extends Component {
 }
 
 Image.propTypes = {
-  image: PropTypes.string.isRequired,
+  imagePath: PropTypes.string.isRequired,
   callback: PropTypes.func.isRequired,
 };
