@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 
 class AddMovie extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.handleChange = this.handleChange.bind(this);
-    
     this.state = {
       subtitle: '',
       title: '',
@@ -15,10 +14,9 @@ class AddMovie extends Component {
     };
   }
 
-  handleChange({ target }) {
-    const { name, value } = target;
+  handleChange(event) {
     this.setState({
-      [name]: value,
+      [event.target.name]: value,
     });
   }
 
@@ -67,7 +65,7 @@ class AddMovie extends Component {
               <option data-testid="genre-option" value="thriller">Suspense</option>
             </select>
           </label>
-          <button  data-testid="send-button" onClick={this.handleChange }>
+          <button  type="submit" data-testid="send-button" onClick={this.handleChange }>
             Send it
           </button>
         </form>
