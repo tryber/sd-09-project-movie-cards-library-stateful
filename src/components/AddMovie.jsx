@@ -25,17 +25,16 @@ class AddMovie extends Component {
   }
 
   handleClick() {
-    const {subtitle, title, imagePath, storyline, rating, genre } = this.state;
-    onClick(subtitle, title, imagePath, storyline, rating, genre) {
-      return this.setState = {
-        subtitle: '',
-        title: '',
-        imagePath: '',
-        storyline: '',
-        rating: 0,
-        genre: 'action',
-      };
-    }
+    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
+    onClick(subtitle, title, imagePath, storyline, rating, genre);
+    this.setState = {
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    };
   }
 
   render() {
