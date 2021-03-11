@@ -26,7 +26,7 @@ class AddMovie extends Component {
   }
 
   handleClick() {
-    
+    const { onClick } = this.props;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     onClick(subtitle, title, imagePath, storyline, rating, genre);
     this.setState = ({
@@ -40,13 +40,12 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { onClick } = this.props;
     return (
       <div>
         <form data-testid="add-movie-form">
           <Title handleChange={ this.handleChange } title={ title } />
-          <Subtitle handleChange={ this.handleChange } title={ subtitle } />
-          <Image handleChange={ this.handleChange } title={ imagePath } />
+          <Subtitle handleChange={ this.handleChange } title1={ subtitle } />
+          <Image handleChange={ this.handleChange } title2={ imagePath } />
           <label data-testid="storyline-input-label" htmlFor="story-line">
             Sinopse
             <textarea
@@ -79,7 +78,7 @@ class AddMovie extends Component {
               <option data-testid="genre-option" value="thriller">Suspense</option>
             </select>
           </label>
-          <button type="submit" data-testid="send-button" onClick={ handleClick }>
+          <button type="submit" data-testid="send-button" onClick={ this.handleClick }>
             Send it
           </button>
         </form>
