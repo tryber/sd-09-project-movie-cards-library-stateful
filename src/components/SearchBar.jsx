@@ -16,10 +16,18 @@ export default class SearchBar extends React.Component {
     const { searchText } = this.state;
     return (
       <div>
-        <onSearchTextChange
-          value={ searchText }
-          onChange={ this.onSearchTextChange }
-        />
+        <form data-testid="search-bar-form">
+          <label>
+            Inclui o texto:
+            <input
+              data-testid="text-input"
+              name="nome"
+              value={ searchText }
+              onChange={ onSearchTextChange }
+              type="text"
+            />
+          </label>
+        </form>
       </div>
     );
   }
