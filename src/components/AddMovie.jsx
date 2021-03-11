@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+/* import React, { Component } from 'react';
 
 class AddMovie extends Component {
   constructor() {
@@ -73,3 +73,4 @@ class AddMovie extends Component {
 }
 
 export default AddMovie;
+*/

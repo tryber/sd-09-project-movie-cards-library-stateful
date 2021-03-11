@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+/* import React, { Component } from 'react';
 
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
@@ -39,8 +39,7 @@ class MovieLibrary extends Component {
   render() {
     const { searchText, bookmarkedOnly, 
       selectedGenre } = this.state;
-    const {movie} = this.props;
-    return (
+        return (
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar />
@@ -52,3 +51,4 @@ class MovieLibrary extends Component {
 }
 
 export default MovieLibrary;
+*/
