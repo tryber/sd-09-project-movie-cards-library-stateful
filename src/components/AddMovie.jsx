@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Image from './Image';
 import Title from './Title';
 import Subtitle from './Subtitle';
+import Rating from './Rating';
 
 class AddMovie extends Component {
   constructor() {
@@ -26,7 +27,6 @@ class AddMovie extends Component {
   }
 
   handleClick() {
-    preventDefault();
     const { onClick } = this.props;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     onClick(subtitle, title, imagePath, storyline, rating, genre);
@@ -41,29 +41,20 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { title, subtitle, imagePath } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <div>
         <form data-testid="add-movie-form">
           <Title handleChange={ this.handleChange } value={ title } />
           <Subtitle handleChange={ this.handleChange } value={ subtitle } />
           <Image handleChange={ this.handleChange } value={ imagePath } />
+          <Rating handleChange={ this.handleChange } value={ rating } />
           <label data-testid="storyline-input-label" htmlFor="story-line">
             Sinopse
             <textarea
               value={ storyline }
               data-testid="storyline-input"
               name="story-line"
-              onChange={ this.handleChange }
-            />
-          </label>
-          <label data-testid="rating-input-label" htmlFor="rating">
-            Avaliação
-            <input
-              type="number"
-              name="rating"
-              value={ rating }
-              data-testid="rating-input"
               onChange={ this.handleChange }
             />
           </label>
@@ -80,8 +71,12 @@ class AddMovie extends Component {
               <option data-testid="genre-option" value="thriller">Suspense</option>
             </select>
           </label>
-          <button type="submit" data-testid="send-button" onClick={ this.handleClick }>
-            Send it
+          <button
+            type="submit"
+            data-testid="send-button"
+            onClick={ this.handleClick }
+          >
+            Adicionar filme
           </button>
         </form>
       </div>
@@ -92,5 +87,4 @@ class AddMovie extends Component {
 AddMovie.propTypes = {
   onClick: PropTypes.func.isRequired,
 };
-
 export default AddMovie;
