@@ -1,12 +1,11 @@
-/* import React, { Component } from 'react';
-
+import React, { Component } from 'react';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
@@ -37,18 +36,23 @@ class MovieLibrary extends Component {
   }
 
   render() {
-    const { searchText, bookmarkedOnly,
-      selectedGenre } = this.state;
-        return (
+    const { movies } = this.props;
+    const { searchText, onSearchTextChange, bookmarkedOnly,
+      selectedGenre, onSelectedGenreChange } = this.state;
+    return (
       <div>
-        <h2> My awesome movie library </h2>
-        <SearchBar />
-        <MovieList movies={this.props.movie} />
+        <SearchBar
+          searchText={ searchText }
+          onSearchTextChange={ onSearchTextChange }
+          bookmarkedOnly={ bookmarkedOnly }
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ onSelectedGenreChange }
+        />
         <AddMovie />
+        <MovieList movies={ movies } />
       </div>
     );
   }
 }
 
 export default MovieLibrary;
-*/

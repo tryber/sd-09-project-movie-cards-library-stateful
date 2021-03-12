@@ -46,16 +46,17 @@ class AddMovie extends Component {
     return (
       <div>
         <form data-testid="add-movie-form">
-          <Title handleChange={ this.handleChange } value={ title } />
-          <Subtitle handleChange={ this.handleChange } value={ subtitle } />
-          <Image handleChange={ this.handleChange } value={ imagePath } />
-          <Rating1 handleChange={ this.handleChange } value={ rating } />
-          <label data-testid="storyline-input-label" htmlFor="story-line">
+          <Title handleChange={ this.handleChange } title={ title } />
+          <Subtitle handleChange={ this.handleChange } subtitle={ subtitle } />
+          <Image handleChange={ this.handleChange } image={ imagePath } />
+          <Rating1 handleChange={ this.handleChange } rating={ rating } />
+          <label data-testid="storyline-input-label" htmlFor="storyline-input">
             Sinopse
             <textarea
+              type="text"
+              name="storyline"
               value={ storyline }
               data-testid="storyline-input"
-              name="story-line"
               onChange={ this.handleChange }
             />
           </label>
