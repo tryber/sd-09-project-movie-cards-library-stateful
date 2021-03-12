@@ -8,7 +8,7 @@ class AddMovie extends Component {
   constructor() {
     super();
     this.handleChange = this.handleChange.bind(this);
-    this.handleclick = this.handleSubmit.bind(this);
+    this.handleClick = this.handleClick.bind(this);
     this.state = {
       subtitle: '',
       title: '',
@@ -21,11 +21,12 @@ class AddMovie extends Component {
 
   handleChange(event) {
     this.setState({
-      [event.target.name]: value,
+      [event.target.name]: event.target.value,
     });
   }
 
   handleClick() {
+    preventDefault();
     const { onClick } = this.props;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     onClick(subtitle, title, imagePath, storyline, rating, genre);
@@ -40,12 +41,13 @@ class AddMovie extends Component {
   }
 
   render() {
+    const { title, subtitle, imagePath } = this.state;
     return (
       <div>
         <form data-testid="add-movie-form">
-          <Title handleChange={ this.handleChange } title={ title } />
-          <Subtitle handleChange={ this.handleChange } title1={ subtitle } />
-          <Image handleChange={ this.handleChange } title2={ imagePath } />
+          <Title handleChange={ this.handleChange } value={ title } />
+          <Subtitle handleChange={ this.handleChange } value={ subtitle } />
+          <Image handleChange={ this.handleChange } value={ imagePath } />
           <label data-testid="storyline-input-label" htmlFor="story-line">
             Sinopse
             <textarea
