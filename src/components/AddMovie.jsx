@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Image from './Image';
 import Title from './Title';
 import Subtitle from './Subtitle';
-import Rating from './Rating';
+import Rating1 from './Rating1';
 
 class AddMovie extends Component {
   constructor() {
@@ -48,7 +48,7 @@ class AddMovie extends Component {
           <Title handleChange={ this.handleChange } value={ title } />
           <Subtitle handleChange={ this.handleChange } value={ subtitle } />
           <Image handleChange={ this.handleChange } value={ imagePath } />
-          <Rating handleChange={ this.handleChange } value={ rating } />
+          <Rating1 handleChange={ this.handleChange } value={ rating } />
           <label data-testid="storyline-input-label" htmlFor="story-line">
             Sinopse
             <textarea
