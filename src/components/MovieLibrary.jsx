@@ -1,8 +1,8 @@
 // implement AddMovie component here
 import React from 'react';
 import PropTypes from 'prop-types';
-import SearchBar from './SearchBar';
 import MovieList from './MovieList';
+import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
@@ -15,16 +15,20 @@ class MovieLibrary extends React.Component {
       movies: props.movies,
     };
     this.handleChange = this.handleChange.bind(this);
-    this.MovieList = this.MovieList.bind(this);
+    this.movieList = this.movieList.bind(this);
+    this.addMoviefct = this.addMoviefct.bind(this);
   }
 
   handleChange({ target }) {
-    const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const { name, value } = target;
+    // const value = target.type === 'checkbox' ? target.checked : target.value; // requisito 17
 
-    this.setState({
-      [name]: value,
-    });
+    if (target.type === 'checkbox') {
+      const isBookmarked = target.checked;
+      (this.setState({ bookmarkedOnly: isBookmarked }));
+    } else {
+      this.setState({ [name]: value });
+    }
   }
 
   movieList() {
@@ -41,6 +45,11 @@ class MovieLibrary extends React.Component {
     if (selectedGenre !== '') {
       movieListReturn = movies.filter((movie) => movie.genre === (selectedGenre));
     } return movieListReturn;
+  }
+
+  addMoviefct(newMovie) {
+    const { movies } = this.state;
+    this.setState({ movies: [...movies, newMovie] });
   }
 
   render() {
