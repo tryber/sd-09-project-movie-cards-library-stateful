@@ -104,7 +104,13 @@ class AddMovie extends React.Component {
         >
           <option data-testid="genre-option" name="action" value="action">Ação</option>
           <option data-testid="genre-option" name="comedy" value="comedy">Comédia</option>
-          <option data-testid="genre-option" name="thriller" value="thriller">Suspense</option>
+          <option
+            data-testid="genre-option"
+            name="thriller"
+            value="thriller"
+          >
+            Suspense
+          </option>
         </select>
       </label>
     );

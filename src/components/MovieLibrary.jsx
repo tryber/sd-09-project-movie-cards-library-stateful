@@ -51,11 +51,11 @@ class MovieLibrary extends React.Component {
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ this.handleChange } // requisito 17
+          onSearchTextChange={ this.handleChange }
           bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ this.handleChange } // requisito 17
+          onBookmarkedChange={ this.handleChange }
           selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ this.handleChange } // requisito 17
+          onSelectedGenreChange={ this.handleChange }
         />
         <MovieList movies={ movies } />
         <AddMovie onClick={ this.addMoviefct } />
