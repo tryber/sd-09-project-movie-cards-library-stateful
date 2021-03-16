@@ -1,6 +1,6 @@
 // implement AddMovie component here
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -35,14 +35,16 @@ class AddMovie extends React.Component {
   }
 
   clearState() {
-    this.setState = {
-      subtitle: '',
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
       title: '',
+      subtitle: '',
       imagePath: '',
       storyline: '',
       rating: 0,
       genre: 'action',
-    };
+    });
   }
 
   createTitle(title) {
@@ -100,9 +102,9 @@ class AddMovie extends React.Component {
           onChange={ this.handleChange }
           data-testid="genre-input"
         >
-          <option name="action" value="action">Ação</option>
-          <option name="comedy" value="comedy">Comédia</option>
-          <option name="thriller" value="thriller">Suspense</option>
+          <option data-testid="genre-option" name="action" value="action">Ação</option>
+          <option data-testid="genre-option" name="comedy" value="comedy">Comédia</option>
+          <option data-testid="genre-option" name="thriller" value="thriller">Suspense</option>
         </select>
       </label>
     );
@@ -110,9 +112,10 @@ class AddMovie extends React.Component {
 
   createStoryline(storyline) {
     return (
-      <label htmlFor="storyline">
+      <label htmlFor="storyline" data-testid="storyline-input-label">
         Sinopse
         <textarea
+          data-testid="storyline-input"
           type="text"
           value={ storyline }
           name="storyline"
@@ -139,12 +142,14 @@ class AddMovie extends React.Component {
 
   createButton() {
     return (
-      <input
+      <button
         data-testid="send-button"
         value="Adicionar filme"
         type="submit"
         onClick={ this.clearState }
-      />
+      >
+        Adicionar filme
+      </button>
     );
   }
 
@@ -157,16 +162,15 @@ class AddMovie extends React.Component {
         {this.createImagepath(imagePath)}
         {this.createStoryline(storyline)}
         {this.createGenre(genre)}
-        { this.createRating(rating)}
+        {this.createRating(rating)}
         {this.createButton()}
       </form>
     );
   }
 }
 
-// AddMovie.propTypes = {
-//   genre: PropTypes.string.isRequired,
-
-// };
+AddMovie.propTypes = ({
+  onClick: PropTypes.func.isRequired,
+});
 
 export default AddMovie;
