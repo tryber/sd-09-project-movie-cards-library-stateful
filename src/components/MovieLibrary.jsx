@@ -22,12 +22,13 @@ class MovieLibrary extends Component {
   handleSearchText(event) {
     this.setState({ searchText: event.target.value });
   }
+
   handleBookmarked(event) {
     this.setState({ bookmarkedOnly: event.target.value });
   }
+
   handleGenreChange(event) {
     this.setState({ selectedGenre: event.target.value });
-    
   }
 
   render() {
