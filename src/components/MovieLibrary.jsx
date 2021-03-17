@@ -68,7 +68,7 @@ class MovieLibrary extends Component {
         {/* <h2> My awesome movie library </h2> */}
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ this.onSearchTextChange } // requisito 17
+          onSearchTextChange={ this.handleChange } // requisito 17
           bookmarkedOnly={ bookmarkedOnly }
           onBookmarkedChange={ this.handleChange } // requisito 17
           selectedGenre={ selectedGenre }
