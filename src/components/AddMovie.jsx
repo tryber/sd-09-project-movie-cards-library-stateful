@@ -18,6 +18,7 @@ export default class AddMovie extends React.Component {
     return (
       <div>
         <label data-testid="storyline-input-label" htmlFor="textarea">
+          Sinopse
           <textarea
             htmlFor="textarea"
             data-testid="storyline-input"
