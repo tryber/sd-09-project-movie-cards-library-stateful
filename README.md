@@ -606,7 +606,7 @@ Dentro desse formulário haverá campos usados para preencher informações do n
   - Reseta o estado de `<AddMovie />`, voltando para o inicial, conforme mencionado anteriormente.
 
 **O que será verificado:**
-  - Será validado se o texto do botão é "Adicionar filme"
+  - Será validado se o texto do botão é "Adiciownar filme"
   - Será validado se o evento onClick é chamado ao se clicar no botão.
   - Será validado se o estado dos inputs volta ao inicial depois que o botão de adicionar é clicado.
 
