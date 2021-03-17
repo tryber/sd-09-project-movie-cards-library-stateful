@@ -5,6 +5,8 @@ import Title from './Title';
 import Subtitle from './Subtitle';
 import Rating1 from './Rating1';
 import TextArea from './TextArea';
+import Genre from './Genre';
+import Button from './Button';
 
 class AddMovie extends Component {
   constructor() {
@@ -52,26 +54,8 @@ class AddMovie extends Component {
         <Image handleChange={ this.handleChange } image={ imagePath } />
         <Rating1 handleChange={ this.handleChange } rating={ rating } />
         <TextArea handleChange={ this.handleChange } storyline={ storyline } />
-        <label data-testid="genre-input-label" htmlFor="genre">
-          Gênero:
-          <select
-            name="genre"
-            defaultValue={ genre }
-            data-testid="genre-input"
-            onChange={ this.handleChange }
-          >
-            <option data-testid="genre-option" value="action">Ação</option>
-            <option data-testid="genre-option" value="comedy">Comédia</option>
-            <option data-testid="genre-option" value="thriller">Suspense</option>
-          </select>
-        </label>
-        <button
-          type="submit"
-          data-testid="send-button"
-          onClick={ this.handleClick }
-        >
-          Adicionar filme
-        </button>
+        <Genre handleChange={ this.handleChange } genre={ genre } />
+        <Button handleClick={ this.handleClick } />
       </form>
     );
   }
