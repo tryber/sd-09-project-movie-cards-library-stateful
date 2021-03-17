@@ -1,11 +1,12 @@
 // implement AddMovie component here
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
-class MovieLibrary extends React.Component {
+class MovieLibrary extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,18 +18,24 @@ class MovieLibrary extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.movieList = this.movieList.bind(this);
     this.addMoviefct = this.addMoviefct.bind(this);
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
   }
 
-  handleChange({ target }) {
-    const { name, value } = target;
+  handleChange({ target }) { // requisito 17
+    const { name, value } = target; // requisito 17
     // const value = target.type === 'checkbox' ? target.checked : target.value; // requisito 17
 
     if (target.type === 'checkbox') {
       const isBookmarked = target.checked;
       (this.setState({ bookmarkedOnly: isBookmarked }));
     } else {
-      this.setState({ [name]: value });
+      this.setState({ [name]: value }); // requisito 17 // Por que precisa do ELSE para funcionar?
     }
+  }
+
+  onSearchTextChange(event) {
+    const { value } = event.target;
+    this.setState({ searchText: value });
   }
 
   movieList() {
@@ -58,14 +65,14 @@ class MovieLibrary extends React.Component {
 
     return (
       <div>
-        <h2> My awesome movie library </h2>
+        {/* <h2> My awesome movie library </h2> */}
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ this.handleChange }
+          onSearchTextChange={ this.onSearchTextChange } // requisito 17
           bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ this.handleChange }
+          onBookmarkedChange={ this.handleChange } // requisito 17
           selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ this.handleChange }
+          onSelectedGenreChange={ this.handleChange } // requisito 17
         />
         <MovieList movies={ movies } />
         <AddMovie onClick={ this.addMoviefct } />

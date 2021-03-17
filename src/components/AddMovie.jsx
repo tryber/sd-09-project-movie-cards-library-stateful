@@ -102,15 +102,9 @@ class AddMovie extends React.Component {
           onChange={ this.handleChange }
           data-testid="genre-input"
         >
-          <option data-testid="genre-option" name="action" value="action">Ação</option>
-          <option data-testid="genre-option" name="comedy" value="comedy">Comédia</option>
-          <option
-            data-testid="genre-option"
-            name="thriller"
-            value="thriller"
-          >
-            Suspense
-          </option>
+          <option data-testid="genre-option" value="action">Ação</option>
+          <option data-testid="genre-option" value="comedy">Comédia</option>
+          <option data-testid="genre-option" value="thriller">Suspense</option>
         </select>
       </label>
     );
@@ -148,10 +142,10 @@ class AddMovie extends React.Component {
 
   createButton() {
     return (
+
       <button
         data-testid="send-button"
-        value="Adicionar filme"
-        type="submit"
+        type="button"
         onClick={ this.clearState }
       >
         Adicionar filme
@@ -162,7 +156,7 @@ class AddMovie extends React.Component {
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
-      <form id="add-movie-form" data-testid="add-movie-form">
+      <form data-testid="add-movie-form">
         {this.createTitle(title)}
         {this.createSubtitle(subtitle)}
         {this.createImagepath(imagePath)}
