@@ -17,15 +17,17 @@ export default class AddMovie extends React.Component {
     const { storyline } = this.state;
     return (
       <div>
-        <label data-testid="storyline-input-label" htmlFor="textarea">
-          Sinopse
-          <textarea
-            htmlFor="textarea"
-            data-testid="storyline-input"
-            value={ storyline }
-            onChange={ this.handleChange }
-          />
-        </label>
+        <form data-testid="add-movie-form">
+          <label data-testid="storyline-input-label" htmlFor="textarea">
+            Sinopse
+            <textarea
+              htmlFor="textarea"
+              data-testid="storyline-input"
+              value={ storyline }
+              onChange={ this.handleChange }
+            />
+          </label>
+        </form>
       </div>
     );
   }
