@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Title from './Titulo';
-import Subtitle from './Subtitulo';
+import Subtitulo from './Subtitulo';
+import TextArea from './TextArea';
 import ImagePath from './ImagePath';
+import Titulo from './Titulo';
 import Rating from './Rating';
 import SelecionaItem from './SelecionaItem';
-import TextArea from './TextArea';
 
 const initialState = {
-  // ESTADO INICIAL
   subtitle: '',
   title: '',
   imagePath: '',
@@ -26,7 +25,6 @@ class AddMovie extends React.Component {
   }
 
   handleChange({ target }) {
-    // função que altera o estado do componente
     const { name, value } = target;
     this.setState({
       [name]: value,
@@ -34,19 +32,17 @@ class AddMovie extends React.Component {
   }
 
   resetTheState() {
-    // função que reseta o estado do componente
     const { onClick } = this.props;
     onClick(this.state);
     this.setState(initialState);
   }
 
   render() {
-    // O INPUT QUE VAI TER O ESTADO ALTERADO
-    const { title, subtitle, imagePath, rating, genre, storyline } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <Title value={ title } onChange={ this.handleChange } />
-        <Subtitle value={ subtitle } onChange={ this.handleChange } />
+        <Titulo value={ title } onChange={ this.handleChange } />
+        <Subtitulo value={ subtitle } onChange={ this.handleChange } />
         <ImagePath value={ imagePath } onChange={ this.handleChange } />
         <TextArea value={ storyline } onChange={ this.handleChange } />
         <Rating value={ rating } onChange={ this.handleChange } />
@@ -62,7 +58,7 @@ class AddMovie extends React.Component {
     );
   }
 }
-// Define o tipo de prop que o onclick recebe
+
 AddMovie.propTypes = {
   onClick: PropTypes.func.isRequired,
 };
