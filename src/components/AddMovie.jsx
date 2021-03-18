@@ -91,13 +91,30 @@ class AddMovie extends Component {
     );
   }
 
+  ratingInput() {
+    const { rating } = this.state;
+    return (
+      <label htmlFor="rating" data-testid="rating-input-label">
+        Avaliação
+        <input
+          type="number"
+          data-testid="rating-input"
+          id="rating"
+          name="rating"
+          value={ rating }
+          onChange={ this.changeHandler }
+        />
+      </label>
+    );
+  }
+
   render() {
-    const { storyLine, rating, genre } = this.state;
+    const { rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         <div>
           {this.titleInput()}
-          {console.log(storyLine, rating, genre)}
+          {console.log(rating, genre)}
         </div>
         <div>
           {this.subtitleInput()}
@@ -107,6 +124,9 @@ class AddMovie extends Component {
         </div>
         <div>
           {this.storyLineTextarea()}
+        </div>
+        <div>
+          {this.ratingInput()}
         </div>
       </form>
     );
