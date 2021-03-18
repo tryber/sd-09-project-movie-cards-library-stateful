@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class InputRating extends React.Component {
+class Rating extends React.Component {
   render() {
     const { value, onChange } = this.props;
     return (
@@ -22,9 +22,9 @@ class InputRating extends React.Component {
   }
 }
 
-InputRating.propTypes = {
+Rating.propTypes = {
   value: PropTypes.number.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 
-export default InputRating;
+export default Rating;
