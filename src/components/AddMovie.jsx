@@ -6,7 +6,7 @@ import ImageInput from './ImageInput';
 import RatingInput from './RatingInput';
 import SelectGender from './SelectGender';
 
-export default class AddMovie extends React.Component {
+class AddMovie extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -41,3 +41,5 @@ export default class AddMovie extends React.Component {
     );
   }
 }
+
+export default AddMovie;
