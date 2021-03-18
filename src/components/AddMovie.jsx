@@ -4,18 +4,20 @@ export default class AddMovie extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      subtitle: '',
+      title: '',
       storyline: '',
-
     };
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(event) {
-    this.setState({ storyline: event.target.value });
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
   }
 
   render() {
-    const { storyline } = this.state;
+    const { subtitle, title, storyline } = this.state;
     return (
       <div>
         <form data-testid="add-movie-form">
@@ -24,6 +26,7 @@ export default class AddMovie extends React.Component {
             <input
               data-testid="title-input"
               htmlFor="title-input-label"
+              value={ title }
               type="text"
             />
           </label>
@@ -36,10 +39,11 @@ export default class AddMovie extends React.Component {
               onChange={ this.handleChange }
             />
           </label>
-          <label data-testid="subtitle-input-label" htmlFor="subtitle-input-label">
+          <label data-testid="subtitle-input-label" htmlFor="sb-input-label">
             Subtítulo
             <input
               type="text"
+              htmlFor="sb-input-label"
               data-testid="subtitle-input"
               value={ subtitle }
               onChange={ this.handleChange }
