@@ -4,7 +4,6 @@ export default class AddMovie extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      subtitle: '',
       title: '',
       storyline: '',
     };
@@ -17,7 +16,7 @@ export default class AddMovie extends React.Component {
   }
 
   render() {
-    const { subtitle, title, storyline } = this.state;
+    const { title, storyline } = this.state;
     return (
       <div>
         <form data-testid="add-movie-form">
