@@ -21,11 +21,11 @@ export default class AddMovie extends React.Component {
     return (
       <div>
         <form data-testid="add-movie-form">
-          <label data-testid="title-input-label" htmlFor="title-input-label">
+          <label data-testid="title-input-label" htmlFor="title-input">
             Título
             <input
               data-testid="title-input"
-              htmlFor="title-input-label"
+              htmlFor="title-input"
               value={ title }
               type="text"
             />
