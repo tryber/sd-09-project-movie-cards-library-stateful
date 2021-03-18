@@ -25,6 +25,7 @@ export default class AddMovie extends React.Component {
           <label data-testid="title-input-label" htmlFor="title-input">
             Título
             <input
+              name="title"
               data-testid="title-input"
               htmlFor="title-input"
               value={ title }
@@ -35,6 +36,7 @@ export default class AddMovie extends React.Component {
           <label data-testid="storyline-input-label" htmlFor="textarea">
             Sinopse
             <textarea
+              name="storyline"
               data-testid="storyline-input"
               htmlFor="textarea"
               value={ storyline }
@@ -45,6 +47,7 @@ export default class AddMovie extends React.Component {
           <label data-testid="subtitle-input-label" htmlFor="sb-input-label">
             Subtítulo
             <input
+              name="subtitle"
               data-testid="subtitle-input"
               htmlFor="sb-input-label"
               value={ subtitle }
@@ -55,7 +58,8 @@ export default class AddMovie extends React.Component {
           <label data-testid="image-input-label" htmlFor="img-input-label">
             Imagem
             <input
-              data-testid="image-input"
+              name="imagePath"
+              data-testid="image-input" 
               htmlFor="img-input-label"
               value={ imagePath }
               type="text"
