@@ -73,6 +73,24 @@ class AddMovie extends Component {
     );
   }
 
+  storyLineTextarea() {
+    const { storyLine } = this.state;
+    return (
+      <label htmlFor="storyline" data-testid="storyline-input-label">
+        Sinopse
+        <textarea
+          cols="30"
+          rows="3"
+          data-testid="storyline-input"
+          id="storyline"
+          name="storyLine"
+          value={ storyLine }
+          onChange={ this.changeHandler }
+        />
+      </label>
+    );
+  }
+
   render() {
     const { storyLine, rating, genre } = this.state;
     return (
@@ -86,6 +104,9 @@ class AddMovie extends Component {
         </div>
         <div>
           {this.imageInput()}
+        </div>
+        <div>
+          {this.storyLineTextarea()}
         </div>
       </form>
     );
