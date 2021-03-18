@@ -36,7 +36,6 @@ export default class AddMovie extends React.Component {
           <ImageInput value={ imagePath } handleChange={ this.handleChange } />
           <RatingInput value={ rating } handleChange={ this.handleChange } />
           <SelectGender value={ genre } handleChange={ this.handleChange } />
-          
         </form>
       </div>
     );
