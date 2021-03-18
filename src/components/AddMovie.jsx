@@ -39,7 +39,7 @@ export default class AddMovie extends React.Component {
               onChange={ this.handleChange }
             />
           </label>
-          <label data-testid="subtitle-input-label" htmlFor="sb-input-label">
+          {/* <label data-testid="subtitle-input-label" htmlFor="sb-input-label">
             Subtítulo
             <input
               type="text"
@@ -48,7 +48,7 @@ export default class AddMovie extends React.Component {
               value={ subtitle }
               onChange={ this.handleChange }
             />
-          </label>
+          </label> */}
         </form>
       </div>
     );
