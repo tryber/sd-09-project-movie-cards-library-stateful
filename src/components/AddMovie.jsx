@@ -6,6 +6,7 @@ import SubTitleInput from './SubtitleInput';
 import ImageInput from './ImageInput';
 import RatingInput from './RatingInput';
 import SelectGender from './SelectGender';
+// import MovieLibrary from './MovieLibrary';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -28,8 +29,8 @@ class AddMovie extends React.Component {
   }
 
   ResetState() {
-    const { onClick } = this.props;
-    onClick(this.state);
+    const { AddMovieOnList } = this.props;
+    AddMovieOnList(this.state);
     this.setState({
       title: '',
       storyline: '',
@@ -64,8 +65,8 @@ class AddMovie extends React.Component {
   }
 }
 
-export default AddMovie;
-
 AddMovie.propTypes = {
-  onClick: PropTypes.string,
+  AddMovieOnList: PropTypes.string,
 }.isRequired;
+
+export default AddMovie;
