@@ -2,7 +2,6 @@
 import React from 'react';
 import onSearchTextChange from './onSearchTextChange';
 import onBookMarkedChange from './onBookMarkedChange';
-import selectedGenre from '.;'
 
 export default class SearchBar extends React.Component {
   constructor() {
