@@ -8,35 +8,37 @@ export default class SearchBar extends React.Component {
     super();
     this.state = {
       // selectedGenre: '',
-      // bookmarkedOnly: false,
+      bookmarkedOnly: false,
       searchText: '',
     };
   }
 
   render() {
-    const { searchText } = this.state;
+    const { searchText, bookmarkedOnly } = this.state;
     return (
       <div>
         <form data-testid="search-bar-form">
-          <span>
+          <label data-testid="text-input-label" htmlFor="input-text">
             Inclui o texto:
             <input
               data-testid="text-input"
               name="nome"
+              htmlFor="input-text"
               value={ searchText }
               onChange={ onSearchTextChange }
               type="text"
             />
-          </span>
-          <span>
+          </label>
+          <label data-testid="checkbox-input-label" htmlFor="checkbox">
             Mostrar somente favoritos
             <input
-              data-testid="checkbox-input-label"
-              checked="bookmarkedOnly"
+              data-testid="checkbox-input"
+              htmlFor="checkbox"
+              checked={ bookmarkedOnly }
               onChange={ onBookMarkedChange }
               type="checkbox"
             />
-          </span>
+          </label>
         </form>
       </div>
     );
