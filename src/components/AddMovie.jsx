@@ -5,6 +5,7 @@ export default class AddMovie extends React.Component {
     super(props);
     this.state = {
       storyline: '',
+
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -32,6 +33,15 @@ export default class AddMovie extends React.Component {
               htmlFor="textarea"
               data-testid="storyline-input"
               value={ storyline }
+              onChange={ this.handleChange }
+            />
+          </label>
+          <label data-testid="subtitle-input-label" htmlFor="subtitle-input-label">
+            Subtítulo
+            <input
+              type="text"
+              data-testid="subtitle-input"
+              value={ subtitle }
               onChange={ this.handleChange }
             />
           </label>
