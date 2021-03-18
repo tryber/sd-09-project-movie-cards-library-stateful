@@ -32,7 +32,7 @@ class AddMovie extends Component {
             Título
             <input
               type="text"
-              data-testid="title-input-input"
+              data-testid="title-input"
               id="title"
               name="title"
               value={ title }
