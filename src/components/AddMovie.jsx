@@ -15,7 +15,7 @@ class AddMovie extends React.Component {
       subtitle: '',
       imagePath: '',
       rating: 0,
-      genre: '',
+      genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -31,9 +31,9 @@ class AddMovie extends React.Component {
       <div>
         <form data-testid="add-movie-form">
           <TitleForm value={ title } handleChange={ this.handleChange } />
-          <StoryLineForm value={ storyline } handleChange={ this.handleChange } />
           <SubTitleInput value={ subtitle } handleChange={ this.handleChange } />
           <ImageInput value={ imagePath } handleChange={ this.handleChange } />
+          <StoryLineForm value={ storyline } handleChange={ this.handleChange } />
           <RatingInput value={ rating } handleChange={ this.handleChange } />
           <SelectGender value={ genre } handleChange={ this.handleChange } />
         </form>
