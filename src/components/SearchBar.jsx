@@ -1,20 +1,14 @@
 // implement AddMovie component here
 import React from 'react';
-import onSearchTextChange from './onSearchTextChange';
-import onBookMarkedChange from './onBookMarkedChange';
+import PropTypes from 'prop-types';
 
 export default class SearchBar extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      // selectedGenre: '',
-      bookmarkedOnly: false,
-      searchText: '',
-    };
-  }
-
   render() {
-    const { searchText, bookmarkedOnly } = this.state;
+    const {
+      searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange, selectedGenre,
+      onSelectedGenreChange,
+    } = this.props;
+
     return (
       <div>
         <form data-testid="search-bar-form">
@@ -36,7 +30,7 @@ export default class SearchBar extends React.Component {
               data-testid="checkbox-input"
               htmlFor="checkbox"
               checked={ bookmarkedOnly }
-              onChange={ onBookMarkedChange }
+              onChange={ onBookmarkedChange }
               type="checkbox"
             />
           </label>
@@ -59,3 +53,12 @@ export default class SearchBar extends React.Component {
     );
   }
 }
+
+SearchBar.propTypes = {
+  searchText: PropTypes.string,
+  onSearchTextChange: PropTypes.func,
+  bookmarkedOnly: PropTypes.bool,
+  onBookmarkedChange: PropTypes.func,
+  selectedGenre: PropTypes.string,
+  onSelectedGenreChange: PropTypes.func,
+}.isRequired;
