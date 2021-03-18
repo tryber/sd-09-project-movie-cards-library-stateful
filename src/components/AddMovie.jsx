@@ -33,8 +33,8 @@ class AddMovie extends React.Component {
     return this.setState({ [name]: value });
   }
 
-  manipulatesStateAddMovies(manipulatesStateMoviesLibrary) {
-    manipulatesStateMoviesLibrary(this.state);
+  manipulatesStateAddMovies(onClick) {
+    onClick(this.state);
     const initialState = {
       title: '',
       subtitle: '',
@@ -47,7 +47,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { manipulatesStateMoviesLibrary } = this.props;
+    const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
@@ -77,7 +77,7 @@ class AddMovie extends React.Component {
         />
         <ButtonAddMovie
           manipulatesStateAddMovies={ this.manipulatesStateAddMovies }
-          manipulatesStateMoviesLibrary={ manipulatesStateMoviesLibrary }
+          onClick={ onClick }
         />
       </form>
     );
@@ -85,7 +85,7 @@ class AddMovie extends React.Component {
 }
 
 AddMovie.propTypes = {
-  manipulatesStateMoviesLibrary: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default AddMovie;

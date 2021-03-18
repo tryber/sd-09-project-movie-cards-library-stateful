@@ -16,7 +16,7 @@ class MovieLibrary extends Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
-    this.manipulatesStateMoviesLibrary = this.manipulatesStateMoviesLibrary.bind(this);
+    this.onClick = this.onClick.bind(this);
 
     const { movies } = this.props;
 
@@ -40,7 +40,7 @@ class MovieLibrary extends Component {
     this.setState({ selectedGenre: target.value });
   }
 
-  manipulatesStateMoviesLibrary(newMovieCard) {
+  onClick(newMovieCard) {
     this.setState((state) => ({ movies: [...state.movies, newMovieCard] }));
   }
 
@@ -60,7 +60,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.onSearchTextChange }
         />
         <MovieList movies={ movies } />
-        <AddMovie manipulatesStateMoviesLibrary={ this.manipulatesStateMoviesLibrary } />
+        <AddMovie onClick={ this.onClick } />
       </div>
     );
   }
