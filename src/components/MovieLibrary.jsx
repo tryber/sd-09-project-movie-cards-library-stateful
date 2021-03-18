@@ -4,14 +4,16 @@ import SearchBar from './SearchBar';
 export default class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
-    // const { movies } = this.props;
+    const { movies } = this.props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      // movies,
+      movies,
     };
-    this.handleChange = this.handleChange.bind(this);
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
   }
 
   handleChange(event) {
@@ -26,12 +28,13 @@ export default class MovieLibrary extends React.Component {
     return (
       <div>
         <SearchBar
+          onSearchTextChange={ this.onSearchTextChange }
           searchText={ searchText }
+          onBookmarkedChange={ this.onBookmarkedChange }
           bookmarkedOnly={ bookmarkedOnly }
+          onSelectedGenreChange={ this.onSelectedGenreChange }
           selectedGenre={ selectedGenre }
-          handleChange={ this.handleChange }
         />
-        <h1>teste</h1>
       </div>
     );
   }
