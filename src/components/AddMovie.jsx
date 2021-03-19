@@ -5,7 +5,7 @@ import StoryLineForm from './StoryLineForm';
 import SubTitleInput from './SubtitleInput';
 import ImageInput from './ImageInput';
 // import RatingInput from './RatingInput';
-// import SelectGender from './SelectGender';
+import SelectGender from './SelectGender';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -42,7 +42,7 @@ class AddMovie extends React.Component {
 
   render() {
     // const { title, storyline, subtitle, imagePath, rating, genre } = this.state;
-    const { title, storyline, subtitle, imagePath } = this.state;
+    const { title, storyline, subtitle, imagePath, genre } = this.state;
     return (
       <div>
         <form data-testid="add-movie-form">
@@ -50,8 +50,8 @@ class AddMovie extends React.Component {
           <TitleForm value={ title } handleChange={ this.handleChange } />
           <SubTitleInput value={ subtitle } handleChange={ this.handleChange } />
           <ImageInput value={ imagePath } handleChange={ this.handleChange } />
-          {/* <SelectGender value={ genre } handleChange={ this.handleChange } />
-          <RatingInput value={ rating } handleChange={ this.handleChange } />
+          <SelectGender value={ genre } handleChange={ this.handleChange } />
+          {/* <RatingInput value={ rating } handleChange={ this.handleChange } />
           <button
             data-testid="send-button"
             type="button"
