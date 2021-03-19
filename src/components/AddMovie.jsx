@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TitleForm from './TitleForm';
 import StoryLineForm from './StoryLineForm';
-// import SubTitleInput from './SubtitleInput';
+import SubTitleInput from './SubtitleInput';
 // import ImageInput from './ImageInput';
 // import RatingInput from './RatingInput';
 // import SelectGender from './SelectGender';
@@ -42,14 +42,14 @@ class AddMovie extends React.Component {
 
   render() {
     // const { title, storyline, subtitle, imagePath, rating, genre } = this.state;
-    const { title, storyline } = this.state;
+    const { title, storyline, subtitle } = this.state;
     return (
       <div>
         <form data-testid="add-movie-form">
           <StoryLineForm value={ storyline } handleChange={ this.handleChange } />
           <TitleForm value={ title } handleChange={ this.handleChange } />
-          {/* <SubTitleInput value={ subtitle } handleChange={ this.handleChange } />
-          <ImageInput value={ imagePath } handleChange={ this.handleChange } />
+          <SubTitleInput value={ subtitle } handleChange={ this.handleChange } />
+          {/* <ImageInput value={ imagePath } handleChange={ this.handleChange } />
           <RatingInput value={ rating } handleChange={ this.handleChange } />
           <SelectGender value={ genre } handleChange={ this.handleChange } />
           <button
