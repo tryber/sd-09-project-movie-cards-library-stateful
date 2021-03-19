@@ -57,7 +57,7 @@ class AddMovie extends React.Component {
             onClick={ this.ResetState }
           >
             Adicionar filme
-          </button> 
+          </button>
           {/* <RatingInput value={ rating } handleChange={ this.handleChange } /> */}
         </form>
       </div>
