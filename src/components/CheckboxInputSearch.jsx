@@ -5,16 +5,16 @@ class CheckboxInputSearch extends React.Component {
   render() {
     const { bookmarkedOnly, onBookmarkedChange } = this.props;
     return (
-      <label data-testid="checkbox-input-label" htmlFor="checkbox">
+      <label data-testid="checkbox-input-label" htmlFor="checkbox_control">
         Mostrar somente favoritos
         <input
+          type="checkbox"
           name="bookmarkedOnly"
           id="checkbox-input"
           data-testid="checkbox-input"
-          htmlFor="checkbox"
+          htmlFor="checkbox_control"
           checked={ bookmarkedOnly }
           onChange={ onBookmarkedChange }
-          type="checkbox"
         />
       </label>
     );
