@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import TitleForm from './TitleForm';
-import StoryLineForm from './StoryLineForm';
-import SubTitleInput from './SubtitleInput';
-import ImageInput from './ImageInput';
-import RatingInput from './RatingInput';
-import SelectGender from './SelectGender';
-// import MovieLibrary from './MovieLibrary';
+// import TitleForm from './TitleForm';
+// import StoryLineForm from './StoryLineForm';
+// import SubTitleInput from './SubtitleInput';
+// import ImageInput from './ImageInput';
+// import RatingInput from './RatingInput';
+// import SelectGender from './SelectGender';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -42,11 +41,11 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { title, storyline, subtitle, imagePath, rating, genre } = this.state;
+    // const { title, storyline, subtitle, imagePath, rating, genre } = this.state;
     return (
       <div>
         <form data-testid="add-movie-form">
-          <TitleForm value={ title } handleChange={ this.handleChange } />
+          {/* <TitleForm value={ title } handleChange={ this.handleChange } />
           <SubTitleInput value={ subtitle } handleChange={ this.handleChange } />
           <ImageInput value={ imagePath } handleChange={ this.handleChange } />
           <StoryLineForm value={ storyline } handleChange={ this.handleChange } />
@@ -58,7 +57,7 @@ class AddMovie extends React.Component {
             onClick={ this.ResetState }
           >
             Adicionar filme
-          </button>
+          </button> */}
         </form>
       </div>
     );

@@ -27,17 +27,9 @@ export default class MovieLibrary extends React.Component {
     });
   }
 
-  onBookmarkedChange(event) {
-    const { checked } = event.target;
-    if (checked) {
-      this.setState({
-        bookmarkedOnly: true,
-      });
-    } else {
-      this.setState({
-        bookmarkedOnly: false,
-      });
-    }
+  onBookmarkedChange({ target }) {
+    const value = (target.type === 'checkbox') ? target.checked : target.value;
+    this.setState({ bookmarkedOnly: value });
   }
 
   onSelectedGenreChange(event) {
