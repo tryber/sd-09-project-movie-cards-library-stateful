@@ -18,10 +18,22 @@ class SearchBar extends React.Component {
             value={ searchText }
             onSearchTextChange={ onSearchTextChange }
           />
-          <CheckboxInputSearch
+          {/* <CheckboxInputSearch
             value={ bookmarkedOnly }
             onBookmarkedChange={ onBookmarkedChange }
-          />
+          /> */}
+          <label data-testid="checkbox-input-label" htmlFor="checkbox_control">
+            Mostrar somente favoritos
+            <input
+              type="checkbox"
+              name="bookmarkedOnly"
+              id="checkbox-input"
+              data-testid="checkbox-input"
+              htmlFor="checkbox_control"
+              checked={ bookmarkedOnly }
+              onChange={ onBookmarkedChange }
+            />
+          </label>
           <label data-testid="select-input-label" htmlFor="select-input">
             Filtrar por gênero
             <select

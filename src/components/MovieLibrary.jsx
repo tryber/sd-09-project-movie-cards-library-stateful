@@ -41,14 +41,16 @@ export default class MovieLibrary extends React.Component {
   AddMovieOnList(state) {
     const { movies } = this.state;
     this.setState({
-      movies: [...movies, state],
+      movies: [...movies, state], // não entendi
     });
   }
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    // const movies = this.movieFilter;
     return (
       <div>
+        {/* <h2> My awesome movie library </h2> */}
         <SearchBar
           onSearchTextChange={ this.onSearchTextChange }
           searchText={ searchText }
