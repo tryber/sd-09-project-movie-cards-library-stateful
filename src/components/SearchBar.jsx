@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TextInputLabelSearch from './TextInputLabelSearch';
-import CheckboxInputSearch from './CheckboxInputSearch';
+// import CheckboxInputSearch from './CheckboxInputSearch';
 
 class SearchBar extends React.Component {
   render() {
