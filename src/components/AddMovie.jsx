@@ -5,7 +5,7 @@ import StoryLineForm from './StoryLineForm';
 import SubTitleInput from './SubtitleInput';
 import ImageInput from './ImageInput';
 // import RatingInput from './RatingInput';
-import SelectGender from './SelectGender';
+// import SelectGender from './SelectGender';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -54,8 +54,8 @@ class AddMovie extends React.Component {
             Gênero
             <select
               data-testid="genre-input"
-              value={ value }
-              onChange={ handleChange }
+              value={ genre }
+              onChange={ this.handleChange }
               htmlFor="genre"
             >
               <option data-testid="genre-option" value="">Todos</option>
