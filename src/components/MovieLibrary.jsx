@@ -17,7 +17,7 @@ export default class MovieLibrary extends React.Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-    this.AddMovieOnList = this.AddMovieOnList.bind(this);
+    // this.AddMovieOnList = this.AddMovieOnList.bind(this);
   }
 
   onSearchTextChange(event) {
@@ -38,10 +38,10 @@ export default class MovieLibrary extends React.Component {
     });
   }
 
-  AddMovieOnList(state) {
+  addMovieOnList(state) {
     const { movies } = this.state;
     this.setState({
-      movies: [...movies, state], // não entendi
+      movies: [...movies, state],
     });
   }
 
@@ -63,7 +63,7 @@ export default class MovieLibrary extends React.Component {
           movies={ movies }
         />
         <AddMovie
-          AddMovieOnList={ this.AddMovieOnList }
+          addMovieOnList={ this.addMovieOnList }
         />
       </div>
     );

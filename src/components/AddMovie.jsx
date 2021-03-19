@@ -5,7 +5,6 @@ import StoryLineForm from './StoryLineForm';
 import SubTitleInput from './SubtitleInput';
 import ImageInput from './ImageInput';
 import RatingInput from './RatingInput';
-// import SelectGender from './SelectGender';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -28,8 +27,8 @@ class AddMovie extends React.Component {
   }
 
   ResetState() {
-    const { AddMovieOnList } = this.props;
-    AddMovieOnList(this.state);
+    const { addMovieOnList } = this.props;
+    addMovieOnList(this.state);
     this.setState({
       title: '',
       storyline: '',
