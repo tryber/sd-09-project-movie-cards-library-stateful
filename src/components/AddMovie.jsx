@@ -51,14 +51,14 @@ class AddMovie extends React.Component {
           <SubTitleInput value={ subtitle } handleChange={ this.handleChange } />
           <ImageInput value={ imagePath } handleChange={ this.handleChange } />
           <SelectGender value={ genre } handleChange={ this.handleChange } />
-          {/* <RatingInput value={ rating } handleChange={ this.handleChange } />
           <button
             data-testid="send-button"
             type="button"
             onClick={ this.ResetState }
           >
             Adicionar filme
-          </button> */}
+          </button> 
+          {/* <RatingInput value={ rating } handleChange={ this.handleChange } /> */}
         </form>
       </div>
     );
