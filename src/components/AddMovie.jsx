@@ -14,6 +14,7 @@ class AddMovie extends Component {
       genre: 'action',
     };
     this.changeHandler = this.changeHandler.bind(this);
+    this.stateReset = this.stateReset.bind(this);
   }
 
   changeHandler({ target }) {
@@ -134,6 +135,31 @@ class AddMovie extends Component {
     );
   }
 
+  stateReset() {
+    const { onClick } = this.props;
+    onClick();
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyLine: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
+  sendButton() {
+    return (
+      <button
+        type="button"
+        data-testid="send-button"
+        onClick={ this.stateReset }
+      >
+        Adicionar filme
+      </button>
+    );
+  }
+
   render() {
     return (
       <form data-testid="add-movie-form">
@@ -154,6 +180,9 @@ class AddMovie extends Component {
         </div>
         <div>
           {this.selectInput()}
+        </div>
+        <div>
+          {this.sendButton()}
         </div>
       </form>
     );
