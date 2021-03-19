@@ -1,7 +1,7 @@
 // implement AddMovie component here
 import React from 'react';
 import PropTypes from 'prop-types';
-import TextInputLabelSearch from './TextInputLabelSearch';
+// import TextInputLabelSearch from './TextInputLabelSearch';
 // import CheckboxInputSearch from './CheckboxInputSearch';
 
 class SearchBar extends React.Component {
@@ -14,14 +14,17 @@ class SearchBar extends React.Component {
     return (
       <div>
         <form data-testid="search-bar-form">
-          <TextInputLabelSearch
-            value={ searchText }
-            onSearchTextChange={ onSearchTextChange }
-          />
-          {/* <CheckboxInputSearch
-            value={ bookmarkedOnly }
-            onBookmarkedChange={ onBookmarkedChange }
-          /> */}
+          <label data-testid="text-input-label" htmlFor="searchtext">
+            Inclui o texto:
+            <input
+              type="text"
+              data-testid="text-input"
+              id="searchText"
+              name="searchText"
+              value={ searchText }
+              onChange={ onSearchTextChange }
+            />
+          </label>
           <label data-testid="checkbox-input-label" htmlFor="checkbox_control">
             Mostrar somente favoritos
             <input
@@ -29,7 +32,6 @@ class SearchBar extends React.Component {
               name="bookmarkedOnly"
               id="checkbox-input"
               data-testid="checkbox-input"
-              htmlFor="checkbox_control"
               checked={ bookmarkedOnly }
               onChange={ onBookmarkedChange }
             />
