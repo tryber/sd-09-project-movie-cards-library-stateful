@@ -23,6 +23,6 @@ class RatingInput extends React.Component {
 export default RatingInput;
 
 RatingInput.propTypes = {
-  value: PropTypes.string,
+  value: PropTypes.number,
   handleChange: PropTypes.func,
 }.isRequired;

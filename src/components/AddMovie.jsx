@@ -50,7 +50,7 @@ class AddMovie extends React.Component {
           <TitleForm value={ title } handleChange={ this.handleChange } />
           <SubTitleInput value={ subtitle } handleChange={ this.handleChange } />
           <ImageInput value={ imagePath } handleChange={ this.handleChange } />
-          {/* <RatingInput value={ rating } handleChange={ this.handleChange } />
+          <RatingInput value={ rating } handleChange={ this.handleChange } />
           <SelectGender value={ genre } handleChange={ this.handleChange } />
           <button
             data-testid="send-button"
