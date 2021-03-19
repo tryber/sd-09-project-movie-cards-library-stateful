@@ -9,7 +9,7 @@ class RatingInput extends React.Component {
         Avaliação
         <input
           name="rating"
-          data-testid="image-input"
+          data-testid="rating-input"
           htmlFor="rating"
           value={ value }
           type="number"
