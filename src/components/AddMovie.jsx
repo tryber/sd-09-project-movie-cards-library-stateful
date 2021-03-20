@@ -27,9 +27,9 @@ class AddMovie extends React.Component {
   }
 
   handleFormFieldChange({ target: { name, value } }) {
-    // if(name === 'rating') {
-
-    // }
+    if (name === 'rating') {
+      return this.setState({ [name]: parseFloat(value) });
+    }
     return this.setState({ [name]: value });
   }
 
