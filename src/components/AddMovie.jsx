@@ -131,7 +131,23 @@ class AddMovie extends Component {
 
   stateReset() {
     const { onClick } = this.props;
-    onClick();
+    const {
+      title,
+      subtitle,
+      storyline,
+      rating,
+      imagePath,
+      genre,
+    } = this.state;
+    const newMovie = {
+      title,
+      subtitle,
+      storyline,
+      rating,
+      imagePath,
+      genre,
+    };
+    onClick(newMovie);
     this.setState({
       title: '',
       subtitle: '',

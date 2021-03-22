@@ -17,6 +17,7 @@ class MovieLibrary extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.bookmarkedChange = this.bookmarkedChange.bind(this);
+    this.movieListUpdate = this.movieListUpdate.bind(this);
   }
 
   handleChange({ target }) {
@@ -28,6 +29,33 @@ class MovieLibrary extends Component {
   bookmarkedChange({ target }) {
     this.setState({
       bookmarkedOnly: target.checked,
+    });
+  }
+
+  movieListUpdate(movie) {
+    const { movies } = this.state;
+    const movieList = movies;
+    const {
+      title,
+      subtitle,
+      storyline,
+      rating,
+      imagePath,
+      bookmarked,
+      genre,
+    } = movie;
+    const newMovie = {
+      title,
+      subtitle,
+      storyline,
+      rating,
+      imagePath,
+      bookmarked,
+      genre,
+    };
+    movieList.push(newMovie);
+    this.setState({
+      movies: movieList,
     });
   }
 
@@ -58,7 +86,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.handleChange }
         />
         <MovieList movies={ filteredMovies } />
-        <AddMovie onClick={ () => '' } />
+        <AddMovie onClick={ this.movieListUpdate } />
       </div>
     );
   }
