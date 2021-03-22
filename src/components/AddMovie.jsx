@@ -26,6 +26,7 @@ export default class AddMovie extends Component {
 
   clearInputs() {
     const { onClick } = this.props;
+    onClick();
     this.setState({
       subtitle: '',
       title: '',
