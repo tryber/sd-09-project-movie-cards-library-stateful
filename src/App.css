@@ -81,3 +81,25 @@ body {
   justify-content: flex-end;
   padding: 12px 20px;
 }
+
+/* Estilização do SearchBar:
+https://www.devmedia.com.br/desenvolvendo-layouts-para-caixas-de-pesquisa-em-paginas-web/37225
+*/
+
+.divBusca {
+  background-color: '#2F4F4F';
+  border: solid 1px;
+  border-radius: 15px;
+  width: 300px;
+}
+
+.txtBusca {
+  background-color: transparent;
+  border: none;
+  float: left;
+  font-size: 18px;
+  font-style: italic;
+  height: 32px;
+  padding-left: 5px;
+  width: 260px;
+}
