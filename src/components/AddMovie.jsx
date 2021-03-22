@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import TitleForms from './TitleForms';
 import SubtitleForms from './SubtitleForms';
 import ImageForms from './ImageForms';
@@ -22,17 +23,12 @@ class AddMovie extends React.Component {
     };
 
     this.stateChange = this.stateChange.bind(this);
-    this.buttonAdd = this.buttonAdd.bind(this);
+    this.setClick = this.setClick.bind(this);
   }
 
-  stateChange({ target }) {
-    const { name, value } = target;
-    this.setState({
-      [name]: value,
-    });
-  }
-
-  buttonAdd() {
+  setClick() {
+    const { onClick } = this.props;
+    onClick();
     this.setState({
       subtitle: '',
       title: '',
@@ -40,6 +36,13 @@ class AddMovie extends React.Component {
       storyline: '',
       rating: 0,
       genre: 'action',
+    });
+  }
+
+  stateChange({ target }) {
+    const { name, value } = target;
+    this.setState({
+      [name]: value,
     });
   }
 
@@ -61,10 +64,14 @@ class AddMovie extends React.Component {
         <StorylineForms storyline={ storyline } stateChange={ this.stateChange } />
         <RatingForms rating={ rating } stateChange={ this.stateChange } />
         <GenreForms genre={ genre } stateChange={ this.stateChange } />
-        <ButtonAddMovieForms buttonAdd={ this.buttonAdd } />
+        <ButtonAddMovieForms setClick={ this.setClick } />
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;

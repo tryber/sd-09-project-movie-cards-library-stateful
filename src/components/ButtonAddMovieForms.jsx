@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 
 class ButtonAddMovieForms extends React.Component {
   render() {
-    const { buttonAdd } = this.props;
+    const { setClick } = this.props;
 
     return (
       <button
-        onClick={ buttonAdd }
+        onClick={ setClick }
         type="button"
         data-testid="send-button"
       >
@@ -18,7 +18,7 @@ class ButtonAddMovieForms extends React.Component {
 }
 
 ButtonAddMovieForms.propTypes = {
-  buttonAdd: PropTypes.func.isRequired,
+  setClick: PropTypes.func.isRequired,
 };
 
 export default ButtonAddMovieForms;
