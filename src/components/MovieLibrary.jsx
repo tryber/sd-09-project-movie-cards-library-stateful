@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
-import MovieCard from './MovieCard';
+import MovieList from './MovieList';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -15,6 +15,20 @@ class MovieLibrary extends Component {
       selectedGenre: '',
       movies,
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.bookmarkedChange = this.bookmarkedChange.bind(this);
+  }
+
+  handleChange({ target }) {
+    this.setState({
+      [target.name]: target.value,
+    });
+  }
+
+  bookmarkedChange({ target }) {
+    this.setState({
+      bookmarkedOnly: target.checked,
+    });
   }
 
   render() {
@@ -23,13 +37,13 @@ class MovieLibrary extends Component {
       <div>
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ () => '' }
+          onSearchTextChange={ this.handleChange }
           bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ () => '' }
+          onBookmarkedChange={ this.bookmarkedChange }
           selectedGenre={ selectedGenre }
-          onSelecetedGenreChange={ () => '' }
+          onSelectedGenreChange={ this.handleChange }
         />
-        {movies.map((movie) => <MovieCard movie={ movie } key={ movie.title } />)}
+        <MovieList movies={ movies } />
         <AddMovie onClick={ () => '' } />
       </div>
     );
