@@ -9,17 +9,25 @@ class AddMovie extends Component {
       title: '',
       subtitle: '',
       imagePath: '',
-      storyLine: '',
+      storyline: '',
       rating: 0,
       genre: 'action',
+      bookmarked: false,
     };
     this.changeHandler = this.changeHandler.bind(this);
+    this.checkboxHandler = this.checkboxHandler.bind(this);
     this.stateReset = this.stateReset.bind(this);
   }
 
   changeHandler({ target }) {
     this.setState({
       [target.name]: target.value,
+    });
+  }
+
+  checkboxHandler({ target }) {
+    this.setState({
+      [target.name]: target.checked,
     });
   }
 
@@ -74,8 +82,8 @@ class AddMovie extends Component {
     );
   }
 
-  storyLineTextarea() {
-    const { storyLine } = this.state;
+  storylineTextarea() {
+    const { storyline } = this.state;
     return (
       <label htmlFor="storyline" data-testid="storyline-input-label">
         Sinopse
@@ -84,8 +92,8 @@ class AddMovie extends Component {
           rows="3"
           data-testid="storyline-input"
           id="storyline"
-          name="storyLine"
-          value={ storyLine }
+          name="storyline"
+          value={ storyline }
           onChange={ this.changeHandler }
         />
       </label>
@@ -129,32 +137,35 @@ class AddMovie extends Component {
     );
   }
 
+  bookmarkedCheckbox() {
+    const { bookmarked } = this.state;
+    return (
+      <label htmlFor="bookmarked" data-testid="bookmarked-input-label">
+        Favorito
+        <input
+          type="checkbox"
+          data-testid="bookmarked-input"
+          id="bookmarked"
+          name="bookmarked"
+          value={ bookmarked }
+          onChange={ this.checkboxHandler }
+        />
+      </label>
+    );
+  }
+
   stateReset() {
     const { onClick } = this.props;
-    const {
-      title,
-      subtitle,
-      storyline,
-      rating,
-      imagePath,
-      genre,
-    } = this.state;
-    const newMovie = {
-      title,
-      subtitle,
-      storyline,
-      rating,
-      imagePath,
-      genre,
-    };
+    const newMovie = this.state;
     onClick(newMovie);
     this.setState({
       title: '',
       subtitle: '',
       imagePath: '',
-      storyLine: '',
+      storyline: '',
       rating: 0,
       genre: 'action',
+      bookmarked: false,
     });
   }
 
@@ -183,13 +194,16 @@ class AddMovie extends Component {
           {this.imageInput()}
         </div>
         <div>
-          {this.storyLineTextarea()}
+          {this.storylineTextarea()}
         </div>
         <div>
           {this.ratingInput()}
         </div>
         <div>
           {this.selectInput()}
+        </div>
+        <div>
+          {this.bookmarkedCheckbox()}
         </div>
         <div>
           {this.sendButton()}

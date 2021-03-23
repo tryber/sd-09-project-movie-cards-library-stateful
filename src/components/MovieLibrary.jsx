@@ -34,28 +34,9 @@ class MovieLibrary extends Component {
 
   movieListUpdate(movie) {
     const { movies } = this.state;
-    const movieList = movies;
-    const {
-      title,
-      subtitle,
-      storyline,
-      rating,
-      imagePath,
-      bookmarked,
-      genre,
-    } = movie;
-    const newMovie = {
-      title,
-      subtitle,
-      storyline,
-      rating,
-      imagePath,
-      bookmarked,
-      genre,
-    };
-    movieList.push(newMovie);
+    movies.push(movie);
     this.setState({
-      movies: movieList,
+      movies,
     });
   }
 
