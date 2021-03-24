@@ -63,7 +63,7 @@ export default class MovieLibrary extends React.Component {
           movies={ movies }
         />
         <AddMovie
-          addMovieOnList={ this.addMovieOnList }
+          onClick={ this.addMovieOnList }
         />
       </div>
     );

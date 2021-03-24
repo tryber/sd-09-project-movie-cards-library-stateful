@@ -10,10 +10,10 @@ class AddMovie extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: '',
-      storyline: '',
       subtitle: '',
+      title: '',
       imagePath: '',
+      storyline: '',
       rating: 0,
       genre: 'action',
     };
@@ -26,14 +26,15 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
-  ResetState() {
-    const { addMovieOnList } = this.props;
-    addMovieOnList(this.state);
+  ResetState(event) {
+    event.preventDefault();
+    const { onClick } = this.props;
+    onClick(this.state);
     this.setState({
-      title: '',
-      storyline: '',
       subtitle: '',
+      title: '',
       imagePath: '',
+      storyline: '',
       rating: 0,
       genre: 'action',
     });
