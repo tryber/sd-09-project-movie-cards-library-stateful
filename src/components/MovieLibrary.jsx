@@ -14,6 +14,15 @@ class MovieLibrary extends React.Component {
     this.state = {
       movies,
     };
+
+    this.onClick = this.onClick.bind(this);
+  }
+
+  onClick(insertMovie) {
+    const { movies } = this.state;
+    this.setState({
+      movies: [...movies, insertMovie],
+    });
   }
 
   render() {
@@ -26,7 +35,7 @@ class MovieLibrary extends React.Component {
 
         <MovieList movies={ movies } />
 
-        <AddMovie />
+        <AddMovie onClick={ this.onClick } />
       </div>
     );
   }
