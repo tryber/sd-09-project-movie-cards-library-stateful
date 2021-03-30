@@ -15,6 +15,11 @@ class AddMovie extends Component {
       storyline: '',
       rating: 0,
       genre: 'action',
+      options: {
+        action: 'Ação',
+        comedy: 'Comédia',
+        thriller: 'Suspense',
+      },
     };
   }
 
@@ -35,20 +40,39 @@ class AddMovie extends Component {
     });
   }
 
+  createForms(target) {
+    const [inputLabel, inputName, inputValue, inputType, inputTrueStateName] = target;
+    const CustomTag = inputValue !== 'storyline' ? 'input' : 'textarea';
+
+    return (
+      <label data-testid={ `${inputName}-input-label` } htmlFor={ inputName }>
+        { inputLabel }
+        <CustomTag
+          type={ inputType }
+          value={ inputValue }
+          name={ inputTrueStateName }
+          onChange={ this.handleChange }
+          data-testid={ `${inputName}-input` }
+        />
+      </label>
+    );
+  }
+
   createFormsOptions(target) {
     const [inputLabel, inputName, inputValue] = target;
-    const options = { action: 'Ação', comedy: 'Comédia', thriller: 'Suspense' };
+    const { options } = this.state;
+    const optionsObject = Object.keys(options);
     return (
       <label data-testid="genre-input-label" htmlFor={ inputName }>
         { inputLabel }
         <select
           name={ inputName }
           value={ inputValue }
-          onChange={ this.handleChange }
           data-testid="genre-input"
+          onChange={ this.handleChange }
         >
           {
-            Object.keys(options).map((key) => (
+            optionsObject.map((key) => (
               <option
                 key={ key }
                 value={ key }
@@ -59,24 +83,6 @@ class AddMovie extends Component {
             ))
           }
         </select>
-      </label>
-    );
-  }
-
-  createForms(target) {
-    const [inputLabel, inputName, inputValue, inputType, inputTrueStateName] = target;
-    const CustomTag = inputValue !== 'storyline' ? 'input' : 'textarea';
-
-    return (
-      <label data-testid={ `${inputName}-input-label` } htmlFor={ inputName }>
-        { inputLabel }
-        <CustomTag
-          data-testid={ `${inputName}-input` }
-          type={ inputType }
-          value={ inputValue }
-          name={ inputTrueStateName }
-          onChange={ this.handleChange }
-        />
       </label>
     );
   }
@@ -96,8 +102,8 @@ class AddMovie extends Component {
 
         <button
           type="button"
-          onClick={ this.handleClick }
           data-testid="send-button"
+          onClick={ this.handleClick }
         >
           Adicionar filme
         </button>
