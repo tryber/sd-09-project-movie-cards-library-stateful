@@ -81,3 +81,36 @@ body {
   justify-content: flex-end;
   padding: 12px 20px;
 }
+
+.search-bar-form, .add-movie-form {
+  padding: 10px 30px;
+  width: 100%;
+}
+
+input, select, textarea {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin: 5px 0 2px;
+  resize: vertical;
+  width: 100%;
+}
+
+label {
+  display: block;
+  margin-top: 6px;
+  padding: 12px 12px 12px 0;
+}
+
+.add-movie-button {
+  background-color: #44a747;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  padding: 12px 20px;
+}
+
+.check {
+  width: 50px;
+}
