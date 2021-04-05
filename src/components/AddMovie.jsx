@@ -134,7 +134,7 @@ class AddMovie extends React.Component {
 
   render() {
     return (
-      <form data-testid="add-movie-form">
+      <form className="add-movie-form" data-testid="add-movie-form">
         { this.renderTitle() }
         { this.renderSubtitle() }
         { this.renderImage() }
@@ -142,6 +142,7 @@ class AddMovie extends React.Component {
         { this.renderRating() }
         { this.renderGenre() }
         <button
+          className="add-movie-button"
           type="button"
           data-testid="send-button"
           onClick={ this.handleSubmit }
