@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -17,7 +18,8 @@ class AddMovie extends React.Component {
   }
 
   handleChange({ target }) {
-    const { name, value } = target;
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
       [name]: value,
     });
@@ -25,13 +27,17 @@ class AddMovie extends React.Component {
 
   createInputTitle(title) {
     return (
-      <label data-testid="title-input-label">
+      <label
+        htmlFor="InpuTitle"
+        data-testid="title-input-label"
+      >
         Título
         <input
           type="text"
           name="title"
-          value={title}
-          onChange={this.handleChange}
+          id="InpuTitle"
+          value={ title }
+          onChange={ this.handleChange }
           data-testid="title-input"
         />
       </label>
@@ -40,13 +46,17 @@ class AddMovie extends React.Component {
 
   createInputSubtitle(subtitle) {
     return (
-      <label data-testid="subtitle-input-label">
+      <label
+        data-testid="subtitle-input-label"
+        htmlFor="SubtitleInput"
+      >
         Subtítulo
         <input
           type="text"
           name="subtitle"
-          value={subtitle}
-          onChange={this.handleChange}
+          id="SubtitleInput"
+          value={ subtitle }
+          onChange={ this.handleChange }
           data-testid="subtitle-input"
         />
       </label>
@@ -55,13 +65,17 @@ class AddMovie extends React.Component {
 
   createInputImagepath(imagePath) {
     return (
-      <label data-testid="image-input-label">
+      <label
+        data-testid="image-input-label"
+        htmlFor="imageInput"
+      >
         Imagem
         <input
           type="text"
           name="imagePath"
-          value={imagePath}
-          onChange={this.handleChange}
+          id="imageInput"
+          value={ imagePath }
+          onChange={ this.handleChange }
           data-testid="image-input"
         />
       </label>
@@ -70,27 +84,35 @@ class AddMovie extends React.Component {
 
   createTextareaStoryline(storyline) {
     return (
-      <label data-testid="storyline-input-label">
+      <label
+        data-testid="storyline-input-label"
+        htmlFor="storylineInput"
+      >
         Sinopse
         <textarea
           name="storyline"
-          value={storyline}
-          onChange={this.handleChange}
+          id="storylineInput"
+          value={ storyline }
+          onChange={ this.handleChange }
           data-testid="storyline-input"
         />
       </label>
-    )
+    );
   }
 
   createInputRating(rating) {
     return (
-      <label data-testid="rating-input-label">
+      <label
+        data-testid="rating-input-label"
+        htmlFor="ratingInput"
+      >
         Avaliação
         <input
           type="number"
           name="rating"
-          value={rating}
-          onChange={this.handleChange}
+          id="ratingInput"
+          value={ rating }
+          onChange={ this.handleChange }
           data-testid="rating-input"
         />
       </label>
@@ -99,12 +121,16 @@ class AddMovie extends React.Component {
 
   createSelectGenre(genre) {
     return (
-      <label data-testid="genre-input-label">
+      <label
+        data-testid="genre-input-label"
+        htmlFor="genreInput"
+      >
         Gênero
         <select
           name="genre"
-          value={genre}
-          onChange={this.handleChange}
+          id="genreInput"
+          value={ genre }
+          onChange={ this.handleChange }
           data-testid="genre-input"
         >
           <option data-testid="genre-option" value="action">Ação</option>
@@ -130,7 +156,6 @@ class AddMovie extends React.Component {
 
   render() {
     const { subtitle, title, storyline, imagePath, rating, genre } = this.state;
-
     return (
       <div>
         <form data-testid="add-movie-form">
@@ -143,7 +168,7 @@ class AddMovie extends React.Component {
           <button
             data-testid="send-button"
             type="button"
-            onClick={this.clearAllStates}
+            onClick={ this.clearAllStates }
           >
             Adicionar filme
           </button>
@@ -152,4 +177,9 @@ class AddMovie extends React.Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
+
 export default AddMovie;
