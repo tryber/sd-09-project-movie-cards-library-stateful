@@ -13,7 +13,7 @@ class SearchBar extends React.Component {
       selectedGenre,
       onSelectedGenreChange } = this.props;
     return (
-      <form data-testid="text-input-label">
+      <form data-testid="search-bar-form">
         <label data-testid="checkbox-input-label" htmlFor="text">
           Inclui o texto:
           <input

@@ -4,13 +4,14 @@
 
 import React from 'react';
 import SearchBar from './SearchBar';
-import movies from '../data';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
   render() {
     return (
       <section>
-        <SearchBar movies={ movies } />
+        <SearchBar />
+        <AddMovie />
       </section>
     );
   }
