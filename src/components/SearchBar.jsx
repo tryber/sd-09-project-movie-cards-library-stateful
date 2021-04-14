@@ -14,11 +14,11 @@ class SearchBar extends React.Component {
       onSelectedGenreChange } = this.props;
     return (
       <form data-testid="search-bar-form">
-        <label data-testid="checkbox-input-label" htmlFor="text">
-          Inclui o texto:
+        <label data-testid="text-input-label" htmlFor="text">
+          Inclui o texto
           <input
             name="searchText"
-            data-testeid="text-input"
+            data-testid="text-input"
             type="text"
             value={ searchText }
             onChange={ onSearchTextChange }
@@ -28,25 +28,26 @@ class SearchBar extends React.Component {
           Mostrar somente favoritos
           <input
             name="bookmarkdOnly"
-            data-testeid="checkbox-input"
-            type="checkboxtext"
+            data-testid="checkbox-input"
+            type="checkbox"
+            checked={ bookmarkedOnly }
             value={ bookmarkedOnly }
             onChange={ onBookmarkedChange }
           />
         </label>
         <label data-testid="select-input-label" htmlFor="select">
           Filtrar por gênero
-          <input
-            name="selectedGenre"
+          <select
             data-testid="select-input"
-            value={ selectedGenre }
             onChange={ onSelectedGenreChange }
-          />
-
-          <option data-testid="select-option" value="">Todos</option>
-          <option data-testid="select-option" value="action">Ação</option>
-          <option data-testid="select-option" value="comedy">Comédia</option>
-          <option data-testid="select-option" value="thriller">Suspense</option>
+            name="selectedGenre"
+            value={ selectedGenre }
+          >
+            <option data-testid="select-option" value="">Todos</option>
+            <option data-testid="select-option" value="action">Ação</option>
+            <option data-testid="select-option" value="comedy">Comédia</option>
+            <option data-testid="select-option" value="thriller">Suspense</option>
+          </select>
         </label>
       </form>
     );

@@ -15,7 +15,7 @@ class TextArea extends React.Component {
           <textarea
             data-testid="storyline-input"
             name="storyline"
-            cols="30"
+            cols="20"
             rows="5"
             value={ value }
             onChange={ onChange }

@@ -3,15 +3,14 @@
 // Receber como prop onclick - uma callback
 // Tem no estado as seguintes propriedades :
 
-// subtitle: '';
-// title: '';
-// imagePath: '';
-// storyline: '';
-// rating: 0;
-// genre: 'action'.
-
 import React from 'react';
 import PropTypes from 'prop-types';
+import SelectItem from './SelectItem';
+import Rating from './Rating';
+import TextArea from './TextArea';
+import Title from './Title';
+import Subtitle from './Subtitle';
+import ImagePath from './ImagePath';
 
 const initialState = {
   subtitle: '',
@@ -46,12 +45,12 @@ class AddMovie extends React.Component {
     // const { title, subtitle, imagePath, rating, genre, storyline } = this.state;
     return (
       <form data-testid="add-movie-form">
-        {/* <Title value={ title } onChange={ this.handleChange } />
+        <Title value={ title } onChange={ this.handleChange } />
         <Subtitle value={ subtitle } onChange={ this.handleChange } />
         <ImagePath value={ imagePath } onChange={ this.handleChange } />
         <TextArea value={ storyline } onChange={ this.handleChange } />
         <Rating value={ rating } onChange={ this.handleChange } />
-        <SelecionaItem value={ genre } onChange={ this.handleChange } /> */}
+        <SelectItem value={ genre } onChange={ this.handleChange } />
         <button
           data-testid="send-button"
           type="button"
