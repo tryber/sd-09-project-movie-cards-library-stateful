@@ -13,14 +13,13 @@ class MovieLibrary extends React.Component {
       selectedGenre: '',
       movies: props.movies,
     };
-    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onSearchTextChange = this.onSeachTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-    this.onClick = this.onClick.bind(this);
     this.filterMovieList = this.filterMovieList.bind(this);
   }
 
-  onSearchTextChange({ target }) {
+  onSeachTextChange({ target }) {
     const { value } = target;
     this.setState({
       searchText: value,
@@ -42,30 +41,20 @@ class MovieLibrary extends React.Component {
     });
   }
 
-  onClick(state) {
-    const { movies } = this.state;
-    this.setState({
-      movies: [...movies, state],
-    });
-  }
-
   filterMovieList() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     let filteredMovies = movies;
     if (searchText) {
-      filteredMovies = movies
-      // filter com o includes para conferir se dentro de movies tem o elemento que foi colocado no input
-        .filter((movie) => (movie.title.includes(searchText)
-        || movie.subtitle.includes(searchText) || movie.storyline.includes(searchText)
-        ));
+      filteredMovies = movies.filter((movie) => (movie.title.includes(searchText)
+        || movie.subtitle.includes(searchText)
+        || movie.storyline.includes(searchText)
+      ));
     }
     if (bookmarkedOnly) {
-      filteredMovies = movies
-        .filter((movie) => (movie.bookmarked === true));
+      filteredMovies = movies.filter((movie) => (movie.bookmarked === true));
     }
     if (selectedGenre) {
-      filteredMovies = movies
-        .filter((movie) => (movie.genre === selectedGenre));
+      filteredMovies = movies.filter((movie) => (movie.genre === selectedGenre));
     }
     return filteredMovies;
   }
@@ -77,6 +66,7 @@ class MovieLibrary extends React.Component {
       onSearchTextChange,
       onBookmarkedChange,
       onSelectedGenreChange,
+      onClick,
     } = this;
 
     return (
@@ -90,7 +80,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={ onSelectedGenreChange }
         />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ onClick } />
       </div>
     );
   }
