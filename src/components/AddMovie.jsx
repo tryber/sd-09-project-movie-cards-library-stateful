@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Titulo from './Titulo';
 import Subtitulo from './Subtitulo';
 import TextArea from './TextArea';
 import ImagePath from './ImagePath';
-import Titulo from './Titulo';
 import Rating from './Rating';
 import SelecionaItem from './SelecionaItem';
 

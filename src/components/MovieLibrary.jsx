@@ -13,13 +13,14 @@ class MovieLibrary extends React.Component {
       selectedGenre: '',
       movies: props.movies,
     };
-    this.onSearchTextChange = this.onSeachTextChange.bind(this);
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.onClick = this.onClick.bind(this);
     this.filterMovieList = this.filterMovieList.bind(this);
   }
 
-  onSeachTextChange({ target }) {
+  onSearchTextChange({ target }) {
     const { value } = target;
     this.setState({
       searchText: value,
@@ -41,20 +42,29 @@ class MovieLibrary extends React.Component {
     });
   }
 
+  onClick(state) {
+    const { movies } = this.state;
+    this.setState({
+      movies: [...movies, state],
+    });
+  }
+
   filterMovieList() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     let filteredMovies = movies;
     if (searchText) {
-      filteredMovies = movies.filter((movie) => (movie.title.includes(searchText)
-        || movie.subtitle.includes(searchText)
-        || movie.storyline.includes(searchText)
-      ));
+      filteredMovies = movies
+        .filter((movie) => (movie.title.includes(searchText)
+        || movie.subtitle.includes(searchText) || movie.storyline.includes(searchText)
+        ));
     }
     if (bookmarkedOnly) {
-      filteredMovies = movies.filter((movie) => (movie.bookmarked === true));
+      filteredMovies = movies
+        .filter((movie) => (movie.bookmarked === true));
     }
     if (selectedGenre) {
-      filteredMovies = movies.filter((movie) => (movie.genre === selectedGenre));
+      filteredMovies = movies
+        .filter((movie) => (movie.genre === selectedGenre));
     }
     return filteredMovies;
   }
