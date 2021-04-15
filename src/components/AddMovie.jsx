@@ -7,9 +7,9 @@ import PropTypes from 'prop-types';
 import Title from './Title';
 import Subtitle from './Subtitle';
 import ImagePath from './ImagePath';
-import Rating from './Rating';
 import SelecionaItem from './SelectItem';
 import TextArea from './TextArea';
+import RatingForm from './RatingForm';
 
 const initialState = {
   // ESTADO INICIAL
@@ -52,7 +52,7 @@ class AddMovie extends React.Component {
         <Subtitle value={ subtitle } onChange={ this.handleChange } />
         <ImagePath value={ imagePath } onChange={ this.handleChange } />
         <TextArea value={ storyline } onChange={ this.handleChange } />
-        <Rating value={ rating } onChange={ this.handleChange } />
+        <RatingForm value={ rating } onChange={ this.handleChange } />
         <SelecionaItem value={ genre } onChange={ this.handleChange } />
         <button
           data-testid="send-button"
