@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class Rating extends React.Component {
+class RatingProps extends React.Component {
   render() {
     const { rating } = this.props;
     return (
@@ -12,10 +12,10 @@ class Rating extends React.Component {
   }
 }
 
-Rating.propTypes = { rating: PropTypes.number };
+RatingProps.propTypes = { rating: PropTypes.number };
 
-Rating.defaultProps = {
+RatingProps.defaultProps = {
   rating: 'undefined',
 };
 
-export default Rating;
+export default RatingProps;
