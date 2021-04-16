@@ -9,21 +9,32 @@ class AddMovie extends React.Component {
     this.state = { title, subtitle, imagePath, storyLine, rating, genre };
 
     this.changeState = this.changeState.bind(this);
+    // this.callback = this.callback.bind(this);
+    // this.resetState = this.resetState.bind(this);
   }
 
   changeState({ target: { id, value } }) {
     switch (id) {
     case 'image':
-      this.setState(() => ({ imagePath: value }));
+      this.setState({ imagePath: value });
+      break;
+    case 'send':
+      this.setState({
+        subtitle: '',
+        title: '',
+        imagePath: '',
+        storyLine: '',
+        rating: 0,
+        genre: 'action',
+      });
       break;
     default:
-      this.setState(() => ({ [id]: value }));
+      this.setState({ [id]: value });
       break;
     }
-    // console.log(`id: ${id} \n value: ${value}`);
   }
 
-  DOMtitle(title) {
+  labelTitle(title) {
     return (
       <label data-testid="title-input-label" htmlFor="title">
         Título
@@ -38,7 +49,7 @@ class AddMovie extends React.Component {
     );
   }
 
-  DOMsubtitle(subtitle) {
+  labelSubtitle(subtitle) {
     return (
       <label data-testid="subtitle-input-label" htmlFor="subtitle">
         Subtítulo
@@ -53,21 +64,7 @@ class AddMovie extends React.Component {
     );
   }
 
-  DOMstoryLine(storyLine) {
-    return (
-      <label data-testid="storyline-input-label" htmlFor="storyLine">
-        Sinopse
-        <textarea
-          data-testid="storyline-input"
-          id="storyLine"
-          onChange={ this.changeState }
-          value={ storyLine }
-        />
-      </label>
-    );
-  }
-
-  DOMimage(image) {
+  labelImage(image) {
     return (
       <label data-testid="image-input-label" htmlFor="image">
         Imagem
@@ -82,7 +79,21 @@ class AddMovie extends React.Component {
     );
   }
 
-  DOMrating(rating) {
+  lableSinopse(storyLine) {
+    return (
+      <label data-testid="storyline-input-label" htmlFor="storyLine">
+        Sinopse
+        <textarea
+          data-testid="storyline-input"
+          id="storyLine"
+          onChange={ this.changeState }
+          value={ storyLine }
+        />
+      </label>
+    );
+  }
+
+  lableRating(rating) {
     return (
       <label data-testid="rating-input-label" htmlFor="rating">
         Avaliação
@@ -97,7 +108,7 @@ class AddMovie extends React.Component {
     );
   }
 
-  DOMgenre(genre) {
+  lableGenre(genre) {
     return (
       <label data-testid="genre-input-label" htmlFor="genre">
         Gênero:&nbsp;
@@ -116,22 +127,37 @@ class AddMovie extends React.Component {
     );
   }
 
+  buttonSend() {
+    return (
+      <button
+        data-testid="send-button"
+        type="button"
+        id="send"
+        onClick={ (event) => this.changeState(event) }
+      >
+        Adicionar filme
+      </button>
+    );
+  }
+
   render() {
     const { title, subtitle, imagePath: image, storyLine, rating, genre } = this.state;
 
     return (
       <form data-testid="add-movie-form" action="" method="get">
-        { this.DOMtitle(title) }
+        { this.labelTitle(title) }
         <br />
-        { this.DOMsubtitle(subtitle) }
+        { this.labelSubtitle(subtitle) }
         <br />
-        { this.DOMimage(image) }
+        { this.labelImage(image) }
         <br />
-        { this.DOMstoryLine(storyLine) }
+        { this.lableSinopse(storyLine) }
         <br />
-        { this.DOMrating(rating) }
+        { this.lableRating(rating) }
         <br />
-        { this.DOMgenre(genre) }
+        { this.lableGenre(genre) }
+        <br />
+        { this.buttonSend() }
       </form>
     );
   }
