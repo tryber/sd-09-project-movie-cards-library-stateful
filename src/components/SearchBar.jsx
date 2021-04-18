@@ -55,7 +55,7 @@ class SearchBar extends Component {
               Suspense
             </option>
           </select>
-      </label>
+        </label>
       </form>
     );
   }
