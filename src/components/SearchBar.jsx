@@ -2,7 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
-  render() {
+  constructor(props) {
+    super(props);
+
+    this.state = this.props;
+
     const {
       searchText,
       onSearchTextChange,
@@ -12,6 +16,25 @@ class SearchBar extends React.Component {
       onSelectedGenreChange,
     } = this.props;
 
+    this.state = {
+      searchText,
+      onSearchTextChange,
+      bookmarkedOnly,
+      onBookmarkedChange,
+      selectedGenre,
+      onSelectedGenreChange,
+    };
+  }
+
+  render() {
+    const {
+      searchText,
+      onSearchTextChange,
+      bookmarkedOnly,
+      onBookmarkedChange,
+      selectedGenre,
+      onSelectedGenreChange,
+    } = this.state;
     return (
       <form data-testid="search-bar-form">
         <div>
@@ -64,12 +87,12 @@ SearchBar.propTypes = {
 };
 
 SearchBar.defaultProps = {
-  searchText: PropTypes.string,
-  bookmarkedOnly: PropTypes.bool,
-  selectedGenre: PropTypes.string,
-  onSearchTextChange: PropTypes.func,
-  onBookmarkedChange: PropTypes.func,
-  onSelectedGenreChange: PropTypes.func,
+  searchText: '',
+  bookmarkedOnly: false,
+  selectedGenre: '',
+  onSearchTextChange: () => ({}),
+  onBookmarkedChange: () => ({}),
+  onSelectedGenreChange: () => ({}),
 };
 
 export default SearchBar;
