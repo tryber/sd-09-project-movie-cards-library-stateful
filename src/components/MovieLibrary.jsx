@@ -1,8 +1,8 @@
 import React from 'react';
 import data from '../data';
 
-import AddMovie from './AddMovie';
-import MovieCard from './MovieCard';
+// import AddMovie from './AddMovie';
+// import MovieCard from './MovieCard';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 
@@ -19,9 +19,14 @@ class MovieLibrary extends React.Component {
   }
 
   render() {
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <>
-        <SearchBar />
+        <SearchBar
+          searchText={ searchText }
+          bookmarkedOnly={ bookmarkedOnly }
+          selectedGenre={ selectedGenre }
+        />
         <MovieList movies={ data } />
       </>
       /* { data.map((_item, index) => <MovieCard movie={ data[index] } key={ index } />) } */
