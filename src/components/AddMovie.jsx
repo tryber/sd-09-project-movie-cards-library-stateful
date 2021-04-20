@@ -14,29 +14,28 @@ class AddMovie extends React.Component {
             type="text"
             id="titleAdd"
             data-testid="title-input"
-            />
-          </label>
-          Subtítulo
-          <label data-testid="subtitle-input-label" htmlFor="subt">
-            <input
+          />
+        </label>
+        Subtítulo
+        <label data-testid="subtitle-input-label" htmlFor="subt">
+          <input
             id="subt"
             data-testid="subtitle-input"
             type="text"
-            />
-          </label>
-          {/\* Treho abaix dando erro... \*/ }
-          Imagem
-          <label data-testid="image-input-label" htmlFor="img">
-            <input
+          />
+        </label>
+        {/\* Treho abaix dando erro... \*/ }
+        Imagem
+        <label data-testid="image-input-label" htmlFor="img">
+          <input
             type="text"
             id="img"
             data-testid="subtitle-input"
           />
         </label>
       </form>
-  );
-}
-
+    );
+  }
 }
 
 AddMovie.PropTypes = {
