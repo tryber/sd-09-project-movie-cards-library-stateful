@@ -25,7 +25,7 @@ class AddMovie extends React.Component {
 
   handleChange(event) {
     const { target: { id, value } } = event;
-    // console.log(event.target);
+
     switch (id) {
     case 'image':
       this.setState({ imagePath: value });
@@ -42,7 +42,6 @@ class AddMovie extends React.Component {
       break;
     case 'rating':
       this.setState({ rating: event.target.value });
-      console.log(event.target);
       break;
     default:
       this.setState({ [id]: value });

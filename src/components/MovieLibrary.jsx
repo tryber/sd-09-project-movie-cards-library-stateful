@@ -1,25 +1,33 @@
 import React from 'react';
-import data from '../data';
+import PropTypes from 'prop-types';
 
-// import AddMovie from './AddMovie';
-// import MovieCard from './MovieCard';
-import MovieList from './MovieList';
+import MovieCard from './MovieCard';
+import AddMovie from './AddMovie';
 import SearchBar from './SearchBar';
+import MovieList from './MovieList';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = this.props;
+    console.log('MovieLibrary - props', this.props.movie);
+
+    const { movie } = this.props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
+      movie,
     };
   }
 
+  onClick() {
+    console.log('Callback');
+  }
+
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, movie } = this.state;
+    this.props.movie.map(item => console.log('this.props - render', item));
     return (
       <>
         <SearchBar
@@ -27,12 +35,35 @@ class MovieLibrary extends React.Component {
           bookmarkedOnly={ bookmarkedOnly }
           selectedGenre={ selectedGenre }
         />
-        <MovieList movies={ data } />
+        <MovieList movie={ movie } />
+        <AddMovie onClick={ this.onClick } />
       </>
-      /* { data.map((_item, index) => <MovieCard movie={ data[index] } key={ index } />) } */
-      // <span>test</span>
     );
   }
 }
+
+MovieLibrary.propTypes = {
+  movie: PropTypes.arrayOf({
+    title: PropTypes.string,
+    subtitle: PropTypes.string,
+    storyline: PropTypes.string,
+    rating: PropTypes.number,
+    imagePath: PropTypes.string,
+    bookmarked: PropTypes.boolean,
+    genre: PropTypes.string,
+  }),
+};
+
+MovieLibrary.defaultProps = {
+  movie: [{
+    title: 'Kingsglaive',
+    subtitle: 'Final Fantasy XV',
+    storyline: 'King Regis, who oversees the land of Lucis',
+    rating: 4.5,
+    imagePath: 'images/Kingsglaive_Final_Fantasy_XV.jpg',
+    bookmarked: true,
+    genre: 'action',
+  }],
+};
 
 export default MovieLibrary;
