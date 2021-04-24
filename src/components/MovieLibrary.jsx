@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import MovieCard from './MovieCard';
 import AddMovie from './AddMovie';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
@@ -10,32 +9,53 @@ class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
 
-    console.log('MovieLibrary - props', this.props.movie);
-
-    const { movie } = this.props;
+    const { movies } = this.props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movie,
+      movies,
     };
+
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
   }
 
   onClick() {
     console.log('Callback');
   }
 
+  onSearchTextChange(event) {
+    const { target: { value } } = event;
+    return this.setState({ searchText: value });
+    // console.log(event.target);
+  }
+
+  onBookmarkedChange(event) {
+    const { target: { value } } = event;
+    return this.setState({ bookmarkedOnly: value });
+  }
+
+  onSelectedGenreChange(event) {
+    const { target: { value } } = event;
+    return this.setState({ selectedGenre: value });
+    // console.log(event.target.value);
+  }
+
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movie } = this.state;
-    this.props.movie.map(item => console.log('this.props - render', item));
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <>
         <SearchBar
           searchText={ searchText }
           bookmarkedOnly={ bookmarkedOnly }
           selectedGenre={ selectedGenre }
+          onSearchTextChange={ this.onSearchTextChange }
+          onBookmarkedChange={ this.onBookmarkedChange }
+          onSelectedGenreChange={ this.onSelectedGenreChange }
         />
-        <MovieList movie={ movie } />
+        <MovieList movies={ movies } />
         <AddMovie onClick={ this.onClick } />
       </>
     );
@@ -43,27 +63,15 @@ class MovieLibrary extends React.Component {
 }
 
 MovieLibrary.propTypes = {
-  movie: PropTypes.arrayOf({
+  movies: PropTypes.exact({
     title: PropTypes.string,
     subtitle: PropTypes.string,
     storyline: PropTypes.string,
     rating: PropTypes.number,
     imagePath: PropTypes.string,
-    bookmarked: PropTypes.boolean,
+    bookmarked: PropTypes.string,
     genre: PropTypes.string,
   }),
-};
-
-MovieLibrary.defaultProps = {
-  movie: [{
-    title: 'Kingsglaive',
-    subtitle: 'Final Fantasy XV',
-    storyline: 'King Regis, who oversees the land of Lucis',
-    rating: 4.5,
-    imagePath: 'images/Kingsglaive_Final_Fantasy_XV.jpg',
-    bookmarked: true,
-    genre: 'action',
-  }],
-};
+}.isRequired;
 
 export default MovieLibrary;

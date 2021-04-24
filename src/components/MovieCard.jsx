@@ -7,13 +7,12 @@ class MovieCard extends React.Component {
     super(props);
 
     const { movie } = this.props;
-    this.state = movie;
-    console.log('movieCard - props', movie);
+    const { title, subtitle, storyline, rating, imagePath } = movie;
+    this.state = { title, subtitle, storyline, rating, imagePath };
   }
 
   render() {
-    const { movie } = this.state;
-    const { title, subtitle, storyline, rating, imagePath } = movie;
+    const { title, subtitle, storyline, rating, imagePath } = this.state;
 
     return (
       <div className="movie-card" data-testid="movie-card">

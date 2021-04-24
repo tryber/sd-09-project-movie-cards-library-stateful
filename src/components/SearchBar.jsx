@@ -4,37 +4,13 @@ import PropTypes from 'prop-types';
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = this.props;
-
-    const {
-      searchText,
-      onSearchTextChange,
-      bookmarkedOnly,
-      onBookmarkedChange,
-      selectedGenre,
-      onSelectedGenreChange,
-    } = this.props;
-
-    this.state = {
-      searchText,
-      onSearchTextChange,
-      bookmarkedOnly,
-      onBookmarkedChange,
-      selectedGenre,
-      onSelectedGenreChange,
-    };
+    const { searchText, bookmarkedOnly, selectedGenre } = this.props;
+    this.state = { searchText, bookmarkedOnly, selectedGenre };
   }
 
   render() {
-    const {
-      searchText,
-      onSearchTextChange,
-      bookmarkedOnly,
-      onBookmarkedChange,
-      selectedGenre,
-      onSelectedGenreChange,
-    } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const { onSearchTextChange, onBookmarkedChange, onSelectedGenreChange } = this.props;
     return (
       <form data-testid="search-bar-form">
         <div>
@@ -54,6 +30,7 @@ class SearchBar extends React.Component {
             <input
               data-testid="checkbox-input"
               type="checkbox"
+              name="checkbox-input"
               checked={ bookmarkedOnly }
               onChange={ onBookmarkedChange }
             />
@@ -63,6 +40,7 @@ class SearchBar extends React.Component {
             <select
               data-testid="select-input"
               htmlFor="test3"
+              name="select-input-label"
               value={ selectedGenre }
               onChange={ onSelectedGenreChange }
             >
@@ -85,15 +63,6 @@ SearchBar.propTypes = {
   onSearchTextChange: PropTypes.func,
   onBookmarkedChange: PropTypes.func,
   onSelectedGenreChange: PropTypes.func,
-};
-
-SearchBar.defaultProps = {
-  searchText: '',
-  bookmarkedOnly: false,
-  selectedGenre: '',
-  onSearchTextChange: () => ({}),
-  onBookmarkedChange: () => ({}),
-  onSelectedGenreChange: () => ({}),
-};
+}.isRequired;
 
 export default SearchBar;
