@@ -6,6 +6,12 @@ class SearchBar extends React.Component {
     super(props);
     const { searchText, bookmarkedOnly, selectedGenre } = this.props;
     this.state = { searchText, bookmarkedOnly, selectedGenre };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    const { target } = event;
+    this.setState({ searchText: target.value });
   }
 
   render() {
@@ -22,7 +28,7 @@ class SearchBar extends React.Component {
               value={ searchText }
               name="onSearchTextChange"
               placeholder="Pesquisar"
-              onChange={ onSearchTextChange }
+              onChange={ (e) => { onSearchTextChange(); this.handleChange(e); } }
             />
           </label>
           <label data-testid="checkbox-input-label" htmlFor="test1">
@@ -32,7 +38,7 @@ class SearchBar extends React.Component {
               type="checkbox"
               name="checkbox-input"
               checked={ bookmarkedOnly }
-              onChange={ onBookmarkedChange }
+              onChange={ (e) => { onBookmarkedChange(); this.handleChange(e); } }
             />
           </label>
           <label data-testid="select-input-label" htmlFor="test2">
@@ -42,7 +48,7 @@ class SearchBar extends React.Component {
               htmlFor="test3"
               name="select-input-label"
               value={ selectedGenre }
-              onChange={ onSelectedGenreChange }
+              onChange={ (e) => { onSelectedGenreChange(); this.handleChange(e); } }
             >
               <option data-testid="select-option" value="">Todos</option>
               <option data-testid="select-option" value="action">Ação</option>

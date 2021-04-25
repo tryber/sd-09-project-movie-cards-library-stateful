@@ -16,31 +16,22 @@ class MovieLibrary extends React.Component {
       selectedGenre: '',
       movies,
     };
-
-    this.onSearchTextChange = this.onSearchTextChange.bind(this);
-    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
-    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
   }
 
   onClick() {
     console.log('Callback');
   }
 
-  onSearchTextChange(event) {
-    const { target: { value } } = event;
-    return this.setState({ searchText: value });
-    // console.log(event.target);
+  onSearchTextChange() {
+    console.log('onSearchTextChange');
   }
 
-  onBookmarkedChange(event) {
-    const { target: { value } } = event;
-    return this.setState({ bookmarkedOnly: value });
+  onBookmarkedChange() {
+    console.log('onBookmarkedChange');
   }
 
-  onSelectedGenreChange(event) {
-    const { target: { value } } = event;
-    return this.setState({ selectedGenre: value });
-    // console.log(event.target.value);
+  onSelectedGenreChange() {
+    console.log('onSelectedGenreChange');
   }
 
   render() {

@@ -4,10 +4,12 @@ import MovieCard from './MovieCard';
 
 export default class MovieList extends React.Component {
   render() {
-    const { movies: movie } = this.props;
+    const { movies } = this.props;
+    // console.log('movieList - props', movies);
+    const teste = movies.map((item, index) => <MovieCard key={ index } movie={ item } />);
     return (
       <div data-testid="movie-list" className="movie-list">
-        { movie.map((item, index) => <MovieCard key={ index } movie={ item } />) }
+        { teste }
       </div>
     );
   }
@@ -24,3 +26,15 @@ MovieList.propTypes = {
     genre: PropTypes.string,
   }),
 }.isRequired;
+
+MovieList.defaultProps = {
+  movies: {
+    title: '',
+    subtitle: '',
+    storyline: '',
+    rating: 0,
+    imagePath: '',
+    bookmarked: '',
+    genre: '',
+  },
+};
