@@ -6,7 +6,9 @@ class CreateSelect extends React.Component {
     const { value, funcRec } = this.props;
     return (
       <label data-testid="genre-input-label" htmlFor="genre">
+        Gênero
         <select
+          data-testid="genre-input"
           name="genre"
           id="genre"
           value={ value }
