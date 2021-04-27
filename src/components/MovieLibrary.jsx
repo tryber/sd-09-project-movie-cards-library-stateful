@@ -11,6 +11,16 @@ class MovieLibrary extends React.Component {
     this.state = {
       movies: props.movies,
     };
+    this.addMovie = this.addMovie.bind(this);
+  }
+
+  addMovie(newMovie) {
+    const { movies } = this.state;
+    this.setState({
+      movies: [
+        ...movies, newMovie,
+      ],
+    });
   }
 
   render() {
@@ -18,23 +28,13 @@ class MovieLibrary extends React.Component {
     return (
       <div>
         <SearchBar />
-        <AddMovie />
+        <AddMovie onClick={ this.addMovie } />
         <MovieList movies={ movies } />
       </div>
     );
   }
 }
-// MovieLibrary.propTypes = {
-//   movies: PropTypes.shape({
-//     title: PropTypes.string.isRequired,
-//     subtitle: PropTypes.string.isRequired,
-//     storyline: PropTypes.string.isRequired,
-//     rating: PropTypes.number.isRequired,
-//     imagePath: PropTypes.string.isRequired,
-//     bookmarked: PropTypes.Boolean.isRequired,
-//     genre: PropTypes.string.isRequired,
-//   })
-// }
+
 MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf(
     PropTypes.object,

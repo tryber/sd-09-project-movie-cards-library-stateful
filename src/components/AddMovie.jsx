@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Inputs from './Inputs';
 import Options from './Options';
 import Button from './Button';
+// import movies from '../data';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -28,6 +29,7 @@ class AddMovie extends React.Component {
     const { onClick } = this.props;
 
     onClick(this.state);
+
     const initialState = {
 
       subtitle: '',
