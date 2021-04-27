@@ -17,10 +17,11 @@ class AddMovie extends React.Component {
       rating: 0,
     };
 
-    const { title, subtitle, imagePath, storyLine, rating, genre, onClick } = this.props;
-    this.state = { title, subtitle, imagePath, storyLine, rating, genre, onClick };
+    const { title, subtitle, imagePath, storyLine, rating, genre } = this.props;
+    this.state = { title, subtitle, imagePath, storyLine, rating, genre };
 
     this.handleChange = this.handleChange.bind(this);
+    this.addNewMovie = this.addNewMovie.bind(this);
   }
 
   handleChange(event) {
@@ -49,6 +50,20 @@ class AddMovie extends React.Component {
     }
   }
 
+  addNewMovie() {
+    const { onClick } = this.props;
+    onClick(this.state);
+
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyLine: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   render() {
     const {
       title,
@@ -57,18 +72,17 @@ class AddMovie extends React.Component {
       storyLine,
       rating,
       genre,
-      onClick,
     } = this.state;
 
     return (
-      <form data-testid="add-movie-form" action="" method="get">
+      <form data-testid="add-movie-form">
         <LabelTitle title={ title } handleChange={ this.handleChange } />
         <LabelSubtitle subtitle={ subtitle } handleChange={ this.handleChange } />
         <LabelImage image={ image } handleChange={ this.handleChange } />
         <LabelSinopse storyLine={ storyLine } handleChange={ this.handleChange } />
         <LabelRating rating={ rating } handleChange={ this.handleChange } />
         <LabelGenre genre={ genre } handleChange={ this.handleChange } />
-        <ButtonSend handleChange={ this.handleChange } onClick={ onClick } />
+        <ButtonSend handleChange={ this.addNewMovie } />
       </form>
     );
   }
@@ -91,7 +105,7 @@ AddMovie.defaultProps = {
   storyLine: '',
   rating: 0,
   genre: 'action',
-  onClick: () => { console.log('alert'); },
+  onClick: undefined,
 };
 
 export default AddMovie;

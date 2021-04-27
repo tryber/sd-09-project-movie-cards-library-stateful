@@ -2,21 +2,14 @@ import React from 'react';
 import { func } from 'prop-types';
 
 class ButtonSend extends React.Component {
-  constructor(props) {
-    super(props);
-
-    const { handleChange, onClick } = this.props;
-    this.state = { handleChange, onClick };
-  }
-
   render() {
-    const { handleChange, onClick } = this.state;
+    const { handleChange } = this.props;
     return (
       <button
         data-testid="send-button"
         type="button"
         id="send"
-        onClick={ (event) => { handleChange(event); onClick(); } }
+        onClick={ () => { handleChange(); } }
       >
         Adicionar filme
       </button>
@@ -24,6 +17,6 @@ class ButtonSend extends React.Component {
   }
 }
 
-ButtonSend.propTypes = { handleChange: func.isRequired, onClick: func.isRequired };
+ButtonSend.propTypes = { handleChange: func.isRequired };
 
 export default ButtonSend;

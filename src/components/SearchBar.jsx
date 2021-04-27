@@ -28,7 +28,7 @@ class SearchBar extends React.Component {
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-    const { onSearchTextChange, onBookmarkedChange, onSelectedGenreChange } = this.props;
+    const { onBookmarkedChange, onSelectedGenreChange, onSearchTextChange } = this.props;
     return (
       <form data-testid="search-bar-form">
         <div>
@@ -50,7 +50,7 @@ class SearchBar extends React.Component {
               type="checkbox"
               name="checkbox-input"
               checked={ bookmarkedOnly }
-              onChange={ (e) => { onBookmarkedChange(); this.handleChange(e); } }
+              onChange={ (e) => { onBookmarkedChange(e); this.handleChange(e); } }
             />
           </label>
           <label data-testid="select-input-label" htmlFor="test2">
@@ -60,7 +60,7 @@ class SearchBar extends React.Component {
               htmlFor="test3"
               name="select-input-label"
               value={ selectedGenre }
-              onChange={ (e) => { onSelectedGenreChange(); this.handleChange(e); } }
+              onChange={ (e) => { onSelectedGenreChange(e); this.handleChange(e); } }
             >
               <option data-testid="select-option" value="">Todos</option>
               <option data-testid="select-option" value="action">Ação</option>
@@ -78,7 +78,6 @@ SearchBar.propTypes = {
   searchText: PropTypes.string,
   bookmarkedOnly: PropTypes.bool,
   selectedGenre: PropTypes.string,
-  onSearchTextChange: PropTypes.func,
   onBookmarkedChange: PropTypes.func,
   onSelectedGenreChange: PropTypes.func,
 }.isRequired;
