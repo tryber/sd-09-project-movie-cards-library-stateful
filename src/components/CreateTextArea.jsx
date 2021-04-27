@@ -1,17 +1,18 @@
 import React from 'react';
 
-class TextArea extends React.Component{
+class TextArea extends React.Component {
   render() {
     const { value, onChange } = this.props;
-    return(
+    return (
       <label htmlFor="storyline" data-testid="storyline-input-label">
-          Sinopse
-          <textarea
-            data-testid="storyline-input"
-            id="storyline"
-            value={ value }
-            onChange={ onChange }
-          />
+        Sinopse
+        <textarea
+          data-testid="storyline-input"
+          name="storyline"
+          id="storyline"
+          value={ value }
+          onChange={ onChange }
+        />
       </label>
 
     );
