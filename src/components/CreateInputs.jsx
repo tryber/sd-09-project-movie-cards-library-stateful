@@ -10,7 +10,7 @@ class CreateInputs extends React.Component {
         <input
           id={ idText }
           name={ idText }
-          type={ typeText}
+          type={ typeText }
           value={ value }
           data-testid={ `${testid}` }
           onChange={ FuncReive }

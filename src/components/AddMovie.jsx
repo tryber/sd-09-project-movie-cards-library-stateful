@@ -1,6 +1,6 @@
 // implement AddMovie component here
 import React from 'react';
-//import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import TextArea from './CreateTextArea';
 import CreateInputs from './CreateInputs';
 import CreateSelect from './CreateSelect';
@@ -10,8 +10,8 @@ class AddMovie extends React.Component {
     super();
     this.state = {
       subtitle: '',
-      title: '',
-      imagePath: '',
+      title:'',
+      imagePath:'',
       storyline: '',
       rating: 0,
       genre: 'action',
@@ -27,10 +27,10 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { subtitle, title,  imagePath, storyline, rating, genre} = this.state;
+    const { subtitle, title,  imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <CreateInputs 
+        <CreateInputs
           labelText="Título"
           idText="title"
           typeText="text"
@@ -38,7 +38,7 @@ class AddMovie extends React.Component {
           testid="title-input"
           FuncReive={ this.handleChange }
         />
-        <CreateInputs 
+        <CreateInputs
           labelText="Subtítulo"
           idText="subtitle"
           typeText="text"
@@ -46,7 +46,7 @@ class AddMovie extends React.Component {
           testid="subtitle-input"
           FuncReive={ this.handleChange }
         />
-         <CreateInputs 
+        <CreateInputs
           labelText="Imagem"
           idText="imagePath"
           typeText="text"
@@ -54,7 +54,7 @@ class AddMovie extends React.Component {
           testid="image-input"
           FuncReive={ this.handleChange }
         />
-        <CreateInputs 
+        <CreateInputs
           labelText="Avaliação"
           idText="rating"
           typeText="number"

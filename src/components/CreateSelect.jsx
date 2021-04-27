@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class CreateSelect extends React.Component {
   render() {
-    const { value, funcRec } = this.prop;
+    const { value, funcRec } = this.props;
     return (
       <label data-testid="genre-input-label" htmlFor="genre">
         <select
@@ -22,7 +22,7 @@ class CreateSelect extends React.Component {
 }
 
 CreateSelect.propTypes = {
-  value: PropTypes.oneOf(["string", "number"]).isRequired,
+  value: PropTypes.oneOf(['string', 'number']).isRequired,
   funcRec: PropTypes.func.isRequired,
 };
 

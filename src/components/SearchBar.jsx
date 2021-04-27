@@ -1,6 +1,7 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import CreateFilter from './CreateFilter';
 
 class SearchBar extends Component {
   render() {
@@ -34,28 +35,7 @@ class SearchBar extends Component {
             data-testid="checkbox-input"
           />
         </label>
-        <label htmlFor="Select" data-testid="select-input-label">
-          Filtrar por gênero
-          <select
-            id="Select"
-            data-testid="select-input"
-            value={ selectedGenre }
-            onChange={ onSelectedGenreChange }
-          >
-            <option value="" data-testid="select-option">
-              Todos
-            </option>
-            <option value="action" data-testid="select-option">
-              Ação
-            </option>
-            <option value="comedy" data-testid="select-option">
-              Comédia
-            </option>
-            <option value="thriller" data-testid="select-option">
-              Suspense
-            </option>
-          </select>
-        </label>
+        <CreateFilter selectedGenre={ selectedGenre } onSelectedGenreChange={ onSelectedGenreChange } />
       </form>
     );
   }

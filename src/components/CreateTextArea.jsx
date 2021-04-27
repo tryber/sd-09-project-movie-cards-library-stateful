@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class TextArea extends React.Component {
   render() {
@@ -18,5 +19,10 @@ class TextArea extends React.Component {
     );
   }
 }
+
+TextArea.propTypes = {
+  value: PropTypes.oneOf(['string', 'number']).isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 
 export default TextArea;
