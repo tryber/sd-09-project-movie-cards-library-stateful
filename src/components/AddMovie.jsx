@@ -10,8 +10,8 @@ class AddMovie extends React.Component {
     super();
     this.state = {
       subtitle: '',
-      title:'',
-      imagePath:'',
+      title: '',
+      imagePath: '',
       storyline: '',
       rating: 0,
       genre: 'action',
