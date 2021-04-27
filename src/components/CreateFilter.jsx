@@ -5,7 +5,7 @@ class CreateFilter extends React.Component {
   render() {
     const { selectedGenre, onSelectedGenreChange } = this.props;
     return (
-        <label htmlFor="Select" data-testid="select-input-label">
+      <label htmlFor="Select" data-testid="select-input-label">
         Filtrar por gênero
         <select
           id="Select"

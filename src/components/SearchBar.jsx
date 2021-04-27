@@ -35,7 +35,7 @@ class SearchBar extends Component {
             data-testid="checkbox-input"
           />
         </label>
-          <CreateFilter
+        <CreateFilter
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ onSelectedGenreChange }
         />
