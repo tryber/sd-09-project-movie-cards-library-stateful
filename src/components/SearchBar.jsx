@@ -13,7 +13,7 @@ class SearchBar extends React.Component {
     } = this.props;
     return (
       <form action="" data-testid="search-bar-form">
-        <label data-testid="text-input-label" htmlFor="text-input">
+      <label data-testid="text-input-label" htmlFor="text-input">
             Inclui o texto:
           <input
             data-testid="text-input"
@@ -31,7 +31,7 @@ class SearchBar extends React.Component {
             onChange={ onBookmarkedChange }
           />
         </label>
-        <label data-testid="select-input-label" htmlFor="genderFilter">
+      <label data-testid="select-input-label" htmlFor="genderFilter">
            Filtrar por gênero
           <select
             data-testid="select-input"
