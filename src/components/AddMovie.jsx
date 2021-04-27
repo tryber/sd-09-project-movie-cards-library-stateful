@@ -41,7 +41,7 @@ class AddMovie extends React.Component {
       });
       break;
     case 'rating':
-      this.setState({ rating: event.target.value });
+      this.setState({ rating: Number(value) });
       break;
     default:
       this.setState({ [id]: value });

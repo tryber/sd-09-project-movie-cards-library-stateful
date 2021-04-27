@@ -9,9 +9,21 @@ class SearchBar extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(event) {
-    const { target } = event;
-    this.setState({ searchText: target.value });
+  handleChange(e) {
+    const { target: { name, value } } = e;
+    switch (name) {
+    case 'onSearchTextChange':
+      this.setState({ searchText: value });
+      break;
+    case 'checkbox-input':
+      this.setState((beforeState) => ({ bookmarkedOnly: !beforeState.bookmarkedOnly }));
+      break;
+    case 'select-input-label':
+      this.setState({ selectedGenre: value });
+      break;
+    default:
+      break;
+    }
   }
 
   render() {
@@ -28,7 +40,7 @@ class SearchBar extends React.Component {
               value={ searchText }
               name="onSearchTextChange"
               placeholder="Pesquisar"
-              onChange={ (e) => { onSearchTextChange(); this.handleChange(e); } }
+              onChange={ (e) => { onSearchTextChange(e); this.handleChange(e); } }
             />
           </label>
           <label data-testid="checkbox-input-label" htmlFor="test1">

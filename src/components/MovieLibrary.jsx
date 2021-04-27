@@ -23,15 +23,15 @@ class MovieLibrary extends React.Component {
   }
 
   onSearchTextChange() {
-    console.log('onSearchTextChange');
+    return undefined;
   }
 
   onBookmarkedChange() {
-    console.log('onBookmarkedChange');
+    return undefined;
   }
 
   onSelectedGenreChange() {
-    console.log('onSelectedGenreChange');
+    return undefined;
   }
 
   render() {
