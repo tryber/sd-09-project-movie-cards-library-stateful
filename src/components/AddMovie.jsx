@@ -17,12 +17,14 @@ class AddMovie extends React.Component {
   }
 
   handleChange({ target }) {
-    const { name, value } = target;
-    this.setState({ [name]: value });
+    const { name, value, type } = target;
+    const valueNew = type === 'number' ? +value : value;
+    this.setState({ [name]: valueNew });
   }
 
   clearState() {
     const { onClick } = this.props;
+    onClick();
     this.setState({
       subtitle: '',
       title: '',
@@ -31,7 +33,6 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     });
-    onClick();
   }
 
   renderTitle() {
@@ -112,7 +113,6 @@ class AddMovie extends React.Component {
           id="rating-input"
           type="number"
           data-testid="rating-input"
-          defaultValue={ rating }
           value={ rating }
           onChange={ this.handleChange }
         />
@@ -127,6 +127,7 @@ class AddMovie extends React.Component {
         Gênero
         <select
           name="genre"
+          type="number"
           id="genre-input"
           data-testid="genre-input"
           value={ genre }
