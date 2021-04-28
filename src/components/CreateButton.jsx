@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class CreateButton extends React.Component{
+class CreateButton extends React.Component {
   render() {
     const { funcRecive } = this.props;
     return (
