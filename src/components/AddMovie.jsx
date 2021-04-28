@@ -4,6 +4,7 @@ import React from 'react';
 import TextArea from './CreateTextArea';
 import CreateInputs from './CreateInputs';
 import CreateSelect from './CreateSelect';
+import CreateButton from './CreateButton';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -17,12 +18,26 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.newMove = this.newMove.bind(this);
   }
 
   handleChange({ target }) {
     const { name, value } = target;
     this.setState({
       [name]: value,
+    });
+  }
+
+  newMove() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
     });
   }
 
@@ -64,6 +79,7 @@ class AddMovie extends React.Component {
         />
         <TextArea value={ storyline } onChange={ this.handleChange } />
         <CreateSelect value={ genre } funcRec={ this.handleChange } />
+        <CreateButton funcRecive={ this.newMove } />
       </form>
     );
   }
