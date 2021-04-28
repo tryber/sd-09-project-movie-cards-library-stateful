@@ -6,7 +6,6 @@ import CreateInputs from './CreateInputs';
 import CreateSelect from './CreateSelect';
 import CreateButton from './CreateButton';
 
-
 class AddMovie extends React.Component {
   constructor() {
     super();
