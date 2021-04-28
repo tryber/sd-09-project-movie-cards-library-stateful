@@ -2,7 +2,6 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import event from '@testing-library/user-event';
 import '@testing-library/jest-dom';
-
 import SearchBar from '../components/SearchBar';
 
 let props;
